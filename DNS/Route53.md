@@ -72,4 +72,6 @@ O route 53 também oferece um sistema de verificação de integridade do domíni
 ## Anotações
 - **(OFF)** Uma coisa que eu não sabia é que dá pra consultar todos os domínios top-level registrados no mundo apenas consultado o site da IANA (Internet Assigned Numbers Authority), veja: https://www.iana.org/domains/root/db.
 
-- ELBs não possuem um IPv4 definido, portanto é preciso resolver o domínio deles na hora de colocar no Route 53.
+- **ELBs não possuem um IPv4 definido, portanto é preciso resolver o domínio deles na hora de colocar no Route 53.**
+
+- Por padrão, a quantidade de domínios que você pode registrar em uma única conta é 50. No entanto, é possível aumentar este limite contatando o suporte da AWS.
