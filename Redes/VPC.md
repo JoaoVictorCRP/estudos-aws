@@ -48,6 +48,23 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
     - **NACL**: Permite todo o tráfego Inbound e Outbound.
     - **Security Group**: Bloqueia todo o tráfego Inbound (exceto entre instâncias no mesmo grupo) e permite todo o tráfego Outbound.
 
+## Diferença entre Route Table, NACL e Security Group
+### **Route Table** 👑
+- <span style="background-color: green;font-weight:bold">Função:</span> Determinar como o tráfego é roteado dentro da VPC. Ela define o encaminhamento com base no endereço de destino da solicitação, permitindo direcionar o tráfeco para gateways, subredes e outras VPCs.
+- <span style="background-color: purple;font-weight:bold">Use Case:</span> Controlar a comunicação entre subredes e definir rotas de saída para internet ou outras redes privadas.
+
+### Network ACL 👮
+- <span style="background-color: green;font-weight:bold">Função:</span> Listas de controle que operam 
+<span style="background-color: #e0a800; color: black;font-weight:bold">NO NÍVEL DA SUBREDE.</span>
+ São stateless, portanto você deve configurar as regras de entrada e de saída separadamente.
+
+- <span style="background-color: purple;font-weight:bold">Use Case:</span> Implementada para aplicar regras de segurança adicionais **NAS SUBREDES**, como <span style="background-color: #e0a800; color: black;font-weight:bold">em um ambiente onde você precisa bloquear todo o tráfego de entrada de um intervalo de IP específico, mas permitir o tráfego de saída.</span>
+
+### Security Group 🤓
+- <span style="background-color: green;font-weight:bold">Função:</span> São firewalls no <span style="background-color: #e0a800; color: black;font-weight:bold">NÍVEL DA INSTÂNCIA</span>, controlando o tráfego de entrada e saída para instâncias EC2 específicas. Eles **são stateful**, o que significa que uma regra de entrada ou saída automaticamente permite o tráfego de retorno correspondente.
+
+- <span style="background-color: purple;font-weight:bold">Use Case:</span> Usados para proteger instâncias específicas, como em um cenário onde você deseja permitir o tráfego SSH (porta 22) de um determinado IP externo, mas bloquear todo o tráfego de entrada de outras portas.
+
 ## Network Address Translation (NAT)
 O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. No contexto da AWS, o NAT é usado para permitir que instâncias em sub-redes privadas da VPC possam acessar a internet ou outros serviços externos, sem que seu IP privado seja exposto.
 
