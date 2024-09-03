@@ -154,9 +154,20 @@ Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a ne
     - O tráfego nunca sai da rede privada da AWS.
 
 - Gateway Endpoints
-    - d
+    ![alt text](gatewayEndpoint.png)
 
-    ![alt text](image.png)
+## VPC Private Link
+Tecnologia que permite o acesso de forma segura os serviços  hospedados em outras VPCs de maneira privada, sem que o tráfego precise passar pela internet pública.
+
+- Não é necessário fazer VPC peering
+
+- Requer um NLB (Network Load Balancer) na VPC servidora e uma ENI na VPC cliente.
+![Private Link](privateLink.png)
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Se no exame cair alguma questão relacionada a emparelhar a VPC a dezenas, centenas ou milhares de clientes, pense no AWS Private Link.</span>
+
+
+
 ## Anotações
 - 1 Subrede = 1 Availability Zone.
 
