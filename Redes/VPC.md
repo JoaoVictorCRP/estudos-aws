@@ -149,12 +149,16 @@ Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a ne
 
 ### Tipos de VPC Endpoint:
 - Interface Endpoints
-    - Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC. Esse endpoint é conectado aos serviços AWS, como o S3, DynamoDB e outros que suportam a interface VPC.
+    - <span style="background-color: #e0a800; color: black;font-weight:bold">Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC.</span> Esse endpoint é conectado aos serviços AWS, como o S3, DynamoDB e outros que suportam a interface VPC.
     - Ele é ideal para se conectar a serviços baseados em IP, como o S3, Cloudwatch, SNS e outros.
-    - O tráfego nunca sai da rede privada da AWS.
+    - **O tráfego nunca sai da rede privada da AWS**.
 
 - Gateway Endpoints
     ![alt text](gatewayEndpoint.png)
+    - <span style="background-color: #e0a800; color: black;font-weight:bold">É um gateway que é adicionado à sua tabela de rotas para direcionar o tráfego destinado a serviços específicos</span>, como o S3 e Dynamo DB, tudo isso internamente pela infraestrutura da AWS.
+    - O uso é específico para serviços como S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.
+
+Em suma, a única diferença entre os dois tipos é a forma de implementação
 
 ## VPC Private Link
 Tecnologia que permite o acesso de forma segura os serviços  hospedados em outras VPCs de maneira privada, sem que o tráfego precise passar pela internet pública.
@@ -166,7 +170,22 @@ Tecnologia que permite o acesso de forma segura os serviços  hospedados em outr
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Se no exame cair alguma questão relacionada a emparelhar a VPC a dezenas, centenas ou milhares de clientes, pense no AWS Private Link.</span>
 
+## Transit Gateway
+Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-prime através de um único gateway centralizado. Ele simplifica a interconexão de redes em grande escala, permitindo que você crie uma malha de rede altamente escalável e grenciável.
 
+- <span style="background-color: #e0a800; color: black;font-weight:bold">  A principal ideia por trás deste serviço é unir todas as redes conectadas em um único hub central, simplificando a topologia. </span>
+
+- Suporta milhares de conexões, facilitando a expansão de rede à medida que novas VPCs ou redes precisam ser integradas.
+
+- A base fica em uma única região, porém é possível acoplar redes que estão em outras regiões.
+
+- É possível utilizar a route tables para gerenciar como uma VPC comunica com a outra.
+
+## Custos de Rede
+![Diagrama de Custos de Rede](diagramaCustos.png)
+Lembre-se:
+- **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Se quiser zerar os custos de rede, basta agrupar todas as instâncias na mesma AZ e usar somente um IP privado, Isso é livre de custos, mas não se esqueça que isso diminui ao grau de disponibilidade e redundância. </span>
 
 ## Anotações
 - 1 Subrede = 1 Availability Zone.
@@ -179,6 +198,8 @@ Tecnologia que permite o acesso de forma segura os serviços  hospedados em outr
 - Nenhuma subrede é criada automaticamente.
 
 - Você só pode ter 1 Internet Gateway por VPC.
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold"> É possível ter até 5 VPCs por região</span>, para aumentar esse limite é necessário contatar o suporte da AWS.
 
 - Security Groups não abrangem VPCs.
 
