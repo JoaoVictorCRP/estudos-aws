@@ -34,6 +34,34 @@ São ELBs legado, com eles você pode fazer o balanceamento de carga de HTTP/HTT
 Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800; color: black;font-weight:bold">identifica o real IP de origem do usuário que fez uma requisição para o ELB</span>, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
 ![Diagrama X-Forwarded-For](xForwarded.png)
 
+#### Sticky Sessions
+- <span style="background-color: green; color: black;font-weight:bold">CLBs</span> roteiam cada requisição independente, direcionando para a EC2 com menor carga.
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold"> As sticky sessions permitem que você atrele a sessão de um usuário a uma instância EC2 específica. Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.</span>
+
+- Você pode habilitar sticky sessions em ALBs também, porém o tráfico será mandado para um target group.
+
 
 ## Erros Comuns em LBs
 - **CLB**: Se a sua aplicação parar de responder, um ELB em modelo CLB responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o ELB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
+
+## ELB Avançado
+
+### Cross Zone Load Balancing
+A opção de Cross Zone permite que o roteamento seja manejado entre AZs. Se essa opção estiver desabilitada, o ELB só poderá gerenciar a carga das instâncias dentro de sua própria AZ.
+
+#### Cross Zone Desabilitado
+![Diagrama - Cross Zone Desabilitado](noCrossZone.png)
+
+#### Cross Zone Habilitado
+![Diagrama - Cross Zone Habilitado](crossZone.png)
+
+
+### Path Patterns
+Essa opção permite rotear requisições para determinadas regiões baseando no caminho da URL.  <span style="background-color: #e0a800; color: black;font-weight:bold">Só é possível utilizar essa estratégia em ALB</span>
+![Diagrama - Path Patterns](pathPatterns.png)
+
+## Anotações
+- Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
+
+- Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
