@@ -40,3 +40,6 @@ Esse é o <span style="background-color: #e0a800; color: black;font-weight:bold"
 conforme mudanças na demanda da aplicação.
 
 - É a abordagem de escalonamento mais comumente usada na AWS.
+
+## ANOTAÇÕES
+- <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span> 
