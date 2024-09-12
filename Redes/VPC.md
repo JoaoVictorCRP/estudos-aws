@@ -32,7 +32,13 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
 - <span style="background-color: #e0a800; color: black;font-weight:bold">
     É possível emparelhar VPCs em regiões diferentes.
 </span> 
-- O emparelhamento é em estrela, isto é, 1 VPC central pareando com outras 4. Sem emparelhamento transitivo.
+
+- O emparelhamento é bidirecional, 1x1 para cada peering. Exemplo, se tivermos 3 VPCs: A, B e C. Precisaremos de 3 pareamentos individuais.
+
+A   <=>   B   <=>   C <br>
+|________________|
+
+- Também é muito importante adequar todas as route-tables para que todas as intâncias nas 3 redes comuniquem umas com as outras.
 
 ## Reserva de IPs
 - Ao criar uma subrede, você irá notar que <span style="background-color: #e0a800; color: black;font-weight:bold">5 IPs já estarão reservados</span>, exemplificando em uma rede 10.0.0.0/24 a reserva é feita desta forma:
@@ -51,18 +57,18 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
 - <span style="color: red;font-weight:bold">ATENÇÃO: Por padrão, o auto-assign de IP público fica desativado ao criar uma nova subrede.</span> 
 
 ## Diferença entre Route Table, NACL e Security Group
-### **1. Route Table** 👑
+### **1. Route Table**
 - <span style="background-color: green;font-weight:bold">Função:</span> Determinar como o tráfego é roteado dentro da VPC. Ela define o encaminhamento com base no endereço de destino da solicitação, permitindo direcionar o tráfeco para gateways, subredes e outras VPCs.
 - <span style="background-color: purple;font-weight:bold">Use Case:</span> Controlar a comunicação entre subredes e definir rotas de saída para internet ou outras redes privadas.
 
-### 2. Network ACL 👮
+### 2. Network ACL
 - <span style="background-color: green;font-weight:bold">Função:</span> Listas de controle que operam 
 <span style="background-color: #e0a800; color: black;font-weight:bold">NO NÍVEL DA SUBREDE.</span>
  São stateless, portanto você deve configurar as regras de entrada e de saída separadamente.
 
 - <span style="background-color: purple;font-weight:bold">Use Case:</span> Implementada para aplicar regras de segurança adicionais **NAS SUBREDES**, como <span style="background-color: #e0a800; color: black;font-weight:bold">em um ambiente onde você precisa bloquear todo o tráfego de entrada de um intervalo de IP específico, mas permitir o tráfego de saída.</span>
 
-### 3. Security Group 🤓
+### 3. Security Group
 - <span style="background-color: green;font-weight:bold">Função:</span> São firewalls no <span style="background-color: #e0a800; color: black;font-weight:bold">NÍVEL DA INSTÂNCIA</span>, controlando o tráfego de entrada e saída para instâncias EC2 específicas. Eles **são stateful**, o que significa que uma regra de entrada ou saída automaticamente permite o tráfego de retorno correspondente.
 
 - <span style="background-color: purple;font-weight:bold">Use Case:</span> Usados para proteger instâncias específicas, como em um cenário onde você deseja permitir o tráfego SSH (porta 22) de um determinado IP externo, mas bloquear todo o tráfego de entrada de outras portas.
@@ -150,13 +156,16 @@ Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a ne
 ### Tipos de VPC Endpoint:
 - Interface Endpoints
     - <span style="background-color: #e0a800; color: black;font-weight:bold">Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC.</span> Esse endpoint é conectado aos serviços AWS, como o S3, DynamoDB e outros que suportam a interface VPC.
-    - Ele é ideal para se conectar a serviços baseados em IP, como o S3, Cloudwatch, SNS e outros.
+    - Possui suporte para a maioria dos serviços da AWS.
+    - <span style="background-color: red; color: #fff;font-weight:bold">Custo por hora e por quantidade de dados processados. $$$
     - **O tráfego nunca sai da rede privada da AWS**.
 
 - Gateway Endpoints
     ![alt text](gatewayEndpoint.png)
     - <span style="background-color: #e0a800; color: black;font-weight:bold">É um gateway que é adicionado à sua tabela de rotas para direcionar o tráfego destinado a serviços específicos</span>, como o S3 e Dynamo DB, tudo isso internamente pela infraestrutura da AWS.
     - O uso é específico para serviços como S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.
+    - Possui suporte para S3 e DynamoDB.
+    - <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free, sempre que possível prefira usar um gatewa endpoint do que uma Interface Endpoint.</span>
 
 Em suma, a única diferença entre os dois tipos é a forma de implementação
 
@@ -201,7 +210,7 @@ Lembre-se:
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold"> É possível ter até 5 VPCs por região</span>, para aumentar esse limite é necessário contatar o suporte da AWS.
 
-- Security Groups não abrangem VPCs.
+- **Só há um caso onde interface endpoint é preferível do que gateway endpoint: Quando você pretende conectar uma máquina on-premise com a VPC. (Site-to-Site VPN)**
 
 - O bloqueio de IPs deve ser feito pelo NACL, e não pelos Security Groups.
 
