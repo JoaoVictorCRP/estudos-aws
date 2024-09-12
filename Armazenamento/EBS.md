@@ -9,25 +9,25 @@ Observação: Você pode desacoplar um EBS de uma instância enquanto ela
 está rodando (on the fly).
 
 ## Tipos de EBS
-### General Purpose SSD
+### General Purpose - SSD - gp
 - SSD de uso geral, equilíbrio entre preço e performance, para dados 
 diversos.
 - **Use Case**: Uso geral
-- **Nome da API**: gp2
+- **Nome da API**: gp2 / gp3
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Este é o modelo padrão para root volumes</span>
 
-### Provisioned IOPS SSD
+### Provisioned IOPS - SSD - io
 - SSD de alta performance, criado para aplicações críticas.
 - **Use Case**: Bases de dados
-- **Nome da API**: io1
+- **Nome da API**: io1 / io2
 
-### Throughput Optimized HDD
-- Disco rígido de baixo custo, utilizado para workloads mais intesos e 
-armazenamento de dados que precisam ser acessados frequentemente.
+### Throughput Optimized - HDD - st
+- HD de Baixo custo, utilizado para workloads mais intesos e armazenamento de dados que precisam ser acessados frequentemente.
 - **Use Case**: Big data & Data Warehouse
 - **Nome da API**: st1
 
-### Cold HDD
-- Disco rígido de baixo custo, utilizado para armazenar dados acessados 
+### Cold - HDD - sc
+- Disco de baixíssimo custo, utilizado para armazenar dados acessados 
 com menos frequência
 - **Use Case**: Servidor de Arquivos
 - **Nome da API**: sc1
@@ -37,6 +37,8 @@ com menos frequência
 - **Use Case**: Cenários onde os arquivos e dados são acessados 
 infrequentemente.
 - **Nome da API**: standard
+
+**SOMENTE OS MODELOS <span style="color:red ">gp e io</span> PODEM SER USADOS COMO BOOT VOLUMES.**
 
 ## Snapshot
 <span style="background-color: #e0a800; color: black;font-weight:bold"> Um snapshot é o salvamento do estado de um disco do EBS, bem útil para backups. A partir dele você também pode criar uma nova imagem de máquina, as AMIs,</span> que por sua vez, também podem ser criadas a partir de template do S3 **Instance Store**.
