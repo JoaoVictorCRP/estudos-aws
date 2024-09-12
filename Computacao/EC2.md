@@ -1,6 +1,6 @@
 # EC2
 
-## **User Data**
+## User Data
 
 É possível incluir um script que rodará na primeira vez que a instância for iniciada, chamado user data, neste script é possível automatizar tarefas como:
 
@@ -15,7 +15,7 @@ O script de User Data roda na conta do usuário root, por tanto todos os comando
 
 ## Detalhes das Instâncias
 
-### ****O Nome
+### O Nome
 
 ![Nomes](images/ec2-nomes.png)
 
@@ -71,7 +71,7 @@ Eles regulam:
 
 ![image.png](images/ec2-SecurityGroups2.png)
 
-## ****Opções de Cobrança
+## Opções de Cobrança
 
 ![Cobranca](images/ec2-cobranca.png)
 
@@ -111,7 +111,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 - Presença de código SQL (famoso SQL Injection)
 - Presença de script malicioso (Cross-site scripting
 
-## **Placement Groups**
+## Placement Groups
 
 São um recurso do Amazon EC2 que permite controlar o posicionamento de instâncias em hardware subjacente dentro de uma Availability Zone da AWS. Eles são usados para melhorar o desempenho da rede ou a resiliência das instâncias.
 
@@ -145,6 +145,18 @@ São um recurso do Amazon EC2 que permite controlar o posicionamento de instânc
 - **Spread Placement Groups** garantem a alta disponibilidade distribuindo instâncias em racks diferentes.
 - **Partition Placement Groups** oferecem uma abordagem híbrida que isola falhas entre partições.
 
+## EC2 Hibernate
+- O modo hibernate <span style="background-color: #e0a800; color: black;font-weight:bold">permite que você deixe a instância em uma espécie de "modo descanso", fazendo com que o estado da memória RAM seja preservado no EBS correspondente da instância.</span> É bem interessante quando se trata de poupar gastos sem perder o estado da máquina. Veja alguns detalhes:
+    - <span style="color:red; font-weight: bold">A RAM da máquina deve ter:</span> 
+        - **Menos de 150GB em SOs Linux**
+        - **Menos de 16GB em SOs Windows**
+    - <span style="background-color: #e0a800; color: black;font-weight:bold"> O volume root deve estar no EBS, ser criptografado,</span> **NADA DE INSTANCE STORE.** <span style="background-color: #e0a800; color: black;font-weight:bold">O EBS deve possuir tamanho proporcional à memoria RAM.</span>
+    
+    - Disponível em todos os tipos de aquisição de instância (**On-Demand, Reserved e Spot**)
+
+    - Uma instância não pode hibernar por mais de 60 dias.
+
+
 ## Outros Detalhes
 
 - Um único SG pode estar atrelado a múltiplas instâncias
@@ -163,6 +175,6 @@ São um recurso do Amazon EC2 que permite controlar o posicionamento de instânc
 
     - 3389 ⇒ RDP (Remote Desktop Protocol) - Logar em uma instância Windows.
 
-## Avançado
-
 - Elastic IP é o nome dado a opção de IP estático para as instâncias EC2.
+
+- Por padrão, Scripts do User Data rodam com privilégio de root.
