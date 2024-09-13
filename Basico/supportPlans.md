@@ -2,12 +2,12 @@
 
 Há 5 tipos de planos de suporte na AWS:
 
-## Basic
+## Basic 😭
 - **GRATUITO**
 - Suporte via email (somente para dúvidas da conta e cobrança)
 - Acesso limitado ao Trusted Advisor
 
-## Developer
+## Developer 🥉
 - **$29/Mês** OU 10% do seu gasto mensal com os serviços AWS, o qual for maior.
 - Suporte total via email.
 - 1 contato (endereço de email) para suporte.
@@ -18,7 +18,7 @@ Há 5 tipos de planos de suporte na AWS:
 - Acesso limitado ao Trusted Advisor
 
 
-## Business
+## Business 🥈
 - **$100/Mês** OU 10% do seu gasto mensal com os serviços AWS, o qual for maior.
 
 - Suporte 24/7 por telefone, email e chat. API do suporte para gerenciamento programático.
@@ -37,7 +37,7 @@ Há 5 tipos de planos de suporte na AWS:
 
 - Acesso ilimitado ao Trusted Advisor
 
-## Enterprise On-Ramp
+## Enterprise On-Ramp 🥇
 - **$5.500/Mês** OU 10% do seu gasto mensal com os serviços AWS, o qual for maior.
 
 - Suporte 24/7 por telefone, email e chat. API do suporte para gerenciamento programático.
@@ -61,7 +61,7 @@ Há 5 tipos de planos de suporte na AWS:
 
 - Acesso ilimitado ao Trusted Advisor
 
-## Enterprise
+## Enterprise 💠
 - **15.000/Mês** OU 10% do seu gasto mensal com os serviços AWS, o qual for maior.
 
 - Suporte 24/7 por telefone, email e chat. API do suporte para gerenciamento programático.
