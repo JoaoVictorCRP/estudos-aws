@@ -55,7 +55,7 @@ infrequentemente.
 <span style="background-color: #e0a800; color: black;font-weight:bold"> Um snapshot é o salvamento do estado de um disco do EBS, bem útil para backups. A partir dele você também pode criar uma nova imagem de máquina, as AMIs,</span> que por sua vez, também podem ser criadas a partir de template do S3 **Instance Store**.
 
 Para instâncias baseadas em **Instance Store** (armazenamento da 
-instância), o AMI é criado a partir de um template armazenado no Amazon 
+instância), o AMI é criado a partir de um template armazenado no Amazon
 
 ### Snapshot Archive
 - Move um snapshot para uma "camada de arquivamento" do S3, o que torna seu armazenamento 75% mais barato.
