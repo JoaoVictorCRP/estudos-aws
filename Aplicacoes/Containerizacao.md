@@ -12,7 +12,7 @@ O ECS é um serviço gerenciado que facilita a execução e gerenciamento de con
 - O ECS suporta duas modalidades de execução:
     - **ECS com EC2**: Você gerencia a infraestrutura subjacente (A instância EC2) em que os containers serão executados.
 
-    - **EC2 com Fargate**: Com o Fargate, não há necessidade de provsionar ou gerenciar servidores, já que a AWS gerencia a infraestrutura. Você apenas define as tarefas e containers, o Fargate cuida do resto.
+    - **EC2 com Fargate**: Com o Fargate, não há necessidade de provisionar ou gerenciar servidores, já que a AWS gerencia a infraestrutura. Você apenas define as tarefas e containers, o Fargate cuida do resto.
 
 ### Integração com Outros Serviços AWS
 - O ECS se integra com vários serviços AWS, como o **ELB** para balanceamento de carga, o **IAM** para gerenciar permissões, o **CloudWatch** para monitoramento, e o **ECR (Elastic Conteiner Registry)** para armazenamento de imagens Docker.

@@ -40,6 +40,17 @@ infrequentemente.
 
 **SOMENTE OS MODELOS <span style="color:red ">gp e io</span> PODEM SER USADOS COMO BOOT VOLUMES.**
 
+## Multi-Attach
+- Este é o processo de atrelar um mesmo volume EBS a múltiplas instâncias EC2 (obrigatoriamente na mesma AZ)
+
+- Cada instância tem permissão completa de leitura e escrita.
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Use case ideal seria para atingir uma disponibilidade maior</span> em aplicações clusterizadas.
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Limitada a 16 instância por vez.</span>
+
+- Somente volumes io1 e io2 permitem multi-attach (caríssimos)
+
 ## Snapshot
 <span style="background-color: #e0a800; color: black;font-weight:bold"> Um snapshot é o salvamento do estado de um disco do EBS, bem útil para backups. A partir dele você também pode criar uma nova imagem de máquina, as AMIs,</span> que por sua vez, também podem ser criadas a partir de template do S3 **Instance Store**.
 
