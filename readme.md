@@ -12,7 +12,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - AWS Direct Connect
 
-- **Fargate** (Estrutura de custos)
+- **Fargate** (Estrutura de custos): Basicamente é caro pra caramba, sempre que possível prefira utilizar o ECS.
 
 - Kinesis
 
