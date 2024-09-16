@@ -4,12 +4,18 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 ## Tipos 
 ### 1. Application LB (ALB)
-- Ideal para tráfego HTTP/HTTPS, roteamento de aplicação (caminho da URL, cabeçalhos, etc.)
+- Ideal para tráfego HTTP/HTTPS, roteamento de aplicação oide ser baseado em:
+    - Caminho da URL (exemplo.com **/users**)
+    
+    - Subdominio (**um**.exemplo.com & **dois**.exemplo.com)
+
+    - Queries e Headers (exemplo.com/users?**id=123&nome=joao**)
+
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Operam na primeira camada da pilha OSI, que é a camada da aplicação.</span>
 
-- São inteligentes, você pode criar um roteamento avançado de requests, de forma que mande requests específicos para determinados web servers.
+- Formam uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
 
-- ELBs São "application-aware", isso significa que eles são capazes de analisar atribuitos da aplicação como caminho da URL, cabeçalhos HTTP e parâmetros de consulta para tomar decisões inteligentes para o roteamento do tráfego.
+- Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta. (Bem útil para o ECS)
 
     #### Como o ALB toma decisões inteligentes?
     -  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
@@ -27,15 +33,11 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Facilita  a implantação, escalabilidade e gerenciamento de dispositivos virtuais de rede, como firewalls e sistemas de inspeção de pacotes</span>.
 - Ideal na implementação de dispositivos de segurança como firewalls, sistemas de prevenção de intrusão (IPS), ou proxies.
 
-### 4. Classic LB (CLB)
-São ELBs legado, com eles você pode fazer o balanceamento de carga de HTTP/HTTPS de aplicações e também utilizar atriutos específicos da camada de aplicação, como <span style="background-color: green; color: black;font-weight:bold">X-Forwarded e sticky sessions</span>. Também é possível o usar estritamente a camada 4 para o balaceamento de aplicações que dependem puramente do protocolo TCP.
-
 #### X-Forwarded-For
 Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800; color: black;font-weight:bold">identifica o real IP de origem do usuário que fez uma requisição para o ELB</span>, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
 ![Diagrama X-Forwarded-For](xForwarded.png)
 
 #### Sticky Sessions
-- <span style="background-color: green; color: black;font-weight:bold">CLBs</span> roteiam cada requisição independente, direcionando para a EC2 com menor carga.
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold"> As sticky sessions permitem que você atrele a sessão de um usuário a uma instância EC2 específica. Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.</span>
 
@@ -43,7 +45,7 @@ Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800
 
 
 ## Erros Comuns em LBs
-- **CLB**: Se a sua aplicação parar de responder, um ELB em modelo CLB responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o ELB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
+- **CLB**: Se a sua aplicação parar de responder, um **CLB** responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o LB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
 
 ## ELB Avançado
 
@@ -63,5 +65,7 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
 ## Anotações
 - Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
+
+- LBs Utilizam security groups para controle de tráfego
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
