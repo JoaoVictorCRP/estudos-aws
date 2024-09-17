@@ -30,42 +30,68 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 ### 3. Gateway LB (GWLB)
 - Opera nas camadas 3 (rede) e 4 (transporte)
+
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Facilita  a implantação, escalabilidade e gerenciamento de dispositivos virtuais de rede, como firewalls e sistemas de inspeção de pacotes</span>.
+
 - Ideal na implementação de dispositivos de segurança como firewalls, sistemas de prevenção de intrusão (IPS), ou proxies.
 
-#### X-Forwarded-For
+- Na configuração de um GWLB, o tráfego para primeiro pela route table, e então a route table manda para o GWLB.
+
+- **Utiliza o protocolo GENEVE**, na porta 6081.
+
+## X-Forwarded-For
 Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800; color: black;font-weight:bold">identifica o real IP de origem do usuário que fez uma requisição para o ELB</span>, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
 ![Diagrama X-Forwarded-For](xForwarded.png)
 
-#### Sticky Sessions
+## Sticky Sessions
 
-- <span style="background-color: #e0a800; color: black;font-weight:bold"> As sticky sessions permitem que você atrele a sessão de um usuário a uma instância EC2 específica. Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.</span>
+- <span style="background-color: #e0a800; color: black;font-weight:bold"> As sticky sessions permitem que você atrele a sessão/cookies de um usuário a uma instância EC2 específica.</span> Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.
+
+- Os cookies de sessão podem ser configurados como:
+    - **Duration-Based**: Gerenciados pelo próprio ELB, com duração pré-definida na configurações do ELB.
+    
+    - **Application-Based**: Gerenciados pela própria aplicação no back-end, é ela quem emite os cookies e o ELB os lê o valor para manter sua persistência, definindo assim o tráfego para a instância onde o cookie foi inicialmente criado.
 
 - Você pode habilitar sticky sessions em ALBs também, porém o tráfico será mandado para um target group.
+
+## Cross Zone Load Balancing
+- A opção de Cross Zone permite que o roteamento seja manejado entre AZs. 
+- Se essa opção estiver desabilitada, o ELB só poderá gerenciar a carga das instâncias dentro de sua própria AZ.
+    
+    ### Cross Zone Desabilitado
+    ![Diagrama - Cross Zone Desabilitado](noCrossZone.png)
+
+    ### Cross Zone Habilitado
+    ![Diagrama - Cross Zone Habilitado](crossZone.png)
+
+
+## Path Patterns
+Essa opção permite rotear requisições para determinadas regiões baseando no caminho da URL.  <span style="background-color: #e0a800; color: black;font-weight:bold">Só é possível utilizar essa estratégia em ALB</span>
+![Diagrama - Path Patterns](pathPatterns.png)
+
+## Certificados SSL
+- Um certificado SSL permite que o tráfego entre clientes e o LB seja criptografado em trânsito.
+
+- Certificados SSL são gerados por Certificate Authorities(CA) como GoDaddy, Letsencrypt, Symantec ETC.
+
+    ### SNI (Serve Name Indication)
+    - O SNI resolve o problema de abrigar múltiplos certificados SSL em um único servidor web (para múltiplos subdomínios).
+
+    - Esse é um **protocolo mais moderno**, permite a identificação do certificado necessário logo no handshake inicial com o cliente.
+
+    - <span style="color: red; font-weight:bold">SÓ PODE SER CONFIGURADO EM ALB, NLB e CLOUDFRONT.</span>
+
 
 
 ## Erros Comuns em LBs
 - **CLB**: Se a sua aplicação parar de responder, um **CLB** responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o LB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
 
-## ELB Avançado
-
-### Cross Zone Load Balancing
-A opção de Cross Zone permite que o roteamento seja manejado entre AZs. Se essa opção estiver desabilitada, o ELB só poderá gerenciar a carga das instâncias dentro de sua própria AZ.
-
-#### Cross Zone Desabilitado
-![Diagrama - Cross Zone Desabilitado](noCrossZone.png)
-
-#### Cross Zone Habilitado
-![Diagrama - Cross Zone Habilitado](crossZone.png)
-
-
-### Path Patterns
-Essa opção permite rotear requisições para determinadas regiões baseando no caminho da URL.  <span style="background-color: #e0a800; color: black;font-weight:bold">Só é possível utilizar essa estratégia em ALB</span>
-![Diagrama - Path Patterns](pathPatterns.png)
 
 ## Anotações
 - Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
 
 - LBs Utilizam security groups para controle de tráfego
+
+- Todos os tipos de LBs possuem um IP privado, porém apenas o NLB possui um IP público estático, todos os outros são acessados via DNS.
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
