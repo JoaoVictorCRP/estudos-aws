@@ -196,8 +196,18 @@ Lembre-se:
 - **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Se quiser zerar os custos de rede, basta agrupar todas as instâncias na mesma AZ e usar somente um IP privado, Isso é livre de custos, mas não se esqueça que isso diminui ao grau de disponibilidade e redundância. </span>
 
+## Limites
+- Até 200 sub redes por VPC (esse número pode reduzir dependendo da alocação dos CIDR blocks definido pelo usuário).
+
+- Até 200 route tables por VPC 
+
+- Até 200 NACLs por VPC, cada NACL pode ter até 20 regras
+
+- UMA única internet gateway por VPC. (Não faz sentido ter duas saídas para internet, né?)
+
+- <span style="background-color: #e0a800; color: black;font-weight:bold"> É possível ter até 5 VPCs por região</span>, para aumentar esse limite é necessário contatar o suporte da AWS.
+
 ## Anotações
-- 1 Subrede = 1 Availability Zone.
 
 - O tamanho máximo de uma VPC é /16 (16 bits reservados para rede), que permite 65.536 dispositivos.
 - Você só pode ter uma IGW (Internet Gateway) por VPC.
@@ -206,16 +216,8 @@ Lembre-se:
 
 - Nenhuma subrede é criada automaticamente.
 
-- Você só pode ter 1 Internet Gateway por VPC.
-
-- <span style="background-color: #e0a800; color: black;font-weight:bold"> É possível ter até 5 VPCs por região</span>, para aumentar esse limite é necessário contatar o suporte da AWS.
-
 - **Só há um caso onde interface endpoint é preferível do que gateway endpoint: Quando você pretende conectar uma máquina on-premise com a VPC. (Site-to-Site VPN)**
 
 - O bloqueio de IPs deve ser feito pelo NACL, e não pelos Security Groups.
 
-- O protocolo que permite o ping é o ICMP.
-
 - <span style="background-color: #e0a800; color: black;font-weight:bold">É possível fazer com que uma NAT Instance tenha HA</span>, no entanto isso exigirá um Autoscaling Group, subredes em diferentes AZs e um script que automatize o failover.
-
-- <span style="background-color: red; color: black;font-weight:bold"> Ao acessar uma instância Y apartir de uma instância X, não se esqueça de dar um chmod 400 no arquivo de keypair.
