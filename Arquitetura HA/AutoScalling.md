@@ -6,40 +6,56 @@ Esse é o <span style="background-color: #e0a800; color: black;font-weight:bold"
 - **Groups (ASG)**
     - Componentes lógicos. Grupos de webservers, aplicações ou banco de dados.
 
-- **Configuration Templates**
-    - <span style="background-color: #e0a800; color: black;font-weight:bold">Definem as configurações de inicialização usadas pelo ASG para lançar instâncias EC2</span>. Esses templates permitem especificar a AMI, tipo de instância, pares de chaves (key pairs), grupos de segurança, e armazenamento.
+- **Launch Templates**
+    - <span style="background-color: #e0a800; color: black;font-weight:bold">Definem as configurações de inicialização usadas pelo ASG para lançar instâncias EC2</span>. Esses templates permitem ajustar diversos detalhes da EC2, como:
+        - AMI
+        - Tipo de instância
+        - Key Pairs
+        - Security Groups
+        - Rede e Subrede
 
 - **Scaling Options**
     - Fornece diferentes estratégias para ajustar a capacidade dos ASGs. Isso pode ser feito com base em condições dinâmicas (Dynamic Scaling) ou através de agendamento.
 
 ## Tipos de Escalonamento
-### Manutenção de Nível Fixo:
+### Nível Fixo
 - Mantém um número específico de instâncias rodando continuamente.
 
 - Realiza verificações periódicas de saúde (**Health Checks**) nas instâncias.
 
 - Se uma instância for detectada como **Unhealthy**, ela será substituída automaticamente por uma nova.
 
-### Escalonamento Manual:
-
+### Escalonamento Manual
 - Permite ajustar manualmente o número mínimo, máximo ou desejado de instâncias no ASG
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Embora o escalonamento seja feito manualmente, o Auto Scaling gerencia a criação ou remoção das instâncias automaticamente com base nos parâmetros fornecidos.</span>
 
-### Escalonamento Baseado em Agendamento:
 
+## Políticas de Escalonamento Automático
+### Scheduled Scalling
 - Ocorre com base em horários e datas predefinidos.
 
-- <span style="background-color: #e0a800; color: black;font-weight:bold">Ideal para situações onde você sabe com antecedência quando haverá picos ou quedas de demanda, como em horários de pico previsíveis.</span>
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Ideal para situações onde você sabe com antecedência quando haverá picos ou quedas de demanda.</span>
+___
+###  Dynamic Scaling
+#### Target Tracking
+- Define um alvo para o uso de recursos do ASG
+- Simples de configurar
+- Exemplo: "Uso médio da CPU deve ficar abaixo de 50%"
 
-###  Escalonamento Baseado em Demanda (Dynamic Scaling):
+#### Simple / Step Scaling (Integração com CW)
+- Quando um alarme do CW disparar (Exemplo: CPU > 70%), adicione mais 2 EC2s.
+___
+### Predictive Scaling
+- Neste método, o ASG analisa dados históricos de carga para escalonar automaticamente baseado em horários e datas.
 
-- O método mais avançado de escalonamento, usando políticas baseadas em métricas, como uso de CPU ou tráfego de rede.
+## Integração com Alarmes do CloudWatch
+- É possível escalonar um ASG baseado nos alarmes do CloudWatch
+![ASG e CloudWatch](ASGeCloudWatch.png)
 
-- Permite que o Auto Scaling ajuste automaticamente a capacidade 
-conforme mudanças na demanda da aplicação.
+- O Alarme é baseado em uma métrica, por exemplo: "Consumo médio da CPU do ASG está muito alto", daí aumentar número de instâncias.
 
-- É a abordagem de escalonamento mais comumente usada na AWS.
+- Baseado no alarme, é possível aumentar (scale-out) ou diminuir(scale-in) o número de instâncias.
 
 ## ANOTAÇÕES
 - <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span> 

@@ -8,6 +8,8 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 ### Amazon Connect
 - **Serviço** omnichannel **de atendimento ao cliente** baseada em IA. Basicamente um software de SAC automatizado.
 
+### Step Functions
+- Serviço para desenvolver um fluxo para aplicações de maneira **Drag N' Drop**, integra com o Lambda.
 
 ## Desenvolvimento 🖥️
 ### CodeStar

@@ -1,6 +1,9 @@
 # Spot Fleets
 Spot fleets é um tema recorrente no exame do SSA-C03. Veja alguns detalhes deste modelo do Spot instances:
 
+### Porque usar iso?
+**Essa estratégia nos permite fazer pedidos automáticos por Spot Instances a preços baixos**, a aplicação pode tolerar interrupções e falhas, uma Spot Fleet pode ajudá-lo a economizar significativamente em comparação com o uso de instâncias sob demanda.
+
 ### Como Funciona o Spot Fleet?
 
 1. **Definindo a Fleet:**
@@ -24,7 +27,3 @@ Spot fleets é um tema recorrente no exame do SSA-C03. Veja alguns detalhes dest
     - **Maintain (Manter):** A Spot Fleet tentará sempre manter o nível de capacidade desejado. Se uma instância for interrompida, ela será substituída automaticamente.
     - **Request (Solicitar):** A Spot Fleet simplesmente solicita as instâncias e as mantém enquanto o preço permite. Não há tentativa de substituição automática em caso de interrupção.
     - **Submit (Enviar):** A Spot Fleet cria uma única requisição de Spot Instances. Não há substituição automática ou ajustes dinâmicos.
-
-**Porque usar isto?**
-
-Essa estratégia nos permite fazer pedidos automáticos por Spot Instances a preços baixos, a aplicação pode tolerar interrupções e falhas, uma Spot Fleet pode ajudá-lo a economizar significativamente em comparação com o uso de instâncias sob demanda.

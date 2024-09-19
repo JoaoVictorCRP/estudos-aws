@@ -72,7 +72,7 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 ## Certificados SSL
 - Um certificado SSL permite que o tráfego entre clientes e o LB seja criptografado em trânsito.
 
-- Certificados SSL são gerados por Certificate Authorities(CA) como GoDaddy, Letsencrypt, Symantec ETC.
+- Certificados SSL são gerados por Certificate Authorities(CA) como GoDaddy, LetsEncrypt, Symantec ETC.
 
     ### SNI (Serve Name Indication)
     - O SNI resolve o problema de abrigar múltiplos certificados SSL em um único servidor web (para múltiplos subdomínios).
@@ -82,6 +82,14 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
     - <span style="color: red; font-weight:bold">SÓ PODE SER CONFIGURADO EM ALB, NLB e CLOUDFRONT.</span>
 
 
+## Deregistration Delay
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Essa é uma configuração que determina quanto tempo o LB vai esperar antes de desregistrar (remover) uma EC2 após ela ser marcada para remoção do balanceamento de carga.</span>
+
+- Com essa opção ativa, o LB NÃO vai interromper as conexões ativas com a EC2 sendo removida, mantendo-as até que os processos sejam concluídos ou até que o período de deregistration delay expire.
+
+- As novas conexões não serão direcionadas para a EC2 que está desregistrando. Basicamente, Ninguém entra, mas quem tá dentro sai.
+
+- **O valor padrão do atraso é 300 segundos (5 minutos), mas pode ser ajustado de 0 a 3600 segundos (1 hora).**
 
 ## Erros Comuns em LBs
 - **CLB**: Se a sua aplicação parar de responder, um **CLB** responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o LB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
