@@ -27,15 +27,13 @@ diversos.
 - **Nome da API**: st1
 
 ### Cold - HDD - sc
-- Disco de baixíssimo custo, utilizado para armazenar dados acessados 
-com menos frequência
+- Disco de baixíssimo custo, utilizado para armazenar dados acessados com menos frequência
 - **Use Case**: Servidor de Arquivos
 - **Nome da API**: sc1
 
 ### Magnetic
 - Disco rígido da geração passada.
-- **Use Case**: Cenários onde os arquivos e dados são acessados 
-infrequentemente.
+- **Use Case**: Cenários onde os arquivos e dados são acessados raramente.
 - **Nome da API**: standard
 
 **SOMENTE OS MODELOS <span style="color:red ">gp e io</span> PODEM SER USADOS COMO BOOT VOLUMES.**
@@ -59,7 +57,7 @@ instância), o AMI é criado a partir de um template armazenado no Amazon
 
 ### Snapshot Archive
 - Move um snapshot para uma "camada de arquivamento" do S3, o que torna seu armazenamento 75% mais barato.
-- LEVA DE 24 A 72 HORAS PARA RESTAURAR O ARQUIVO.
+- <span style="background-color: #e0a800; color: black;font-weight:bold">LEVA DE 24 A 72 HORAS PARA RESTAURAR O ARQUIVO</span>.
 
 ### Recycle Bin
 - É possível definir uma regra para reter snapshots após a deleção deles.
@@ -68,6 +66,9 @@ instância), o AMI é criado a partir de um template armazenado no Amazon
 ## Instance Store
 - O Instance Store é um armazenamento temporário que é perdido quando a instância é encerrada. 
 
-- Os Instances Store estão acoplados físicamente junto à sua instância lá no data center da AWS, portanto, o armazenamento não está ligado com a instância através da rede, o que garante maior velocidade.
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Os Instances Store estão acoplados físicamente junto à instância lá no data center da AWS</span>, portanto, o armazenamento não está ligado com a instância através da rede, <span style="background-color: #e0a800; color: black;font-weight:bold">o que garante altíssima velocidade</span>.
 
 - AMIs criadas a partir de um Instance Store são geralmente usadas para casos em que o armazenamento persistente não é necessário.
+
+## Criptografia
+É possível realizar a criptografia de um volume EBS através de um snapshot, seja este snapshot criptografado ou não. Porém não é possível realizar a criptografia de um volume EBS "on the fly", de fato, será necessário primeiro gerar um snapshot dele e então criar uma cópia idêntica deste volume.
