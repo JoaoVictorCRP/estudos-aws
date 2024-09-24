@@ -1,52 +1,24 @@
 # EC2
 
-## User Data
-
-É possível incluir um script que rodará na primeira vez que a instância for iniciada, chamado user data, neste script é possível automatizar tarefas como:
-
-- Instalação de atualizações
-- Instalação de softwares
-- Baixar arquivos da internet
-- E muitas outras coisas…
-
-O script de User Data roda na conta do usuário root, por tanto todos os comandos dados tem o privilégios sudo.
-
-![Tipos](images/ec2-tipos.png)
-
-## Detalhes das Instâncias
-
-### O Nome
-
-![Nomes](images/ec2-nomes.png)
-
 ### **Os Tipos**
 
 - **General Purpose**:
     - Equilíbrio entre processamento, memória e rede.
-    - Estarei utilizando o t2.micro, que é uma instância do tipo *General Purpose*.
-    - **Use case**: Sites e aplicativos web, ambientes de desenvolvimento, servidores de compilação repositórios de código, microsserviços, ambientes de teste e preparação e aplicativos de linha de negócios.
-
-![GP](images/ec2-GeneralPurpose.png)
+    - Ideal na maioria dos casos.
 
 - **Compute Optimized**:
     - Instância que possui foco no poder de processamento (CPU).
-    - **Use case**: Computação de alta performance (HPC), processamento em lote, veiculação de anúncios, codificação de vídeo, jogos, modelagem científica, análise distribuída e inferência de machine learning com base em CPU.
-    
-    ![CO](images/ec2-ComputeOptimize.png)
+    - **Use case**: Computação de alta performance (HPC), processamento em lote, decodificação de vídeos, jogos etc.
     
 
 - **Memory Optimized**:
-    - São projetadas para fornecer performance rápida para workloads que processam grandes conjuntos de dados na memória.
+    - São projetadas para fornecer performance rápida para workloads que processam grandes conjuntos de dados na memória RAM.
     - **Use case**: Workloads que consomem muita memória, como bancos de dados de código aberto, caches na memória e análise de big data em tempo real.
-    
-    ![MO](images/ec2-MemoryOptimized.png)
     
 
 - **Storage Optimized**:
     - Ótimas para tarefas que exigem alta capacidade de armazenamento, isto é, acesso a leitura e escrita de uma grande quantidade de dados no disco local.
-    - **Use case**: Aplicações intensivas de E/S, são instâncias direcionadas a clientes que usam bancos de dados transacionais (Amazon DynamoDB, MySQL e PostgreSQL), Amazon OpenSearch Service, Aplicações de Data warehouse e análises em tempo real, como o Apache Spark.
-    
-    ![image.png](images/ec2-StorageOptimized.png)
+    - **Use case**: Aplicações intensivas de E/S, bancos de dados transacionais, Amazon OpenSearch, Aplicações de Data warehouse e análises em tempo real.
     
 
 ## **Grupos de Segurança**
@@ -72,6 +44,18 @@ Eles regulam:
 ![image.png](images/ec2-SecurityGroups2.png)
 
 ## Opções de Cobrança
+- **On-Demand**: Método mais comum, pague pelo que você utilizar.
+
+- **Saving Plans**: Preços mais baratos, em troca de um contrato que forçará um tempo mínimo de uso dos recursos, de 1 ou 3 anos. Tudo cobrado em doláres por hora.
+
+- **Reserved Instances**: Preços ainda mais baratos, aqui você escolhe todos os recursos da instância e então assina um contato de uso para 1 ou 3 anos, são três opções de pagamento:
+    - All Upfront
+    - Partial Upfront
+    - Nothing Upfront
+
+- **Spot Instances**: A opção mais barata da AWS, funciona como um leilão de instâncias, você coloca seu valor em uma pool de instâncias e então utiliza ela enquanto o seu lance for maior que os existentes no mercado, mas muito cuidado, se aparecer um lance maior que o seu, você perde a instância, tolerância de 2 minutinhos pra vazar da instância
+
+- **Dedicated Hosts**: Um servidor físico no data center da AWS dedicado a você, ideal para casos de BYOL e compliance. Pode ser até 70% mais barato que o modelo On-Demand.
 
 ![Cobranca](images/ec2-cobranca.png)
 
@@ -109,7 +93,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 - Strings que aparecem no request body (regex)
 - Tamanho da requisição
 - Presença de código SQL (famoso SQL Injection)
-- Presença de script malicioso (Cross-site scripting
+- Presença de script malicioso (Cross-site scripting)
 
 ## Placement Groups
 

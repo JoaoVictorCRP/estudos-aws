@@ -75,8 +75,7 @@ latência e alto throughput.
 automático e outras funcionalidades gerenciadas, liberando da manutenção rotineira.
 
 ### Alta Disponibilidade e Escalabilidade:
-Ele é replicado automaticamente em múltiplas AZs, garantindo alta 
-disponibilidade. Pode escalar automaticamente tanto em termos de armazenamento (até 128TB por instância) quanto de capacidade de leitura com réplicas de leitura.
+**O aurora é replicado automaticamente em múltiplas AZs, garantindo alta disponibilidade.** Pode escalar automaticamente tanto em termos de armazenamento (até 128TB por instância) quanto de capacidade de leitura com réplicas de leitura.
 
 ### Tipos de Réplica
 O Aurora oferece 3 tipos de réplicas: Aurora Replica, MySQL Read Replica, PostgreSQL Read Replica:
@@ -84,13 +83,12 @@ O Aurora oferece 3 tipos de réplicas: Aurora Replica, MySQL Read Replica, Postg
 cluster de banco de dados Aurora. 
     - Failover automático: Em caso de falha na instância primária, uma das Aurora Replicas pode ser promovida automaticamente para ser a nova instância principal, garantindo alta disponibilidade.
 
-    - Permite até 15 réplicas dentro de uma região, com forte consistência de dados (pois as réplicas compartilham o mesmo armazenamento subjacente com o BD principal).
+    - <span style="background-color: #e0a800; color: black;font-weight:bold">**Permite até 15 réplicas dentro de uma região**</span>, com forte consistência de dados (pois as réplicas compartilham o mesmo armazenamento subjacente com o BD principal - São clusters).
 
     - Sincronização Rápida: Devido ao armazenamento compartilhado, as réplicas estão sempre atualizadas com a instância principal, minimizando a latência de replicação.
 
 - **MySQL/PostgreSQL Read Replicas**:Você também pode criar até 5 Read Replicas MySQL ou PostgreSQL. Essas réplicas podem ser criadas tanto dentro do mesmo cluster quanto 
 em outra região (cross-region), usando replicação assíncrona.
-
 
 ## Aurora Serverless
 Essa é a configuração que permite que o Aurora escale automaticamente sua capacidade com base na demanda da aplicação, sem a necessidade de gerenciamento manual de instâncias de banco de dados. É eficiente para workloads imprevisíveis.
