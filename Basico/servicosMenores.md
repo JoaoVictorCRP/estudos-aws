@@ -44,7 +44,7 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 
 ## Miscelânea 👀
 ### AWS IQ
-- <span style="background-color: #e0a800; color: black;font-weight:bold">permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
 
 
 ## Organizacional 🏨

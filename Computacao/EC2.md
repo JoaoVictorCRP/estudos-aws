@@ -1,6 +1,6 @@
 # EC2
 
-### **Os Tipos**
+## **Os Tipos**
 
 - **General Purpose**:
     - Equilíbrio entre processamento, memória e rede.
@@ -24,9 +24,12 @@
 ## **Grupos de Segurança**
 
 - Os **Security Groups** são o ponto chave da segurança de rede na AWS.
+
 - Eles controlam como o tráfego de E/S é permitido ou negado para a EC2.
+
 - Security Groups possuem somente regras de allow
-- As regras dos **Security Groups** podem referenciar por IP ou por outro Security Group **(SGs podem referenciar uns aos outros).**
+
+- As regras dos **Security Groups** podem referenciar um IP ou então outro Security Group **(SGs podem referenciar uns aos outros).**
 
 No esquema de referência a outro grupo de segurança, indica que o tráfego está liberado para qualquer instância que faça parte daquele grupo referenciado, independente do IP, bom demais.
 
@@ -43,10 +46,10 @@ Eles regulam:
 
 ![image.png](images/ec2-SecurityGroups2.png)
 
-## Opções de Cobrança
+## **Opções de Cobrança**
 - **On-Demand**: Método mais comum, pague pelo que você utilizar.
 
-- **Saving Plans**: Preços mais baratos, em troca de um contrato que forçará um tempo mínimo de uso dos recursos, de 1 ou 3 anos. Tudo cobrado em doláres por hora.
+- **Saving Plans**: Preços mais baratos, em troca de um contrato que forçará um tempo mínimo de uso dos recursos, de 1 ou 3 anos. _Tudo cobrado em doláres por hora._
 
 - **Reserved Instances**: Preços ainda mais baratos, aqui você escolhe todos os recursos da instância e então assina um contato de uso para 1 ou 3 anos, são três opções de pagamento:
     - All Upfront
@@ -63,30 +66,35 @@ Eles regulam:
 
 ![Precos](images/ec2-cobrancaPrecos.png)
 
-## Interfaces de Rede
+## **Interfaces de Rede**
 
-### **ENI (Elastic Network Interface) - Padrão:**
-
+### **ENI (Elastic Network Interface) - Padrão - - <span style="background-color: orange; color: black;font-weight:bold">$</span>**
 - **Definição:** Uma ENI é uma interface de rede virtual que pode ser anexada a uma instância EC2. Ela funciona como uma interface de rede física, contendo um endereço IP primário, um ou mais endereços IP secundários, um ou mais grupos de segurança, um endereço MAC, e outras configurações de rede.
+
 - **Uso:** ENIs são usadas para conectar instâncias EC2 a sub-redes em uma VPC. Elas permitem que você mova interfaces entre instâncias, o que pode ser útil para cenários de alta disponibilidade ou para isolar diferentes tipos de tráfego.
+
 - **Exemplo de Aplicação:** Ter múltiplas interfaces de rede em uma instância para segmentar o tráfego de rede ou para separar diferentes camadas de aplicação.
 
-### **ENA (Elastic Network Adapter) - Alta Performance:**
 
-- **Definição:** O ENA é um adaptador de rede de alta performance projetado para oferecer suporte a Enhanced Networking na AWS. Ele oferece maior largura de banda, menor latência, e menor sobrecarga em comparação com as interfaces de rede padrão.
+
+### **ENA (Elastic Network Adapter) - Alta Performance - <span style="background-color: orange; color: black;font-weight:bold">$$</span>**
+- **Definição:** O ENA é um adaptador de rede de alta performance projetado para oferecer suporte a _Enhanced Networking_ na AWS. Oferece maior largura de banda, menor latência e menor sobrecarga em comparação com as interfaces de rede padrão.
+
 - **Uso:** ENA é usado principalmente em instâncias EC2 que exigem alta performance de rede, como em aplicações de HPC (High-Performance Computing) e grandes clusters de dados.
+
 - **Exemplo de Aplicação:** Quando uma instância EC2 precisa de uma largura de banda de rede de até 100 Gbps, como em simulações científicas ou análises de Big Data.
 
-### **EFA (Elastic Fabric Adapter) - Potência Máxima:**
+### **EFA (Elastic Fabric Adapter) - Potência Máxima - <span style="background-color: orange; color: black;font-weight:bold">$$$</span>**
 
 - **Definição:** O EFA é um adaptador de rede que fornece latência ultrabaixa e alta taxa de transferência, além de suporte para aplicativos de HPC que usam bibliotecas de comunicação de rede como MPI (Message Passing Interface). **O EFA não é compatível com as instâncias do Windows.**
-- **Uso:** EFA é especificamente projetado para workloads HPC que requerem uma comunicação de rede extremamente rápida e eficiente, como em simulações científicas, modelagem financeira ou análises de petróleo e gás.
-- **Exemplo de Aplicação:** Aplicações HPC distribuídas que exigem uma comunicação rápida entre instâncias EC2 em um cluster, como no processamento de fluido dinâmico computacional (CFD) ou em renderização gráfica em 3D.
 
-## Web Application Firewall (WAF)
+- **Uso:** EFA é especificamente projetado para workloads HPC que requerem uma comunicação de rede extremamente rápida e eficiente, como em simulações científicas, bolsa de valores ou sistemas críticos.
 
-Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam em seus servidores, também é possível controlar quem acessa os seus conteúdos. É possível fazer diversas condições de bloqueio para requisições, por exemplo:
+- **Exemplo de Aplicação:** Aplicações HPC distribuídas que exigem uma comunicação rápida entre instâncias EC2 em um cluster, como no uso industrial ou renderização gráfica em 3D.
 
+## **Web Application Firewall (WAF)**
+Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam em seus servidores, também é possível controlar quem acessa os seus conteúdos. <br>
+**É possível especificar diversas condições de bloqueio para requisições, por exemplo:**
 - Endereço de IP da origem
 - País de onde a requisição se originou
 - Valores na header
@@ -95,27 +103,33 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 - Presença de código SQL (famoso SQL Injection)
 - Presença de script malicioso (Cross-site scripting)
 
-## Placement Groups
 
-São um recurso do Amazon EC2 que permite controlar o posicionamento de instâncias em hardware subjacente dentro de uma Availability Zone da AWS. Eles são usados para melhorar o desempenho da rede ou a resiliência das instâncias.
+
+## **Placement Groups**
+É um recurso do Amazon EC2 que permite controlar o posicionamento de instâncias em hardware subjacente dentro de uma AZ. Eles são usados para melhorar o desempenho da rede ou a resiliência das instâncias.
 
 ### Tipos de Placement Groups:
-
 1. **Cluster**:
     - **Objetivo:** Maximizar o desempenho da rede ao agrupar instâncias próximas umas das outras no mesmo rack ou em racks adjacentes.
+    
     - **Uso Ideal:** Workloads que exigem baixa latência e alta taxa de transferência entre instâncias, como HPC (computação de alto desempenho) e grandes bancos de dados distribuídos.
+    
     - **Limitação:** Alta disponibilidade pode ser comprometida, pois as instâncias estão fisicamente próximas e podem ser afetadas por falhas no rack.
+
 2. **Spread:** 
     - **Objetivo:** Garantir que as instâncias sejam distribuídas por diferentes racks, reduzindo o risco de falhas correlacionadas.
-    - **Uso Ideal:** Aplicações críticas que precisam de alta disponibilidade e resiliência, onde as instâncias precisam estar em racks diferentes.
+    
+    - **Uso Ideal:** Aplicações críticas que precisam de alta disponibilidade e resiliência, onde as instâncias precisam estar distribuídas.
+
     - **Limitação:** Número máximo de instâncias por grupo espalhado é limitado (normalmente até 7 instâncias por grupo em algumas regiões).
+
 3. **Partition**:
     - **Objetivo:** Distribuir instâncias em partições lógicas, onde cada partição tem seus próprios racks. Isso fornece isolamento entre grupos de instâncias dentro de uma partição. Partições podem estar em múltiplas AZ.
+    
     - **Uso Ideal:** Grandes sistemas distribuídos, como Hadoop, HDFS, e Cassandra, onde a falha de uma partição não deve afetar as outras.
+    
     - **Limitação:** Menor densidade de instâncias por partição comparado ao Cluster Placement Group.
     - A diferença entre Partition e Spread é que uma partição que fica em um rack pode incluir várias instancias, veja a imagem de exemplo onde temos 3 partições, cada uma em sua própria rack, e em cada partição temos 3 instâncias:
-
-![image.png](/Computacao/images/ec2-partition.png)
 
 ### Cenários de Uso:
 
