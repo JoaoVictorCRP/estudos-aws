@@ -3,7 +3,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 
 ![Organizations](./images/Organizations.png)
 
-- Como mostrado na imagem acima, através do VPC peering é possível ter uma única rede unificando os recursos de cada uma das contas.
+- Como mostrado na imagem acima, através do RAM é possível ter uma única rede unificando os recursos de cada uma das contas.
 
 ## Características
 - **Conta master**: Conta responsável pelo gerenciamento dos acessos, infraestrutura e pagamento de todas as outras que são partes da organização.

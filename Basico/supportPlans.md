@@ -94,4 +94,4 @@ Há 5 tipos de planos de suporte na AWS:
 2. TAMs são profissionais especializados em suporte técnico aos serviços AWS.
 
 # Imagem
-![Planos de Suporte](planos.png)
+![Planos de Suporte](./images/planos.png)
