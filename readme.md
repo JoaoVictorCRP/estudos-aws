@@ -5,7 +5,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **AWS DataSync**: Serviço para transferência de dados on-premise para a Nuvem AWS.
 
-- AWS Direct Connect
+- **AWS Direct Connect**: Serviço que permite a conexão direta da infraestrutura local com a AWS, garantindo um throuput rápido e seguro, já que a internet não é utilizada.
 
 - **Fargate** (Estrutura de custos): Basicamente é caro pra caramba, sempre que possível prefira utilizar o ECS.
 

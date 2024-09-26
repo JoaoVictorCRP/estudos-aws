@@ -1,0 +1,3 @@
+O CloudFront é a rede CDN da AWS, que utiliza uma rede global de **Edge Locations** para fazer o **cache** do conteúdo e entregá-lo aos usuários de forma mais rápida e eficiente.
+
+Este serviço é ideal para ser utilizado quando você tem usuários localizados em um lugar distante da região onde sua aplicação está hospedada, permitindo que você faça um cache da sua aplicação em uma região mais próxima dos usuários finais.

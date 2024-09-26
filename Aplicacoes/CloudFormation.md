@@ -1,6 +1,5 @@
 # CloudFormation
- <span style="background-color: #e0a800; color: black;font-weight:bold">Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma automática</span>e segura, <span style="background-color: #e0a800; color: black;font-weight:bold">usando modelos de **infraestrutura como código(IaC)**</span>. Possibilita a criação e configuração de ambientes complexos por meio de templates que descrevem os recursos necessários (como instâncias EC2, VPCs, banco de dados, etc.) e suas configurações.
-
+Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma "semi-automática" e segura, <span style="background-color: #e0a800; color: black;font-weight:bold">usando modelos de **infraestrutura como código(IaC)**</span>. Possibilita a criação e configuração de ambientes complexos por meio de templates que descrevem os recursos necessários (como instâncias EC2, VPCs, banco de dados, etc.) e suas configurações.
 
 
 ## Como funciona:

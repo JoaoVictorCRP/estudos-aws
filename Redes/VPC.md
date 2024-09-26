@@ -58,23 +58,26 @@ A   <=>   B   <=>   C <br>
 
 ## Diferença entre Route Table, NACL e Security Group
 ### **1. Route Table**
-- <span style="background-color: green;font-weight:bold">Função:</span> Determinar como o tráfego é roteado dentro da VPC. Ela define o encaminhamento com base no endereço de destino da solicitação, permitindo direcionar o tráfeco para gateways, subredes e outras VPCs.
-- <span style="background-color: purple;font-weight:bold">Use Case:</span> Controlar a comunicação entre subredes e definir rotas de saída para internet ou outras redes privadas.
+- **Função**: Determinar como o tráfego é roteado dentro da VPC. Ela define o encaminhamento com base no endereço de destino da solicitação, permitindo direcionar o tráfeco para gateways, subredes e outras VPCs.
+- **Use Case:** Controlar a comunicação entre subredes e definir rotas de saída para internet ou outras redes privadas.
 
 ### 2. Network ACL
-- <span style="background-color: green;font-weight:bold">Função:</span> Listas de controle que operam 
-<span style="background-color: #e0a800; color: black;font-weight:bold">NO NÍVEL DA SUBREDE.</span>
- São stateless, portanto você deve configurar as regras de entrada e de saída separadamente.
+- **Função:** Listas de controle que operam <span style="background-color: #e0a800; color: black;font-weight:bold">NO NÍVEL DA SUBREDE.</span>
+ - São **stateless**, portanto você deve configurar as regras de entrada e de saída separadamente.
 
-- <span style="background-color: purple;font-weight:bold">Use Case:</span> Implementada para aplicar regras de segurança adicionais **NAS SUBREDES**, como <span style="background-color: #e0a800; color: black;font-weight:bold">em um ambiente onde você precisa bloquear todo o tráfego de entrada de um intervalo de IP específico, mas permitir o tráfego de saída.</span>
+- **Use Case:** Implementada para aplicar regras de segurança adicionais **NAS SUBREDES**, como em um ambiente onde você precisa bloquear todo o tráfego de entrada de um intervalo de IP específico, mas permitir o tráfego de saída.
 
 ### 3. Security Group
-- <span style="background-color: green;font-weight:bold">Função:</span> São firewalls no <span style="background-color: #e0a800; color: black;font-weight:bold">NÍVEL DA INSTÂNCIA</span>, controlando o tráfego de entrada e saída para instâncias EC2 específicas. Eles **são stateful**, o que significa que uma regra de entrada ou saída automaticamente permite o tráfego de retorno correspondente.
+- **Função:** São firewalls no <span style="background-color: #e0a800; color: black;font-weight:bold">NÍVEL DA INSTÂNCIA</span>, controlando o tráfego de entrada e saída para instâncias EC2 específicas. Eles são **stateful**, o que significa que uma regra de entrada ou saída automaticamente permite o tráfego de retorno correspondente.
 
-- <span style="background-color: purple;font-weight:bold">Use Case:</span> Usados para proteger instâncias específicas, como em um cenário onde você deseja permitir o tráfego SSH (porta 22) de um determinado IP externo, mas bloquear todo o tráfego de entrada de outras portas.
+- **Use Case:** Usados para proteger instâncias específicas, como em um cenário onde você deseja permitir o tráfego SSH (porta 22) de um determinado IP externo, mas bloquear todo o tráfego de entrada de outras portas.
 
 ## VPC Flow Logs
-- Essa é uma ferramenta que <span style="background-color: #e0a800; color: black;font-weight:bold">permite capturar informações do tráfico IP de entrada e saída da sua VPC</span>. Os dados do Flow log são armazenados no **CloudWatch Logs** ou, **opcionalmente, em um Bucket S3**. Após ter criado um flow log, você poderá analisá-lo em detalhes nos logs da CloudWatch.
+- Essa é uma ferramenta que <span style="background-color: #e0a800; color: black;font-weight:bold">permite capturar informações do tráfico IP de entrada e saída da sua VPC</span>. 
+
+- Os dados do Flow log **são armazenados no CloudWatch Logs ou, opcionalmente, em um Bucket S3**. 
+
+- Após ter criado um flow log, você poderá analisá-lo em detalhes nos logs da CloudWatch.
 
 - Os Flow logs podem ser criados em três níveis:
     - VPC
@@ -84,37 +87,34 @@ A   <=>   B   <=>   C <br>
 - NÃO é possível definir um flow log de uma VPC emparelhada cross-account.
 
 ## Bastion Host
-Um Bastion Host é um servidor que atua como um ponto de acesso seguro para administrar intância que ficam em subredes privadas da VPC, o Bastion é o único a estar localizado na rede pública e ser exporto à internet. Adms acessam o Bastion Host via SSH ou RDP e, a partir dele, conectam-se às instâncias privadas, que não tem acesso à internet.
+Um Bastion Host é um servidor que atua como um ponto de acesso seguro para acessar instâncias que ficam em subredes privadas da VPC, o Bastion é o único a estar localizado na rede pública e ser exposto à internet. Administradores acessam o Bastion Host via SSH ou RDP e, a partir dele, conectam-se às instâncias privadas, que não tem acesso à internet.
 
 ### Observações:
-- Um NAT Gateway ou NAT instance é usada para providenciar tráfego da intenet para instâncias em subredes privadas.
-- Um Bastion é usado para administrar instâncias de maneira segura.
-- NÃO É POSSÍVEL UTILIZAR UM NOAT GATEWAY COMO BASTION.
+- Um NAT Gateway ou NAT instance é usada para providenciar tráfego da internet para instâncias em subredes privadas.
+- NÃO É POSSÍVEL UTILIZAR UM NAT GATEWAY COMO BASTION.
 
 ## Network Address Translation (NAT)
-O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. No contexto da AWS, o NAT é usado para permitir que instâncias em sub-redes privadas da VPC possam acessar a internet ou outros serviços externos, sem que seu IP privado seja exposto.
+O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. No contexto da AWS, o NAT é usado para permitir que instâncias em subredes privadas da VPC possam acessar a internet ou outros serviços externos, sem que seu IP privado seja exposto.
 
 ### NAT Gateway
-- Serviço gerenciado que permite que instâncias em sub-redes privadas enviem tráfego de saída para a internet, enquanto impede conexões de entrada iniciadas da internet.
-- São altamente disponíveis e <span style="background-color: #e0a800; color: black;font-weight:bold">escalam automaticamente para lidar com grandes volumes de tráfego. (vão de 5Gbps até 45Gbps) </span>
+- Serviço gerenciado que permite que instâncias em subredes privadas enviem tráfego de saída para a internet, enquanto impede conexões de entrada iniciadas da internet.
+- São altamente disponíveis e <span style="background-color: #e0a800; color: black;font-weight:bold">escalam automaticamente para lidar com grandes volumes de tráfego.</span> (vão de 5Gbps até 45Gbps) 
 - O uso de um NAT Gateway gera custos com base no tempo de execução (por hora) e na quantidade de dados processados.
-- Redundante em uma AZ.
 - Não é associado a nenhum security group.
 - Recebe um endereço de IP público automaticamente.
 
 ### NAT Instance
-- É possível usar uma instância EC2 configurada com um software NAT para servir a mesma função que o NAT Gateway. A vantagem é o controle total sobre a configuração, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
+- É possível usar uma instância EC2 configurada com um software NAT para servir a mesma função que o NAT Gateway.
 
-- É uma opção de custo menor que o NAT gateway, mas 
-<span style="background-color: #e0a800; color: black;font-weight:bold">só é ideal para pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT, além do fato de que o trabalho de configuração será 100% manual.</span>
+- A vantagem é o controle total sobre a configuração, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
 
-- Há um recurso nas instância EC2 chamado Source/Destination, que faz com que a instância "cheque" se ela é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. 
-<span style="background-color: #e0a800; color: black;font-weight:bold">
-No caso das NAT Instances, esse recurso PRECISA ESTAR DESABILITADO, uma vez que essa instância deverá lidar com tráfego onde ela não é origem e nem destino. 
-</span> 
+- É uma opção de custo menor que o NAT gateway, mas **só é ideal para pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT,** além do fato de que o trabalho de configuração será 100% manual.
+
+- Há um recurso nas instância EC2 chamado **Source/Destination**, que faz com que a instância "cheque" se ela é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. No caso das NAT Instances, esse recurso **PRECISA ESTAR DESABILITADO**, uma vez que essa instância deverá lidar com tráfego onde ela não é a origem e nem o destino. 
 
 ## Network ACL
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Regras do NACL são obedecidas em ordem cronológica</span> (Portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200).
+
 - É muito importante liberar o acesso inbound/outbound das portas efêmeras, o range das portas efêmeras variam de acordo com o cliente que você está se comunicando. Mas no geral são as portas 1024-65535, portanto libere estas. Veja a documentação:
 ![Portas Efêmeras](portasEfemeras.png)
 
@@ -122,10 +122,17 @@ No caso das NAT Instances, esse recurso PRECISA ESTAR DESABILITADO, uma vez que 
 
 - Um NACL pode estar associado a múltiplas subredes, no entanto uma subrede só pode esta associado a um único NACL.
 
-## AWS Direct Connect
-Este é um serviço que <span style="background-color: #e0a800; color: black;font-weight:bold">estabelece uma conexão dedicada entre sua infraestrutura local e a AWS</span>. Diferente de uma conexão padrão à internet, o Direct Connect proporciona uma conexão com alta largura de banda, baixa latência, e com mais consistência, uma vez que não depende da internet pública.
 
-- Útil para um carga pesada de throughput.
+## Internet Gateway e Virtual Private Gateway
+- O IGW é utilizado para conceder acesso a internet para uma VPC, é anexo diretamente ao Route Table.
+
+- O VPG também permite o tráfego de hosts de redes externas, no entanto, somente os que forem especificados. Ou seja, não é toda a internet que terá acesso aos dispositivos e recursos dentro da sua VPC.
+	- A VPG é ideal para criar uma conexão VPN entre você e uma outra rede sua.
+
+## AWS Direct Connect
+Este é um serviço que <span style="background-color: #e0a800; color: black;font-weight:bold">estabelece uma conexão dedicada entre sua infraestrutura local e a AWS</span>. Diferente de uma conexão padrão à internet, o Direct Connect proporciona uma conexão com alta largura de banda, baixa latência, e com mais consistência, uma vez que **não depende da internet pública**.
+
+- Útil para uma carga pesada de throughput.
 - Oferece uma conexão estável e segura, uma vez que não utiliza a internet pública para transferência de dados entre sua rede e a AWS.
 
 ### Passos para configurar um Direct Connect
@@ -154,18 +161,18 @@ O Global Accelerator é um serviço de rede que melhora a disponibilidade e a pe
 Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a necessidade de usar a internet, gateways, NAT ou VPNS. Eles <span style="background-color: #e0a800; color: black;font-weight:bold">proporcionam uma maneira segura e eficiente de acessar serviços AWS diretamente da sua VPC, mantendo o tráfego dentro da rede da AWS.</span>
 
 ### Tipos de VPC Endpoint:
-- Interface Endpoints
+- **Interface Endpoints**
     - <span style="background-color: #e0a800; color: black;font-weight:bold">Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC.</span> Esse endpoint é conectado aos serviços AWS, como o S3, DynamoDB e outros que suportam a interface VPC.
     - Possui suporte para a maioria dos serviços da AWS.
-    - <span style="background-color: red; color: #fff;font-weight:bold">Custo por hora e por quantidade de dados processados. $$$
-    - **O tráfego nunca sai da rede privada da AWS**.
+    - Custo por hora e por quantidade de dados processados (**CARO**).
+	- **O tráfego nunca sai da rede privada da AWS**.
 
-- Gateway Endpoints
+- **Gateway Endpoints**
     ![alt text](gatewayEndpoint.png)
     - <span style="background-color: #e0a800; color: black;font-weight:bold">É um gateway que é adicionado à sua tabela de rotas para direcionar o tráfego destinado a serviços específicos</span>, como o S3 e Dynamo DB, tudo isso internamente pela infraestrutura da AWS.
     - O uso é específico para serviços como S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.
     - Possui suporte para S3 e DynamoDB.
-    - <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free, sempre que possível prefira usar um gatewa endpoint do que uma Interface Endpoint.</span>
+    - <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free, sempre que possível prefira usar um gateway endpoint do que uma Interface Endpoint.</span>
 
 Em suma, a única diferença entre os dois tipos é a forma de implementação
 
@@ -191,6 +198,7 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-prime at
 - É possível utilizar a route tables para gerenciar como uma VPC comunica com a outra.
 
 ## Custos de Rede
+
 ![Diagrama de Custos de Rede](diagramaCustos.png)
 Lembre-se:
 - **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.
