@@ -1,7 +1,7 @@
 # Elastic File System
 - Sistema NFS (Network File System) gerenciado pela Amazon que pode ser montado em qualquer EC2.
 
-- Funciona em instâncias EC2 com multi-AZ.
+- Pode ser acoplado em duas instâncias em AZs diferentes.
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Alta disponibilidade, escalável e caro (3x o preço de um EBS gp2).
 </span>
