@@ -70,7 +70,8 @@ compatível com PostgreSQL e MySQL.
 três vezes mais rápido que o PostgreSQL padrão, oferecendo baixa 
 latência e alto throughput.
 
-- oferece criptografia em repouso e em trânsito, e integrações nativas com IAM para controle de acesso.
+- Oferece criptografia em repouso e em trânsito, e integrações nativas com IAM para controle de acesso.
+
 - Inclui backups automáticos, recuperação point-in-time, patching 
 automático e outras funcionalidades gerenciadas, liberando da manutenção rotineira.
 

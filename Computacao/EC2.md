@@ -27,7 +27,7 @@
 
 - Eles controlam como o tráfego de E/S é permitido ou negado para a EC2.
 
-- Security Groups possuem somente regras de allow
+- Security Groups possuem somente regras de allow.
 
 - As regras dos **Security Groups** podem referenciar um IP ou então outro Security Group **(SGs podem referenciar uns aos outros).**
 

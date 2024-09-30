@@ -11,7 +11,7 @@ Para entender o Kinesis, primeiro precisamos saber a definição de *Streaming D
 - IOT
 
 ## Funcionalidades
-Certo, o <span style="background-color: #e0a800; color: black;font-weight:bold">Amazon Kinesis é a plataforma de *Streaming Data* da AWS.</span> Ele <span style="background-color: #e0a800; color: black;font-weight:bold">torna mais fácil o processo de carregamento e análise destes dados</span>, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
+Certo, o <span style="background-color: #e0a800; color: black;font-weight:bold">Amazon Kinesis é a plataforma de Streaming Data da AWS.</span> Ele <span style="background-color: #e0a800; color: black;font-weight:bold">torna mais fácil o processo de carregamento e análise destes dados</span>, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
 
 ## Componentes
 ### Kinesis Data Streams

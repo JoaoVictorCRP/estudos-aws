@@ -15,7 +15,7 @@ O SQS oferece dois tipos de filas:
 - **Escalabilidade Automática**: O SQS se ajusta automaticamente conforme a demanda aumenta ou diminui, sem necessidade de provisionamento manual de recursos, lidando de maneira eficiente com grandes volumes de mensagens.
 
 
-- **Mensagens Temporárias**: As mensagens podem ser armazenadas em uma fila por um tempo definido <span style="background-color: #e0a800; color: black;font-weight:bold">(até 14 dias)</span>, dando aos componentes tempo para processá-las. <span style="background-color: #e0a800; color: black;font-weight:bold">Se a mensagem não for processada dentro do período, ela expira.<span>
+- **Mensagens Temporárias**: As mensagens podem ser armazenadas em uma fila por um tempo definido <span style="background-color: #e0a800; color: black;font-weight:bold">(até 14 dias)</span>, dando aos componentes tempo para processá-las. **Se a mensagem não for processada dentro do período, ela expira.**
 
 - **Configuração de Retries (Dead Letter Queues)**: Você pode <span style="background-color: #e0a800; color: black;font-weight:bold">configurar filas de dead-letter para capturar mensagens que falharam no processamento após várias tentativas</span>, facilitando o diagnóstico e correção de problemas sem perda de mensagens.
 
