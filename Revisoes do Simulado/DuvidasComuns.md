@@ -28,3 +28,13 @@ ___
 - Já o TGW é utilizado como um ponto central de conexão entre múltiplas redes, permitindo a comunicação entre todas as redes associadas ao TGW, bem útil, principalmente considerando que você não precisa lidar com topologias ou criação de conexões individuais.
 
 ![Diagrama](./images/VPG-x-TGW.png)
+
+___
+## CloudFront x Global Accelerator
+Os dois serviços estão relacionados a melhoria da performance e disponibilidade em escala global, no entanto, possuem propósitos e funcionamentos diferentes:
+
+- O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (instância EC2 ou bucket S3).
+	-  Tem como endpoint um único DNS.
+
+- Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o GA não faz cache de conteúdo, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
+	- Tem dois endpoints, que são <ins>DOIS IPs fixos</ins>.

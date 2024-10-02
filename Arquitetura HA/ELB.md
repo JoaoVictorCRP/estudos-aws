@@ -11,11 +11,11 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
     - Queries e Headers (exemplo.com/users?**id=123&nome=joao**)
 
-- <span style="background-color: #e0a800; color: black;font-weight:bold">Operam na primeira camada da pilha OSI, que é a camada da aplicação.</span>
-
-- Formam uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
-
-- Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta. (Bem útil para o ECS)
+	- <span style="background-color: #e0a800; color: black;font-weight:bold">Operam na primeira camada da pilha OSI, que é a camada da aplicação.</span>
+	
+	- Formam uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
+	
+	- Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta. (Bem útil para o ECS)
 
     #### Como o ALB toma decisões inteligentes?
     -  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
