@@ -42,3 +42,4 @@ ___
 - A resposta corre é a D, pois é possível encaminhar cargas de trabalho que não foram processadas a tempo para uma fila "Dead Letter Queue", que funciona como se fosse um "banco de reservas" de mensagens.
 
 ___
+

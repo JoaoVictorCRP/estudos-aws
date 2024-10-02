@@ -4,7 +4,7 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 ## Tipos 
 ### 1. Application LB (ALB)
-- Ideal para tráfego HTTP/HTTPS, roteamento de aplicação oide ser baseado em:
+- Ideal para tráfego HTTP/HTTPS, roteamento de aplicação pode ser baseado em:
     - Caminho da URL (exemplo.com **/users**)
     
     - Subdominio (**um**.exemplo.com & **dois**.exemplo.com)

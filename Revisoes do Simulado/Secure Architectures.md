@@ -62,3 +62,25 @@ Não é possível criar uma read replica criptografada de um DB master. Também 
 Por conta disso, é preciso criar um novo master DB a partir de um snapshot do DB existente, daí é só criptografar e criar um CR Read Replica desse (novo) master DB.
 
 **Meu erro**: A opção que eu assinalei está quase certa, Faltou só um detalhe: É preciso que o master DB  também seja criptografado e não só a CR Read Replica.
+
+___
+
+## <span style="color:blue; background-color:#fff">Variáveis de Ambiente na Lambda</span>
+
+**_You are a solutions architect working for a social media company that provides a place for civil discussion of political and news-related events. Due to the constantly changing regulatory requirements and restrictions, you need to build your app in a way that allows you to modify configurations instantly without changing the Lambda function code. You have chosen to build the REST API endpoints used by your social media app user interface code using Lambda. How can you securely configure your Lambda functions without updating code? (Select TWO)_**
+
+
+- [X] Pass environment variables to your Lambda function via the request header sent to your API Gateway methods.
+- [X] <span style="background-color:green; color:#fff"> Configure your Lambda functions to use key configuration.</span>
+- [ ] <span style="background-color:green; color:#fff"> Use encryption helpers.
+</span>
+- [ ] Use Lambda layers.
+- [ ] Use Lambda aliases.
+
+
+### **Explicação**
+- Passar variáveis de ambiente no header da requisição iria expor as variáveis como plain text, isso é uma falha de segurança gravíssima. 
+
+- A melhor opção é utilizar uma key criada no KMS para criptografia da função (opção B) e então realizar a criptografia das variáveis de ambiente com a opção _encryption helpers_.
+
+- Um detalhe interessante é que, com o encryption helpe/rs, as variáveis são criptografadas antes mesmo de chegarem a Lambda. (Quase um client-side encryption)
