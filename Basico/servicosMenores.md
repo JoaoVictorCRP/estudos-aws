@@ -46,12 +46,6 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 - Utilizado no processo de extração, transformação e carregamento de dados; Serverless; Torna a preparação de dados mais simples, rápida e barata.
 
 
-# Miscelânea 👀
-## AWS IQ
-- <span style="background-color: #e0a800; color: black;font-weight:bold">Permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
-
-## Rekognition
-- Serviço de visão computacional capaz de analisar o conteúdo de vídeos e fotos, utiliza Deep Learning para fazer isso, a API é bem fácil de usar e não requer nenhum conhecimento em Machine Learning para usar. Além disso, ele também possui integração com o S3, para fazer análise dos arquivos que aparecerem por lá. Bem interessante!
 
 # Organizacional 🏨
 ## Workspaces Web
@@ -84,3 +78,16 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 
 ## GuardDuty
 - Serviço de detecção de ameaças e comportamentos suspeitos por parte de usuários da conta AWS e chamadas de API.
+
+
+# Miscelânea 👀
+## AWS IQ
+- <span style="background-color: #e0a800; color: black;font-weight:bold">Permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
+
+## Rekognition
+- Serviço de visão computacional capaz de analisar o conteúdo de vídeos e fotos, utiliza Deep Learning para fazer isso, a API é bem fácil de usar e não requer nenhum conhecimento em Machine Learning para usar. Além disso, ele também possui integração com o S3, para fazer análise dos arquivos que aparecerem por lá. Bem interessante!
+
+## MediaStore
+- Serviço de armazenamento otimizado para **fluxos de mídia** e **transmissões ao vivo**, oferece baixa latência e alto desempenho para entregar vídeos em tempo real. Ele armazena segmentos de vídeo de forma eficiente para transmissões contínuas. 
+- Não realiza transcodificação de vídeo, mas pode ser integrado com outros serviços, como **AWS Elemental MediaLive** para gerenciar **transmissões ao vivo**.
+- Ideal em cenários de streaming ao vivo.
