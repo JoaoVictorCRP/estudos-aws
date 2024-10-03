@@ -15,7 +15,7 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
     Além de tudo, também é possível criar uma extensão da sua rede local através de uma VPN site-to-site ou pelo AWS Direct Connect.
 </span>
 
-![Estrutura de rede com VPC](estruturaVPC.png)
+![Estrutura de rede com VPC](./Images/estruturaVPC.png)
 
 
 ## Detalhes
@@ -34,9 +34,8 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
 </span> 
 
 - O emparelhamento é bidirecional, 1x1 para cada peering. Exemplo, se tivermos 3 VPCs: A, B e C. Precisaremos de 3 pareamentos individuais.
+![](VPC-Peering.canvas)
 
-A   <=>   B   <=>   C <br>
-|________________|
 
 - Também é muito importante adequar todas as route-tables para que todas as intâncias nas 3 redes comuniquem umas com as outras.
 
@@ -116,7 +115,7 @@ O NAT é uma técnica usada para traduzir endereços IP privados de uma rede int
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Regras do NACL são obedecidas em ordem cronológica</span> (Portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200).
 
 - É muito importante liberar o acesso inbound/outbound das portas efêmeras, o range das portas efêmeras variam de acordo com o cliente que você está se comunicando. Mas no geral são as portas 1024-65535, portanto libere estas. Veja a documentação:
-![Portas Efêmeras](portasEfemeras.png)
+![Portas Efêmeras](./Images/portasEfemeras.png)
 
 - Ao criar um novo NACL, todo o tráfego estará com regra de DENY por padrão.
 
@@ -144,8 +143,6 @@ Este é um serviço que <span style="background-color: #e0a800; color: black;fon
 - **6.** Selecione a VPG e o customer gateway nas opções da VPN.
 - **7.** Assim que a VPN estiver disponível, vá até o customer gateway nopainel do direct connect e configure a VPN.
 
-Vídeo de como configurar: https://www.youtube.com/watch?v=QRRmSvu-Ozs
-
 ## Global Accelerator
 O Global Accelerator é um serviço de rede que melhora a disponibilidade e a performance das suas aplicações. Com ele, o tráfego dos usuários é roteado para a poderosa rede backbone da Amazon, e apartir dela, segue para várias regiões da AWS, escolhendo automaticamente a melhor rota para minimizar a latência.
 
@@ -155,26 +152,7 @@ O Global Accelerator é um serviço de rede que melhora a disponibilidade e a pe
 
 - É possível diminuir ou aumentar a porcentagem do tráfego para um determinado endpoint group ajustando o traffic dial nas configurações.
 
-![Global Accelerator](globalAccelerator.png)
-
-## VPC Endpoints
-Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a necessidade de usar a internet, gateways, NAT ou VPNS. Eles <span style="background-color: #e0a800; color: black;font-weight:bold">proporcionam uma maneira segura e eficiente de acessar serviços AWS diretamente da sua VPC, mantendo o tráfego dentro da rede da AWS.</span>
-
-### Tipos de VPC Endpoint:
-- **Interface Endpoints**
-    - <span style="background-color: #e0a800; color: black;font-weight:bold">Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC.</span> Esse endpoint é conectado aos serviços AWS, como o S3, DynamoDB e outros que suportam a interface VPC.
-    - Possui suporte para a maioria dos serviços da AWS.
-    - Custo por hora e por quantidade de dados processados (**CARO**).
-	- **O tráfego nunca sai da rede privada da AWS**.
-
-- **Gateway Endpoints**
-    ![alt text](gatewayEndpoint.png)
-    - <span style="background-color: #e0a800; color: black;font-weight:bold">É um gateway que é adicionado à sua tabela de rotas para direcionar o tráfego destinado a serviços específicos</span>, como o S3 e Dynamo DB, tudo isso internamente pela infraestrutura da AWS.
-    - O uso é específico para serviços como S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.
-    - Possui suporte para S3 e DynamoDB.
-    - <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free, sempre que possível prefira usar um gateway endpoint do que uma Interface Endpoint.</span>
-
-Em suma, a única diferença entre os dois tipos é a forma de implementação
+![Global Accelerator](./Images/globalAccelerator.png)
 
 ## VPC Private Link
 Tecnologia que permite o acesso de forma segura os serviços  hospedados em outras VPCs de maneira privada, sem que o tráfego precise passar pela internet pública.
@@ -182,7 +160,7 @@ Tecnologia que permite o acesso de forma segura os serviços  hospedados em outr
 - Não é necessário fazer VPC peering
 
 - Requer um NLB (Network Load Balancer) na VPC servidora e uma ENI na VPC cliente.
-![Private Link](privateLink.png)
+![Private Link](./Images/privateLink.png)
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Se no exame cair alguma questão relacionada a emparelhar a VPC a dezenas, centenas ou milhares de clientes, pense no AWS Private Link.</span>
 
@@ -199,8 +177,9 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-prime at
 
 ## Custos de Rede
 
-![Diagrama de Custos de Rede](diagramaCustos.png)
+![Diagrama de Custos de Rede](./Images/diagramaCustos.png)
 Lembre-se:
+- Tráfego Inbound da internet é gratuito
 - **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Se quiser zerar os custos de rede, basta agrupar todas as instâncias na mesma AZ e usar somente um IP privado, Isso é livre de custos, mas não se esqueça que isso diminui ao grau de disponibilidade e redundância. </span>
 

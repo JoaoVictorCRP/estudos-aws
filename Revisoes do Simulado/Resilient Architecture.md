@@ -43,3 +43,18 @@ ___
 
 ___
 
+## <span style="color:blue; background-color:#fff">Containers e Outposts</span>
+**_A start-up firm is planning to deploy container-based applications using Amazon ECS. The firm is looking for the least latency from on-premises networks to the workloads in the containers. The proposed solution should be scalable and should support consistent high CPU and memory requirements._**
+
+What deployment can be implemented for this purpose?
+
+- [X] **A.** Create a Fargate launch type with Amazon ECS and deploy it in the AWS Outpost.
+- [ ] **B.** Create a Fargate launch type with Amazon ECS and deploy it in the AWS Local Zone.
+- [ ] **C.** Create an EC2 launch type with Amazon ECS and deploy it in the AWS Local Zone.
+- [ ] **D.** <span style="background-color:green; color:#fff">Create an EC2 launch type with Amazon ECS and deploy it in the AWS Outpost.
+</span>
+
+### **Explicação**
+- É possível fazer um deploy de Amazon ECS com o AWS Outposts, mas o _launch type_ só pode ser EC2, e não Fargate.
+
+- Não é possível fazer um deploy IMEDIATO de ECS com o Local Zone, já que primeiro precisaria configurar uma infraestrutura completa com FSx e ALBs. ([ECS em Local Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html))
