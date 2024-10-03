@@ -131,14 +131,12 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
     - **Limitação:** Menor densidade de instâncias por partição comparado ao Cluster Placement Group.
     - A diferença entre Partition e Spread é que uma partição que fica em um rack pode incluir várias instancias, veja a imagem de exemplo onde temos 3 partições, cada uma em sua própria rack, e em cada partição temos 3 instâncias:
 
-### Cenários de Uso:
-
+### Cenários de Uso
 - **Cluster Placement Group:** Quando você precisa de baixa latência de rede, como em simulações científicas, machine learning, ou grandes bancos de dados.
 - **Spread Placement Group:** Quando a prioridade é a resiliência, como em sistemas críticos que não podem ter todas as instâncias afetadas por uma única falha de hardware.
 - **Partition Placement Group:** Para grandes sistemas distribuídos que requerem isolamento de falhas entre diferentes grupos de dados ou componentes do sistema.
 
-### Resumo:
-
+### Resumo
 - **Cluster Placement Groups** são usados para otimizar o desempenho da rede.
 - **Spread Placement Groups** garantem a alta disponibilidade distribuindo instâncias em racks diferentes.
 - **Partition Placement Groups** oferecem uma abordagem híbrida que isola falhas entre partições.
@@ -149,17 +147,13 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
         - **Menos de 150GB em SOs Linux**
         - **Menos de 16GB em SOs Windows**
     - <span style="background-color: #e0a800; color: black;font-weight:bold"> O volume root deve estar no EBS, ser criptografado,</span> **NADA DE INSTANCE STORE.** <span style="background-color: #e0a800; color: black;font-weight:bold">O EBS deve possuir tamanho proporcional à memoria RAM.</span>
-    
     - Disponível em todos os tipos de aquisição de instância (**On-Demand, Reserved e Spot**)
-
-    - Uma instância não pode hibernar por mais de 60 dias.
+    - Uma instância não pode hibernar por mais de **60 dias**.
 
 
 ## Outros Detalhes
-
-- Um único SG pode estar atrelado a múltiplas instâncias
-- SGs são bloqueados a uma combinação região / VPC
-- O usuário da EC2 não visualiza as regras de tráfico aplicadas a máquina dele
+- SGs são fixos a uma região e uma VPC
+- O usuário da EC2 não visualiza as regras de tráfego aplicadas a máquina dele
 - É uma boa prática manter um SG exclusivo para acesso SSH.
 - **Troubleshooting**:
     - Se a sua aplicação não está acessível (timeout), é problema no SG.
@@ -167,12 +161,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 - Por padrão:
     - **Todo tráfico inbound é bloqueado.**
     - **Todo tráfico outbound está autorizado.**
-
-
 - Porta para lembrar: 
-
     - 3389 ⇒ RDP (Remote Desktop Protocol) - Logar em uma instância Windows.
-
-- Elastic IP é o nome dado a opção de IP estático para as instâncias EC2.
-
 - Por padrão, Scripts do User Data rodam com privilégio de root.
+- É possível migrar uma instância de um placement group para outro, mas não é possível fundir dois placement groups em um só.
