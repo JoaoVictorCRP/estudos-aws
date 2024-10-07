@@ -9,7 +9,7 @@
 
 - Você paga $0.03 a cada 10.000 chamadas para API do KMS.
 
-- É um serviço regional 
+- É um serviço regional. No entanto, é possível ativar a opção "Multi-region key", o que permitirá que a chave fique disponível em outras regiões através de replicação.
 ___
 ## Tipos de Chave
 ### Symmetric (AES-256)
@@ -25,12 +25,11 @@ ___
 ___
 ## O Gerenciamento de Chaves
 ### AWS Owned Keys (Grátis)
-- São chaves totalmente gerenciadas pela AWS, geralmente utilizadas para a criptografia de um serviço específico. 
+- São chaves totalmente gerenciadas pela AWS,  utilizadas para a criptografia de um único serviço específico, não aparecem no painel do KMS. 
 - **Exemplos**: SSE-SE, SSE-SQS, SSE-DDB.
 
-
 ### AWS Managed Key (Grátis)
-- Chaves gerenciadas pela AWS para serviços específicos, esses chaves não aparecem no painel do KMS e não podem ser utilizadas em nenhum outro serviço além do qual ela foi definida.
+- Chaves gerenciadas pela AWS para serviços específicos, essas chaves não podem ser utilizadas em nenhum outro serviço além do qual ela foi definida.
 - **Exemplos**: aws/rds, aws/ebs. (aws/`nome-do-servico`)
 
 ### Customer Managed Keys Criada no KMS ($1/mês)
@@ -52,7 +51,7 @@ ___
 
 ___
 ## Replicação de um EBS criptografado em outra região
-- Como o KMS é um serviço regional, não é possível utilizar a mesma chave utilizada para criptografar um EBS na região A na região B.
+- Como o KMS é um serviço regional, não é possível usar a mesma chave utilizada para criptografar um EBS na região A em uma região B.
 
 - Por isso, para realizar a replicação de um volume criptografado, é necessário enviar o snapshot de uma região para a outra e durante este envio, selecione uma chave da região B para criptografar o snapshot. 
 
@@ -60,6 +59,15 @@ ___
 
 ![Diagrama - Criptografia de EBS](./images/EBS-Criptografado.png)
 
+___
+### Chaves Multi Região
+
+- Quando a opção "Multi-region" é ativada para uma key, ela criará uma réplica em outras região.
+- Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.
+- Ideal para quando você precisa criptografar em uma região e descriptografar na outra.
+- Entenda: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias. 
+- A própria AWS não recomenda utilizar chaves multi região, pois pode ser trabalhoso o gerenciamento das chaves em várias regiões.
+- USE CASES: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
 ___
 ## Políticas de Chave
 - O controle das chaves KMS é feito através de policy, semelhante às bucket policies do S3.
