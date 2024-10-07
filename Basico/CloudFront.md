@@ -11,3 +11,5 @@ Este serviço é ideal para ser utilizado quando você tem usuários localizados
 	- Você pode alterar o TTL (Isso afetará todos os conteúdos)
 
 	- Ou então, você pode adicionar o elemento Cache-Control Header na requisição de determinados elementos que você quer que tenha um TTL diferente dos demais. (Ideal para conteúdo dinâmico)
+
+- **Se você quiser usar o Amazon CloudFront com um certificado SSL/TLS de terceiros**, você **precisa importar esse certificado na região North Virginia (us-east-1)**.

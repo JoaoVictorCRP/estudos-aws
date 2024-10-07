@@ -27,7 +27,7 @@ ___
 
 - Já o TGW é utilizado como um ponto central de conexão entre múltiplas redes, permitindo a comunicação entre todas as redes associadas ao TGW, bem útil, principalmente considerando que você não precisa lidar com topologias ou criação de conexões individuais.
 
-![Diagrama](./images/VPG-x-TGW.png)
+![Diagrama](VPG-x-TGW.png)
 
 ___
 ## CloudFront x Global Accelerator
@@ -38,3 +38,26 @@ Os dois serviços estão relacionados a melhoria da performance e disponibilidad
 
 - Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o GA não faz cache de conteúdo, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
 	- Tem dois endpoints, que são <ins>DOIS IPs fixos</ins>.
+
+___
+
+## WAF x Shield x Firewall Manager
+Os três serviços são utilizados para segurança. 
+Eles podem inclusive ser utilizados em conjunto, ou não.
+
+**WAF**
+- Define as regras de acesso à sua aplicação web, operando na camada 7.
+- Permite bloqueio baseado em IP, região ou quantidade de chamados para a API.
+- Protege contra ataques como **SQL injection** e **cross-site scripting (XSS)**.
+
+- Pode ser utilizado com **Amazon CloudFront**, **ALB**, e **API Gateway** para proteger aplicações.
+
+-  <span style="background-color:red; font-weight: bold; color:#fff">Shield Advanced</span> é uma **camada premium** que fornece proteção mais robusta contra ataques DDoS, com monitoramento 24/7, mitigação em tempo real, e suporte especializado de resposta a incidentes. Legal, mas custa <span style="background-color:red; color:#fff">$3000 por mês</span>.
+
+**Shield**
+- Utilizado para proteção contra ataques DDOS.
+- **Shield Standard** é aplicado **automaticamente e sem custo** adicional a todos os clientes AWS, oferecendo proteção básica contra DDoS.
+
+**Firewall Manager**
+- Painel unificado do AWS Organizations para gerenciamento das regras de acesso aos recursos de cada uma das contas.
+- Pode controlar WAF, Shield, NACLs, Security Groups e policies.
