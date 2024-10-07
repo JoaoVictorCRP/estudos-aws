@@ -37,9 +37,6 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 ## LightSail
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Serviço para aplicações web simples para realização de um deploy rápido e de baixo custo.</span>Oferece instâncias de VPS fáceis de usar, containers e IaaS no geral.
 
-## Parameter Store
-- Utilizado para armazenar parâmetros e variáveis de ambiente para os desenvolvimento de aplicações (Exemplo: Connections Strings, senhas e endpoints).
-
 
 # Dados 📈
 ## Glue
@@ -80,6 +77,9 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 - Serviço de detecção de ameaças e comportamentos suspeitos por parte de usuários da conta AWS e chamadas de API.
 
 
+## Parameter Store
+- Utilizado para armazenar parâmetros e variáveis de ambiente para os desenvolvimento de aplicações (Exemplo: Connections Strings, senhas e endpoints).
+
 # Miscelânea 👀
 ## AWS IQ
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
@@ -91,3 +91,7 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 - Serviço de armazenamento otimizado para **fluxos de mídia** e **transmissões ao vivo**, oferece baixa latência e alto desempenho para entregar vídeos em tempo real. Ele armazena segmentos de vídeo de forma eficiente para transmissões contínuas. 
 - Não realiza transcodificação de vídeo, mas pode ser integrado com outros serviços, como **AWS Elemental MediaLive** para gerenciar **transmissões ao vivo**.
 - Ideal em cenários de streaming ao vivo.
+
+## Device Farm
+- Este é um serviço utilizado para testes em diferentes plataformas. Permite a emulação de celulares, computadores e tablets para análise e QA.
+- Através da emulação de múltiplos dispositivos é possível testar a responsividade e o comportamento da lógica da aplicação em diferentes cenários.
