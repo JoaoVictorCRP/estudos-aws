@@ -95,6 +95,8 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 - **CLB**: Se a sua aplicação parar de responder, um **CLB** responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o LB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
 
 
+### Preço
+- O preço se baseia na quantidade de tempo que o LB fica rodando. O ALB por exemplo, custa $0,02 por hora.
 ## Anotações
 - Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
 

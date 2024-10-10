@@ -9,7 +9,7 @@
     
     - Possui suporte para a maioria dos serviços da AWS.
     
-	- Custo por hora e por quantidade de dados processados (**CARO**).
+	- <span style="background-color:red; color:#fff">Custo por hora e por quantidade de dados processados (CARO). </span>
 	
 	- **O tráfego nunca sai da rede privada da AWS**.
 
@@ -22,4 +22,6 @@
     
 	- <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free, sempre que possível prefira usar um gateway endpoint do que uma Interface Endpoint.</span>
 
-Em suma, a única diferença entre os dois tipos é a forma de implementação
+## Resumo
+- Em suma, a única diferença entre os dois tipos é a forma de implementação.
+- Se o serviço for DynamoDB ou S3, utilize um gateway endpoint sem pensar duas vezes.

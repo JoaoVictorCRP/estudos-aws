@@ -9,6 +9,8 @@ O SQS oferece dois tipos de filas:
 
 - **FIFO Queue (First In, First Out)**: <span style="background-color: #e0a800; color: black;font-weight:bold">Garante a entrega de mensagens exatamente uma vez e preserva a ordem de envio.</span> Ideal para casos onde a ordem de processamento das mensagens é crítica, como em transações financeiras. <span style="background-color: red; color: black;font-weight:bold">LIMITADA A 300 TRANSAÇÕES POR SEGUNDO.</span>
 
+
+## Vantagens do SQS
 - **Desacoplamento de Sistemas**: O SQS permite que componentes de uma aplicação se comuniquem sem depender uns dos outros diretamente. <span style="background-color: #e0a800; color: black;font-weight:bold"> Um sistema pode enviar uma mensagem para a fila e continuar seu processamento, enquanto outro sistema pode processar essa mensagem posteriormente, garantindo escalabilidade e tolerância a falhas.</span>
 
 
@@ -17,8 +19,28 @@ O SQS oferece dois tipos de filas:
 
 - **Mensagens Temporárias**: As mensagens podem ser armazenadas em uma fila por um tempo definido <span style="background-color: #e0a800; color: black;font-weight:bold">(até 14 dias)</span>, dando aos componentes tempo para processá-las. **Se a mensagem não for processada dentro do período, ela expira.**
 
+
 - **Configuração de Retries (Dead Letter Queues)**: Você pode <span style="background-color: #e0a800; color: black;font-weight:bold">configurar filas de dead-letter para capturar mensagens que falharam no processamento após várias tentativas</span>, facilitando o diagnóstico e correção de problemas sem perda de mensagens.
 
+## Visibilidade de Mensagem - Message Visibility Timeout
+- Quando uma mensagem é recuperada por um consumidor, ela ficará invisível para outros consumidores.
+
+- **Por padrão, este tempo é de 30 segundos.** (Isso significa que a mensagem tem 30 segundos para ser processada)
+
+- Depois desse timeout acabar, a mensagem ficará visível novamente para outros consumidores (inclusive para o consumidor que não processou a mensagem a tempo)
+
+- É possível fazer com que o consumidor chame a API **ChangeMessageVisibility** para pedir mais tempo até dar timeout.
+
+- **CUIDADO**: Tempo de mais pode deixar uma mensagem presa com um consumidor que está crashado, tempo de menos pode fazer com que nenhum consumidor processe a mensagem a tempo.
+
+## Long Pooling
+- Quando um consumidor faz uma requisição por uma mensagem em uma fila que está vazia, ele pode opcionalmente "esperar" até que uma mensagem chegue. O nome disso é Long pooling.
+
+- O Long Pooling pode fazer com que a quantidade de chamadas de API feitas para o SQS reduza, ao mesmo tempo que a eficiência da aplicação é mantida.
+
+- **É possível definir de 1 a 20 segundos.**
+
+- Long pooling é sempre mais preferível do que short pooling.
 ## Anotações
 - No exame, sempre que cair uma questão relacionado ao desacoplamentos (decouple) de aplicações, lembre do SQS, pois eles usam exatamente essa terminologia.
 
