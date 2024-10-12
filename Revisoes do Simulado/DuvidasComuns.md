@@ -11,9 +11,9 @@ Ambos são utilizados para ter controle específico do hardware somente para a s
 
 ___
 ## Site-to-Site VPN x Client VPN
-- **Site-to-Site** é utilizada para conectar uma rede local à sua VPC (Ou Transit Gateway).
+- **Site-to-Site** é utilizada para conectar uma rede local inteira à sua VPC (Ou Transit Gateway).
 
-- **Client VPN** conecta usuários a AWS ou recursos dela através de um cliente de software CPN.
+- **Client VPN** conecta um usuário a AWS ou recursos dela através de um cliente de software VPN.
 
 ___
 ## PrivateLink x Direct Connect
@@ -61,3 +61,15 @@ Eles podem inclusive ser utilizados em conjunto, ou não.
 **Firewall Manager**
 - Painel unificado do AWS Organizations para gerenciamento das regras de acesso aos recursos de cada uma das contas.
 - Pode controlar WAF, Shield, NACLs, Security Groups e policies.
+
+___
+## Storage Gateway x DataSync
+Ambos serviços são focados em migração de dados on-premise para a nuvem, porém possuem estratégias diferentes e aplicabilidades distintas.
+
+- O **Storage Gateway** funciona como se fosse um copy-on-write do seu on-premise para a nuvem AWS, permite que você possa continuar utilizando seu sistema de arquivos on-premise sem sequer notar que tudo que você está criando localmente está indo para a nuvem também, show de bola!
+
+- Já o **DataSync** possui uma visão mais bruta sobre a migração, ele se aplica em contextos onde você quer largar mão de armazenamento on-premise e quer colocar tudo na nuvem.
+
+Em suma:
+- Imagine o Storage gateway como um baú do nether do minecraft, tudo o que você colocar no baú, será replicado no seu par. 
+- Pense no DataSync como um grande caminhão de mudanças, que vai levar todos os seus móveis para uma casa nova.
