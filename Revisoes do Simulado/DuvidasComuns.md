@@ -27,7 +27,7 @@ ___
 
 - Já o TGW é utilizado como um ponto central de conexão entre múltiplas redes, permitindo a comunicação entre todas as redes associadas ao TGW, bem útil, principalmente considerando que você não precisa lidar com topologias ou criação de conexões individuais.
 
-![Diagrama](VPG-x-TGW.png)
+![Diagrama](./images/VPG-x-TGW.png)
 
 ___
 ## CloudFront x Global Accelerator

@@ -33,6 +33,14 @@ O SQS oferece dois tipos de filas:
 
 - **CUIDADO**: Tempo de mais pode deixar uma mensagem presa com um consumidor que está crashado, tempo de menos pode fazer com que nenhum consumidor processe a mensagem a tempo.
 
+## Fan-out
+O fan-out é o nome dado a um processo que ocorre na integração entre SNS e SQS.
+==Se trata do envio de uma única mensagem/evento para várias filas SQS==, essa estratégia deve ser aplicadas em contextos onde temos uma arquitetura desacoplada com múltiplos processos que ocorrem ao disparar de um mesmo evento. Em uma aplicação de ecommerce, por exemplo, deveríamos colocar 3 filas diferentes para uma mensagem de "Usuário realizou uma nova compra".
+
+> **Observação**: Para que este serviço funcione corretamente, é necessário que a fila SQS tenha uma política que permita o SNS realizar publicações nela.
+
+![Diagrama](images/fanout-exemplo.png)
+
 ## Long Pooling
 - Quando um consumidor faz uma requisição por uma mensagem em uma fila que está vazia, ele pode opcionalmente "esperar" até que uma mensagem chegue. O nome disso é Long pooling.
 
@@ -45,6 +53,8 @@ O SQS oferece dois tipos de filas:
 - No exame, sempre que cair uma questão relacionado ao desacoplamentos (decouple) de aplicações, lembre do SQS, pois eles usam exatamente essa terminologia.
 
 - As mensagens podem pesar até 256KB de texto em qualquer formato
+
+- O nome de uma fila FIFO necessariamente deve terminar com ".fifo"
 
 - O S3 é utilizado como ponto de armazenamento das mensagens.
 
