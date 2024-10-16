@@ -9,3 +9,13 @@ Os subscribers podem ser servidores web, emails e também endpoints, como:
 - Webhooks
  
 Além disso, o SNS também pode ser utilizado para enviar notificações direto para seus usuários finais, através de notificações push em seus dispositivos, emails
+
+## Message Filtering
+Através do SNS também é possível filtrar mensagens. Isso ocorre através de um JSON que validará os atributos.
+
+> Suponhamos, por exemplo, que o nosso chefe queira receber um email toda vez que uma instância for desligada, já o supervisor quer receber um email quando a instância for ligada.  
+
+Podemos Então fazer um evento que notifique uma mudança de estado da instância, e então no sns nós filtramos: 
+- Se o estado for *"stopping"*, mande email para o chefe. 
+- Se o estado for "starting", mande email para o supervisor.
+- Se não, ignore.
