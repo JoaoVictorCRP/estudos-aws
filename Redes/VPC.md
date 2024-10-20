@@ -39,6 +39,13 @@ Isto permite que você provisione uma seção lógicamente isolada da nuvem AWS,
 
 - Também é muito importante adequar todas as route-tables para que todas as intâncias nas 3 redes comuniquem umas com as outras.
 
+### Subnet Sharing
+- Este recurso permite que múltiplas contas AWS criem seus recursos dentro de uma VPC centralizada. 
+
+- Neste modelo, a conta dona da VPC compartilha uma ou mais subnets com os participantes que pertencem a mesma organização (AWS Organizations).
+
+- Quando a subnet é compartilhada, os participantes podem permissão de LER, ESCREVER, MODIFICAR e DELETAR seus próprios recursos na subnet compartilha, no entanto, ele não poderá fazer nada disso nos recursos das outras contas.
+
 ## Reserva de IPs
 - Ao criar uma subrede, você irá notar que <span style="background-color: #e0a800; color: black;font-weight:bold">5 IPs já estarão reservados</span>, exemplificando em uma rede 10.0.0.0/24 a reserva é feita desta forma:
     - 10.0.0.0 => Endereço da rede;
