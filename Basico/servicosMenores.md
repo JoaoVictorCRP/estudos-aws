@@ -76,7 +76,6 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 ## GuardDuty
 - Serviço de detecção de ameaças e comportamentos suspeitos por parte de usuários da conta AWS e chamadas de API.
 
-
 ## Parameter Store
 - Utilizado para armazenar parâmetros e variáveis de ambiente para os desenvolvimento de aplicações (Exemplo: Connections Strings, senhas e endpoints).
 
