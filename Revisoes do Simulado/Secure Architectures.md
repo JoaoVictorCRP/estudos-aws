@@ -71,7 +71,7 @@ ___
 
 
 - [X] Pass environment variables to your Lambda function via the request header sent to your API Gateway methods.
-- [X] <span style="background-color:green; color:#fff"> Configure your Lambda functions to use key configuration.</span>
+- [ ] <span style="background-color:green; color:#fff"> Configure your Lambda functions to use key configuration.</span>
 - [ ] <span style="background-color:green; color:#fff"> Use encryption helpers.
 </span>
 - [ ] Use Lambda layers.
@@ -84,3 +84,26 @@ ___
 - A melhor opção é utilizar uma key criada no KMS para criptografia da função (opção B) e então realizar a criptografia das variáveis de ambiente com a opção _encryption helpers_.
 
 - Um detalhe interessante é que, com o encryption helpe/rs, as variáveis são criptografadas antes mesmo de chegarem a Lambda. (Quase um client-side encryption)
+
+___
+## <span style="color:blue; background-color:#fff">SCPs no Organizations</span>
+An AWS Organization has the below hierarchy of OUs:
+
+Root -> Project_OU -> Dev_OU
+
+The root is attached to the default SCP.
+
+Project_OU is attached to an SCP that prevents users from deleting VPC Flow Logs.
+
+Dev_OU has an SCP that allows the action of "ec2:DeleteFlowLogs"
+
+Are the IAM Users/Roles in Dev_OU allowed to delete VPC Flow Logs?
+
+- [x] It is permitted because the SCP in Dev_OU allows it.
+- [ ] It is allowed because the Root has the default SCP that allows all actions
+- [ ] <span style="background-color:green; color:#fff">It is not allowed as the SCP in Project_OU restrics the action.</span>
+- [ ] It is not allowed as the default SCP in Root denies the action.
+
+### **Explicação**
+As SCPs seguem uma estrutura hierárquica dentro da organização. Isso significa que as políticas que você aplica em uma **OU superior (Parent OU)** se aplicam **automaticamente** às **OUs subordinadas (Child OUs)**.
+- Em suma, ==Deny sempre tem prioridade sobre Allow==;

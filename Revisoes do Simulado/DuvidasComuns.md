@@ -33,7 +33,7 @@ ___
 ## CloudFront x Global Accelerator
 Os dois serviços estão relacionados a melhoria da performance e disponibilidade em escala global, no entanto, possuem propósitos e funcionamentos diferentes:
 
-- O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (instância EC2 ou bucket S3).
+- O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (Servidor HTTP ou bucket S3).
 	-  Tem como endpoint um único DNS.
 
 - Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o GA não faz cache de conteúdo, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
@@ -73,3 +73,12 @@ Ambos serviços são focados em migração de dados on-premise para a nuvem, por
 Em suma:
 - Imagine o Storage gateway como um baú do nether do minecraft, tudo o que você colocar no baú, será replicado no seu par. 
 - Pense no DataSync como um grande caminhão de mudanças, que vai levar todos os seus móveis para uma casa nova.
+
+___ 
+## CNAME vs Alias (Route 53)
+| ==**CNAME**==                                 | ==**Alias**==                                                                     |
+| --------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Redireciona** um nome de domínio para outro | **Atalho** para serviços AWS (S3, CloudFront, ELB)                                |
+| Não pode ser usado no **domínio raiz**        | Pode ser usado tanto no **domínio raiz** quanto em **subdomínios**                |
+| Pode ser usado para **qualquer domínio**      | Específico para **recursos AWS** e domínios pertencentes a uma mesma hosted zone. |
+| Pode gerar **custo** adicional                | **Sem custo adicional** para consultas (em serviços AWS)                          |
