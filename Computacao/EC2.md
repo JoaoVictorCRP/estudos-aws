@@ -68,7 +68,7 @@ Eles regulam:
 
 ## **Interfaces de Rede**
 
-### **ENI (Elastic Network Interface) - Padrão - - <span style="background-color: orange; color: black;font-weight:bold">$</span>**
+### **ENI (Elastic Network Interface) - Padrão - <span style="background-color: orange; color: black;font-weight:bold">$</span>**
 - **Definição:** Uma ENI é uma interface de rede virtual que pode ser anexada a uma instância EC2. Ela funciona como uma interface de rede física, contendo um endereço IP primário, um ou mais endereços IP secundários, um ou mais grupos de segurança, um endereço MAC, e outras configurações de rede.
 
 - **Uso:** ENIs são usadas para conectar instâncias EC2 a sub-redes em uma VPC. Elas permitem que você mova interfaces entre instâncias, o que pode ser útil para cenários de alta disponibilidade ou para isolar diferentes tipos de tráfego.
@@ -91,18 +91,6 @@ Eles regulam:
 - **Uso:** EFA é especificamente projetado para workloads HPC que requerem uma comunicação de rede extremamente rápida e eficiente, como em simulações científicas, bolsa de valores ou sistemas críticos.
 
 - **Exemplo de Aplicação:** Aplicações HPC distribuídas que exigem uma comunicação rápida entre instâncias EC2 em um cluster, como no uso industrial ou renderização gráfica em 3D.
-
-## **Web Application Firewall (WAF)**
-Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam em seus servidores, também é possível controlar quem acessa os seus conteúdos. <br>
-**É possível especificar diversas condições de bloqueio para requisições, por exemplo:**
-- Endereço de IP da origem
-- País de onde a requisição se originou
-- Valores na header
-- Strings que aparecem no request body (regex)
-- Tamanho da requisição
-- Presença de código SQL (famoso SQL Injection)
-- Presença de script malicioso (Cross-site scripting)
-
 
 
 ## **Placement Groups**
@@ -146,7 +134,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
     - <span style="color:red; font-weight: bold">A RAM da máquina deve ter:</span> 
         - **Menos de 150GB em SOs Linux**
         - **Menos de 16GB em SOs Windows**
-    - <span style="background-color: #e0a800; color: black;font-weight:bold"> O volume root deve estar no EBS, ser criptografado,</span> **NADA DE INSTANCE STORE.** <span style="background-color: #e0a800; color: black;font-weight:bold">O EBS deve possuir tamanho proporcional à memoria RAM.</span>
+    - <span style="background-color: #e0a800; color: black;font-weight:bold"> O volume root deve estar no EBS e ser criptografado,</span> **NADA DE INSTANCE STORE.** <span style="background-color: #e0a800; color: black;font-weight:bold">O EBS deve possuir tamanho proporcional à memoria RAM.</span>
     - Disponível em todos os tipos de aquisição de instância (**On-Demand, Reserved e Spot**)
     - Uma instância não pode hibernar por mais de **60 dias**.
 
@@ -157,7 +145,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 - É uma boa prática manter um SG exclusivo para acesso SSH.
 - **Troubleshooting**:
     - Se a sua aplicação não está acessível (timeout), é problema no SG.
-    - Agora, se a aplicação devolve um erro “conection refused”, então é um erro da aplicação, ou então ela não está aberta mesmo, pois o trafégo está ok.
+    - Agora, se a aplicação devolve um erro “conection refused”, então é um erro da aplicação, ou então ela não está rodando mesmo, pois o trafégo está ok.
 - Por padrão:
     - **Todo tráfico inbound é bloqueado.**
     - **Todo tráfico outbound está autorizado.**

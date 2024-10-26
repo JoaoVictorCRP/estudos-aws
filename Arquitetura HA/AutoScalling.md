@@ -55,7 +55,10 @@ ___
 
 - O Alarme é baseado em uma métrica, por exemplo: "Consumo médio da CPU do ASG está muito alto", daí aumentar número de instâncias.
 
+- Dá pra integrar com outros serviços da AWS, tipo o SQS, utilizando a métrica "número máximo de mensagens na fila", por exemplo.
+
 - Baseado no alarme, é possível aumentar (scale-out) ou diminuir(scale-in) o número de instâncias.
 
 ## ANOTAÇÕES
-- <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span> 
+- <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span>
+- Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente.

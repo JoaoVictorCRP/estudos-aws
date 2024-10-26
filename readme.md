@@ -10,3 +10,5 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - **VPC Endpoints**
 
 - **Signed URLs e Signed Cookies**
+
+- **Object Retention**
