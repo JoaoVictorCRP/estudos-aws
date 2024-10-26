@@ -1,4 +1,4 @@
-- O Parameter Store é um sub serviço do Systems Manager, utilizado para armazenar variáveis de ambiente e dados de acesso sensíveis que são utilizados no código de uma aplicação.
+- ==O Parameter Store é um sub serviço do Systems Manager==, utilizado para armazenar variáveis de ambiente e dados de acesso sensíveis que são utilizados no código de uma aplicação.
 
 - Oferece criptografia integrada com KMS
 

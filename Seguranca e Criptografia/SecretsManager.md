@@ -1,6 +1,6 @@
 - Este é um serviço mais novo, focado no armazenamento e gerenciamento de segredos.
-- Possui a capacidade de forçar a rotação dos segredos a cada X dias.
-- A geração do segredo em rotação pode ser automatizada através do Lambda.
+- ==Possui a capacidade de forçar a rotação dos segredos a cada X dias.==
+- ==A geração do segredo em rotação pode ser automatizada através do Lambda.==
 - 100% Integrado com o **RDS**, o que o torna **ideal para armazenar senhas de bancos de dados**.
 - Segredos podem ser criptografados com KMS.
 - <span style="background-color:orange; color:black">Preço : $0.40 por segredo -  valor mensal.</span>
