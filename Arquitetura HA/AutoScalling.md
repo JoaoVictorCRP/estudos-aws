@@ -59,6 +59,26 @@ ___
 
 - Baseado no alarme, é possível aumentar (scale-out) ou diminuir(scale-in) o número de instâncias.
 
+___
+### Launch Template VS. Launch Configuration
+É bem possível que no exame SAA-C03 caia perguntas que tracem comparações entre LT e LC. Vejamos as diferenças:
+
+#### Launch Configuration 🗿
+- ==Versão mais antiga e básica de se configurar um grupo de auto-scaling.==
+- **Configuração é fixa**: Uma vez criada, não pode mais ser modificada. Da idade da pedra mesmo.
+- **Opções limitadas**: Inclui configurações básicas, como tipo de instância, AMI, par de chaves e opções de rede.
+
+#### Launch Template 🚀
+- ==Mais moderno e flexível. Feito para ser uma versão atualizada do launch configuration.==
+- **Versionamento e alterações**: Com launch templates, você pode criar múltiplas versões para ajustes sem precisar recriar tudo, como era no LC.
+- **Opções Avançadas**: É possível selecionar diversas opções mais específicas, como:
+	- Modelo de pagamento da instância;
+	- Configuração avançada de rede (múltiplas interfaces, IPs adicionais);
+	- Tags de instância (que são passadas para os recursos criados)
+	- Criptografia do volume EBS.
+
+___
+
 ## ANOTAÇÕES
 - <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span>
 - Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente.

@@ -26,17 +26,19 @@ diversos.
 - **Use Case**: Big data & Data Warehouse
 - **Nome da API**: st1
 
-### Cold - HDD - sc
+### Cold - HDD - sc 
 - Disco de baixíssimo custo, utilizado para armazenar dados acessados com menos frequência
 - **Use Case**: Servidor de Arquivos
 - **Nome da API**: sc1
+
 
 ### Magnetic
 - Disco rígido da geração passada.
 - **Use Case**: Cenários onde os arquivos e dados são acessados raramente.
 - **Nome da API**: standard
 
-**SOMENTE OS MODELOS <span style="color:red ">gp e io</span> PODEM SER USADOS COMO BOOT VOLUMES.**
+**OS MODELOS <span style="color:red "><ins>s</ins>c e <ins>s</ins>t</span> NÃO PODEM SER USADOS COMO BOOT VOLUMES. 
+#FicaADica: viu S, não comece.**
 
 ## Multi-Attach
 - Este é o processo de atrelar um mesmo volume EBS a múltiplas instâncias EC2 (obrigatoriamente na mesma AZ)

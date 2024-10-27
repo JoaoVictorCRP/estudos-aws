@@ -12,3 +12,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - **Signed URLs e Signed Cookies**
 
 - **Object Retention**
+
+- **Snowball jobs**
+
+- **Hosted Zones no Route 53**
