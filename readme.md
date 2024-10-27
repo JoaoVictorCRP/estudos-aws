@@ -7,8 +7,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **EMR (Elastic Map Reduce)**: Utilizado para executar clusters de dados Hadoop, Spark, Presto etc.
 
-- **VPC Endpoints**
-
 - **Signed URLs e Signed Cookies**
 
 - **Object Retention**
@@ -16,3 +14,5 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - **Snowball jobs**
 
 - **Hosted Zones no Route 53**
+
+- **Processo de convidar uma conta para o organizations**
