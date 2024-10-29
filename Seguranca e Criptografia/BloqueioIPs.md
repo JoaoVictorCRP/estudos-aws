@@ -28,6 +28,12 @@ Para realizar o bloqueio de um IP indesejado podemos montar diversas arquitetura
 ![[alb-block.png]]
 
 
+### Bloqueando com o WAF
+- É possível colocar o Web Application Firewall para filtrar os IPs que batem no ALB.
+
+- ==Esse é uma técnica bem eficiente, porém mais cara==.
+![[waf-block.png]]
+
 ### Bloqueando peloCloudFront
 - Tá certo, em uma arquitetura que utiliza CloudFront, precisamos ter duas coisas em mente: 
 	- O CloudFront não faz parte da VPC. 
