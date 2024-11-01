@@ -7,7 +7,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 ## SCP
 - Service Control Policies são políticas do IAM que permitem gerenciar permissões das contas filhas, seus usuários e roles.
 
-- Deve ter uma permissão explícita de uso para cada OU (por padrão, nada é permitido.)
+- ==Elas **não concedem permissões diretamente**, mas **limitam** as permissões que uma conta pode ter.== Em outras palavras, elas funcionam como uma camada extra de controle para **restringir permissões** que foram atribuídas por políticas do IAM.
 
 - SCPs não podem ser aplicadas na conta gerenciadora.
 
@@ -19,7 +19,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 	- EC2, pois ela própria tem um deny explícito.
 
 ## Características
-- **Conta master**: Conta responsável pelo gerenciamento dos acessos, infraestrutura e pagamento de todas as outras que são partes da organização.
+- **Conta gerenciadora**: Conta responsável pelo gerenciamento dos acessos, infraestrutura e pagamento de todas as outras que são partes da organização.
 
 - **Conta membro**: Contas que pertencem à organização. São gerenciadas pela conta master.
 
@@ -40,4 +40,4 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 
 - Tem uma API que permite criar contas direto dentro da organização de maneira bem fácil e rápida
 
-- SCPs não se aplicam a conta root (ela sempre terá `AdministratorAccess`)
+- SCPs se aplicam inclusive ao usuário root das contas membros.
