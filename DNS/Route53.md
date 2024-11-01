@@ -17,12 +17,18 @@ O Start of Authority é o primeiro registro a ser logado em um servidor DNS, nel
 - Email do administrador do domínio
 - Número de série (para identificar uma atualização do arquivo)
 - Valor em segundo do *Time-To-Live* do registro
-
-
+___
 ## Os Domínios
 - O custo de registro de um domínio muda de acordo com o TLD selecionado, atualmente o TLD ".com" custa $15.
 - Pode levar até 72 horas para o registro ocorrer, dependendo da circunstância.
+___
+##  O Resolvedor do Route 53
+- No protocolo DNS, nós temos o conceito de "Forwarder", que é quando um servidor tenta resolver um domínio, mas não consegue fazê-lo, com isso ele "passa pra frente", buscando recursivamente em outros servidores DNS a solução do domínio que o usuário enviou.
 
+- Tendo esse conhecimento, nós podemos utilizar o Route 53 como um forwarder para nossos servidores DNS internos
+
+
+___
 ## Routing Policy
 As seguintes Routing Policies estão disponíveis no Route53:
 
@@ -42,7 +48,7 @@ As seguintes Routing Policies estão disponíveis no Route53:
 - **Geoproximity Routing**:<span style="background-color: #e0a800; color: black;font-weight:bold">Este modo de roteamento está disponível apenas no painel de Traffic Flow, permite fazer uma estrutura de resposta bem mais específica e complexa, baseando em lat. e long. e incluir um bias (margem de erro) para esta localização.</span> Muito interessante!
 
 - **Multivalue Answer Routing**: Permite configurar o Route 53 para retornar múltiplos valores, isto é, desde que o valor esteja com seu health check ok.  <span style="background-color: #e0a800; color: black;font-weight:bold">Este roteamento é bem similar ao simple, no entanto ele permite que você coloque um health-check em cada um dos registros.</span>
-
+___
 ## Health Checks
 O route 53 também oferece um sistema de verificação de integridade do domínio e seus recursos. Garantindo que as requisições DNS sejam direcionadas corretamente.
 
