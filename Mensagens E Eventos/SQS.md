@@ -7,7 +7,7 @@ O SQS oferece dois tipos de filas:
 - **Standard Queue**: <span style="background-color: #e0a800; color: black;font-weight:bold">Garante entrega de mensagens pelo menos uma vez, mas não mantém a ordem das mensagens.</span> Ideal para sistemas distribuídos que podem lidar com uma possível duplicidade de mensagens. <span style="background-color: green; color: white;font-weight:bold">QUANTIDADE DE TRANSAÇÕES É ILIMITADA</span>
 
 
-- **FIFO Queue (First In, First Out)**: <span style="background-color: #e0a800; color: black;font-weight:bold">Garante a entrega de mensagens exatamente uma vez e preserva a ordem de envio.</span> Ideal para casos onde a ordem de processamento das mensagens é crítica, como em transações financeiras. <span style="background-color: red; color: black;font-weight:bold">LIMITADA A 300 TRANSAÇÕES POR SEGUNDO.</span>
+- **FIFO Queue (First In, First Out)**: <span style="background-color: #e0a800; color: black;font-weight:bold">Garante a entrega de mensagens exatamente uma vez e preserva a ordem de envio.</span> Ideal para casos onde a ordem de processamento das mensagens é crítica, como em transações financeiras. <span style="background-color: red; color: black;font-weight:bold">LIMITADA A 3000 TRANSAÇÕES POR SEGUNDO.</span> 
 
 
 ## Vantagens do SQS

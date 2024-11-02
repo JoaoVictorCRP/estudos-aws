@@ -13,7 +13,7 @@ ___
 ## Site-to-Site VPN x Client VPN
 - **Site-to-Site** é utilizada para conectar uma rede local inteira à sua VPC (Ou Transit Gateway).
 
-- **Client VPN** conecta um usuário a AWS ou recursos dela através de um cliente de software VPN.
+- **Client VPN** conecta UM usuário a AWS ou recursos dela através de um cliente de software VPN.
 
 ___
 ## PrivateLink x Direct Connect
@@ -36,7 +36,7 @@ Os dois serviços estão relacionados a melhoria da performance e disponibilidad
 - O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (Servidor HTTP ou bucket S3).
 	-  Tem como endpoint um único DNS.
 
-- Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o GA não faz cache de conteúdo, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
+- Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o ==GA não faz cache de conteúdo==, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
 	- Tem dois endpoints, que são <ins>DOIS IPs fixos</ins>.
 
 ___

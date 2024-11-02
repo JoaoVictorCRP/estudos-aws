@@ -41,3 +41,5 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 - Tem uma API que permite criar contas direto dentro da organização de maneira bem fácil e rápida
 
 - SCPs não se aplicam a conta root (ela sempre terá `AdministratorAccess`)
+
+- Você pode aninhar OUs (Colocar OU dentro de OU)
