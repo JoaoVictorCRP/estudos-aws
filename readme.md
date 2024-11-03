@@ -19,8 +19,10 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **Port Forwarding**: ==Utilizado pelas NAT Instances== para controlar o tráfego na VPC.
 
-- **Processo de convidar uma conta para o organizations**:
-
 - **Volume Gateway**
 
 - **EC2 Recovery**
+
+- **Golden AMIs**
+
+- **DR Strategies** - [https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html)
