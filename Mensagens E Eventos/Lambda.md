@@ -28,6 +28,14 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 
 - O código do Lambda pode ser em Node.js ou Python.
 
+## Conexão com a Rede
+- ==Por padrão, uma função Lambda sempre opera em uma VPC gerenciada pela própria AWS==, portanto, possui acesso à internet pública e também às APIs da AWS.
+
+- Porém, é possível determinar que uma função Lambda seja =="VPC-Enabled"==, fazendo com que ela funcione direto de uma VPC da sua conta, mas ela ==precisará que tenha um NAT Gateway na sua internet pública para ter acesso a recursos públicos.==
+- 
+	- ==Se a lambda estiver em uma VPC da sua conta==, você também precisará configurar uma sub-rede e um ==grupo de segurança== para ela.
+
+	- ==Caso a função só precise acessar recursos dentro da própria VPC (como uma banco de dados ou uma instância EC2 privada), o NAT Gateway não é necessário==, pois ela consegue se comunicar com esses recursos internamente.
 ## Anotações
 - A cobrança é baseada no tempo que a função levou para a execução completa OU no número de requisições (O primeiro milhão de requisições é gratuito, após isso, será cobrado $0,20 por milhão).
 
