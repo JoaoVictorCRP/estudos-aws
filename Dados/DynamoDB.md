@@ -1,7 +1,44 @@
-## DynamoDB
+# DynamoDB
 O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um desempenho rápido e rapidamente escalável. Ele é o ideal para aplicações que demandam latência mínima.
+### Principais Características
+- Latência de milisegundos
+- Serviço serverless
+- Excelente para operações de leitura, você pode incluspive gerenciar a capacidade de leitura de maneira bem simples.
+- Pode ser replicado entre regiões.
+
+## Modelagem dos dados
+- Como este é um banco não-relacional, a organização das tabelas pode inicialmente parecer confusa, mas é bem simples.
+- **Primary Key:** Diferentemente do modelo relacional, no Dynamo a PK pode ser divida em duas chaves. "Mas como assim... Pode ser?" Pois é, uma dessas chaves é opcional. São elas:
+	- **Partition Key**: Identifica um item na tabela, ==não necessariamente precisa ser única==.
+	- **Sort Key(OPCIONAL):** Utilizada para ordenação de múltiplos itens dentro de uma mesma partição.
+	- Idex
+
+Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
+
+| ChampionName _(Part. Key)_ | Year (*Sort.Key)* | Championship *(Index)* | Goals Scored *(Index)* |
+| -------------------------- | ----------------- | ---------------------- | ---------------------- |
+| Palmeiras                  | 2016              | Brasileirao            | 73                     |
+| Corinthians                | 2015              | Brasileirao            | 66                     |
+| Cruzeiro                   | 2014              | Brasileirao            | 68                     |
+| Cruzeiro                   | 2013              | Brasileirao            | 74                     |
+| Fluminense                 | 2012              | Brasileirao            | 56                     |
+| Corinthians                | 2011              | Brasileirao            | 65                     |
+
+### Exemplos de Consultas
+
+- **Buscar todas as temporadas do Palmeiras**:
+    - **Partition Key**: `ChampionName = "Palmeiras"`
+    - O DynamoDB retornará todos os registros do Palmeiras, ==ordenados pelo ano. (Pelo fato de que ele é sort key).
+    
+- **Buscar as temporadas do Corinthians entre 2022 e 2023**:
+    - **Partition Key**: `ChampionName = "Corinthians"`
+    - **Sort Key**: `Year BETWEEN 1950 AND 2023`
+
+
+
+
 ___
-### Capacidade Provisionada vs. Capacidade Sob Demanda:
+## Capacidade Provisionada vs. Capacidade Sob Demanda:
 **Provisionada**: Você configura a capacidade de leitura e escrita, e o DynamoDB aloca os recursos necessários para suportar essa carga.
 
 **Sob Demanda**: Você paga apenas pelo que utiliza, o que é ideal para cargas de trabalho imprevisíveis.
