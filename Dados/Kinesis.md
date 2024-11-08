@@ -19,18 +19,20 @@ Certo, o <span style="background-color: #e0a800; color: black;font-weight:bold">
 
 - **Exemplo de Uso**: Capturar e armazenar logs de servidor, dados de redes sociais, ou cliques de sites para análise em tempo real.
     
-    #### Shards
-	- Os *shards* são a unidade básica de capacidade para o streaming de dados. Cada *shard* em um stream pode capturar, armazenar e processar dados, e **você pode aumentar ou diminuir a quantidade de shards conforme a necessidade de processamento e volume de dados**. 
+#### Shards
+- Os *shards* são a unidade básica de capacidade para o streaming de dados. Cada *shard* em um stream pode capturar, armazenar e processar dados, e **você pode aumentar ou diminuir a quantidade de shards conforme a necessidade de processamento e volume de dados**. 
 
-    #### Funcionamento dos Shards
-    - **Divisão de Dados**: ==Quando você envia dados para um stream, cada registro é atribuído a um shard específico com base em uma partition key. ==Isso permite que diferentes shards processem dados simultaneamente, dividindo a carga entre eles.
+#### Funcionamento dos Shards
+- **Divisão de Dados**: ==Quando você envia dados para um stream, cada registro é atribuído a um shard específico com base em uma partition key. ==Isso permite que diferentes shards processem dados simultaneamente, dividindo a carga entre eles.
 
-    - **Gravação**: Cada *shard* pode lidar com até 1MB de dados por segundo ou 1.000 registros por segundo para gravações.
+- **Gravação**: Cada *shard* pode lidar com até 1MB de dados por segundo ou 1.000 registros por segundo para gravações.
 
-    - **Leitura**: Cada *shard* pode fornecer até 2 MB de dados para leitura e 5 leituras por segundo.
+- **Leitura**: Cada *shard* pode fornecer até 2 MB de dados para leitura e 5 leituras por segundo.
 
+#### Enhanced Fanout
+- Permite que o KDS tenha diversas aplicações consumidoras para receber dados, reduzindo o lag ocorrido em cenários onde existem diversos consumidores lendo de uma mesma data stream. Esta é uma feature criada especialmente para lidar com problemas de performance com múltiplos consumidores.
 
-
+___
 ### Kinesis Data Firehose
 - **Função**: <span style="background-color: #e0a800; color: black;font-weight:bold">Envia os dados capturados diretamente para serviços</span> como Amazon S3, Redshift, Elasticsearch, ou Splunk. Ele é totalmente gerenciado, não exigindo a criação de streams ou o gerenciamento de consumidores.
 
