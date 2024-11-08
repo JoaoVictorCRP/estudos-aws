@@ -74,3 +74,7 @@ instância), o AMI é criado a partir de um template armazenado no Amazon
 
 ## Criptografia
 É possível realizar a criptografia de um volume EBS através de um snapshot, seja este snapshot criptografado ou não. Porém não é possível realizar a criptografia de um volume EBS "on the fly", de fato, será necessário primeiro gerar um snapshot dele e então criar uma cópia idêntica deste volume.
+
+## Anotações
+
+- Volumes EBS ficam um única AZ. (Ou seja, não dá pra colocar um volume que está na az1-a em uma instância que está na az1-b, por exemplo.)
