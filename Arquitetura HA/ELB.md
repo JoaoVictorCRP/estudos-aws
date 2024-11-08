@@ -105,3 +105,5 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 - Todos os tipos de LBs possuem um IP privado, porém apenas o NLB possui um IP público estático, todos os outros são acessados via DNS.
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
+
+- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2
