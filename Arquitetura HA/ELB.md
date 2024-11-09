@@ -106,4 +106,6 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
 
-- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2
+- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2]
+
+- Por padrão, o cross-zone é habilitado para o ALB (e desabilitado para o NLB)
