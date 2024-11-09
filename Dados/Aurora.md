@@ -42,6 +42,16 @@ O Aurora possui tipos diferentes de endpoint, cada um servindo para um caso de u
 
 - **Instance Endpoint**: Endpoint para uma única instância específica.
 
+### Aurora Cloning
+Essa é uma feature do Aurora que permite realizar uma clonagem completa de um cluster do Aurora, criando com isso um cluster independente. O processo de cloning é bem mais simples e rápido que o de gerar um snapshot.
+
+- Muito útil para cenários onde se precisa preparar um ambiente de testes rapidamente.
+
+- É possível criar mais de um clone de um cluster aurora, além disso também dá pra ter vários clones de um clone.
+
+- Não dá pra criar um clone em uma região diferente da que está o cluster de origem.
+
+- É possível compartilhar um clone com uma conta membro da organização.
 ## Limitações e detalhes
 - **READ REPLICAS**: O número de read replicas que você pode criar de uma instância RDS depende do tipo de engine você usa, mas no geral, pode se ter <span style="background-color: #e0a800; color: black;font-weight:bold">
 até 15 RRs, sendo 5 delas cross-region.
