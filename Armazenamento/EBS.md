@@ -49,7 +49,7 @@ diversos.
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Limitada a 16 instância por vez.</span>
 
-- Somente volumes io1 e io2 permitem multi-attach (caríssimos)
+- ==Somente volumes io1 e io2 permitem multi-attach== (caríssimos). Lembre-se: começa com I: coloca ali, coloca aqui.
 
 ## Snapshot
 <span style="background-color: #e0a800; color: black;font-weight:bold"> Um snapshot é o salvamento do estado de um disco do EBS, bem útil para backups. A partir dele você também pode criar uma nova imagem de máquina, as AMIs,</span> que por sua vez, também podem ser criadas a partir de template do S3 **Instance Store**.
