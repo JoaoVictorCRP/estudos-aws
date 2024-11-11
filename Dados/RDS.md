@@ -43,42 +43,14 @@ São feitos manualmente e ficarão armazenados mesmo depois da deleção da inst
 - Permite utilizar o IAM para conexões com o banco de dados.
 
 ___
+
+## Engine Patches
+- Se você precisar fazer algum upgrade na engine do banco de dados, isto é, no SGBD. ==A atualização será aplicada na instância primária e, automaticamente, nas standbys.==
+
+- Isso ==causará um downtime até que o upgrade esteja completo!== Deixa pro plantonista fazer fora do horário...
 ## Elasticache
 - O Elasticache é o serviço que fornece a opção de armazenar em cache as queries mais comuns e mais requisitadas, dessa forma salvando o tempo de processamento para uma consulta real em um banco de dados em disco.
 - Neste serviço temos duas opções de sistema: Redis e Memcached.
-
-___
-## Aurora
-- Serviço de banco de dados relacional da AWS que combina a alta performance e disponibilidade de bancos de dados comerciais com a 
-efetividade dos bancos de dados open-source. o Aurora é 
-compatível com PostgreSQL e MySQL.
-
-- Projetado para ser até 5x mais rápido que o MySQL e 
-três vezes mais rápido que o PostgreSQL padrão, oferecendo baixa 
-latência e alto throughput.
-
-- Oferece criptografia em repouso e em trânsito, e integrações nativas com IAM para controle de acesso.
-
-- Inclui backups automáticos, recuperação point-in-time, patching 
-automático e outras funcionalidades gerenciadas, liberando da manutenção rotineira.
-
-### Alta Disponibilidade e Escalabilidade
-**O aurora é replicado automaticamente em múltiplas AZs, garantindo alta disponibilidade.** Pode escalar automaticamente tanto em termos de armazenamento (até 128TB por instância) quanto de capacidade de leitura com réplicas de leitura.
-
-### Tipos de Réplica
-O Aurora oferece 3 tipos de réplicas: Aurora Replica, MySQL Read Replica, PostgreSQL Read Replica:
-
-- **Aurora Replicas**: São réplicas de leitura criadas dentro do cluster de banco de dados Aurora. 
-	- Failover automático: Em caso de falha na instância primária, uma das Aurora Replicas pode ser promovida automaticamente para ser a nova instância principal, garantindo alta disponibilidade.
-
-	- <span style="background-color: #e0a800; color: black;font-weight:bold">Permite até 15 réplicas dentro de uma região</span>, com forte consistência de dados (pois as réplicas compartilham o mesmo armazenamento subjacente com o BD principal - São clusters).
-
-    - Sincronização Rápida: Devido ao armazenamento compartilhado, as réplicas estão sempre atualizadas com a instância principal, minimizando a latência de replicação.
-
-- **MySQL/PostgreSQL Read Replicas**:Você também pode criar até 5 Read Replicas MySQL ou PostgreSQL. Essas réplicas podem ser criadas tanto dentro do mesmo cluster quanto em outra região (cross-region), usando replicação assíncrona.
-
-## Aurora Serverless
-Essa é a configuração que permite que o Aurora escale automaticamente sua capacidade com base na demanda da aplicação, sem a necessidade de gerenciamento manual de instâncias de banco de dados. É eficiente para workloads imprevisíveis.
 
 ___
 ## Limitações

@@ -1,10 +1,7 @@
 # Aurora
-- Serviço de banco de dados relacional da AWS que combina a alta performance e disponibilidade de bancos de dados comerciais com a 
-efetividade dos bancos de dados open-source. o Aurora é 
-compatível com PostgreSQL e MySQL.
+- Serviço de banco de dados relacional da AWS que combina a alta performance e disponibilidade de bancos de dados comerciais com a efetividade dos bancos de dados open-source. o Aurora é compatível com PostgreSQL e MySQL.
 
-- Projetado para ser até 5x mais rápido que o MySQL e 
-três vezes mais rápido que o PostgreSQL padrão, oferecendo baixa 
+- Projetado para ser até 5x mais rápido que o MySQL e três vezes mais rápido que o PostgreSQL padrão, oferecendo baixa 
 latência e alto throughput.
 
 - Oferece criptografia em repouso e em trânsito, e integrações nativas com IAM para controle de acesso.
