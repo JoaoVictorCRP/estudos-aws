@@ -16,6 +16,8 @@ serviço bem eficiente que possui integração com diversos SGBD.
 - Read replicas ==possuem replicação assíncrona, portanto, possuem consistência eventual==.
 
 - Cada read replicas possui um endpoint diferente.
+
+- ==Para a replicação funcionar corretamente é necessário que cada uma das instâncias RR tenha as mesmas capacidades de armazenamento e computação da instância primária.==
 ## Backups
 Além do Multi-AZ e Read Replica, temos outras opções de backup também, são elas: 
 ### Automated Backups

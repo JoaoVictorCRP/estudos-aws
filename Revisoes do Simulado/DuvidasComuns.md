@@ -9,6 +9,8 @@ Ambos são utilizados para ter controle específico do hardware somente para a s
 
 - Já os **Dedicated Instance** sofrem realocação DENTRO DA SUA CONTA. 
 
+
+- ==**OBSERVAÇÃO: Dedicated Host é mais caro que Dedicated Instance.**==
 ___
 ## Site-to-Site VPN x Client VPN
 - **Site-to-Site** é utilizada para conectar uma rede local inteira à sua VPC (Ou Transit Gateway).
