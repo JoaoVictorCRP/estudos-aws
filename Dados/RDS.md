@@ -13,7 +13,7 @@ serviço bem eficiente que possui integração com diversos SGBD.
 
 - É possível direcionar requisições para read replica, tirando muito stress do banco principal (usado para escrita)
 
-- Read replicas ==possuem replicação assíncrona, portanto, possuem consistência eventual==.
+- Read replicas ==possuem **replicação assíncrona**, portanto, possuem consistência eventual==.
 
 - Cada read replicas possui um endpoint diferente.
 
