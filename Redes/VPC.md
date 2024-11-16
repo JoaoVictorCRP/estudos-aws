@@ -100,23 +100,28 @@ Um Bastion Host é um servidor que atua como um ponto de acesso seguro para aces
 - NÃO É POSSÍVEL UTILIZAR UM NAT GATEWAY COMO BASTION.
 
 ## Network Address Translation (NAT)
-O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. No contexto da AWS, o NAT é usado para permitir que instâncias em subredes privadas da VPC possam acessar a internet ou outros serviços externos, sem que seu IP privado seja exposto.
-
+O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. Na AWS, o NAT possui duas utilidades:
+- ==Permitir que instâncias em subredes privadas da VPC possam acessar a internet e serviços externo.== (**Quando o(a) NGW/NI estiver em rede pública)** 
+- ==Permitir que instâncias em subredes privadas da VPC acessem uma conexão VPN.== (**Quando o(a) NGW/NI estiver em uma rede privada que possui um VPGW em sua Route Table**)
 ### NAT Gateway
 - Serviço gerenciado que permite que instâncias em subredes privadas enviem tráfego de saída para a internet, enquanto impede conexões de entrada iniciadas da internet.
+
 - São altamente disponíveis e <span style="background-color: #e0a800; color: black;font-weight:bold">escalam automaticamente para lidar com grandes volumes de tráfego.</span> (vão de 5Gbps até 45Gbps) 
-- O uso de um NAT Gateway gera custos com base no tempo de execução (por hora) e na quantidade de dados processados.
-- Não é associado a nenhum security group.
+
+- O uso de um NAT Gateway gera ==custos com base no tempo de execução (por hora) e na quantidade de dados processados==.
+
+- ==Não é associado a nenhum security group.==
+
 - Recebe um endereço de IP público automaticamente.
 
 ### NAT Instance
-- É possível usar uma instância EC2 configurada com um software NAT para servir a mesma função que o NAT Gateway.
+- É possível usar uma instância EC2 configurada com um software NAT para servir a realizar a mesma função que o NAT Gateway.
 
-- A vantagem é o controle total sobre a configuração, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
+- ==A vantagem é o controle total sobre a configuração==, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
 
-- É uma opção de custo menor que o NAT gateway, mas **só é ideal para pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT,** além do fato de que o trabalho de configuração será 100% manual.
+- ==Geralmente, é uma opção de custo menor que o NAT gateway, **MAS só quando estivemos lidando com pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT,**== além do fato de que o trabalho de configuração será 100% manual.
 
-- Há um recurso nas instância EC2 chamado **Source/Destination**, que faz com que a instância "cheque" se ela é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. No caso das NAT Instances, esse recurso **PRECISA ESTAR DESABILITADO**, uma vez que essa instância deverá lidar com tráfego onde ela não é a origem e nem o destino. 
+- Há um recurso nas instância EC2 chamado ==**Source/Destination**==, que faz com que a instância "cheque" se ela é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. No caso das NAT Instances, esse recurso ==**PRECISA ESTAR DESABILITADO**==, uma vez que essa instância deverá lidar com tráfego onde ela não é a origem e nem o destino. 
 
 ## Network ACL
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Regras do NACL são obedecidas em ordem cronológica</span> (Portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200).

@@ -31,6 +31,7 @@ Questões específicas sobre estratégias de disaster recovery (DR) são bem com
 - Apesar de tudo, ==é uma estratégia bem barata==, o único custo que se tem é o de armazenamento dos backups.
 #### Exemplos
 - Data centers que enviam dados para a AWS semanalmente com Snowball. Se o Datacenter pegar fogo, ou algo do tipo, uma semana inteira de dados pode ser perdida
+
 - Snapshots de um EBS, RDS ou Redshift que são criados regularmente (quanto menor o intervalo de realização do snapshot, menor o RPO).
 
 ### Pilot Light
