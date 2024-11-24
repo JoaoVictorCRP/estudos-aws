@@ -5,7 +5,7 @@ Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam
 
 - País de onde a requisição se originou
 
-- Valores na header
+- Valores no header
 
 - Frequência de requisições
 

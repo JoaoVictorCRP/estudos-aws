@@ -23,6 +23,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **EC2 Recovery**
 
-- **Golden AMIs**
+- **Golden AMIs**: Nome dado a uma AMI que já possui instalado a sua aplicação, seus componentes e as dependências do SO. Utilizado para uma instanciação rápida da aplicação, ou então para ser usada como modelo no ASG
 
 - **DR Strategies** - [https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html)

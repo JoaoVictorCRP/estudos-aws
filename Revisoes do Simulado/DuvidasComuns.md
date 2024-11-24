@@ -19,7 +19,7 @@ ___
 
 ___
 ## PrivateLink x Direct Connect
-- **AWS PrivateLink**: Usado para acessar **serviços dentro da AWS** (ou em outras VPCs) de forma **privada e segura**. É feito para manter o tráfego dentro do ambiente da AWS e **NÃO é destinado a conexões on-premises**.
+- **AWS PrivateLink**: Usado para acessar **serviços dentro da AWS** (ou em outras VPCs) de forma **privada e segura**. É feito para manter o tráfego dentro do ambiente da AWS e ==**NÃO é destinado a conexões on-premises**.==
 
 - **AWS Direct Connect**: Fornece uma **conexão física dedicada entre seu data center/empresa e a AWS**. Ideal para transferências de dados em alta velocidade e segurança entre o ambiente on-premises e a nuvem AWS.
 
@@ -35,11 +35,11 @@ ___
 ## CloudFront x Global Accelerator
 Os dois serviços estão relacionados a melhoria da performance e disponibilidade em escala global, no entanto, possuem propósitos e funcionamentos diferentes:
 
-- O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (Servidor HTTP ou bucket S3).
+- O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (Servidor HTTP ou bucket S3). Ele suporta cache de conteúdo estático e também otimiza a entrega de conteúdo dinâmico sem cache.
 	-  Tem como endpoint um único DNS.
 
-- Já o **Global Accelerator** realiza o roteamento <ins>para componentes da aplicação</ins>, isto é, APIs REST, por exemplo. Ao contrário do CloudFront, o ==GA não faz cache de conteúdo==, justamente por conta disso ele não é utilizado no roteamento de requisições de usuários finais.
-	- Tem dois endpoints, que são <ins>DOIS IPs fixos</ins>.
+- O **Global Accelerator**, por sua vez, também utiliza a rede global da Amazon, no entanto ele não faz cache de conteúdo. Seu principal ponto de destaque são os dois IPs estáticos anycast que ele oferece, esses dois IPs podem ser utilizados em qualquer região da AWS, possuem baixa latência e e alta disponibilidade. Os IP do global accelerator podem ser atrelados a vários serviços, como um ELB, uma EC2, ou um Bucket S3. 
+	- OBS: Um IP anycast é um IP que referencia múltiplas máquinas de uma rede, nesse caso, as máquinas da rede de distribuição da Amazon, quando o cliente acessar tal IP ele será direcionado para a edge location mais próxima dele. Legal!
 
 ___
 
