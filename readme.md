@@ -7,15 +7,11 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **EMR (Elastic Map Reduce)**: Utilizado para executar clusters de dados Hadoop, Spark, Presto etc.
 
-- **Signed URLs e Signed Cookies**
-
 - **Object Retention**
 
 - **Snowball jobs**
 
 - **Hosted Zones no Route 53**
-
-- **CNAME vs Alias**: CName é utilizado para subdomínios, Alias é utilizado para domínios raiz (top nodes. O Alias também é usado para apontar um domínio ou subdomínio para um serviço AWS.
 
 - **Port Forwarding**: ==Utilizado pelas NAT Instances== para controlar o tráfego na VPC.
 

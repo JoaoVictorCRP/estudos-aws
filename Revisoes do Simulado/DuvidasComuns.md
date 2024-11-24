@@ -84,3 +84,13 @@ ___
 | Não pode ser usado no **domínio raiz**        | Pode ser usado tanto no **domínio raiz** quanto em **subdomínios**                |
 | Pode ser usado para **qualquer domínio**      | Específico para **recursos AWS** e domínios pertencentes a uma mesma hosted zone. |
 | Pode gerar **custo** adicional                | **Sem custo adicional** para consultas (em serviços AWS)                          |
+
+___
+### Signed URLs vs Signed Cookies
+
+- ==**Signed URLs** são usadas para **UM ÚNICO ARQUIVO**== de um bucket s3. Através dela, você pode criar uma URL para um único conteúdo específico por um prazo determinado de tempo. 
+	- **Caso de uso:** Exibir um único arquivo do bucket para um cliente.
+
+- ==**Signed Cookies** são usados para garantir acesso a **múltiplos arquivos**== dentro de um bucket ou domínio, também é possível definir um prazo de validade para eles.
+	- **Caso de uso**: Restringir acesso ao conteúdo do site apenas para clientes VIPs.
+
