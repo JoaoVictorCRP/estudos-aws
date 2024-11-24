@@ -30,7 +30,6 @@ Esse é o <span style="background-color: #e0a800; color: black;font-weight:bold"
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Embora o escalonamento seja feito manualmente, o Auto Scaling gerencia a criação ou remoção das instâncias automaticamente com base nos parâmetros fornecidos.</span>
 
-
 ## Políticas de Escalonamento Automático
 ### Scheduled Scalling
 - Ocorre com base em horários e datas predefinidos.
@@ -43,7 +42,7 @@ ___
 - Simples de configurar
 - Exemplo: "Uso médio da CPU deve ficar abaixo de 50%"
 
-#### Simple / Step Scaling (Integração com CW)
+#### Simple / Step Scaling (==Integração com CW==)
 - Quando um alarme do CW disparar (Exemplo: CPU > 70%), adicione mais 2 EC2s.
 ___
 ### Predictive Scaling
