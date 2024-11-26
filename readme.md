@@ -11,11 +11,13 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **Snowball jobs**
 
-- **Hosted Zones no Route 53**
+- **Hosted Zones privadas no Route 53**: Servem para armazenar registros em uma ou mais VPCs, permitindo que você modifique como o tráfego do domínio será roteado dentro da sua VPC.
 
 - **Port Forwarding**: ==Utilizado pelas NAT Instances== para controlar o tráfego na VPC.
 
 - **Volume Gateway**
+
+- **Private Link**
 
 - **EC2 Recovery**
 
