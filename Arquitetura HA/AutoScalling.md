@@ -81,3 +81,4 @@ ___
 ## ANOTAÇÕES
 - <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span>
 - Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente.
+- Quando ocorre um balanceamento, o Auto Scalling cria novas instâncias antes de terminar as antigas, para que a aplicação não tenha sua performance ou disponibilidade comprometida.
