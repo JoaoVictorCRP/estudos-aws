@@ -2,7 +2,7 @@
 - O Elastic Block Store oferece um sistema de armazenamento baseado em 
 blocos, como em discos físicos, ao contrário do S3, que é baseado em objetos.
 
-- Volumes do EBS são fixos a uma só AZ! Para replicar volumes entre AZs,
+- ==Volumes do EBS são fixos a uma só AZ!== Para replicar volumes entre AZs,
 crie um snapshot para montar o volume em outra AZ.
 
 Observação: Você pode desacoplar um EBS de uma instância enquanto ela 

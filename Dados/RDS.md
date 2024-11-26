@@ -7,6 +7,8 @@ serviço bem eficiente que possui integração com diversos SGBD.
 
 - Suponhamos que a versão primária vá pro saco, daí o DNS (connection string) irá trocar o apontamento para versão secundária automaticamente.
 
+- Uma coisa legal é que ==os backups automatizados são realizados a partir dos dados da instância em standby do Multi-AZ.== O que fará com que a aplicação não fique indisponível, pois a instância primária ainda estará trabalhando tranquilamente.
+
 ## Read Replica
 #### **Focado no desempenho**
 - Neste modo, toda vez que você fazer uma ação de Write no seu banco principal, essa ação também será realizada no banco secundário, que fica em outra AZ.

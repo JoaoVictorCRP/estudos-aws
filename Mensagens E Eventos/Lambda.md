@@ -44,3 +44,5 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 - Funções Lambda são independentes, 1 evento = 1 função.
 
 - O AWS X-Ray permite realizar um debug mais apropriado na arquitetura serverless do Lambda.
+
+- ==FUNÇÕES LAMBDA POSSUEM UM TIMEOUT DE 15 MINUTOS.== (Portanto, se o processamento levar mais de 15 minutos, teremos problemas em executá-lo com a lambda.)
