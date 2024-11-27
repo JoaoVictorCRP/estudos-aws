@@ -94,3 +94,10 @@ ___
 - ==**Signed Cookies** são usados para garantir acesso a **múltiplos arquivos**== dentro de um bucket ou domínio, também é possível definir um prazo de validade para eles.
 	- **Caso de uso**: Restringir acesso ao conteúdo do site apenas para clientes VIPs.
 
+___
+### S3 Select vs Amazon Athena
+
+Ambos serviços permitem que você realize uma query SQL dentro de um bucket S3, porém há uma diferença:
+- ==O **S3 Select** faz queries== apenas ==dentro de um único objeto==.
+
+- ==O **Amazon Athena** faz buscas dentro de um bucket inteiro==, incluindo os prefixos e os prefixos dentro dos prefixos, eita!
