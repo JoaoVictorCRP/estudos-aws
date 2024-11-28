@@ -11,7 +11,7 @@ serviço bem eficiente que possui integração com diversos SGBD.
 
 ## Read Replica
 #### **Focado no desempenho**
-- Neste modo, toda vez que você fazer uma ação de Write no seu banco principal, essa ação também será realizada no banco secundário, que fica em outra AZ.
+- Neste modo, toda vez que você fazer uma ação de Write no seu banco principal, essa ação também será realizada no banco secundário, que fica em outra AZ. A read replica também pode estar em outra região (cross region read replica, mas isso depende da engine - só da pra fazer isso com [**Postgres, MySQL, MariaDB e SQL Server**](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.html))
 
 - É possível direcionar requisições para read replica, tirando muito stress do banco principal (usado para escrita)
 
