@@ -3,13 +3,8 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 ## Preciso revisar
 
-- **AWS Systems Manager**
 
 - **EMR (Elastic Map Reduce)**: Utilizado para executar clusters de dados Hadoop, Spark, Presto etc.
-
-- **Object Retention**
-
-- **Snowball jobs**
 
 - **Hosted Zones privadas no Route 53**: Servem para armazenar registros em uma ou mais VPCs, permitindo que você modifique como o tráfego do domínio será roteado dentro da sua VPC.
 
@@ -19,8 +14,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - **Private Link**
 
-- **EC2 Recovery**
-
 - **Golden AMIs**: Nome dado a uma AMI que já possui instalado a sua aplicação, seus componentes e as dependências do SO. Utilizado para uma instanciação rápida da aplicação, ou então para ser usada como modelo no ASG
 
 - **DR Strategies** - [https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html)
+-

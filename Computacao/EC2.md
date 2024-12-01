@@ -130,7 +130,7 @@ Eles regulam:
 - **Partition Placement Groups** oferecem uma abordagem híbrida que isola falhas entre partições.
 
 ## EC2 Hibernate
-- O modo hibernate <span style="background-color: #e0a800; color: black;font-weight:bold">permite que você deixe a instância em uma espécie de "modo descanso", fazendo com que o estado da memória RAM seja preservado no EBS correspondente da instância.</span> É bem interessante quando se trata de poupar gastos sem perder o estado da máquina. Veja alguns detalhes:
+- O modo hibernate <span style="background-color: #e0a800; color: black;font-weight:bold">permite que você deixe a instância em uma espécie de "modo descanso", fazendo com que o **estado da memória RAM** seja preservado no EBS correspondente da instância.</span> É bem interessante quando se trata de poupar gastos sem perder o estado da máquina. Veja alguns detalhes:
     - <span style="color:red; font-weight: bold">A RAM da máquina deve ter:</span> 
         - **Menos de 150GB em SOs Linux**
         - **Menos de 16GB em SOs Windows**
