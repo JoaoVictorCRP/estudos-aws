@@ -19,6 +19,17 @@ O GuardDuty é um serviço que utiliza machine learning para detectar anomalias 
 
 - ==É uma excelente opção para se proteger contra ataques relacionados a mineração de criptomoedas.==
 
+## Findings
+- Findings é o nome dado para os alertas de segurança gerados pelas inspeções do GuardDuty. 
+
+- ==Cada finding tem um valor de severidade: 0.1 até 8+== (High, Medium, Low)
+
+- Nomenclatura dos findings
+![[Nomenclatura-findings.png]]
+**TipoAmeaça : RecursoAfetado / FamiliaAmeaça.  MecanismoDetecção ! Artefato**
+	*Exemplo: UnauthorizedAccess:EC2/SSHBruteForce*; *CryptoCurrency:EC2/BitcoinToo.B!DNS*
+
+- É possível gerar findings de amostra para realizar testes de automação.
 
 ## Supression Rules
 As ==**Suppression Rules** permitem que você crie regras para **filtrar e descartar detecções**== que, por algum motivo, não são relevantes para o seu caso de uso. Por exemplo, você pode querer ignorar certos tipos de detecções que já foram investigadas e não representam uma ameaça real, ou simplesmente filtrar alarmes de atividades que você sabe que são legítimas (como uma atividade que ocorre rotineiramente em sua rede).
@@ -42,3 +53,10 @@ As ==**Suppression Rules** permitem que você crie regras para **filtrar e desca
 ![[GuardDuty_Automation.png]]
 
 - É possível mandar o finding para o SNS, Lambda ou SQS. 
+
+# Anotações
+- ==O GuardDuty só irá processar logs de DNS se você utilizar o resolvedor DNS da VPC Default.== Qualquer outro tipo de resolvedor impedirá os findings de DNS.
+
+- ==O GuardDuty é um serviço regional==, e é uma boa prática você ativar o GuardDuty mesmo em regiões onde você não abriga seus recursos principais.
+
+- **==O GuardDuty cobra de acordo com o volume de dados analisados==, embora ele seja eficiente e muito útil contra ameaças, ele pode ficar caro dependendo do tráfego gerado na conta AWS.- $**
