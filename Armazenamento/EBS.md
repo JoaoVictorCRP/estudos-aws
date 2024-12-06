@@ -2,7 +2,7 @@
 - O Elastic Block Store oferece um sistema de armazenamento baseado em 
 blocos, como em discos físicos, ao contrário do S3, que é baseado em objetos.
 
-- Volumes do EBS são fixos a uma só AZ! Para replicar volumes entre AZs,
+- ==Volumes do EBS são fixos a uma só AZ!== Para replicar volumes entre AZs,
 crie um snapshot para montar o volume em outra AZ.
 
 Observação: Você pode desacoplar um EBS de uma instância enquanto ela 
@@ -49,7 +49,7 @@ diversos.
 
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Limitada a 16 instância por vez.</span>
 
-- Somente volumes io1 e io2 permitem multi-attach (caríssimos)
+- ==Somente volumes io1 e io2 permitem multi-attach== (caríssimos). Lembre-se: começa com I: coloca ali, coloca aqui.
 
 ## Snapshot
 <span style="background-color: #e0a800; color: black;font-weight:bold"> Um snapshot é o salvamento do estado de um disco do EBS, bem útil para backups. A partir dele você também pode criar uma nova imagem de máquina, as AMIs,</span> que por sua vez, também podem ser criadas a partir de template do S3 **Instance Store**.
@@ -74,3 +74,7 @@ instância), o AMI é criado a partir de um template armazenado no Amazon
 
 ## Criptografia
 É possível realizar a criptografia de um volume EBS através de um snapshot, seja este snapshot criptografado ou não. Porém não é possível realizar a criptografia de um volume EBS "on the fly", de fato, será necessário primeiro gerar um snapshot dele e então criar uma cópia idêntica deste volume.
+
+## Anotações
+
+- Volumes EBS ficam um única AZ. (Ou seja, não dá pra colocar um volume que está na az1-a em uma instância que está na az1-b, por exemplo.)

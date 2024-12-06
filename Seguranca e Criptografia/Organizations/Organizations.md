@@ -1,7 +1,7 @@
 # AWS Organizations
 O Organizations tem como papel o gerenciamento de várias contas AWS a partir de uma única conta master, facilita muito o controle de políticas, gerenciamento de acessos e otimização de custos em larga escala. ==É especialmente útil para empresas que utilizam várias contas para diferentes departamentos==, projetos ou ambientes (produção, desenvolvimento, etc.).
 
-![Organizations](./images/Organizations.png)
+![Organizations](Organizations.png)
 - Como mostrado na imagem acima, através do RAM é possível ter uma única rede unificando os recursos de cada uma das contas.
 
 ## SCP
@@ -40,4 +40,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 
 - Tem uma API que permite criar contas direto dentro da organização de maneira bem fácil e rápida
 
+- SCPs não se aplicam a conta root (ela sempre terá `AdministratorAccess`)
+
+- Você pode aninhar OUs (Colocar OU dentro de OU)
 - SCPs se aplicam inclusive ao usuário root das contas membros.

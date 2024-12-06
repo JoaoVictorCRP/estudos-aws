@@ -1,7 +1,7 @@
 Para realizar o bloqueio de um IP indesejado podemos montar diversas arquiteturas. Vamos checar as nossas linhas de defesa:
 
 
-## Bloqueando no NACL 
+### Bloqueando no NACL 
 - ==Esse é o tipo de bloqueio mais comum, fácil e barato.==
 
 - Basta criar uma regra de negação para o IP do cliente na NACL, isso faz com que ele fique bloqueado de cara.

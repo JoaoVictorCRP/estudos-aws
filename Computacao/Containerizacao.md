@@ -29,7 +29,7 @@ O ECS é um serviço gerenciado que facilita a execução e gerenciamento de con
 
 ### Escalabilidade Automática
 - O ECS pode escalar automaticamente o número de instâncias EC2, ou tarefas, baseadas na demanda, integrando-se com o **Auto Scaling**. Isso permite que o ECS se ajusta às flutuações na carga de trabalho sem intervenção manual.
-# <span style="color: orange; font-weight:bold"> Fargate</span>
+## <span style="color: orange; font-weight:bold"> Fargate</span>
 Serviço **serverless** de execução de containers, não há necessidade de gerenciar a infraestrutura subjacente, como servidores ou clusters. <span style="background-color: #e0a800; color: black;font-weight:bold"> Com Fargate, você apenas define e executa containers, o serviço cuida automaticamente de provisionar e escalar a infraestrutura.
 </span>
 

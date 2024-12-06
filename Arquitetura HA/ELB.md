@@ -1,7 +1,6 @@
 # Elastic Load Balancer (ELB)
 ## O que é?
-O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a carga de trabalho entre múltiplos servidores, há 4 tipos de apicação para um LB, vejamos:
-
+O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a carga de trabalho entre múltiplos servidores, há 4 opções de LB, vejamos:
 ## Tipos 
 ### 1. Application LB (ALB)
 - Ideal para tráfego HTTP/HTTPS, roteamento de aplicação pode ser baseado em:
@@ -15,7 +14,9 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 	
 	- Formam uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
 	
-	- Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta. (Bem útil para o ECS)
+	- ==Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta.== (Bem útil para o ECS). Exemplo de uso:
+		- Requisições na porta **80/443** (HTTP/HTTPS) podem ser direcionadas para um container rodando um servidor web nginx.
+		- Requisições na porta **5432** podem ser roteadas para um container rodando um banco de dados PostgreSQL
 
     #### Como o ALB toma decisões inteligentes?
     -  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
@@ -105,3 +106,9 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 - Todos os tipos de LBs possuem um IP privado, porém apenas o NLB possui um IP público estático, todos os outros são acessados via DNS.
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
+
+- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2]
+
+- Por padrão, o cross-zone é habilitado para o ALB (e desabilitado para o NLB)
+
+- O ==ELB é um serviço regional, não tem como rotear o tráfego para um destino que está em outra região.== Para distribuir tráfego entre regiões, use o **Route 53**.

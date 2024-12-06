@@ -10,7 +10,7 @@
 
 - **Use cases:** Gerenciamento de conteúdo, servidores web, compartilhamento de arquivos e Wordpress.
 
-- Utilize security groups para controlar o acesso ao EFS.
+- ==Utilize security groups para controlar o acesso ao EFS.==
 
 ## Performance
 

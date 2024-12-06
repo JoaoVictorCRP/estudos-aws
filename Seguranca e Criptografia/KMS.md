@@ -7,9 +7,9 @@
 
 - A integração com a maioria dos serviços da AWS é bem fácil de configurar, bastando marcar um checkbox pelo console.
 
-- Você paga $0.03 a cada 10.000 chamadas para API do KMS.
+- ==Você paga $0.03 a cada 10.000 chamadas para API do KMS.==
 
-- É um serviço regional. No entanto, é possível ativar a opção "Multi-region key", o que permitirá que a chave fique disponível em outras regiões através de replicação.
+- ==É um serviço regional. No entanto, é possível ativar a opção "Multi-region key", o que permitirá que a chave fique disponível em outras regiões== através de replicação.
 ___
 ## Tipos de Chave
 ### Symmetric (AES-256)
@@ -33,11 +33,11 @@ ___
 - **Exemplos**: aws/rds, aws/ebs. (aws/`nome-do-servico`)
 
 ### Customer Managed Keys Criada no KMS ($1/mês)
-- Chaves gerenciadas por você, consumidor.
+- Chaves gerenciadas por você, o consumidor.
 - Criada dentro do KMS.
 
 ### Customer Managed Keys Importada ($1/mês)
-- Chaves gerenciadas por você, consumidor.
+- Chaves gerenciadas por você, o consumidor.
 - Criada em algum outro serviço de criptografia ou pelo terminal.
 
 ___ 
@@ -63,20 +63,28 @@ ___
 ### Chaves Multi Região
 
 - Quando a opção "Multi-region" é ativada para uma key, ela criará uma réplica em outras região.
-- Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.
+
+- ==Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.
+==
 - Ideal para quando você precisa criptografar em uma região e descriptografar na outra.
-- Entenda: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias. 
-- A própria AWS não recomenda utilizar chaves multi região, pois pode ser trabalhoso o gerenciamento das chaves em várias regiões.
-- USE CASES: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
+
+- ==**Entenda**: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias. ==
+
+- ==A própria AWS não recomenda utilizar chaves multi região, pois pode ser trabalhoso o gerenciamento das chaves em várias regiões.==
+
+- **USE CASES**: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
 ___
 ## Políticas de Chave
 - O controle das chaves KMS é feito através de policy, semelhante às bucket policies do S3.
+
 - Veja os tipos de policies disponíveis:
 
 ### Default Key Policy
-- Criada automaticamente caso você não defina nenhuma policy para a chave
+- Criada automaticamente caso você não defina nenhuma policy para a chave.
+
 - Garante acesso total à chave para todos os usuários da conta que tem permissão de usar o KMS.
 
 ### Custom Key Policy
 - Define usuários e roles que podem ter acesso à chave.
+
 - Muito útil para gerenciar os acessos cross-account às suas chaves.
