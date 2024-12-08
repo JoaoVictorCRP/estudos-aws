@@ -11,13 +11,12 @@ Anotações avançadas sobre o funcionamento do IAM para a certificação Securi
 ## Roles
 - Uma role é uma identidade do IAM que possui permissões específicas.
 - Elas podem ser assumidas por usuários, aplicações e recursos AWS.
-
-
+___
 ## MFA
 - O Multi-factor authentication é um processo extra de autenticação, no qual é gerado um TOTP (Time-based one-time password).
 - O MFA Virtual da AWS pode ser configurado em qualquer software de autenticação, como o Google Authenticator, que é o que eu uso.
 - O **MFA Físico** já é um pouco mais complicado, baseia-se no uso de um dispositivo de geração de tokens físico, que é fornecido por terceiros, e não pela própria AWS, por conta disso ele ==sai mais caro==. Porém é mais seguro, visto que ele pode ser escondido fisicamente.
-
+___
 ## STS (Security Token Service)
 - **Utilizado para definir chaves de acessos temporárias para uma entidade.**
 - Utiliza session tokens para controlar as credenciais temprárias.
@@ -27,7 +26,7 @@ Anotações avançadas sobre o funcionamento do IAM para a certificação Securi
 	- **Acessos cross-account;
 	- **Roles IAM.**
 
-### Password Policy
+## Password Policy
 - Em Account Settings, no IAM, é possível definir uma política de senha própria para os usuários da conta, é possível definir:
 	- Mínimo de caracteres
 	- Pelo menos 1 maiúsculos e minúsculos
@@ -37,7 +36,15 @@ Anotações avançadas sobre o funcionamento do IAM para a certificação Securi
 	- ==Proibição dos usuários mudarem a própria senha==
 	- ==Proibição da reutilização de senha.==
 
+___
+## IAM Access Analyzer
+- Este é um serviço muito útil para controlar recursos que são compartilhados externamente, como buckets, Roles, Chaves do KMS etc.
+- Através dele, ==é possível definir uma **ZoneofTrust**, que especifica contas AWS de confiança,== que podem acessar ao recurso.
+	- ==Após o estabelecimento da ZoneofTrust, todos os acessos vindos de entidades que não estão listados nela serão reportados como findings.==
 
+![[IAMAccessAnalyzer.png]]
+
+___
 # OBSERVAÇÕES
 - É possível criar até 5000 usuários em uma conta AWS.
 - Quando criado, um usuário não tem permissão de fazer nada, você deve atribuir permissões a ele.
