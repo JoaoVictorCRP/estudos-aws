@@ -43,6 +43,9 @@ ___
 	- ==Após o estabelecimento da ZoneofTrust, todos os acessos vindos de entidades que não estão listados nela serão reportados como findings.==
 
 ![[IAMAccessAnalyzer.png]]
+___
+
+
 
 ___
 # OBSERVAÇÕES
