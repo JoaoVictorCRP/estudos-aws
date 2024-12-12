@@ -105,3 +105,12 @@ Compara o ARN do recurso que está fazendo o request service-to-service com o AR
 - **aws:SourceVpc** => Restringe o acesso para uma ==VPC específica==.
 
 **NOTA**: estas regras são bastante utilizadas nas bucket policies do S3.
+
+## IAM Boundaries
+- As ==permission boundaries **limitam os recursos e ações que uma política pode permitir**.
+
+- São utilizáveis em usuários e roles (**NÃO DÁ PRA USAR EM GRUPOS**)
+
+![[PermissionBoundaries.png]]
+
+- Veja no exemplo acima, a boundary permite que, independente da policy atrelada à entidade, esta policy só pode permitir acesso a opções relacionadas ao S3, CloudWatch e EC2. Portanto, caso ele tenha uma política que permita o IAM, ela não valerá de nada por conta do boundary.
