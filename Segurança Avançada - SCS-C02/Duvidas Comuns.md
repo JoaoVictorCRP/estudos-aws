@@ -20,3 +20,4 @@ Nesse caso, a melhor opção é liberar o acesso através de uma bucket policy q
 	"Resource": "arn:aws:s3:::bucket-da-conta-b/*" 
 }
 ```
+
