@@ -21,3 +21,17 @@ Nesse caso, a melhor opção é liberar o acesso através de uma bucket policy q
 }
 ```
 
+
+## ABAC vs RBAC
+
+- **Role-Based Access Control (RBAC)**
+	- Estratégia baseada em controlar acessos pelas funções que os usuários de cada departamento tem acesso.
+	- Permite implementar permissões granulares, que concedem acesso somente a recursos específicos de um serviço.
+	- Exemplo: Administrativo, DBA, Desenvolvedor
+	- **DESVANTAGEM:** Precisará atualizar a policy quando criar um recurso.
+
+- **Attribute-Based Access Control (ABAC)**
+	- Estratégia baseada em controlar acessos baseados nas tags (atributos) do usuário ou do recurso.
+	- Permissões garantidas automaticamente, pois tudo é baseado no atributo.
+	- Requer a criação de menos policies.
+	- ==É possível obter os atributos dos usuários que estiverem acessando através de um diretório corporativo (SAML 2.0, IdP).==
