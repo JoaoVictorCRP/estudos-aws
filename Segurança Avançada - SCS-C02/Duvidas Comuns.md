@@ -35,3 +35,4 @@ Nesse caso, a melhor opção é liberar o acesso através de uma bucket policy q
 	- Permissões garantidas automaticamente, pois tudo é baseado no atributo.
 	- Requer a criação de menos policies.
 	- ==É possível obter os atributos dos usuários que estiverem acessando através de um diretório corporativo (SAML 2.0, IdP).==
+

@@ -101,3 +101,17 @@ Ambos serviços permitem que você realize uma query SQL dentro de um bucket S3,
 - ==O **S3 Select** faz queries== apenas ==dentro de um único objeto==.
 
 - ==O **Amazon Athena** faz buscas dentro de um bucket inteiro==, incluindo os prefixos e os prefixos dentro dos prefixos, eita!
+
+___
+## Detalhes Menores
+
+
+ - **EMR (Elastic Map Reduce)**: Utilizado para executar clusters de dados Hadoop, Spark, Presto etc.
+
+- **Hosted Zones privadas no Route 53**: Servem para armazenar registros em uma ou mais VPCs, permitindo que você modifique como o tráfego do domínio será roteado dentro da sua VPC.
+
+- **Port Forwarding**: ==Utilizado pelas NAT Instances== para controlar o tráfego na VPC.
+
+- **Golden AMIs**: Nome dado a uma AMI que já possui instalado a sua aplicação, seus componentes e as dependências do SO. Utilizado para uma instanciação rápida da aplicação, ou então para ser usada como modelo no ASG
+
+- **DR Strategies** - [https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html)
