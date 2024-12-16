@@ -36,3 +36,18 @@ Nesse caso, a melhor opção é liberar o acesso através de uma bucket policy q
 	- Requer a criação de menos policies.
 	- ==É possível obter os atributos dos usuários que estiverem acessando através de um diretório corporativo (SAML 2.0, IdP).==
 
+
+
+## IMDSv1 vs. IMDSv2
+IMDS, Instance Metadata Service, é a forma como AWS denomina a obtenção de metadados de uma instância enquanto dentro dela. Temos duas versões do IMDS. Sendo eles: 
+
+- **IMDSv1**: Método baseado em solicitação/resposta. Nesta versão é que ocorre ==o clássico acesso direto com `curl http://169.254.169.254/latest/meta-data`.==
+
+- **IMDSv2**: Método orientado a sessões utilizando tokens, garante maior segurança. Ele é feito em dois passos. Primeiro você obtém o token:
+```bash 
+$ TOKEN=curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" \ && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/
+```
+	- Depois, você faz a requisição, passando o token como um Header:
+```bash 
+$ curl http://169.254.169.254/latest/meta-data/reservation-id -H "X-aws-ec2-metadata-token: $TOKEN" 
+```
