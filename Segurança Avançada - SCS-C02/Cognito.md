@@ -11,3 +11,19 @@ Você já sabe que o Cognito é um ==serviço que implementa de maneira facilita
 
 ### Integrações do CUP
 - É possível integrar o CUP com o **API Gateway** e também com o **Application Load Balancer**
+___
+## Identity Pools (Federated Identities)
+- Atribui credenciais temporárias da AWS para usuários da aplicação.
+
+- Em uma Identity Pool podemos incluir:
+	- Provedores públicos (Login com Facebook, Google, Apple, etc.)
+	- Usuários que já estão em um User Pool.
+	- Provedores de identidade SAML ou OpenID Connect.
+	- Sistema de autenticação customizada (A qual está inclusa na aplicação do desenvolvedor que usará o Cognito).
+
+- Através do Identity Pool, podemos permitir o acesso temporário de guests/anônimos.
+
+- Após pegar uma credencial temporário pelo Identity Pool, os usuários poderão acessar os serviços AWS diretamente, ou então através do API Gateway.
+	- ==As policies aplicadas aos usuários são definidas no próprio cognito.==
+
+![[IdentityPoolsDiagram.png]]
