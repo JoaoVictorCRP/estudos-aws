@@ -21,3 +21,7 @@ Para cumprir com requisitos de conformidade, a AWS possui diversos serviços par
 - ==Os logs podem ser analisados rapidamente utilizando o Amazon Athena==, caso eles estejam armazenados em um bucket S3.
 
 - Para arquivar os logs, use o S3 Glacier, e se quiser proteger estes logs, dá pra usar um Vault Lock para cumprir ainda mais com requisitos de conformidade.
+
+- Para garantir a integridade dos logs entregues pelo CloudTrail, habilite a opção _"Cloudtrail log file integrity validation"_. 
+
+- Por padrão, os logs do CloudTrail são criptografados utilizando uma chave S3-SSE. É possível também definir uma lifecycle rule para arquivar ou deletar os logs automaticamente.
