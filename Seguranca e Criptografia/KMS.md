@@ -13,33 +13,54 @@
 ___
 ## Tipos de Chave
 ### Symmetric (AES-256)
-- Uma chave única para criptografar e descriptografar.
+- ==Uma única chave== para criptografar e descriptografar.
 - **Serviços AWS que são integrados com o KMS utilizam esse tipo de chave.**
 - Você nunca terá acesso à chave em si, você apenas faz chamadas de API para utilizar ela.
+- ==Necessária para **envelope encryption**==.
 
 ### Asymmetric (RSA & ECC)
-- Par de chaves pública(que realiza a criptografia) e privada(que realiza a descriptografia).
+- ==Par de chaves==:
+	- Uma chave **pública**, que é utilizada para **criptografar**. 🔒
+	- Uma chave **privada**, que é utilizada para **descriptografar**. 🔓
+	
 - A chave pública é baixável, mas você não pode ter acesso à chave privada.
-- **USE CASE: Criptografia fora da AWS, onde o usuário não consegue chavar a API do KMS (Ideal para on-premise)**
+- **USE CASE: Criptografia fora da AWS, onde o usuário não consegue chamar a API do KMS (Ideal para on-premise)**
  
 ___
 ## O Gerenciamento de Chaves
 ### AWS Owned Keys (Grátis)
-- São chaves totalmente gerenciadas pela AWS,  utilizadas para a criptografia de um único serviço específico, não aparecem no painel do KMS. 
-- **Exemplos**: SSE-SE, SSE-SQS, SSE-DDB.
+- São chaves ==totalmente gerenciadas pela AWS,==  utilizadas para a criptografia de um único serviço específico, não aparecem no painel do KMS. 
+
+- Você não pode visualizar, usar, rastrear ou auditorar esse tipo de chave
+
+- **Exemplos**: SSE-S3, SSE-SQS, SSE-DDB.
 
 ### AWS Managed Key (Grátis)
-- Chaves gerenciadas pela AWS para serviços específicos, essas chaves não podem ser utilizadas em nenhum outro serviço além do qual ela foi definida.
+- Chaves gerenciadas pela AWS para serviços específicos, essas chaves **não podem ser utilizadas em nenhum outro serviço além do qual ela foi definida.**
+
+- ==A **AWS** rotaciona essas chaves automaticamente a cada 1 ano.==
+
 - **Exemplos**: aws/rds, aws/ebs. (aws/`nome-do-servico`)
 
 ### Customer Managed Keys Criada no KMS ($1/mês)
 - Chaves gerenciadas por você, o consumidor.
+
 - Criada dentro do KMS.
+
+- É possível habilitar ou desabilitar a chave.
+
+- Permite acoplar uma **==Key Policy** para permitir que apenas recursos específicos possam ter acesso à chave.==
+
+- **Auditoria disponível pelo CloudTrail.**
+
+- O tempo mínimo para realizar a rotação é **90 dias**.
 
 ### Customer Managed Keys Importada ($1/mês)
 - Chaves gerenciadas por você, o consumidor.
+
 - Criada em algum outro serviço de criptografia ou pelo terminal.
 
+- ==**Impossível rotacionar diretamente o conteúdo da chave**. Caso queira fazer isso, você pode apenas importar uma chave nova e deixar de usar a chave antiga.==
 ___ 
 ## Rotação Automática
 
