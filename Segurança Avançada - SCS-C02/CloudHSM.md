@@ -7,3 +7,5 @@ O CloudHSM (Hardware Security Module) ajuda a cumprir requisitos de conformidade
 - O CloudHSM monitora automaticamente a integridade dos clusters e instâncias HSM, garantindo balanceamento de carga.
 
 - É possível transferir chaves de HSMs on premise para o CloudHSM.
+
+- ==É possível integrar com o KMS==. Nesse caso, nós apenas armazenaremos o chave em um cluster CloudHSM. Podendo usar essa chave com uma chamada de API do KMS.
