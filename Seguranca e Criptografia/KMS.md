@@ -7,11 +7,13 @@
 
 - A integração com a maioria dos serviços da AWS é bem fácil de configurar, bastando marcar um checkbox pelo console.
 
+- O ==tamanho máxima== de um dado criptograda pelo KMS ==é 4KB==. Se quiser criptografar algo maior que isso, é necessário utilizar **Envelope Encryption**.
+
 - ==Você paga $0.03 a cada 10.000 chamadas para API do KMS.==
 
 - ==É um serviço regional. No entanto, é possível ativar a opção "Multi-region key", o que permitirá que a chave fique disponível em outras regiões== através de replicação.
 ___
-## Tipos de Chave
+## **Tipos de Chave**
 ### Symmetric (AES-256)
 - ==Uma única chave== para criptografar e descriptografar.
 - **Serviços AWS que são integrados com o KMS utilizam esse tipo de chave.**
@@ -27,7 +29,7 @@ ___
 - **USE CASE: Criptografia fora da AWS, onde o usuário não consegue chamar a API do KMS (Ideal para on-premise)**
  
 ___
-## O Gerenciamento de Chaves
+## **O Gerenciamento de Chaves**
 ### AWS Owned Keys (Grátis)
 - São chaves ==totalmente gerenciadas pela AWS,==  utilizadas para a criptografia de um único serviço específico, não aparecem no painel do KMS. 
 
@@ -55,15 +57,14 @@ ___
 
 - O tempo mínimo para realizar a rotação é **90 dias**.
 
-### Customer Managed Keys Importada ($1/mês)
+### Customer Managed Keys **Importada** ($1/mês)
 - Chaves gerenciadas por você, o consumidor.
 
 - Criada em algum outro serviço de criptografia ou pelo terminal.
 
 - ==**Impossível rotacionar diretamente o conteúdo da chave**. Caso queira fazer isso, você pode apenas importar uma chave nova e deixar de usar a chave antiga.==
 ___ 
-## Rotação Automática
-
+## **Rotação Automática**
 - **Gerenciadas pela AWS**: Rotação automática a cada 1 ano.
 
 - **Gerenciada pelo consumidor**: Automática ou sob demanda (primeiramente, precisará ser ativada pelo consumidor através pelo console).
@@ -71,7 +72,7 @@ ___
 - **Chave Importada (consumidor)**: Só é possível utilizar rotação manual.
 
 ___
-## Replicação de um EBS criptografado em outra região
+## **Replicação de um EBS criptografado em outra região**
 - Como o KMS é um serviço regional, não é possível usar a mesma chave utilizada para criptografar um EBS na região A em uma região B.
 
 - Por isso, para realizar a replicação de um volume criptografado, é necessário enviar o snapshot de uma região para a outra e durante este envio, selecione uma chave da região B para criptografar o snapshot. 
@@ -82,7 +83,6 @@ ___
 
 ___
 ### Chaves Multi Região
-
 - Quando a opção "Multi-region" é ativada para uma key, ela criará uma réplica em outras região.
 
 - ==Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.
@@ -95,7 +95,7 @@ ___
 
 - **USE CASES**: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
 ___
-## Políticas de Chave
+## **Políticas de Chave**
 - O controle das chaves KMS é feito através de policy, semelhante às bucket policies do S3.
 
 - Veja os tipos de policies disponíveis:

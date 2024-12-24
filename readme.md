@@ -3,7 +3,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 
 ## Estudar
-- [ ] KMS envelope encryption
+- [x] KMS envelope encryption: Caso o dado a ser criptografado é >4KB, use a API **GenerateDataKey**.
 
 ## Revisões e Detalhes
 
