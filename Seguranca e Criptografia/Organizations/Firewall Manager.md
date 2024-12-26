@@ -22,3 +22,7 @@
 	- Filtragem de tráfego por domínio e endereço IP
 
 - ==Embora o AWS Network Firewall ofereça funcionalidades mais avançadas em comparação com as NACLs, ele não substitui diretamente as NACLs.== As NACLs continuam sendo usadas para controle básico de tráfego em nível de sub-rede, enquanto o AWS Network Firewall fornece recursos de segurança adicionais e mais granulares.
+
+## Anotações
+
+- Para ==habilitar o **Firewall Manager**== em uma organização, ==é necessário ativar o AWS Config em cada uma das contas da organização==.
