@@ -18,7 +18,7 @@ O Envelope Encryption deve ser utilizado para criptografar um dado maior que 4KB
 
 
 ## KMS Grants
-- Permite garantir acesso à chaves específicas do KMS para outras contas AWS e também para usuários e roles dentro da sua própria conta.
+- Permite garantir acesso a chaves específicas do KMS para outras contas AWS, também pode ser usado com usuários e roles dentro da própria conta.
 
 - ==**Podemos conceder acesso temporário**. ==(É justamente isso que destaca esse recurso perante a uma key policy ou permissão direta do IAM)
 
