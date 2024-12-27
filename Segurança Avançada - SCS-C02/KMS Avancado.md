@@ -32,3 +32,17 @@ O Envelope Encryption deve ser utilizado para criptografar um dado maior que 4KB
 
 	- Veja um diagrama abaixo de como funciona "por debaixo dos panos" com uma EC2 com volume criptografado com chave do KMS:
 		![[KMS-Grant.png]]
+
+## Alias 
+Um **Alias** no KMS funciona como um ==apelido para referenciar uma chave de criptografia==. Ele é usado para facilitar o gerenciamento e a referência às chaves sem precisar lidar diretamente com o **ARN** ou **ID da chave**.
+
+- Cada Alias é associado a **uma** Customer Master Key (CMK).
+- Uma CMK pode ter mais de um Alias apontando para ela.
+- Todo Alias deve começar com o prefixo `alias/`
+
+#### Casos de uso
+- **Rotacionamento de Chaves**: Em vez de atualizar cada recurso ou aplicação para usar uma nova CMK, você cria uma nova CMK e aponta o Alias existente para ela.
+	- Exemplo:
+		- Antes: `alias/my-key` -> CMK antiga
+		- Depois: `alias/my-key` -> CMK nova
+- **Segurança e boa prática**: Usar aliases em vez de IDs de chave diretamento no código reduz o risco de erros humanos e facilita auditorias.
