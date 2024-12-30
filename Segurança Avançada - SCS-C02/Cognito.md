@@ -17,7 +17,9 @@ ___
 
 - Identidade Federada: Usuários podem logar com suas conta do Facebook, Google, ou serviço com SAML.
 
-### Integrações do CUP
+- **User Groups**: ==Os User Groups nas User Pools permitem organizar usuários de forma lógica e associar permissões específicas baseadas em seus grupos.== Isso simplifica o gerenciamento de acesso e autorizações, especialmente em cenários onde diferentes níveis de permissões são necessários para grupos distintos de usuários.
+
+### Integrações
 - É possível integrar o CUP com o **API Gateway** e também com o **Application Load Balancer**
 
 ___

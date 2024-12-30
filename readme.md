@@ -4,8 +4,11 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 ## Estudar
 - [x] KMS envelope encryption: Caso o dado a ser criptografado é >4KB, use a API **GenerateDataKey**.
-- [ ] **Data Key Caching**
-- [ ] **User groups nas user pools do Cognito**
+
+- [ ] **Data Key Caching**: Realiza o armazenamento em cache de chaves do KMS através do Encryption SDK. Garante uma melhor performance e redução de custos, pois evita chamadas de API desnecessárias.
+
+- [x] **User groups nas user pools do Cognito**: Os user groups do Cognito permitem um gerenciamento de permissões mais eficiente, garantindo a possibiliade de filtrar permissões de acordo com o grupo que o usuários pertence.
+
 - [ ] **Single e multi user rotation no Secrets Manager**
 ## Revisões e Detalhes
 
