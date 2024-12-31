@@ -29,35 +29,35 @@ ___
 - **USE CASE: Criptografia fora da AWS, onde o usuário não consegue chamar a API do KMS (Ideal para on-premise)**
  
 ___
-## **O Gerenciamento de Chaves**
-### AWS Owned Keys (Grátis)
+## **O Gerenciamento de Chaves (Customer Master Keys)**
+### AWS Owned CMK (Grátis)
 - São chaves ==totalmente gerenciadas pela AWS,==  utilizadas para a criptografia de um único serviço específico, não aparecem no painel do KMS. 
 
 - Você não pode visualizar, usar, rastrear ou auditorar esse tipo de chave
 
 - **Exemplos**: SSE-S3, SSE-SQS, SSE-DDB.
 
-### AWS Managed Key (Grátis)
+### AWS Managed CMK (Grátis)
 - Chaves gerenciadas pela AWS para serviços específicos, essas chaves **não podem ser utilizadas em nenhum outro serviço além do qual ela foi definida.**
 
 - ==A **AWS** rotaciona essas chaves automaticamente a cada 1 ano.==
 
 - **Exemplos**: aws/rds, aws/ebs. (aws/`nome-do-servico`)
 
-### Customer Managed Keys Criada no KMS ($1/mês)
+### Customer Managed CMK | **Criada no KMS** ($1/mês)
 - Chaves gerenciadas por você, o consumidor.
 
 - Criada dentro do KMS.
 
 - É possível habilitar ou desabilitar a chave.
 
-- Permite acoplar uma **==Key Policy** para permitir que apenas recursos específicos possam ter acesso à chave.==
+- Permite acoplar uma **==Key Policy** para permitir que apenas entidades específicas possam ter acesso à chave.==
 
 - **Auditoria disponível pelo CloudTrail.**
 
 - O tempo mínimo para realizar a rotação é **90 dias**.
 
-### Customer Managed Keys **Importada** ($1/mês)
+### Customer Managed CMK | **Importada** ($1/mês)
 - Chaves gerenciadas por você, o consumidor.
 
 - Criada em algum outro serviço de criptografia ou pelo terminal.
