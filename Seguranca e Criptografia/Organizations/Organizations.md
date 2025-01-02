@@ -43,4 +43,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 - SCPs não se aplicam a conta root (ela sempre terá `AdministratorAccess`)
 
 - Você pode aninhar OUs (Colocar OU dentro de OU)
+
 - SCPs se aplicam inclusive ao usuário root das contas membros.
+
+- ==É possível criar uma **trilha** do **CloudTrail** em uma organização inteira (em todas as contas, em todas as regiões) a partir da conta gerenciadora.==

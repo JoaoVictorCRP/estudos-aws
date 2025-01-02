@@ -27,3 +27,5 @@ Para cumprir com requisitos de conformidade, a AWS possui diversos serviços par
 - Por padrão, os logs do CloudTrail são criptografados utilizando uma chave S3-SSE. É possível também definir uma lifecycle rule para arquivar ou deletar os logs automaticamente.
 
 - Os ==logs do **CloudTrail** de serviços globais==, como o IAM, CloudFront e STS ==são registrados somente na região *us-east-1*.==
+
+- É possível estabelecer uma trilha do CloudTrail em uma organização inteira direto da conta administradora/gerenciadora. Como foi referido na nota do [[Organizations#Detalhes]].
