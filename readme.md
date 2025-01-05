@@ -11,7 +11,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **Single e multi user rotation no Secrets Manager**: Estratégias para rotação de segredos relacionados a uma instância RDS. O single user utiliza as credenciais armazenadas no próprio secret para fazer a rotação. O multi user cria um clone do usuário armazenado durante a rotação para auxliar na alteração da senha do usuário principal.
 
-- [ ] **Traffic Mirroring para sniffing**
+- [x] **Traffic Mirroring para sniffing**: Se quiser inspecionar pacotes de rede para solução de problemas na infraestrutura, você deve configurar uma ferramenta de monitoramento em uma instância, como o _Wireshark_, por exemplo. A partir disto, você deve habilitar o traffic mirroring na VPC para que você possa copiar dados de tráfego de uma *ENI (Elastic Network Interface)* e enviá-los para outra.
 
 - [ ] **SSE-C para criptografia de buckets S3**
 
