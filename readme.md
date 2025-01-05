@@ -13,7 +13,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **Traffic Mirroring para sniffing**: Se quiser inspecionar pacotes de rede para solução de problemas na infraestrutura, você deve configurar uma ferramenta de monitoramento em uma instância, como o _Wireshark_, por exemplo. A partir disto, você deve habilitar o traffic mirroring na VPC para que você possa copiar dados de tráfego de uma *ENI (Elastic Network Interface)* e enviá-los para outra.
 
-- [ ] **SSE-C para criptografia de buckets S3**
+- [x] **SSE-C para criptografia de buckets S3**: É possível estabelecer criptografia *server-side* em objetos utilizando uma chave fornecida por você, cliente, estas são chamdas _customer-provided keys_. Desta forma, você não precisa realizar criptografia *client-side*(antes de realizar o upload) para usar a sua própria chave, basta configurar esta chave na AWS.
 
 ## Revisões e Detalhes
 
