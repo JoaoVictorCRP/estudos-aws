@@ -15,6 +15,11 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **SSE-C para criptografia de buckets S3**: É possível estabelecer criptografia *server-side* em objetos utilizando uma chave fornecida por você, cliente, estas são chamdas _customer-provided keys_. Desta forma, você não precisa realizar criptografia *client-side*(antes de realizar o upload) para usar a sua própria chave, basta configurar esta chave na AWS.
 
+- [ ] **AWS PCA (Private Certificate Authority)**
+
+- [ ] **Segurança no CloudFormation** 
+
+
 ## Revisões e Detalhes
 
 - **AWS Managed Keys**: Não é possível habilitar ou desabilitar a ==rotação automática== das chaves gerenciadas pela AWS, isso ==é feito automaticamente pela própria AWS no período de 1 ano.==
