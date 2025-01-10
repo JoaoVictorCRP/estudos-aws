@@ -15,7 +15,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **SSE-C para criptografia de buckets S3**: É possível estabelecer criptografia *server-side* em objetos utilizando uma chave fornecida por você, cliente, estas são chamdas _customer-provided keys_. Desta forma, você não precisa realizar criptografia *client-side*(antes de realizar o upload) para usar a sua própria chave, basta configurar esta chave na AWS.
 
-- [ ] **AWS PCA (Private Certificate Authority)**
+- [x] **AWS PCA (Private Certificate Authority)**: Serviço para emissão de certificados TLS/SSL privados (que são usados internamente), incluído no ACM.
 
 - [ ] **Segurança no CloudFormation** 
 
