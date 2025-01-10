@@ -6,7 +6,8 @@ Uma **Ceritificate Authority (CA)** é uma entidade confiável responsável por 
 ## Como funciona o AWS Private CA?
 
 #### Criação de uma CA privada
-- Você cria uma Autoridade Certificadora Raiz (Root CA) ou uma CA Subordinada no AWS Private CA.
+- Você cria uma Autoridade Certificadora Raiz (Root CA) ou uma CA Subordinada no AWS Private CA. 
+	- **Observação: o custo fixo mental de uma CA ativa (root ou subordinate) é ==$400.==** Essa cobrança ocorre independentemente da quantidade de certificados emitidos.
 
 - Essa CA pode emitir certificados privados para uso interno, como para servidores, aplicações e dispositivos IoT.
 
