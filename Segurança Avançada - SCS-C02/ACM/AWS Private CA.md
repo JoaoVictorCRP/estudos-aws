@@ -30,3 +30,5 @@ Uma **Ceritificate Authority (CA)** é uma entidade confiável responsável por 
 - **Integração com o KMS**: É possível integrar com o KMS para proteger as chaves privadas da CA.
 
 - **Integração com o ACM**: Fácil gerenciamento e emissão de certificados direto pelo ACM.
+
+- **==Certificados não possuem resource policies==**. (Errei uma questão no simulado por não saber disso)

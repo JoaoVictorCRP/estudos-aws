@@ -26,8 +26,12 @@ ___
 
 - **O ACM é um serviço regional**, portanto caso você possua uma aplicação global, com múltiplos ALBs, por exemplo, você vai precisar gerenciar múltiplos certificados SSL em cada região em que a aplicação está hospedada.
 
-- Não é possível copiar certificados entre regiões.
+- **Não é possível copiar certificados entre regiões**.
 
 - **==Os certificados do ACM não são instalados em servidores, e sim em serviços da AWS==** (ELB, CloudFront, API Gateway), é justamente por isso que eles são gratuitos.
 
 - Como escrito acima, **os certificados do ACM não podem ser associados à instâncias EC2.**
+
+- **==Certificados não possuem resource policies==**. (Errei uma questão no simulado por não saber disso).
+
+- Não é possível realizar a renovação automática de um certificado que **NÃO** está associado a nenhum recurso AWS.
