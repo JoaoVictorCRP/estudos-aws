@@ -51,3 +51,13 @@ $ TOKEN=curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-meta
 ```bash 
 $ curl http://169.254.169.254/latest/meta-data/reservation-id -H "X-aws-ec2-metadata-token: $TOKEN" 
 ```
+
+
+## Cognito User Pools x Cognito Identity Pools
+
+- O **Cognito User Pools** funciona como uma **"base de dados serverless"** para armazenar dados de autenticação dos usuários finais da aplicação, tudo de maneira totalmente gerenciada. ==**Pensou em CUP? Pensou em AUTENTICAÇÃO.**==
+
+
+- O **Cognito Identity Pools** é utilizado para forncer **autorização** e acesso temporário a recursos da AWS (ex: S3, DynamoDB, Lamb) utilizando **Roles.** ==**Pensou em CIP? Pensou em AUTORIZAÇÃO**==.
+	- Os usuários podem vir do **CUP**, de **IDPs** ou mesmo ser um login anônimo.
+

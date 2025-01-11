@@ -17,6 +17,11 @@ ___
 
 - Identidade Federada: Usuários podem logar com suas conta do Facebook, Google, ou serviço com SAML.
 
+- Gera um JSON Web Token (JWT) ao autenticar o usuário com os tokens:
+	- **ID Token**: Informações sobre o usuário autenticado.
+	- **Access Token**: Permissões para acessar APIs protegidas.
+	- **Refresh Token**: Utilizado para obter novos tokens de acesso.
+
 - **User Groups**: ==Os User Groups nas User Pools permitem organizar usuários de forma lógica e associar permissões específicas baseadas em seus grupos.== Isso simplifica o gerenciamento de acesso e autorizações, especialmente em cenários onde diferentes níveis de permissões são necessários para grupos distintos de usuários.
 
 ### Integrações
@@ -27,14 +32,14 @@ ___
 - Atribui credenciais temporárias da AWS para usuários da aplicação.
 
 - Em uma Identity Pool podemos incluir:
-	- Provedores públicos (Login com Facebook, Google, Apple, etc.)
-	- Usuários que já estão em um User Pool.
-	- Provedores de identidade SAML ou OpenID Connect.
+	- **Provedores públicos** (Login com Facebook, Google, Apple, etc.)
+	- Usuários que já estão em um **User Pool**.
+	- Provedores de identidade **SAML ou OpenID Connect**.
 	- Sistema de autenticação customizada (A qual está inclusa na aplicação do desenvolvedor que usará o Cognito).
 
-- Através do Identity Pool, podemos permitir o acesso temporário de guests/anônimos.
+- ==Através do Identity Pool, podemos permitir o acesso temporário de guests/anônimos==.
 
 - Após pegar uma credencial temporário pelo Identity Pool, os usuários poderão acessar os serviços AWS diretamente, ou então através do API Gateway.
-	- ==As policies aplicadas aos usuários são definidas no próprio cognito.==
+	- ==As policies aplicadas aos usuários são definidas no próprio Cognito.==
 
 ![[IdentityPoolsDiagram.png]]
