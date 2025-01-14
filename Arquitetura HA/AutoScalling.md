@@ -50,7 +50,7 @@ ___
 
 ## Integração com Alarmes do CloudWatch
 - É possível escalonar um ASG baseado nos alarmes do CloudWatch
-![ASG e CloudWatch](ASGeCloudWatch.png)
+![ASG e CloudWatch](./images/ASGeCloudWatch.png)
 
 - O Alarme é baseado em uma métrica, por exemplo: "Consumo médio da CPU do ASG está muito alto", daí aumentar número de instâncias.
 

@@ -38,7 +38,7 @@ As seguintes Routing Policies estão disponíveis no Route53:
     </span> Por exemplo: Colocar 10% do tráfico para a região US-EAST-1 e 90% para SA-EAST-1.
 
 - **Latency-based Routing**:<span style="background-color: #e0a800; color: black;font-weight:bold"> Permite rotear o tráfico baseado no ponto de menor latência para o usuário final (região de menor latência)</span>. Para isso, é necessário ativar a opção de registro de latência na EC2 ou ELB que vai receber o apontamento, lembrando que: **Não é porque a região está mais próxima de você que ela terá uma latência menor**. 
-![Slide Latency Based](LatencyBased.png)
+![Slide Latency Based](./images/LatencyBased.png)
 
 - **Failover Routing**: Utilizado quando você deseja montar um esquema de backup. Exemplo, Seu site primário fica na EU-WEST-2 e seu site secundário fica na AP-SOUTHEAST-2, se o primário falhar no health check, o apontamento passará a pontar para o secundário
 
