@@ -82,3 +82,28 @@ No AWS Organizations temos duas formas de exercer controle sob uma organização
 - Enquanto as **SCPs** restringem **ações** de IAM, as **RCPs** restringem **recursos** que podem ser utilizados ou configurados, adicionando uma camada extra de controle.
 
 - **Restringem configurações específicas de um recurso**.
+
+
+## Root CA x Subordinate CA (AWS Private CA)
+
+### Root CA
+- A **Root CA** é autoridade certificadora principal, no topo da hierarquia de confiança.
+
+- É **autossuficiente**, pois assina seu próprio certificado
+
+- ==**Única entidade confiável** na hierarquia de CA==, pois todas as subordinate CAs e os certificados finais derivam dela.
+
+- É ela quem ==emite certificados para as subordinate CAs.==
+
+- **Não é recomendada para emissão direta de certificados,** para isso use uma subordinate.
+
+## Subordinate CA 
+- Opera sob a autoridade de uma **Root CA**.
+
+- Seu certificado digital é assinado pela Root CA **ou** por outra Subordinate CA.
+
+- É a responsável pela emissão de certificados para usuários, recursos e dispositivos.
+
+##### 🌟É Possível Criar uma Subordinate CA Sem Ter uma Root CA?
+
+- ==**Sim**==, é possível criar uma Subordinate CA sem ter uma Root CA na AWS Private CA, ==**mas você precisa de uma Root CA externa para assinar o certificado da Subordinate CA**.==
