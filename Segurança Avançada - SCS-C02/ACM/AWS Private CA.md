@@ -32,3 +32,6 @@ Uma **Ceritificate Authority (CA)** é uma entidade confiável responsável por 
 - **Integração com o ACM**: Fácil gerenciamento e emissão de certificados direto pelo ACM.
 
 - **==Certificados não possuem resource policies==**. (Errei uma questão no simulado por não saber disso)
+
+## Anotações
+- Os usuários podem gerar um **audit report de uma private CA**, o report pode ser salvo em um bucket S3. (Lembre-se de ter uma bucket policy condizente).
