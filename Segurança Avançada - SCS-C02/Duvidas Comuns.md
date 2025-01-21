@@ -61,3 +61,24 @@ $ curl http://169.254.169.254/latest/meta-data/reservation-id -H "X-aws-ec2-meta
 - O **Cognito Identity Pools** é utilizado para forncer **autorização** e acesso temporário a recursos da AWS (ex: S3, DynamoDB, Lamb) utilizando **Roles.** ==**Pensou em CIP? Pensou em AUTORIZAÇÃO**==.
 	- Os usuários podem vir do **CUP**, de **IDPs** ou mesmo ser um login anônimo.
 
+
+## SCPs x RBPs
+No AWS Organizations temos duas formas de exercer controle sob uma organização, podemos utilizar **Service Control Policies (SCPs)** ou **Resource-Based Policies (RBPs)**. Vejamos as diferenças
+
+#### Service Control Policies (SCPs)
+- São políticas ==aplicadas a nível da conta ou organização==.
+
+- Servem como **limite de permissão**.
+
+- São **aplicadas em OUs.**
+
+- ==**Não concede permissões por si só**, mas **restringe** permissões concedidas== em políticas IAM ou outras políticas dentro da conta.
+
+- **Restringem ações do IAM**.
+
+#### Resource-Based Policies
+- Tipo de política que permite controlar quais recursos podem ser criados ou utilizados em uma conta, com base em condições como **tags** e **atributos de recurso**.
+
+- Enquanto as **SCPs** restringem **ações** de IAM, as **RCPs** restringem **recursos** que podem ser utilizados ou configurados, adicionando uma camada extra de controle.
+
+- **Restringem configurações específicas de um recurso**.
