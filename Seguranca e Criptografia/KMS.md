@@ -7,7 +7,7 @@
 
 - A integração com a maioria dos serviços da AWS é bem fácil de configurar, bastando marcar um checkbox pelo console.
 
-- O ==tamanho máxima== de um dado criptograda pelo KMS ==é 4KB==. Se quiser criptografar algo maior que isso, é necessário utilizar **Envelope Encryption**.
+- O ==tamanho máximo== de um dado criptografado pelo KMS ==é 4KB==. Se quiser criptografar algo maior que isso, é necessário utilizar **Envelope Encryption**.
 
 - ==Você paga $0.03 a cada 10.000 chamadas para API do KMS.==
 
@@ -44,30 +44,35 @@ ___
 
 - **Exemplos**: aws/rds, aws/ebs. (aws/`nome-do-servico`)
 
-### Customer Managed CMK | **Criada no KMS** ($1/mês)
+### Customer Managed CMK 
 - Chaves gerenciadas por você, o consumidor.
-
-- Criada dentro do KMS.
-
-- É possível habilitar ou desabilitar a chave.
-
-- Permite acoplar uma **==Key Policy** para permitir que apenas entidades específicas possam ter acesso à chave.==
 
 - **Auditoria disponível pelo CloudTrail.**
 
-- O tempo mínimo para realizar a rotação é **90 dias**.
+- Permite acoplar uma **==Key Policy** para permitir que apenas entidades específicas possam ter acesso à chave.==
 
-### Customer Managed CMK | **Importada** ($1/mês)
-- Chaves gerenciadas por você, o consumidor.
+- É possível habilitar ou desabilitar a chave.
 
+##### Temos duas modalidades de Customer Managed CMK:
+###### **Criada no KMS** ($1/mês)
+- Criada diretamente no KMS.
+
+- **Rotação automática disponível**: pode ser configurada para ocorrer anualmente.
+
+-  O tempo mínimo para realizar a rotação é **90 dias**.
+
+###### **Importada** ($1/mês)
 - Criada em algum outro serviço de criptografia ou pelo terminal.
 
-- ==**Impossível rotacionar diretamente o conteúdo da chave**. Caso queira fazer isso, você pode apenas importar uma chave nova e deixar de usar a chave antiga.==
+- ==**Não há suporte para rotação automática**==.
+
+- **Para rotacionar, é necessário criar uma nova chave e substituir o alias da chave antiga pela nova.**
+
 ___ 
 ## **Rotação Automática**
 - **Gerenciadas pela AWS**: Rotação automática a cada 1 ano.
 
-- **Gerenciada pelo consumidor**: Automática ou sob demanda (primeiramente, precisará ser ativada pelo consumidor através pelo console).
+- **Gerenciada pelo consumidor**: Automática ou sob demanda (primeiramente, precisará ser ativada pelo consumidor através do console).
 
 - **Chave Importada (consumidor)**: Só é possível utilizar rotação manual.
 
