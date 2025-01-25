@@ -52,6 +52,9 @@ $ TOKEN=curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-meta
 $ curl http://169.254.169.254/latest/meta-data/reservation-id -H "X-aws-ec2-metadata-token: $TOKEN" 
 ```
 
+- **Para forçar forçar a obtenção de metadados apenas via IMDSv2, é possível definir utilizar um Automation Document do SSM**, a partir dele, selecione a opção `EnforceIMDSv2` como `required`. 
+
+	- Também é possível forçar o IMDSv2 através da CLI, basta utilizar o comando de modificação de metadata, veja um exemplo: `aws ec2 modify-instance-metadata-options --instance-id i-abc123456789 --http-tokens required --http-endpoint enabled` **(Repare como http-tokens é definido como required).**
 
 ## Cognito User Pools x Cognito Identity Pools
 
