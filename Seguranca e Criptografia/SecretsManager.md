@@ -2,7 +2,7 @@
 - ==Possui a capacidade de forçar a rotação dos segredos a cada X dias.==
 - ==A geração do segredo em rotação pode ser automatizada através do Lambda.==
 - 100% Integrado com o **RDS**, o que o torna **ideal para armazenar senhas de bancos de dados**.
-- Segredos podem ser criptografados com KMS.
+- Segredos **podem ser criptografados com KMS**.
 - ==Preço : $0.40 por segredo -  valor mensal.==
 	- ==Custo adicional: $0.05 a cada 10.000 chamadas de API.==
 	- Gratuito nos 30 primeiros dias.
@@ -38,3 +38,11 @@
 - **Limitações**:
     - Requer mais configurações no banco de dados (criação de permissões para o clone).
     - Pode ser mais complexo de implementar em ambientes que não suportam múltiplos usuários facilmente.
+
+### Criptografia de segredos com o KMS
+É possível integrar o KMS com o Secrets Manager, o serviço estará utilizando uma key para fazer o `encrypt`/`decrypt` do valor secreto.
+
+- **Somente funciona com keys simétricas**.
+
+### ANOTAÇÕES
+- Secrets possuem Resource Policys, isto é útil para aplicar explicit denies ou garantir acesso de múltiplos usuários a um único secret.
