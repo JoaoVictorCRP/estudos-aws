@@ -37,7 +37,7 @@ Quando o Drift Detection é executado, ele **compara o estado atual dos recursos
 O **cfn-guard** é uma **==ferramenta open-source da AWS que ajuda a validar os templates do CF em relação a políticas de conformidade e boas práticas antes de aplicar as stack**s==.
 
 ##### Como Funciona?
-- **Definição de Regas (`Rules`)**:
+- **Definição de Regras (`Rules`)**:
 	- Você define um conjunto de **regras** de maneira declarativa.
 	- As regras especificam critérios que os recursos de um template devem cumprir, como:
 		- Tipos de instâncias permitidos.

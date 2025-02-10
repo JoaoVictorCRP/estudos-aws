@@ -19,7 +19,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **Segurança no CloudFormation** 
 
-- [ ] **Certificados nos Listeners do ELB**
+- [x] **Certificados nos Listeners do ELB**
 
 ## Revisões e Detalhes
 

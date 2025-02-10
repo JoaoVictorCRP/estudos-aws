@@ -19,7 +19,7 @@ ___
 ___
 ## STS (Security Token Service)
 - **Utilizado para definir chaves de acessos temporárias para uma entidade.**
-- Utiliza session tokens para controlar as credenciais temprárias.
+- Utiliza session tokens para controlar as credenciais temporárias.
 - São utilizadas com:
 	- **Identity Federation** (AD, por exemplo);
 	- **Delegação**;
@@ -27,11 +27,11 @@ ___
 	- **Roles IAM.**
 
 ## Password Policy
-- Em Account Settings, no IAM, é possível definir uma política de senha própria para os usuários da conta, é possível definir:
+- Em Account Settings, no IAM, é possível definir uma política de senha própria para os usuários da conta, podemos estabelecer:
 	- Mínimo de caracteres
 	- Pelo menos 1 maiúsculos e minúsculos
 	- Pelo menos 1 número
-	- Pelo menos 1 caracter especial
+	- Pelo menos 1 caractere especial
 	- Expiração de senha (E se isso requer um reset do administrador)
 	- ==Proibição dos usuários mudarem a própria senha==
 	- ==Proibição da reutilização de senha.==
@@ -39,14 +39,11 @@ ___
 ___
 ## IAM Access Analyzer
 - Este é um serviço muito útil para controlar recursos que são compartilhados externamente, como buckets, Roles, Chaves do KMS etc.
-- Através dele, ==é possível definir uma **ZoneofTrust**, que especifica contas AWS de confiança,== que podem acessar ao recurso.
+
+- Através dele, ==é possível definir uma **ZoneofTrust**, que especifica contas AWS de confiança,== que podem acessar o recurso.
 	- ==Após o estabelecimento da ZoneofTrust, todos os acessos vindos de entidades que não estão listados nela serão reportados como findings.==
 
 ![[IAMAccessAnalyzer.png]]
-___
-
-
-
 ___
 # OBSERVAÇÕES
 - É possível criar até 5000 usuários em uma conta AWS.
