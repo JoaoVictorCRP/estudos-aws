@@ -36,6 +36,16 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 	- ==Se a lambda estiver em uma VPC da sua conta==, você também precisará configurar uma sub-rede e um ==grupo de segurança== para ela.
 
 	- ==Caso a função só precise acessar recursos dentro da própria VPC== (*como uma banco de dados ou uma instância EC2 privada*), ==o NAT Gateway não é necessário==, pois ela consegue se comunicar com esses recursos internamente.
+
+## Lambdas Containerizadas
+- Através do **Lambda Runtime Interface** é possível realizar o deploy de funções lambda como containers, ou mesmo rodá-las localmente.
+
+- Ideal para aplicações de arquitetura containerizada que exigem facilidade no gerenciamento da comunicação entre a lambda e outros microserviços.
+
+- É possível empacotar funções lambda como imagens de **==até 10 GB==**.
+
+-  Não possui custos adicionais além dos preços usuais do Lambda e do ECR.
+
 ## Anotações
 - A cobrança é baseada no tempo que a função levou para a execução completa OU no número de requisições (O primeiro milhão de requisições é gratuito, após isso, será cobrado $0,20 por milhão).
 
