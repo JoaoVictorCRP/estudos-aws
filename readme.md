@@ -17,9 +17,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [x] **AWS PCA (Private Certificate Authority)**: Serviço para emissão de certificados TLS/SSL privados (que são usados internamente), incluído no ACM.
 
-- [x] **Segurança no CloudFormation** 
-
-- [x] **Certificados nos Listeners do ELB**
+- [ ] **AWS Discovery Agent**
 
 ## Revisões e Detalhes
 
