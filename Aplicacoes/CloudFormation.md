@@ -13,3 +13,8 @@ Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma 
 
 ## Infrastructure Composer
 - O CloudFormation é integrado a um serviço bem legal, **o Infrastrucutre composer, que nos permite visualizar, construir e dar deploy em aplicações de maneira visual**, dá pra provisionar recursos num estilo **==Drag N' Drop==**! Muito legal. [GIF demonstativo](https://docs.aws.amazon.com/images/infrastructure-composer/latest/dg/images/aac_00.gif)
+
+## CloudFormation Stacksets
+- Essa é uma feature que nos permite aplicar stacks do CF em múltiplas contas de uma só vez, a partir de uma conta de gerenciamento centralizada, tudo em uma única operação
+
+- Este serviço é integrado ao **Organizations.**
