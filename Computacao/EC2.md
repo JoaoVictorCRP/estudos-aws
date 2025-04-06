@@ -86,7 +86,7 @@ Eles regulam:
 
 ### **EFA (Elastic Fabric Adapter) - Potência Máxima - <span style="background-color: orange; color: black;font-weight:bold">$$$</span>**
 
-- **Definição:** O EFA é um adaptador de rede que fornece latência ultrabaixa e alta taxa de transferência, além de suporte para aplicativos de HPC que usam bibliotecas de comunicação de rede como MPI (Message Passing Interface). **O EFA não é compatível com as instâncias do Windows.**
+- **Definição:** O EFA é um adaptador de rede que fornece latência ultrabaixa e alta taxa de transferência, além de suporte para aplicativos de HPC que usam bibliotecas de comunicação de rede como MPI (Message Passing Interface). ==**O EFA não é compatível com as instâncias do Windows.**==
 
 - **Uso:** EFA é especificamente projetado para workloads HPC que requerem uma comunicação de rede extremamente rápida e eficiente, como em simulações científicas, bolsa de valores ou sistemas críticos.
 
