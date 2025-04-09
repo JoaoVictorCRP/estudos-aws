@@ -23,3 +23,6 @@ Estas são algumas anotações mais avançadas de EC2, originadas dos estudos pa
 - O Instance Connect é uma maneira de acessar sua instância EC2 via SSH.
 
 - Para que você consiga se conectar com a instância via Instance Connect, você precisa liberar a faixa de IP da AWS correspondente à região da instância: veja a [lista de IPS](https://ip-ranges.amazonaws.com/ip-ranges.json). (Sim, o **IP da AWS** é quem acessa a instância).
+
+
+**ESTUDAR: https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/troubleshooting-launch.html**
