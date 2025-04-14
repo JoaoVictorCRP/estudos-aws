@@ -25,3 +25,5 @@ Pelo fato desse serviço ser integrado ao CloudTrail, ele guarda o histórico de
 - Possui escopo regional, portanto você precisará ativar um AWS Config individual para cada região.
 
 - É possível definir custom checks 
+
+- O Config possui uma feature bem legal chamada auto-remediation, que realiza uma ação automática para resolver algum detalhe que esteja fora da conformidade, tudo de maneira nativa, sem precisar de lambda.
