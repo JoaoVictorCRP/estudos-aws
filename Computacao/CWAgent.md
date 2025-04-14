@@ -16,3 +16,5 @@
         - `nome.exe` no Windows.
 
     - Metricas do `procstat` começam com o prefixo `procstat`, exemplo: `procstat\procstat_cpu_time`
+
+- **Você pode coletar métricas customizadas usando os protocolos `StatsD` e/ou o `collectd`**. ==`StatsD` é suportado em ambos servidores Linux e Windows. Já o `collectd` só é suportado no Linux. ==Lembre-se disso caso queira coletar dados de uma instância do Windows.
