@@ -7,6 +7,8 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] **AWS Discovery Agent**
 
+- [ ] **[RAID](https://docs.aws.amazon.com/pt_br/ebs/latest/userguide/raid-config.html) em Volumes EBS**
+
 ## Revisões e Detalhes
 
 - **WAF Rules**
