@@ -18,3 +18,11 @@ Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma 
 - Essa é uma feature que nos permite aplicar stacks do CF em múltiplas contas de uma só vez, a partir de uma conta de gerenciamento centralizada, tudo em uma única operação
 
 - Este serviço é integrado ao **Organizations.**
+
+
+## Deletion Policy
+- Dentro do CloudFormation é possível definir uma política de deleção personalizada para quando a stack for excluída (ou caso o próprio recurso seja excluído). Veja os tipos de policies:
+
+- **`Delete`**: Comportamento padrão, recurso é deletado (não funciona em um bucket S3 que não estiver vazio)
+- **`Snapshot`**: Criará um snapshot final do recurso quando a stack for excluída.
+- **`Retain`**: Recurso permanecerá mesmo se a stack for deletada.
