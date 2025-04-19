@@ -76,8 +76,17 @@ ___
 	- Tags de instância (que são passadas para os recursos criados)
 	- Criptografia do volume EBS.
 
-___
+---
+## Tipos de Health Checks
+Os Auto-Scalling groups podem checar a saúde das instâncias de dois tipos:
 
+- ==**EC2**: O check via EC2 monitora a saúde do servidor apenas a nível de instância==, isto é, só vai verificar se o estado é **"`running`"**, deixando detalhes adicionais como estado da aplicação ou serviços internos de lado.
+
+- **ELB**: ==O check via **ELB** permite monitorar o estado da própria aplicação hospedada na instância, isso através do envio de uma requisição para um endpoint específico, que é enviada para as instâncias do target group em um intervalo de tempo definido por você.== Isso permite um monitoramento mais detalhado e interessante. 
+
+**Qual se deve usar?**
+R: Depende, se quiser verificar a disponibilidade real da aplicação ou serviços na instância, use o **Health Check ELB**, caso uma verificação simples bastar, use **Health Check EC2**.
+___
 ## ANOTAÇÕES
 - <span style="color:red; font-weight: bold"> NÃO CONFUNDA AUTO-SCALLING GROUPS COM PLACEMENT GROUPS </span>
 - Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente.
