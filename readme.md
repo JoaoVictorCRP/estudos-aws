@@ -3,7 +3,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 
 ## Estudar
-- [ ] **Capacity Reservations**
+- [x] **Capacity Reservations**: As reservas de capacidade não garantem desconto nenhum, diferente das RIs e SPs. As CRs servem apenas para reservar hardware para você de maneira que evite que falte hardware para você em momentos de pico.
 
 - [ ] **AWS Discovery Agent**
 
