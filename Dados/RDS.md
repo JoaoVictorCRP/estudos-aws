@@ -52,6 +52,12 @@ ___
 até 15 RRs, sendo 5 delas cross-region.
 </span>
 ___
+
+## Monitoramento
+Existem duas opções para monitorar uma instância RDS de maneira mais granular e detalhada São elas:
+- **Enhanced Monitoring**: ==Coleta métricas a nível de SO==, como: **Memória ativa**, **memória livre**, **processos em execução**, **utilização de SWAP**.
+
+- **Performance Insights**: ==Coleta métricas a nível de Engine de BD==, como: **Queries mais executadas**, **delay de queries**, **consumo de CPU por query**, **latência de E/S**, e muito mais. 
 ## Anotações
 - O RDS roda em uma EC2, no entanto você não consegue entrar no SO delas, somente no serviço de BD.
 
