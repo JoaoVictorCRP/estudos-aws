@@ -40,8 +40,6 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 	- Em `YAML`:  `!Base64 "ValueToEncode"
 	- Muito utilizado para codificar dados a serem usados como `UserData` em uma instância EC2:
 	- ![[Base64Example.png]]
-
-
 ---
 ## Infrastructure Composer
 - O CloudFormation é integrado a um serviço bem legal, **o Infrastrucutre composer, que nos permite visualizar, construir e dar deploy em aplicações de maneira visual**, dá pra provisionar recursos num estilo **==Drag N' Drop==**! Muito legal. [GIF demonstativo](https://docs.aws.amazon.com/images/infrastructure-composer/latest/dg/images/aac_00.gif)
@@ -58,3 +56,15 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 - **`Delete`**: Comportamento padrão, recurso é deletado (não funciona em um bucket S3 que não estiver vazio)
 - **`Snapshot`**: Criará um snapshot final do recurso quando a stack for excluída.
 - **`Retain`**: Recurso permanecerá mesmo se a stack for deletada.
+
+---
+## Rollbacks
+- **Falha na ==CRIAÇÃO== de uma Stack:**
+	- **==Por padrão**: Todos os recurso sofrem rollback (serão apagados)==, os logs fornecerão detalhes.
+	- Há também a opção de desabilitar o rollback e solucionar o problema verificando diretamente o recurso.
+
+- **Falha na ==ATUALIZAÇÃO ==de uma Stack:**
+	- A Stack fará um ==rollback automático para o estado funcional mais recente==.
+
+- ==**Falha no rollback*==:
+	- Nesse caso ==será necessário consertar os recursos manualmente e então chamar a **API ContinueUpdateRollback**== diretamente do console ou CLI, isso fará com que o rollback tente ser feito novamente.
