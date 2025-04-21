@@ -13,7 +13,9 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] Listeners em ALBs
 
-- [ ] `DisableApiTermination` vs. Intance Protection
+- [ ] `DisableApiTermination` vs. Instance Protection
+
+- [ ] Slow Start Mode em um Target Group.
 
 ## Revisões e Detalhes
 
