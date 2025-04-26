@@ -37,6 +37,18 @@ São feitos manualmente e ficarão armazenados mesmo depois da deleção da inst
 
 ___
 
+
+## Parameter Groups
+- Com eles, é possível configurar a engine do banco de dados.
+
+- Parâmetros dinâmicos se aplicam imediatamente, parâmetros estáticos são aplicados apenas após a reinicialização da instância.
+
+- Você pode modificar o parameter group associado a um DB, mas precisa reiniciá-lo para que isso seja aplicado.
+
+- **==IMPORTANTE==**: Para forçar conexões SSL no banco de dados, você precisa de um parâmetro específico habilitado (valor settado dever `1`):
+	- **`rds.force_sll=1`** para PostgreSQL e SQL Server.
+	- **`require_secure_transport=1`** para MySQL e MariaDB
+---
 ## Engine Patches
 - Se você precisar fazer algum upgrade na engine do banco de dados, isto é, no SGBD. ==A atualização será aplicada na instância primária e, automaticamente, nas standbys.==
 
