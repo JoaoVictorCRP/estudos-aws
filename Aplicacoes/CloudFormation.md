@@ -33,7 +33,7 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 - **Fn::ImportValue ⮕** Importa valores exportados em outras stacks.
 	- Em `YAML`:  `!ImportValue exportedValueName`
 
-- **Condition Functions (Fn::If, Fn::Not, Fn::Equals, etc...) ⮕** Realizar verificações e validações no momento de criação da stack.
+- **Condition Functions (Fn::If, Fn::Not, Fn::Equals, etc...) ⮕** Realizar verificações e validações no momento de criação da stack
 	- Em `YAML`:  `!Equals [ value1, value2]
 
 - **Fn::Base64 ⮕** Converte String para `Base64`.
@@ -48,6 +48,23 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 - Essa é uma feature que nos permite aplicar stacks do CF em múltiplas contas de uma só vez, a partir de uma conta de gerenciamento centralizada, tudo em uma única operação
 
 - Este serviço é integrado ao **Organizations.**
+---
+## Helper Scripts
+- Estes são scripts embutidos em uma stack do CloudFromation (na seção `metadata`)
+
+- Auxiliam na configuração inicial de instâncias EC2.
+	- Não possuem limitação específica de tamanho, como o ==User Data (que tem limite de 16KB)==
+	- São scripts Python, portanto são bem mais fáceis de debugar que um User Data convencional em Bash.
+
+### `cfn-init`
+- Usado para obter e interpretar a seção `metadata`, instalando pacotes, criando arquivos e iniciando serviços (`daemons`).
+
+- Com ele podemos realizar configurações complexas em uma instância EC2 logo no seu boot inicial.
+
+- ==Deve ser chamado no UserData da instância criada==.
+
+- Todos os logs serão registrados em `var/log/cfn-init.log`
+
 
 ---
 ## Deletion Policy
