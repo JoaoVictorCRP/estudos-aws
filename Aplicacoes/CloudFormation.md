@@ -65,7 +65,14 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 
 - Todos os logs serão registrados em `var/log/cfn-init.log`
 
+## `cfn-signal`
+- Este helper script faz com que o CloudFormation seja notificado se o `cfn-init` foi executado com sucesso ou não.
 
+- ==Ele é rodado logo após o `cfn-init`, também no UserData==.
+
+- Ele é usado em conjunto com o `Wait Condition`, que é uma seção do template que "congela" a stack do CloudFormation até que a instância envie o `cfn-signal`.
+
+- **Cuidado:** Se um erro for retornado para o `cfn-signal`, a stack inteira será deletada (ROLLBACK), para desabilitar essa opção e debugar manualmente defina a opção de _Stack Failure_ como "_Preserve successfully provisioned resources_"
 ---
 ## Deletion Policy
 - Dentro do CloudFormation é possível definir uma política de deleção personalizada para quando a stack for excluída (ou caso o próprio recurso seja excluído). Veja os tipos de policies:
