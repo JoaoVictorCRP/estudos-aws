@@ -23,7 +23,7 @@
 Após escolher uma das duas opções acima, é possível definir algumas opções avançadas para a performance:
 - **Elastic**: Aumenta ou diminui automaticamente com base nas cargas de trabalho. Ideal para casos gerais.
 
-- **Provisioned**: <span style="background-color: #e0a800; color: black;font-weight:bold">Se você puder estimar os requisistos de throughput das cargas de trabalho, use este modo.</span> Com ele, você configura a throughput e paga pelo provisionamento dela.
+- **Provisioned**: <span style="background-color: #e0a800; color: black;font-weight:bold">Se você puder estimar os requisitos de throughput das cargas de trabalho, use este modo.</span> Com ele, você configura a throughput e paga pelo provisionamento dela.
 
 ## Opções de Armazenamento
 - **Padrão**: Essa é a opção de armazenamento padrão adequada para a maioria das cargas de trabalho, oferecendo um equilíbrio entre desempenho e custo.
@@ -39,4 +39,4 @@ Também é possível definir uma política de _lifecycle_ de arquivos, assim com
 - Criptografia me repouso com KMS.
 
 ## Anotações
-- Como já foi dito, não é possível utilizar o EFS em sistemas Windows, no entanto, é possível utilizar um outro serviço com o mesmo intuito, o FSx em máquinas windows.
+- Como já foi dito, não é possível utilizar o EFS em sistemas Windows, no entanto, é possível utilizar um outro serviço com o mesmo intuito, o FSx.
