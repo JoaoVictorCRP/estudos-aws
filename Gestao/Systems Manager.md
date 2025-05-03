@@ -9,6 +9,6 @@ O Systems Manager é um serviço muito útil para o gerenciamento de sua infraes
 - **Serviço gratuito.** (Você só paga pelos recursos em que você está administrando)
 
 ## Systems Manager Inventory
-- Feature bem legal do SSM que permite **coletar metadados de servidores** (EC2 ou on-premises).
+- Feature bem legal do SSM que permite **coletar metadados de servidores** (==EC2 ou on-premises==).
 
 - Os metadados coletados podem ser **softwares instalados**, versão do SO, pastas e arquivos, configurações de rede e muito mais.
