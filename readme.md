@@ -13,8 +13,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] Listeners em ALBs
 
-- [ ] `DisableApiTermination` vs. Instance Protection
-
 - [ ] Slow Start Mode em um Target Group.
 
 ## Revisar
@@ -28,3 +26,5 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - **Customer-Managed CMK**: É impossível rotacionar o conteúdo de uma Customer Managed CMK importada. Podemos apenas criar uma nova com um outro conteúdo de criptografia.
 
 - **==As SCPs são aplicadas até mesmo ao usuário root da conta.**==
+
+- **`DisableApiTermination` vs. Instance Protection**: DisableApiTermination impede ações de usuários, mas não do ASG. O Instance Protection faz o contário.
