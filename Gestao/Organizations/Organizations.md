@@ -16,8 +16,7 @@ O Organizations tem como papel o gerenciamento de várias contas AWS a partir de
 
 - ==Elas **não concedem permissões diretamente**, mas **limitam** as permissões que uma conta pode ter.== Em outras palavras, elas funcionam como uma camada extra de controle para **restringir permissões** que foram atribuídas por políticas do IAM.
 
-- SCPs não podem ser aplicadas na conta gerenciadora.
-
+- SCPs não são aplicadas na conta gerenciadora.
 
 ![[scp-hierarchy.png]]
 
