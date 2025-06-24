@@ -5,8 +5,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 ## Estudar
 - [ ] Recursos e serviços que podem ser compartilhados através do RAM 
 
-- [ ] **AWS Discovery Agent**
-
 - [ ] **[RAID](https://docs.aws.amazon.com/pt_br/ebs/latest/userguide/raid-config.html) em Volumes EBS**
 
 - [ ] Deployment policies do Elastic BeanStalk
