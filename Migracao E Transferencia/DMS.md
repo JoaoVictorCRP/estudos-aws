@@ -1,5 +1,5 @@
 ## Database Migration Service (DMS)
-Este serviço oferece uma migração entre SGBDs de maneira altamente controlada e consisitente, <span style="background-color: #e0a800; color: black;font-weight:bold">toda a migração pode ser feita enquanto o banco de origem continua operacional</span>, o que faz com que os seus negócios não sejam afetados!
+Este serviço oferece uma migração entre SGBDs de maneira altamente controlada e consisitente, ==toda a migração pode ser feita enquanto o banco de origem continua operacional==, o que faz com que os seus negócios não sejam afetados!
 
 ### Sobre a migração
 Há dois tipos de migração:
@@ -7,7 +7,7 @@ Há dois tipos de migração:
 - **Heterogênea**: Quando o schema do banco de origem é diferente do destino. Nesse caso, é necessário utilizar o **AWS Schema Conversion Tool**.
 
 ### Origem e Destino
-- A **origem** pode ser um banco On Premise, hospeado em EC2 ou no RDS.
+- A **origem** pode ser um banco On Premise, hospedado em EC2 ou no RDS.
 - O **destino** pode ser o RDS ou uma EC2.
 
 ### Outras funcionalidades

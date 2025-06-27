@@ -1,7 +1,6 @@
 # Estudos AWS
 Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode clonar este repositório para utilizar as minhas anotações também! :)
 
-
 ## Estudar
 - [ ] Recursos e serviços que podem ser compartilhados através do RAM 
 
