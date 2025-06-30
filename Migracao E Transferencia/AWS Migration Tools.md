@@ -8,6 +8,10 @@ A AWS conta com vários serviços úteis para migração de aplicações e compo
 **AWS Application Migration Service**: Após a coleta de dados pelo serviço acima, ==podemos então migrar nossos servidores para EC2 através do AMS==.
 
 **AWS Database Migration Service**: O DMS é muito útil quando precisamos migrar uma database on-premises para o RDS.
+- Um detalhe legal é que os dados são criptografados em repouso na instância de replicação, a chave utilizada por padrão é a ==**`aws/dms`**==.
+
+- ==Para criptografia em trânsito, é necessário que os endpoints do banco de destino e do banco de origem utilizem SSL/TLS.==
+
 
 **AWS DataSync**: Esse serviço é utilizado para largarmos de mão o armazenamento on-premises e migrarmos para um bucket S3, EFS ou FSx.
 
