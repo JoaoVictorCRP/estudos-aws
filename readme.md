@@ -10,6 +10,8 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] Slow Start Mode em um Target Group.
 
+- [ ] Detalhes do AWS DLCM (*Data Lifecycle Manager*)
+
 ## Detalhes para memorizar
 
 
