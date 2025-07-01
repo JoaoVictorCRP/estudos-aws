@@ -12,6 +12,8 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] Detalhes do AWS DLCM (*Data Lifecycle Manager*)
 
+- [ ] HLS no Kinesis (e cloudfront?)
+
 ## Detalhes para memorizar
 
 
@@ -24,3 +26,5 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - **`DisableApiTermination` vs. Instance Protection**: DisableApiTermination impede ações de usuários, mas não do ASG. O Instance Protection faz o contário.
 
 - **Capacity Reservations**: As reservas de capacidade não garantem desconto nenhum, diferente das RIs e SPs. As CRs servem apenas para reservar hardware para você de maneira que evite que falte hardware para você em momentos de pico.
+
+- **Endereço MAC**: Se o enunciado de alguma questão pede por um endereço MAC fixo para uma instância EC2, sempre pense nas **ENI**s. ==Se um endereço MAC estático estiver atribuído a uma ENI, ele não mudará==.
