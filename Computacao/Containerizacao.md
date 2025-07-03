@@ -22,7 +22,7 @@ O ECS é um serviço gerenciado que facilita a execução e gerenciamento de con
 - O ECS suporta duas modalidades de execução:
     - **ECS com EC2**: Você gerencia a infraestrutura subjacente (A instância EC2) em que os containers serão executados. ==Cobrança é feita com base no tipo da instância + volume EBS.==
 
-    - **EC2 com Fargate**: Com o Fargate, não há necessidade de provisionar ou gerenciar servidores, já que a AWS gerencia a infraestrutura. Você apenas define as tarefas e containers, o Fargate cuida do resto. ==Cobrança é feita com base nas horas utilizadas de memória e vCPU (É BEM CARO...).
+    - **ECS com Fargate**: Com o Fargate, não há necessidade de provisionar ou gerenciar servidores, já que a AWS gerencia a infraestrutura. Você apenas define as tarefas e containers, o Fargate cuida do resto. ==Cobrança é feita com base nas horas utilizadas de memória e vCPU (É BEM CARO...).
 
 ### Integração com Outros Serviços AWS
 - O ECS se integra com vários serviços AWS, como o **ELB** para balanceamento de carga, o **IAM** para gerenciar permissões, o **CloudWatch** para monitoramento, e o **ECR (Elastic Conteiner Registry)** para armazenamento de imagens Docker.
@@ -30,11 +30,10 @@ O ECS é um serviço gerenciado que facilita a execução e gerenciamento de con
 ### Escalabilidade Automática
 - O ECS pode escalar automaticamente o número de instâncias EC2, ou tarefas, baseadas na demanda, integrando-se com o **Auto Scaling**. Isso permite que o ECS se ajusta às flutuações na carga de trabalho sem intervenção manual.
 ## <span style="color: orange; font-weight:bold"> Fargate</span>
-Serviço **serverless** de execução de containers, não há necessidade de gerenciar a infraestrutura subjacente, como servidores ou clusters. <span style="background-color: #e0a800; color: black;font-weight:bold"> Com Fargate, você apenas define e executa containers, o serviço cuida automaticamente de provisionar e escalar a infraestrutura.
-</span>
+Serviço **serverless** de execução de containers, não há necessidade de gerenciar a infraestrutura subjacente, como servidores ou clusters.  ==Com Fargate, você apenas define e executa containers, o serviço cuida automaticamente de provisionar e escalar a infraestrutura.==
 
 ## Gerenciamento Automático de Infraestrutura
-<span style="background-color: #e0a800; color: black;font-weight:bold">Com Fargate, você não precisa provisionar, configurar, escalar instâncias EC2 ou gerenciar clusters. Você apenas define as especificações do container (CPU, memória, imagem, etc.) e o Fargate cuida do resto.</span>
+==Com Fargate, você não precisa provisionar, configurar, escalar instâncias EC2 ou gerenciar clusters. Você apenas define as especificações do container (CPU, memória, imagem, etc.) e o Fargate cuida do resto.==
 
 ## Integração com ECS e EKS
 O Fargate pode ser usado tanto com o **Amazon Elastic Container Service (ECS)** quanto com o **Amazon Elastic Kubernetes Service (EKS)**. Isso significa que você pode optar por usar Fargate em arquiteturas baseadas em Kubernetes ou Docker de maneira transparente.
@@ -48,7 +47,7 @@ O Fargate escala automaticamente os containers com base na demanda, adicionando 
 O EKS gerencia automaticamente a instalação, operação e manutenção dos nós de controle do Kubernetes, que são responsáveis por tarefas como escalonamento de pods, monitoramento de nodes e gerenciamento de atualizações de estado.
 
 ## Suporte para Ambientes Multinuvem e On-premises
-Além de rodar clusters Kubernetes na AWS, <span style="background-color: #e0a800; color: black;font-weight:bold">o EKS também pode ser usado para gerenciar Kubernetes on-premises</span> usando o **EKS Anywhere**, que também possibilita gerenciar um ambiente de múltiplas nuvens.
+Além de rodar clusters Kubernetes na AWS, ==o EKS também pode ser usado para gerenciar Kubernetes on-premises== usando o **EKS Anywhere**, que também possibilita gerenciar um ambiente de múltiplas nuvens.
 
 ## Clusters Gerenciados
 O EKS simplifica a criação de clusters Kubernetes, gerenciando tanto os nós de controle quanto os nós de trabalho. O serviço automaticamente mantém os componentes do Kubernetes atualizados.
@@ -60,5 +59,7 @@ A integração com o **IAM** permite que você gerencie permissões e autentica�
 O EKS oferece integração direta com **Elastic Load Balancers (ELB)** e serviços de redes da AWS, o que facilita o roteamento de tráfego entre seus containers de forma eficiente e escalável.
 
 
-# Anotações
-- Containers são agrupados em **PODS**.
+# <span style="color: orange; font-weight:bold"> App Runner</span>
+- O App Runner é um serviço totalmente gerenciado para deploy de aplicações containerizadas.
+
+- Este é um serviço totalmente focado em quem não quer ter dor de cabeça com gerenciamento de infraestrutura, ==ele toma conta de todo o poder computacional e load balancing, você só obtém a URL, de forma semelhante ao que ocorre no Amplify.==
