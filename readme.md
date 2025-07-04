@@ -14,7 +14,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] HLS no Kinesis (e cloudfront?)
 
-- [ ] AppStream 2.0 e AWS Workspaces
+- [x] AppStream 2.0 e AWS Workspaces
 
 ## Detalhes para memorizar
 

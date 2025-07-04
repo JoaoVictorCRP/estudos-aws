@@ -100,10 +100,21 @@ Ambos serviços permitem que você realize uma query SQL dentro de um bucket S3,
 - ==O **S3 Select** faz queries== apenas ==dentro de um único objeto==.
 
 - ==O **Amazon Athena** faz buscas dentro de um bucket inteiro==, incluindo os prefixos e os prefixos dentro dos prefixos, eita!
+---
+### AppStream 2.0 vs Amazon Workspaces
+| Serviço                          | **Amazon WorkSpaces**                           | **Amazon AppStream 2.0**                                     |
+| -------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| **O que é?**                     | Desktop completo na nuvem (DaaS)                | Streaming de aplicativos na nuvem                            |
+| **Como é feito o acesso?**       | Como se fosse um PC remoto - via cliente RDP    | Via navegador ou AppStream client                            |
+| **Usuário tem Desktop Windows?** | ✅ Sim, é um desktop completo                    | 🚫 Não, apenas aplicativos publicados (pode simular)         |
+| **Persistência do ambiente**     | ✅ Sim – o ambiente é persistente (dados e apps) | 🚫 Não – ambientes são efêmeros, se fechar a sessão, já era. |
+| **Casos de uso ideais**          | Substituir notebooks, estações de trabalho      | Rodar apps pesados via navegador (CAD, IDE, Office)          |
+| **Gerenciamento de imagem**      | AMIs do WorkSpaces                              | Imagens customizadas do AppStream                            |
+| **Custo**                        | Cobrado por hora ou mensal por desktop          | Cobrado por hora de streaming + armazenamento                |
+
 
 ___
 ## Detalhes Menores
-
 
  - **EMR (Elastic Map Reduce)**: Utilizado para executar clusters de dados Hadoop, Spark, Presto etc.
 
