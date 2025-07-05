@@ -14,7 +14,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 - [ ] HLS no Kinesis (e cloudfront?)
 
-- [x] AppStream 2.0 e AWS Workspaces
+- [ ] [Autoscaling do DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html)
 
 ## Detalhes para memorizar
 
