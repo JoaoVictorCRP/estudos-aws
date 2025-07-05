@@ -59,8 +59,6 @@ ___
 
 - **Rotação automática disponível**: pode ser configurada para ocorrer anualmente.
 
--  O tempo mínimo para realizar a rotação é **90 dias**.
-
 ###### **Importada** ($1/mês)
 - Criada em algum outro serviço de criptografia ou pelo terminal.
 
@@ -90,18 +88,21 @@ ___
 ### Chaves Multi Região
 - Quando a opção "Multi-region" é ativada para uma key, ela criará uma réplica em outras região.
 
-- ==Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.
-==
+- ==Essas réplicas possuem o mesmo ID, conteúdo e definição de rotação.==
+
 - Ideal para quando você precisa criptografar em uma região e descriptografar na outra.
 
 - ==**Entenda**: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias. ==
 
-- ==A própria AWS não recomenda utilizar chaves multi região, pois pode ser trabalhoso o gerenciamento das chaves em várias regiões.==
+- ==**Cuidado:** Utilizar chaves multi-região é bem trabalhoso devido a necessidade de gerenciar as chaves em várias regiões, se quiser evitar complexidade, tenha isso em mente.==
 
 - **USE CASES**: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
 ___
 ## **Políticas de Chave**
 - O controle das chaves KMS é feito através de policy, semelhante às bucket policies do S3.
+
+- Apenas usuários definidos na key policy podem ter acesso a uma chave (por padrão, é liberado para o root, ou seja, para a conta inteira).
+	- Se a key policy incluir apena um usuário X, e esse usuário X for excluído, a chave se tornará ingerenciável, e nem mesmo o root poderá usá-la, nesses casos precisamos entrar em contato com o suporte da AWS.
 
 - Veja os tipos de policies disponíveis:
 
