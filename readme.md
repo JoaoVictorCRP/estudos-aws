@@ -2,11 +2,9 @@
 Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode clonar este repositório para utilizar as minhas anotações também! :)
 
 ## Estudar
-- [ ] Recursos e serviços que podem ser compartilhados através do RAM 
+- [ ] Recursos e serviços que podem ser compartilhados através do RAM.
 
-- [ ] **[RAID](https://docs.aws.amazon.com/pt_br/ebs/latest/userguide/raid-config.html) em Volumes EBS**
-
-- [ ] Deployment policies do Elastic BeanStalk
+- [ ] Deployment policies do Elastic BeanStalk.
 
 - [ ] Slow Start Mode em um Target Group.
 

@@ -11,11 +11,11 @@ Para entender o Kinesis, primeiro precisamos saber a definição de *Streaming D
 - IOT
 
 ## Funcionalidades
-Certo, o <span style="background-color: #e0a800; color: black;font-weight:bold">Amazon Kinesis é a plataforma de Streaming Data da AWS.</span> Ele <span style="background-color: #e0a800; color: black;font-weight:bold">torna mais fácil o processo de carregamento e análise destes dados</span>, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
+Certo, o Amazon Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o processo de carregamento e análise destes dados==, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
 
 ## Componentes
 ### Kinesis Data Streams
-- **Função**: Coleta e armazena grandes volumes de dados em tempo real. Os dados são enviados para streams, que podem ser lidos e processados continuamente por consumidores, como aplicativos ou funções AWS Lambda.
+- **Função**: Coletar e armazenar grandes volumes de dados em tempo real. Os dados são enviados para streams, que podem ser lidos e processados continuamente por consumidores, como aplicativos ou funções AWS Lambda.
 
 - **Exemplo de Uso**: Capturar e armazenar logs de servidor, dados de redes sociais, ou cliques de sites para análise em tempo real.
     
@@ -34,17 +34,25 @@ Certo, o <span style="background-color: #e0a800; color: black;font-weight:bold">
 
 ___
 ### Kinesis Data Firehose
-- **Função**: <span style="background-color: #e0a800; color: black;font-weight:bold">Envia os dados capturados diretamente para serviços</span> como Amazon S3, Redshift, Elasticsearch, ou Splunk. Ele é totalmente gerenciado, não exigindo a criação de streams ou o gerenciamento de consumidores.
+- **Função**: ==Enviar os dados capturados diretamente para serviços== como Amazon S3, Redshift, Elasticsearch, ou Splunk. Ele é totalmente gerenciado, não exigindo a criação de streams ou o gerenciamento de consumidores.
 
 - **Exemplo de Uso**: Enviar logs de dados para um bucket S3 ou indexá-los diretamente no Elasticsearch para consultas em tempo real.
-
+---
 ### Kinesis Data Analytics
-- **Função**: <span style="background-color: #e0a800; color: black;font-weight:bold">Processa e analisa dados em tempo real usando consultas SQL</span>. Isso permite transformar, filtrar e agregar dados imediatamente à medida que são recebidos no Kinesis Data Streams ou Firehose.
+- **Função**: ==Processar e analisar dados em tempo real usando consultas SQL==. Isso permite transformar, filtrar e agregar dados imediatamente à medida que são recebidos no Kinesis Data Streams ou Firehose.
 - **Exemplo de Uso**: Analisar os cliques de uma campanha publicitária em tempo real e identificar padrões de comportamento.
 
+---
+### Kinesis Video Streams
+- **Função**: Capturar e armazenar streams de mídia. Ele criptografa e indexa dados de vídeo de streams e permite acessar estes dados por meio de APIs fáceis de usar.
+- **Exemplo de uso**: Criação de aplicações com visão computacional (integrado ao *Amazon Rekognition Video*) Reprodução de mídia ao vivo para navegadores com o  recurso de HLS (HTTP Live Streaming)
+
+---
 ## Anotações
-- Se o volume de dados ou a frequência de eventos ultrapassa a capacidade de um único shard, você pode adicionar shards para aumentar a capacidade do stream. (<span style="background-color: #e0a800; color: black;font-weight:bold">Escalabilidade é horizontal</span>)
+- Se o volume de dados ou a frequência de eventos ultrapassa a capacidade de um único shard, você pode adicionar shards para aumentar a capacidade do stream. (==Escalabilidade é horizontal==)
 
-- No modelo de Data Streams, <span style="background-color: #e0a800; color: black;font-weight:bold">os shards armazenam dados de 24h até 7 dias</span>, dependendo da sua escolha.
+- No modelo de Data Streams, ==os shards armazenam dados de 24h até 7 dias==, dependendo da sua escolha.
 
-- No modelo Firehose, <span style="background-color: #e0a800; color: black;font-weight:bold">não há persistência direta de dados.</span>
+- No modelo Firehose, ==não há persistência direta de dados.==
+
+- Para utilização do HLS para stream de video, é necessário primeiro criar uma sessão de streaming utilizando a API **GetHLSStreamingSessionURL**, que retorna um token para acessar a sessão HLS.
