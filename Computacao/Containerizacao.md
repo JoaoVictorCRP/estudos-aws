@@ -1,4 +1,4 @@
-# <span style="color: orange; font-weight:bold"> Elastic Container Service </span>
+# <span style="color: orange; font-weight:bold">Elastic Container Service </span>
 O ECS é um serviço gerenciado que facilita a execução e gerenciamento de contêiners Docker em um infraestrutura da Amazon, sem a necessidade de provisionar ou gerenciar servidores. Ideal para executar aplicações containerizadas em larga escala.
 
 ## Pontos Chave
@@ -29,7 +29,7 @@ O ECS é um serviço gerenciado que facilita a execução e gerenciamento de con
 
 ### Escalabilidade Automática
 - O ECS pode escalar automaticamente o número de instâncias EC2, ou tarefas, baseadas na demanda, integrando-se com o **Auto Scaling**. Isso permite que o ECS se ajusta às flutuações na carga de trabalho sem intervenção manual.
-## <span style="color: orange; font-weight:bold"> Fargate</span>
+## <span style="color: orange; font-weight:bold">Fargate</span>
 Serviço **serverless** de execução de containers, não há necessidade de gerenciar a infraestrutura subjacente, como servidores ou clusters.  ==Com Fargate, você apenas define e executa containers, o serviço cuida automaticamente de provisionar e escalar a infraestrutura.==
 
 ## Gerenciamento Automático de Infraestrutura
@@ -41,7 +41,7 @@ O Fargate pode ser usado tanto com o **Amazon Elastic Container Service (ECS)** 
 ## Escalabilidade
 O Fargate escala automaticamente os containers com base na demanda, adicionando ou removendo capacidade conforme necessário. Isso simplifica a operação de ambientes que sofrem variações de carga.
 
-# <span style="color: orange; font-weight:bold"> Elastic Kubernetes Service</span>
+# <span style="color: orange; font-weight:bold">Elastic Kubernetes Service</span>
 
 ## Gerenciamento Automático de Kubernetes
 O EKS gerencia automaticamente a instalação, operação e manutenção dos nós de controle do Kubernetes, que são responsáveis por tarefas como escalonamento de pods, monitoramento de nodes e gerenciamento de atualizações de estado.
@@ -59,7 +59,9 @@ A integração com o **IAM** permite que você gerencie permissões e autentica�
 O EKS oferece integração direta com **Elastic Load Balancers (ELB)** e serviços de redes da AWS, o que facilita o roteamento de tráfego entre seus containers de forma eficiente e escalável.
 
 
-# <span style="color: orange; font-weight:bold"> App Runner</span>
+# <span style="color: orange; font-weight:bold">App Runner</span>
 - O App Runner é um serviço totalmente gerenciado para deploy de aplicações containerizadas.
 
-- Este é um serviço totalmente focado em quem não quer ter dor de cabeça com gerenciamento de infraestrutura, ==ele toma conta de todo o poder computacional e load balancing, você só obtém a URL, de forma semelhante ao que ocorre no Amplify.==
+- O serviço é totalmente focado em quem não quer ter dor de cabeça com gerenciamento de infraestrutura, ==ele toma conta de todo o poder computacional e load balancing, você só obtém a URL, de forma semelhante ao que ocorre no Amplify.==
+
+- Para CI/CD, o App Runner pode ser integrado diretamente a um repositório para trackear mudanças (de maneira semelhante ao CodePipeline), pode ser tanto um repositório de código (Github, Bitbucket, Codecommit, etc.) ou um repositório de imagens de container.
