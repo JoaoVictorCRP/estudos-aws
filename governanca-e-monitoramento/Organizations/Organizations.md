@@ -1,55 +1,58 @@
 # AWS Organizations
-O Organizations tem como papel o gerenciamento de várias contas AWS a partir de uma única conta master, facilita muito o controle de políticas, gerenciamento de acessos e otimização de custos em larga escala. ==É especialmente útil para empresas que utilizam várias contas para diferentes departamentos==, projetos ou ambientes (produção, desenvolvimento, etc.).
+O **AWS Organizations** permite gerenciar várias contas da AWS de forma centralizada, a partir de uma **conta gerenciadora**. Ele facilita o controle de políticas, o gerenciamento de acesso e a otimização de custos em ambientes com múltiplas contas, como quando departamentos, projetos ou ambientes (produção, desenvolvimento, testes) usam contas separadas.
 
 ![Organizations](Organizations.png)
-- Como mostrado na imagem acima, através do RAM é possível ter uma única rede unificando os recursos de cada uma das contas.
+- Como mostrado na imagem acima, o **AWS Resource Access Manager (RAM)** pode ser utilizado para **compartilhar recursos entre contas**, como VPCs, subnets e licenças, unificando a infraestrutura entre elas.
 
 - Para adicionar membros na organização, temos duas opções:
-	- 1. Enviar um convite para outras contas e esperar elas aceitarem o convite.
+	1. **Convidar uma conta existente** para se juntar à organização. A conta deve aceitar o convite.
 	
-	- 2. No console do Organizations, criar uma conta dentro da organização.
+	2. **Criar uma nova conta** diretamente pelo console do AWS Organizations.
+---
+## Painel IAM - Organization Activity
+No console do **IAM**, é possível acessar o painel "Organization Activity", que exibe os serviços utilizados (ou não utilizados) por cada conta da organização. Isso facilita a aplicação do princípio do **privilégio mínimo**.
 
-- **No console do IAM, podemos acessar o painel "organiztion activity" para verificar os serviços acessados (e nunca acessados) pelas contas** da organização, permitindo que possamos aplicar o prínicipio de privilégio mínimo.
-
+---
 ## SCP
-- Service Control Policies são políticas do IAM que permitem gerenciar permissões das contas filhas, seus usuários e roles.
+As **SCPs** são políticas organizacionais que permitem **restringir as permissões máximas** que uma conta, usuário ou role pode ter. Elas **não concedem permissões**, apenas impõem **limites máximos** ao que é permitido pelas políticas do IAM.
 
 - ==Elas **não concedem permissões diretamente**, mas **limitam** as permissões que uma conta pode ter.== Em outras palavras, elas funcionam como uma camada extra de controle para **restringir permissões** que foram atribuídas por políticas do IAM.
 
-- SCPs não são aplicadas na conta gerenciadora.
+- ==As SCPs **não se aplicam à conta gerenciadora**, esta sempre terá acesso irrestrito== (`AdministratorAccess`).
 
 ![[scp-hierarchy.png]]
 
-- No exemplo acima, podemos ver como funciona a hierarquia: Conta A é bloqueada de acessar:
-	- S3, pois a OU em que ela pertence tem um deny explícito
-	- EC2, pois ela própria tem um deny explícito.
+- No exemplo acima:
+	- A **OU** possui um _deny_ explícito para **S3**, bloqueando esse serviço para todas as contas dentro dela.
+	- A **Conta A**, além do deny herdado da OU, possui um _deny_ próprio para **EC2**, bloqueando também esse serviço.
 
 ## Características
 - **Conta gerenciadora**: Conta responsável pelo gerenciamento dos acessos, infraestrutura e pagamento de todas as outras que são partes da organização.
 
 - **Conta membro**: Contas que pertencem à organização. São gerenciadas pela conta master.
 
-- **Organizational Units (OU)**: Um tipo de hierarquia para organizar contas em grupos lógicos, separando por departamento, projeto ou ambiente. Isso facilita a aplicação de políticas específicas para grupos de contas.
+- **Organizational Units (OU)**: Hierarquia para organizar contas em grupos lógicos, separando por departamento, projeto ou ambiente. facilitando a aplicação de políticas específicas para grupos de contas.
 
-- **Service Control Policies (SCP)**: Permitem definir políticas de permissões que são aplicadas em nível organizacional ou nas OUs. Com SCPs você pode restringir ou permitir acessos para contas vinculadas a uma estrutura da organização.
+- **Service Control Policies (SCP)**: Políticas que definem o limite máximo de permissões para contas e OUs.
 
-- **Consolidated Billing**: Com o Organizations, podemos consolidar todos os custos das diferentes contas em uma única fatura, facilitando o rastreamento de despesas.
+- **Feature Sets**: O AWS Organizations possui dois tipos de feature sets:
+	- **Consolidated Billing features**: Com este aqui podemos consolidar todos os custos das diferentes contas em uma única fatura, facilitando o rastreamento de despesas.
+
+	- **All features**: Este feature set é o mais recomendado e a maneira padrão de trabalhar com o Organzations, nele podemos definir integrações de serviços AWS que suportam centralização de dados da organização, além de também podermos aplicar SCPs. ==Este feature set é habilitado por padrão.==
 
 - **Resource Access Manager (RAM)**: Permite que você compartilhe recursos AWS, como sub-redes VPC, gateways e licenças entre as contas da organização.
 
 ## Detalhes
-- É um serviço global, obviamente.
+- O AWS Organizations é um **serviço global**.
 
 - As contas membro só podem fazer parte de uma organização por vez.
 
-- O ==Consolidated Billing== permite gerenciar o pagamento em uma única conta, através dele você soma o uso dos recursos, e como na AWS quanto mais se usa, maior é o desconto... já sabe!
+- O **Consolidated Billing** soma o uso de recursos entre contas, o que pode gerar **descontos por volume**.
 
-- Tem uma API que permite criar contas direto dentro da organização de maneira bem fácil e rápida
-
-- SCPs não se aplicam a conta root (ela sempre terá `AdministratorAccess`)
+- SCPs não se aplicam a conta gerenciadora (ela sempre terá `AdministratorAccess`)
 
 - Você pode aninhar OUs (Colocar OU dentro de OU)
 
-- SCPs se aplicam inclusive ao usuário root das contas membros.
+- ==SCPs se aplicam inclusive ao usuário root das contas membros.==
 
-- ==É possível criar uma **trilha** do **CloudTrail** em uma organização inteira (em todas as contas, em todas as regiões) a partir da conta gerenciadora.==
+- ==A conta gerenciadora pode configurar uma **trilha do AWS CloudTrail em nível organizacional**==, coletando logs de todas as contas e regiões da organização.
