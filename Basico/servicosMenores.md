@@ -46,7 +46,7 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 
 # Organizacional 🏨
 ## Workspaces Web
-- Serviço de desktop virtual que permite às organizações criar ambientes de trabalho na nuvem, oferecendo <span style="background-color: #e0a800; color: black;font-weight:bold">acesso remoto seguro a desktops direto pelo naveagador.</span>
+- Serviço de desktop virtual que permite às organizações criar ambientes de trabalho na nuvem, oferecendo <span style="background-color: #e0a800; color: black;font-weight:bold">acesso remoto seguro a desktops direto pelo navegador.</span>
 
 ## AppFlow
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Solução gerenciada que facilita a transferência segura de dados entre aplicativos SaaS e serviços da AWS.</span> Oferece integração com plataformas como Salesforce, Zendesk, Slack e ServiceNow.

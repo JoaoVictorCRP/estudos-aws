@@ -96,4 +96,4 @@ ___
 2. TAMs são profissionais especializados em suporte técnico aos serviços AWS.
 
 # Imagem
-![Planos de Suporte](./images/planos.png)
+![Planos de Suporte](planos.png)
