@@ -37,7 +37,7 @@ Os dois serviços estão relacionados a melhoria da performance e disponibilidad
 - O **CloudFront** é um serviço de CDN que distribui conteúdo estático e dinâmico para <ins>usuários finais</ins> através das **Edge Locations** que apontam para um destino específicado (Servidor HTTP ou bucket S3). Ele suporta cache de conteúdo estático e também otimiza a entrega de conteúdo dinâmico sem cache.
 	-  Tem como endpoint um único DNS.
 
-- O **Global Accelerator**, por sua vez, também utiliza a rede global da Amazon, no entanto ele não faz cache de conteúdo. Seu principal ponto de destaque são os dois IPs estáticos anycast que ele oferece, esses dois IPs podem ser utilizados em qualquer região da AWS, possuem baixa latência e e alta disponibilidade. Os IP do global accelerator podem ser atrelados a vários serviços, como um ELB, uma EC2, ou um Bucket S3. 
+- O **Global Accelerator**, por sua vez, também utiliza a rede global da Amazon, no entanto ele não faz cache de conteúdo. ==Seu principal ponto de destaque são os dois IPs estáticos anycast que ele oferece, esses dois IPs podem ser utilizados em qualquer região da AWS, possuem baixa latência e e alta disponibilidade.== Os IP do global accelerator podem ser atrelados a vários serviços, como um ELB, uma EC2, ou um Bucket S3. 
 	- OBS: Um IP anycast é um IP que referencia múltiplas máquinas de uma rede, nesse caso, as máquinas da rede de distribuição da Amazon, quando o cliente acessar tal IP ele será direcionado para a edge location mais próxima dele. Legal!
 
 ___
