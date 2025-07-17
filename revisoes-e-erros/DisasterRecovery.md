@@ -1,4 +1,4 @@
-Questões específicas sobre estratégias de disaster recovery (DR) são bem comuns no exame SAA-C03. Vejamos... 
+Os exames da AWS contemplam muitas questões sobre estratégias de Disaster Recovery (DR), aqui estão algumas anotações a respeito deste tema.
 
 ## Termos Chaves
 
