@@ -29,8 +29,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 ## 📚 Notas por Categoria
 
-  
-
 ### 🧠 Básico
 - [Cloudfront](basico/CloudFront.md)
 - [Estratégias de Migração para a Nuvem](basico/migrationStrategies.md)
