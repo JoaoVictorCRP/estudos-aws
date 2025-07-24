@@ -1,4 +1,4 @@
-Nesta anotação falaremos um pouco sobre o serviço de IaC da AWS, o CloudFront. Que, como sabemos, nos permite provisionar infraestrutura de maneira declarativa, evitando a falha humana que muitas vezes ocorre na criação manual.
+Nesta anotação falaremos um pouco sobre o serviço de IaC da AWS, o Cloudformation. Que, como sabemos, nos permite provisionar infraestrutura de maneira declarativa, evitando a falha humana que muitas vezes ocorre na criação manual.
 
 ---
 ## Service Role
