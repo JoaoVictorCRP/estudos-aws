@@ -4,12 +4,12 @@ Nesta anotação falaremos um pouco sobre o serviço de IaC da AWS, o Cloudforma
 ## Service Role
 - As service roles do CloudFormation permite que possamos atribuir uma role à uma stack específica.
 
-- A atribuição de uma role ==**serve para restringir as permissões do CF==**, de modo que se use apenas as necessárias para gerenciar os recursos especificados.
+- A atribuição de uma role ==**serve para restringir as permissões do CFN==**, de modo que se use apenas as necessárias para gerenciar os recursos especificados.
 
-- Garante conformidade, pois o CF só irá operar dentro dos limites de segurança da organização.
+- Garante conformidade, pois o CFN só irá operar dentro dos limites definidos.
 ---
 ## Stack Policies
-**Por padrão**, durante o processo de atualização de uma Stack, todas as ações de atualização estão permitidas em **TODOS OS RECURSOS**. *(Ou seja: imagine, por exemplo, que você tem uma instância RDS nessa stack, e após uma pequena atualização no código CF, o banco vai pro saco... Poxa!)*
+**Por padrão**, durante o processo de atualização de uma Stack, todas as ações de atualização estão permitidas em **TODOS OS RECURSOS**. *(Ou seja: imagine, por exemplo, que você tem uma instância RDS nessa stack, e após uma pequena atualização no código CFN, o banco vai pro saco... Poxa!)*
 
 Por isso é que existem as **Stack Policies,** que **==são documentos JSON que definem as ações de update que são permitidas durante a atualização de uma Stack==**!
 
