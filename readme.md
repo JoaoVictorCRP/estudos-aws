@@ -117,7 +117,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [SNS](mensageria/SNS.md)
 - [SQS](mensageria/SQS.md)
 - [SWF](mensageria/SWF.md)
-
+- [Step Functions](mensageria/StepFunctions.md)
 ### 🏛️ Governança e Monitoramento
 - [AWS Config](governanca-e-monitoramento/AWSConfig.md)
 - [Control Tower](governanca-e-monitoramento/Control%20Tower.md)
