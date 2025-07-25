@@ -115,3 +115,9 @@ ___
 - Define usuários e roles que podem ter acesso à chave.
 
 - Muito útil para gerenciar os acessos cross-account às suas chaves.
+
+---
+## Anotações
+- É possível reduzir significativamente os custos com a criptografia de objetos em buckets S3 usando SSE-KMS ao habilitar **S3 Bucket Keys**.  
+	- Elas funcionam como ==**chaves intermediárias de curto prazo (short-lived)** geradas pelo S3==, com base na KMS key original, e **armazenadas de forma segura pelo S3**, reduzindo o número de chamadas ao AWS KMS.
+	- Isso diminui os custos porque o **S3 deixa de chamar o KMS a cada PUT/GET** de objeto, usando a bucket key cacheada para criptografar/descriptografar múltiplos objetos.
