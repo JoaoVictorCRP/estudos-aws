@@ -5,7 +5,7 @@ ___
 ### Como Funciona?
 1. O usuário faz login no **sistema externo** (ex: Google, Facebook, AD, etc.)
 2. Esse sistema, chamado de IdP, Identity Provider, confirma que o usuários está autenticado.
-3. A AWS confia nesse sistema e emite **credenciais temporárias** através do [**STS**](STS.md), dando acesso aos recursos definidos na conta AWS.
+3. A AWS confia nesse sistema e emite **credenciais temporárias** através do [**STS**](STS.md), dando acesso **controlado** a serviços da AWS com **credenciais temporárias**, de acordo com políticas vinculadas a roles assumidas via Identity Pool.
 
 ___
 ## User Pools
@@ -18,11 +18,11 @@ ___
 - Identidade Federada: Usuários podem logar com suas conta do Facebook, Google, ou serviço com SAML.
 
 - Gera um JSON Web Token (JWT) ao autenticar o usuário com os tokens:
-	- **ID Token**: Informações sobre o usuário autenticado.
-	- **Access Token**: Permissões para acessar APIs protegidas.
-	- **Refresh Token**: Utilizado para obter novos tokens de acesso.
+	- **ID Token**: Informações do usuário (nome, email, etc).
+	- **Access Token**: Usado para autorizar chamadas a APIs.
+	- **Refresh Token**: Gera novos tokens sem precisar realizar um novo login.
 
-- **User Groups**: ==Os User Groups nas User Pools permitem organizar usuários de forma lógica e associar permissões específicas baseadas em seus grupos.== Isso simplifica o gerenciamento de acesso e autorizações, especialmente em cenários onde diferentes níveis de permissões são necessários para grupos distintos de usuários.
+- **User Groups**: User Pools são usados para autenticar usuários, gerar tokens JWT e gerenciar suas informações (nome, email, etc) para que esses usuários tenham acesso a serviços AWS (como S3, DynamoDB), o token JWT pode ser usado para assumir uma role via **Identity Pool**.
 
 ### Integrações
 - É possível integrar o CUP com o **API Gateway** e também com o **Application Load Balancer**
@@ -40,7 +40,7 @@ ___
 - ==Através do Identity Pool, podemos permitir o acesso temporário de guests/anônimos==.
 
 - Após pegar uma credencial temporário pelo Identity Pool, os usuários poderão acessar os serviços AWS diretamente, ou então através do API Gateway.
-	- ==As policies aplicadas aos usuários são definidas no próprio Cognito.==
+	- ==As **IAM roles** e suas **policies associadas** são definidas no **console do Cognito**== (dentro do Identity Pool), mas tecnicamente são recursos do IAM.
 
 ![[IdentityPoolsDiagram.png]]
 
@@ -48,3 +48,5 @@ ___
 - Você pode utilizar um domínio próprio para autenticar usuários no Cognito (ao invés do domínio padrão `amazoncognito.com`). [¹](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html#cognito-user-pools-add-custom-domain-console-step-1)
 	- Para isto, é um requisito que você já tenha um certificado configurado no ACM na região `us-east-1` (pois ocorrerá a criação automática de uma distribuição do Cloudfront.
 	- Após isso, acesse o console do, vá até a aba "**Domain**" no console do Cognito e selecione "**Create custom domain**".
+
+- **Tokens expirados** precisão ser tratados no frontend com o uso do `Refresh Token`.
