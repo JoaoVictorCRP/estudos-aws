@@ -2,11 +2,9 @@
 Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode clonar este repositório para utilizar as minhas anotações também! :)
 
 ## Estudar
-- [ ] Recursos e serviços que podem ser compartilhados através do RAM.
+- [ ] Serviços de IOT
 
-- [ ] Deployment policies do Elastic BeanStalk.
-
-- [ ] Slow Start Mode em um Target Group.
+- [ ] Serviços de ML
 
 - [ ] Detalhes do AWS DLCM (*Data Lifecycle Manager*)
 
