@@ -43,3 +43,8 @@ ___
 	- ==As policies aplicadas aos usuários são definidas no próprio Cognito.==
 
 ![[IdentityPoolsDiagram.png]]
+
+## Anotações
+- Você pode utilizar um domínio próprio para autenticar usuários no Cognito (ao invés do domínio padrão `amazoncognito.com`). [¹](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html#cognito-user-pools-add-custom-domain-console-step-1)
+	- Para isto, é um requisito que você já tenha um certificado configurado no ACM na região `us-east-1` (pois ocorrerá a criação automática de uma distribuição do Cloudfront.
+	- Após isso, acesse o console do, vá até a aba "**Domain**" no console do Cognito e selecione "**Create custom domain**".
