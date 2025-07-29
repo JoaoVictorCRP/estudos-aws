@@ -99,9 +99,10 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
 
 ### 🧳 Migração e Transferência
-- [Aws Migration Tools](migracao-e-transferencia/AWS%20Migration%20Tools.md)
+- [AWSMigrationTools](AWSMigrationTools.md)
 - [DMS](migracao-e-transferencia/DMS.md)
 - [Estratégias de Migração para a Nuvem](migrationStrategies.md)
+- [Transfer Family](migracao-e-transferencia/TransferFamily)
 
 ### 🧪 Revisões e Erros de Simulado
 - [Disaster Recovery](revisoes-e-erros/DisasterRecovery.md)
