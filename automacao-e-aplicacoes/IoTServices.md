@@ -1,7 +1,7 @@
 A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muitos destes serviços são cobrados em exames como o Solutions Architect Associate e Professional. Vejamos os principais:
 
-## IoT Core
-- Serviço central para conectar, autenticar, autorizar e receber dados de milhões de dispositivos IoT, sem provisionar ou gerenciar servidores.
+## IoT Core 🫀
+> Serviço central para conectar, autenticar, autorizar e receber dados de milhões de dispositivos IoT, sem provisionar ou gerenciar servidores.
 
 - Usa protocolos como **MQTT, HTTP e WebSockets**.
 
@@ -17,15 +17,39 @@ A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muit
 - Exige **gerenciamento de estados offline (Device Shadow)**.
 
 ---
-## IoT Greengrass
-- Permite executar **funções Lambda**, coletar dados, tomar decisões e comunicar com IoT Core **localmente**, **sem depender da nuvem o tempo todo**.
+## IoT Greengrass 🦗
+> Permite executar **funções Lambda**, coletar dados, tomar decisões e comunicar com IoT Core **localmente**, **sem depender da nuvem o tempo todo**.
 
 - Roda em dispositivos de borda (ex: gateways, Raspberry Pi).
 
-- Pode funcionar offline e sincronizar dados depois.
+- **==Pode funcionar offline e sincronizar dados depois==**.
 
 - Suporta **machine learning local**, **containers**, **StreamManager**, etc.
 
 #### Aparece na prova quando:
-- Há requisito de **baixa latência**, **operação offline**, ou processamento local.
+- Há ==requisito de **baixa latência**, **operação offline**, ou processamento local==.
 - Precisa evitar ida e volta constante com a nuvem.
+---
+## IoT Device Management 📲
+> Ferramenta para **registrar, organizar, monitorar e atualizar remotamente um ==grande número de dispositivos==**.
+
+- Permite agrupar dispositivos, aplicar **atualizações OTA**, visualizar logs e estados.
+
+- Cria **fleet indexes** e faz **busca por atributos de dispositivos**.
+
+- Intregado com IoT Core e IoT Greengrass.
+
+#### Aparece na prova quando:
+- Você precisa de **atualização em lote** ou **gerenciamento centralizado de dispositivos**.
+- O cenário envolve **milhares de dispositivos com gerenciamento em escala**.
+---
+## IoT Analytics 🔎
+> Análise **serverless** de dados gerados por dispositivos IoT.
+
+- Prepara, filtra, transforma e armazena dados em pipelines.
+
+- Pode integrar com **QuickSight** ou **ML com Jupyter Notebooks**
+
+### Aparece na prova quando:
+- A questão foca em **análise de dados IoT (tempo ou tendência)** sem montar cluster
+- Você quer transformar dados antes de armazenar em um Data Lake.

@@ -97,6 +97,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [ElasticBeanstalk](automacao-e-aplicacoes/ElasticBeanStalk.md)
 - [Elastic Transcoder](automacao-e-aplicacoes/ElasticTranscoder.md)
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
+- [IOT](IoTServices)
 
 ### 🧳 Migração e Transferência
 - [AWSMigrationTools](AWSMigrationTools.md)
