@@ -17,10 +17,10 @@ A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muit
 - Exige **gerenciamento de estados offline (Device Shadow)**.
 
 ---
-## IoT Greengrass 🦗
+## IoT Greengrass 📍
 > Permite executar **funções Lambda**, coletar dados, tomar decisões e comunicar com IoT Core **localmente**, **sem depender da nuvem o tempo todo**.
 
-- Roda em dispositivos de borda (ex: gateways, Raspberry Pi).
+- Roda em dispositivos de borda (ex: gateways, Raspberry Pi) através de um runtime.
 
 - **==Pode funcionar offline e sincronizar dados depois==**.
 
@@ -53,3 +53,16 @@ A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muit
 ### Aparece na prova quando:
 - A questão foca em **análise de dados IoT (tempo ou tendência)** sem montar cluster
 - Você quer transformar dados antes de armazenar em um Data Lake.
+---
+## IoT Device Defender 🛡️
+> Garante **segurança em tempo real** dos dispositivos IoT.
+
+- Detecta anomalias, desvios de comportamento.
+
+- Audita políticas, certificados e permissões.
+
+- Pode **bloquear ou isolar** dispositivos automaticamente.
+
+### Aparece na prova quando:
+- Cenário **exige detecção de comportamento malicioso em dispositivos**.
+- Há necessidade de auditar certificados e políticas
