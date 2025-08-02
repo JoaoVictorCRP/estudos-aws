@@ -11,7 +11,7 @@ Para entender o Kinesis, primeiro precisamos saber a definição de *Streaming D
 - IOT
 
 ## Funcionalidades
-Certo, o Amazon Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o processo de carregamento e análise destes dados==, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
+o Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o processo de carregamento e análise destes dados==, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
 
 ## Componentes
 ### Kinesis Data Streams
@@ -20,10 +20,14 @@ Certo, o Amazon Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna ma
 - **Exemplo de Uso**: Capturar e armazenar logs de servidor, dados de redes sociais, ou cliques de sites para análise em tempo real.
     
 #### Shards
-- Os *shards* são a unidade básica de capacidade para o streaming de dados. Cada *shard* em um stream pode capturar, armazenar e processar dados, e **você pode aumentar ou diminuir a quantidade de shards conforme a necessidade de processamento e volume de dados**. 
+- Os *shards* são a unidade básica de capacidade para o streaming de dados. Cada *shard* em um stream pode capturar, armazenar e processar dados.
+- A capacidade dos shards é gerenciável de duas formas:
+	- **Modo provisionado**: Você pode aumentar ou diminuir manualmente a quantidade de shards conforme sua necessidade.
+	
+	- **Modo on-demand**: Não é necessário provisionar ou gerenciar capacidade, escabilidade automático baseado no thoughput dos últimos 30 dias.
 
 #### Funcionamento dos Shards
-- **Divisão de Dados**: ==Quando você envia dados para um stream, cada registro é atribuído a um shard específico com base em uma partition key. ==Isso permite que diferentes shards processem dados simultaneamente, dividindo a carga entre eles.
+- **Divisão de Dados**: ==Quando você envia dados para um stream, cada registro é atribuído a um shard específico com base em uma partition key.== Isso permite que diferentes shards processem dados simultaneamente, dividindo a carga entre eles.
 
 - **Gravação**: Cada *shard* pode lidar com até 1MB de dados por segundo ou 1.000 registros por segundo para gravações.
 
@@ -34,9 +38,9 @@ Certo, o Amazon Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna ma
 
 ___
 ### Kinesis Data Firehose
-- **Função**: ==Enviar os dados capturados diretamente para serviços== como Amazon S3, Redshift, Elasticsearch, ou Splunk. Ele é totalmente gerenciado, não exigindo a criação de streams ou o gerenciamento de consumidores.
+- **Função**: ==Enviar os dados capturados diretamente para serviços== como Amazon S3, Redshift, OpenSearch, ou Splunk. Ele é totalmente gerenciado, não exigindo a criação de streams ou o gerenciamento de consumidores.
 
-- **Exemplo de Uso**: Enviar logs de dados para um bucket S3 ou indexá-los diretamente no Elasticsearch para consultas em tempo real.
+- **Exemplo de Uso**: Enviar logs de dados para um bucket S3 ou indexá-los diretamente no OpenSearch para consultas em tempo real.
 ---
 ### Kinesis Data Analytics
 - **Função**: ==Processar e analisar dados em tempo real usando consultas SQL==. Isso permite transformar, filtrar e agregar dados imediatamente à medida que são recebidos no Kinesis Data Streams ou Firehose.
@@ -51,7 +55,7 @@ ___
 ## Anotações
 - Se o volume de dados ou a frequência de eventos ultrapassa a capacidade de um único shard, você pode adicionar shards para aumentar a capacidade do stream. (==Escalabilidade é horizontal==)
 
-- No modelo de Data Streams, ==os shards armazenam dados de 24h até 7 dias==, dependendo da sua escolha.
+- O período de retenção de dados do Data Streams é ajustável: **de 24h até 365 dias**.
 
 - No modelo Firehose, ==não há persistência direta de dados.==
 
