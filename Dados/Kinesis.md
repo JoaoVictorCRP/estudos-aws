@@ -60,3 +60,5 @@ ___
 - No modelo Firehose, ==não há persistência direta de dados.==
 
 - Para utilização do HLS para stream de video, é necessário primeiro criar uma sessão de streaming utilizando a API **GetHLSStreamingSessionURL**, que retorna um token para acessar a sessão HLS.
+
+- O envio de dados com o Kinesis Data Streams é feito pelo KPL (Kinesis Producer Library), mas também pode ser realizado pelo **Kinesis Agent**, que é um software que coleta dados do server (de maneira similar ao CWAgent) e os envia na stream.
