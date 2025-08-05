@@ -62,6 +62,6 @@ O EKS oferece integração direta com **Elastic Load Balancers (ELB)** e serviç
 # <span style="color: orange; font-weight:bold">App Runner</span>
 - O App Runner é um serviço totalmente gerenciado para deploy de aplicações containerizadas.
 
-- O serviço é totalmente focado em quem não quer ter dor de cabeça com gerenciamento de infraestrutura, ==ele toma conta de todo o poder computacional e load balancing, você só obtém a URL, de forma semelhante ao que ocorre no Amplify.==
+- O serviço é totalmente focado em quem não quer ter dor de cabeça com gerenciamento de infraestrutura, ==ele **toma conta de todo o poder computacional e load balancing**, você só obtém a URL, de forma semelhante ao que ocorre no Amplify.==
 
 - Para CI/CD, o App Runner pode ser integrado diretamente a um repositório para trackear mudanças (de maneira semelhante ao CodePipeline), pode ser tanto um repositório de código (Github, Bitbucket, Codecommit, etc.) ou um repositório de imagens de container.

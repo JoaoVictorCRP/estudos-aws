@@ -37,7 +37,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Appstream 2.0](computacao/AppStream%202.0.md)
 - [Autoscalling](computacao/AutoScalling.md)
 - [Containerização](computacao/Containerizacao.md)
-- [CWAgent](computacao/CWAgent.md)
 - [Elastic Load Balancer](computacao/ELB.md)
 - [Lambda](computacao/Lambda.md)
 - [Workspaces](computacao/Workspaces.md)
@@ -118,12 +117,14 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [SQS](mensageria/SQS.md)
 - [SWF](mensageria/SWF.md)
 - [Step Functions](mensageria/StepFunctions.md)
+
 ### 🏛️ Governança e Monitoramento
 - [AWS Config](governanca-e-monitoramento/AWSConfig.md)
 - [Control Tower](governanca-e-monitoramento/Control%20Tower.md)
 - [X-Ray](governanca-e-monitoramento/X-Ray.md)
 - [Firewall Manager](governanca-e-monitoramento/Organizations/Firewall%20Manager.md)
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
+- - [CloudwatchAgent](CloudwatchAgent.md)
 
 ### 👮🏻 Security Specialty
 - Anotações específicas sobre detalhes que caem na certificação Security Specialty
