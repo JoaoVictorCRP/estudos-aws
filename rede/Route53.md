@@ -1,7 +1,6 @@
 # Route 53
 O Route 53 é o serviço de DNS da AWS, é bem interessante e faz muitas coisas além da resolução de nomes de domínio.
 
-
 ## O Protocolo DNS
 Dentro do protocolo DNS temos dois tipos principais para registro do nome de domínio, são eles:
 
@@ -25,9 +24,16 @@ ___
 ##  O Resolvedor do Route 53
 - No protocolo DNS, nós temos o conceito de "Forwarder", que é quando um servidor tenta resolver um domínio, mas não consegue fazê-lo, com isso ele "passa pra frente", buscando recursivamente em outros servidores DNS a solução do domínio que o usuário enviou.
 
-- Tendo esse conhecimento, nós podemos utilizar o Route 53 como um forwarder para nossos servidores DNS internos
+- Tendo esse conhecimento, nós podemos utilizar o Route 53 como um forwarder para nossos servidores DNS internos.
 
+#### DNS Híbrido
+- É chamado de DNS híbrido quando envolvemos a resolução de buscas de domínios unificado entre a VPC (resolvedor do route 53) com outros resolvedores DNS de outra rede. Quando falamos de "outra rede", ela pode ser:
+	- Uma VPC emparelhada
+	- Rede on-premises (direct connect ou VPN site-to-site)
 
+- Para utilizamos deste tipo de resolução, precisamos criar endpoints de inbound ou outbound:
+	- **Inbound endpoint**: Para quando um resolvedor externo faz o encaminhamento da consulta para o resolvedor do R53. (para resolver domínios de recursos AWS).
+	- **Outbound endpoint**: Utilizado para quando o resolvedo do R53 faz **condicionalmente** consultas em um resolvedor externo. (Para isso precisa-se criar Resolver Rules).
 ___
 ## Routing Policy
 As seguintes Routing Policies estão disponíveis no Route53:
@@ -56,9 +62,14 @@ O route 53 também oferece um sistema de verificação de integridade do domíni
 
 - É possível também definir uma notificação no SNS para quando algum registro falhar no health check.
 
+---
+
 ## Anotações
 - **(OFF)** Uma coisa que eu não sabia é que dá pra consultar todos os domínios top-level registrados no mundo apenas consultado o site da IANA (Internet Assigned Numbers Authority), veja: https://www.iana.org/domains/root/db.
 
 - **ELBs não possuem um IPv4 definido, portanto é preciso resolver o domínio deles na hora de colocar no Route 53.**
 
 - Por padrão, a quantidade de domínios que você pode registrar em uma única conta é 50. No entanto, é possível aumentar este limite contatando o suporte da AWS.
+
+- Os inbound/outbound endpoints podem estar associados a uma ou mais VPCs **de uma mesma região**.
+	- Para ter alta disponibilidade destes endpoints, crie-os em mais de uma AZ.

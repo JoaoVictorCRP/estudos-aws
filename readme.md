@@ -2,9 +2,9 @@
 Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode clonar este repositório para utilizar as minhas anotações também! :)
 
 ## Estudar
-- [ ] Serviços de IOT
+- [x] Serviços de IOT
 
-- [ ] Serviços de ML
+- [x] Serviços de ML
 
 - [ ] Detalhes do AWS DLCM (*Data Lifecycle Manager*)
 
