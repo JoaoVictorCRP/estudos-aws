@@ -108,6 +108,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Transfer Family](migracao-e-transferencia/TransferFamily)
 
 ### ✉️ Mensageria
+- [Amazon MQ](mensageria/AmazonMQ)
 - [SNS](mensageria/SNS.md)
 - [SQS](mensageria/SQS.md)
 - [SWF](mensageria/SWF.md)
