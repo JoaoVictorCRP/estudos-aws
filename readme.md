@@ -28,9 +28,9 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 ## 📚 Notas por Categoria
 
 ### 🧠 Básico
-- [Cloudfront](basico/CloudFront.md)
 - [Serviços Menores](basico/servicosMenores.md)
 - [Support Plans](basico/supportPlans.md)
+- [Well-Architected Framework (Mapa mental)](basico/WellArchitected-Mindmap.png)
 
 ### 🖥️ Computação
 - [AMI](computacao/AMI.md)
@@ -95,6 +95,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 ### 🛠️ Automação e Aplicações
 - [API Gateway](automacao-e-aplicacoes/ApiGateway.md)
 - [Cloudformation](automacao-e-aplicacoes/CloudFormation.md)
+- [Cloudfront](CloudFront.md)
 - [ElasticBeanstalk](automacao-e-aplicacoes/ElasticBeanStalk.md)
 - [Elastic Transcoder](automacao-e-aplicacoes/ElasticTranscoder.md)
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
@@ -106,14 +107,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Estratégias de Migração para a Nuvem](migrationStrategies.md)
 - [Transfer Family](migracao-e-transferencia/TransferFamily)
 
-### 🧪 Revisões e Erros de Simulado
-- [Disaster Recovery](revisoes-e-erros/DisasterRecovery.md)
-- [Dúvidas Comuns](revisoes-e-erros/DuvidasComuns.md)
-- [Cost Optimized Architecture](revisoes-e-erros/Erros%20no%20simulado/Cost-Optimized%20Architecture.md)
-- [High Performancing Architecture](revisoes-e-erros/Erros%20no%20simulado/High-Performancing%20Architecture.md)
-- [Resilient Architecture](revisoes-e-erros/Erros%20no%20simulado/Resilient%20Architecture.md)
-- [Secure Architectures](revisoes-e-erros/Erros%20no%20simulado/Secure%20Architectures.md)
-
 ### ✉️ Mensageria
 - [SNS](mensageria/SNS.md)
 - [SQS](mensageria/SQS.md)
@@ -122,11 +115,11 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 ### 🏛️ Governança e Monitoramento
 - [AWS Config](governanca-e-monitoramento/AWSConfig.md)
-- [Control Tower](governanca-e-monitoramento/Control%20Tower.md)
+- [Control Tower](ControlTower.md)
 - [X-Ray](governanca-e-monitoramento/X-Ray.md)
 - [Firewall Manager](governanca-e-monitoramento/Organizations/Firewall%20Manager.md)
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
-- - [CloudwatchAgent](CloudwatchAgent.md)
+- [Cloudwatch Agent](CloudwatchAgent.md)
 
 ### 👮🏻 Security Specialty
 - Anotações específicas sobre detalhes que caem na certificação Security Specialty
@@ -140,3 +133,10 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Resource-Based Policies](certificacoes/security-specialty/Acessos%20e%20Policies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/Acessos%20e%20Policies/Session%20Policies.md)
 
+### 🧪 Revisões e Erros de Simulado
+- [Disaster Recovery](revisoes-e-erros/DisasterRecovery.md)
+- [Dúvidas Comuns](revisoes-e-erros/DuvidasComuns.md)
+- [Cost Optimized Architecture](revisoes-e-erros/Erros%20no%20simulado/Cost-Optimized%20Architecture.md)
+- [High Performancing Architecture](revisoes-e-erros/Erros%20no%20simulado/High-Performancing%20Architecture.md)
+- [Resilient Architecture](revisoes-e-erros/Erros%20no%20simulado/Resilient%20Architecture.md)
+- [Secure Architectures](revisoes-e-erros/Erros%20no%20simulado/Secure%20Architectures.md)
