@@ -66,3 +66,5 @@ A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muit
 ### Aparece na prova quando:
 - Cenário **exige detecção de comportamento malicioso em dispositivos**.
 - Há necessidade de auditar certificados e políticas
+---
+## IoT 1-Click
