@@ -9,6 +9,13 @@ O Control Tower é uma ==**ferramenta de governança que nos ajuda a implementar
 Para começar a utilizar o **Control Tower**, nós precisamos realizar a criação de uma **Landing Zone**, que é um ambiente centralizado que abriga múltiplas contas sob uma mesma organização.
 
 ### Guardrails
-- Os Guardrails são políticas que você pode estabelecer em sua organizazção através do Control Tower.
+- Os Guardrails são políticas que você pode estabelecer em sua organização através do Control Tower.
 
-- Por debaixo dos panos, os Guardrails são, na verdade, config rules do **AWS Config** ou **SCPs** aplicadas à nível organizacional.
+- Por debaixo dos panos os Guardrails são na verdade config rules do **AWS Config** ou **SCPs** aplicadas à nível organizacional.
+
+### Account Factory
+- Automatiza o provisionamento de contas na organização.
+
+- Permite ajustar configurações da VPC default, e subnets da nova conta, de acordo com uma baseline definida por você.
+
+- Faz o uso do **AWS Service Catalog** para o provisionamento das contas.
