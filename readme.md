@@ -75,10 +75,12 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Padroes de Segurança](certificacoes/security-specialty/PadroesDeSeguranca.md)
 
 ### 🌐 Rede
-- [Redes](certificacoes/security-specialty/Redes.md)
+- [Global Accelerator](rede/GlobalAccelerator.md)
 - [Route 53](rede/Route53.md)
-- [VPC Endpoints](rede/VPC-EndPoints.md)
+- [Transit Gateway](rede/TransitGateway.md)
 - [VPC](rede/VPC.md)
+- [VPC Endpoints](rede/VPC-EndPoints.md)
+- [Segurança de Redes](certificacoes/security-specialty/Redes.md)
 
 ### 🗃️ Banco de Dados
 - [DynamoDB](dados/DynamoDB.md)
