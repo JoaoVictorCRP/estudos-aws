@@ -92,3 +92,13 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 
 - ==**Falha no rollback*==:
 	- Nesse caso ==será necessário consertar os recursos manualmente e então chamar a **API ContinueUpdateRollback**== diretamente do console ou CLI, isso fará com que o rollback tente ser feito novamente.
+
+---
+## Change Sets
+- O cloudformation nos permite executar uma simulação de atualização de stack antes de aplicá-la de fato, isso é feito por meio dos **Change Sets**.
+
+- Com ele podemos ver exatamente quais recursos serão criados, atualizados ou deletados antes de aplicar as mudanças.
+
+- Podemos imaginar o Change Set como o `terraform plan` do CloudFormation.
+
+-	Feita a validação, podemos então aplicar as mudanças com segurança.
