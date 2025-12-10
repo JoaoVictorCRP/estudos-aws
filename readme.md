@@ -90,6 +90,9 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Elastic Transcoder](automacao-e-aplicacoes/ElasticTranscoder.md)
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
 - [IOT](IoTServices)
+#### CI/CD
+- [CodeBuild](automacao-e-aplicacoes/ci-cd/CodeBuild.md)
+- [CodePipeline](automacao-e-aplicacoes/ci-cd/CodePipeline.md)
 
 ### 🧳 Migração e Transferência
 - [AWSMigrationTools](AWSMigrationTools.md)
