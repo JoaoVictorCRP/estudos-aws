@@ -16,6 +16,8 @@
 
   - Os artefatos de saída de um estágio são usados como artefatos de entrada pelo seu sucessor.
 
+  - ==É mandatório que o bucket S3 tenha versionamento habilitado==.
+
 ## Disparando uma Pipeline
 Para além do disparo manual, a execução de uma pipeline pode acontecer de três maneiras:
 
