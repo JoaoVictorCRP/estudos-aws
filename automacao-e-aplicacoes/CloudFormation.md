@@ -15,7 +15,7 @@ Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma 
 
 ---
 ## Funções Intrínsecas
-O CloudFormation possui algumas funções built-in bem úteis a criação de stacks. Vejamos algumas:
+O CloudFormation possui algumas funções built-in bem úteis para a criação de stacks. Vejamos algumas:
 
 - **Ref ⮕** Usada para referenciar um parâmetro ou recurso AWS (ID do recurso). 
 	- Em `YAML`: **`!Ref logicalName`**
@@ -25,27 +25,31 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 	- Em `YAML`:  `!GetAtt logicalNameOfResource.attributeName`
 	- **Caso de uso exemplar**: Obter a AZ que uma EC2 foi lançada, seu IP ou DNS público.
 	
-- **Fn::FindInMap ⮕** Retorna o valor baseado na chave enviada como parâmetro (Busca dentro de um `map` (Estrutura de dados com chave valor em `YAML`). 
+- **Fn::FindInMap ⮕** Retorna o valor a partir da chave enviada como parâmetro, buscando dentro de um `map` (Estrutura de dados chave-valor em `YAML`). 
 	- Em `YAML`:  `!FindInMap [MapName, TopLevelkey, SecondLevelKey`
 	- Veja um exemplo abaixo:
-	 ![[ExemploMapping.png]]
+	 <img src="./images/ExemploMapping.png"/>
 
 - **Fn::ImportValue ⮕** Importa valores exportados em outras stacks.
 	- Em `YAML`:  `!ImportValue exportedValueName`
 
 - **Condition Functions (Fn::If, Fn::Not, Fn::Equals, etc...) ⮕** Realizar verificações e validações no momento de criação da stack
-	- Em `YAML`:  `!Equals [ value1, value2]
+	- Em `YAML`:  
+		- `!Equals [ value1, value2]`
+		- `!If [ conditionName, valueIfTrue, valueIfFalse]`
+	- Muito útil para criar stacks dinâmicas, que se adaptam conforme os parâmetros enviados.
+	
 
 - **Fn::Base64 ⮕** Converte String para `Base64`.
-	- Em `YAML`:  `!Base64 "ValueToEncode"
+	- Em `YAML`:  `!Base64 "ValueToEncode"`
 	- Muito utilizado para codificar dados a serem usados como `UserData` em uma instância EC2:
-	- ![[Base64Example.png]]
+	 <img src="./images/Base64Example.png"/>
 ---
 ## Infrastructure Composer
-- O CloudFormation é integrado a um serviço bem legal, **o Infrastrucutre composer, que nos permite visualizar, construir e dar deploy em aplicações de maneira visual**, dá pra provisionar recursos num estilo **==Drag N' Drop==**! Muito legal. [GIF demonstativo](https://docs.aws.amazon.com/images/infrastructure-composer/latest/dg/images/aac_00.gif)
+- O CloudFormation é integrado a um serviço bem legal, o Infrastructure composer, **que nos permite visualizar, construir e dar deploy em aplicações de maneira visual**, dá pra provisionar recursos num estilo **==Drag N' Drop==**! Muito legal. [GIF demonstativo](https://docs.aws.amazon.com/images/infrastructure-composer/latest/dg/images/aac_00.gif)
 ---
 ## CloudFormation StackSets
-- Essa é uma feature que nos permite aplicar stacks do CF em múltiplas contas de uma só vez, a partir de uma conta de gerenciamento centralizada, tudo em uma única operação
+- Essa é uma feature que nos permite aplicar stacks do CF em múltiplas contas e/ou regiões de uma só vez, a partir de uma conta de gerenciamento centralizada, tudo em uma única operação
 
 - Este serviço é integrado ao **Organizations.**
 ---
@@ -54,12 +58,12 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 
 - Auxiliam na configuração inicial de instâncias EC2.
 	- Não possuem limitação específica de tamanho, como o ==User Data (que tem limite de 16KB)==
-	- São scripts Python, portanto são bem mais fáceis de debugar que um User Data convencional em Bash.
+	- **São scripts Python**, portanto são bem mais fáceis de debugar que um User Data convencional em Bash.
 
 ### `cfn-init`
 - Usado para obter e interpretar a seção `metadata`, instalando pacotes, criando arquivos e iniciando serviços (`daemons`).
 
-- Com ele podemos realizar configurações complexas em uma instância EC2 logo no seu boot inicial.
+- Com este, podemos realizar configurações complexas em uma instância EC2 logo no seu boot inicial.
 
 - ==Deve ser chamado no UserData da instância criada==.
 
@@ -72,7 +76,7 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 
 - Ele é usado em conjunto com o `Wait Condition`, que é uma seção do template que "congela" a stack do CloudFormation até que a instância envie o `cfn-signal`.
 
-- **Cuidado:** Se um erro for retornado para o `cfn-signal`, a stack inteira será deletada (ROLLBACK), para desabilitar essa opção e debugar manualmente defina a opção de _Stack Failure_ como "_Preserve successfully provisioned resources_"
+- **Cuidado:** Se um erro for retornado para o `cfn-signal`, a stack inteira será deletada (entrará em Rollback), para desabilitar essa opção e debugar manualmente defina a opção de _**Stack Failure**_ como "_**Preserve successfully provisioned resources**_"
 ---
 ## Deletion Policy
 - Dentro do CloudFormation é possível definir uma política de deleção personalizada para quando a stack for excluída (ou caso o próprio recurso seja excluído). Veja os tipos de policies:
@@ -83,22 +87,22 @@ O CloudFormation possui algumas funções built-in bem úteis a criação de sta
 
 ---
 ## Rollbacks
-- **Falha na ==CRIAÇÃO== de uma Stack:**
-	- **==Por padrão**: Todos os recurso sofrem rollback (serão apagados)==, os logs fornecerão detalhes.
-	- Há também a opção de desabilitar o rollback e solucionar o problema verificando diretamente o recurso.
+- **Falha na criação de uma Stack:**
+	- ==**Por padrão**: Todos os recurso sofrem rollback (serão apagados)==, os logs fornecerão detalhes.
+		- Há também a opção de desabilitar o rollback e solucionar o problema verificando diretamente o recurso.
 
-- **Falha na ==ATUALIZAÇÃO ==de uma Stack:**
+- **Falha na atualização de uma Stack:**
 	- A Stack fará um ==rollback automático para o estado funcional mais recente==.
 
-- ==**Falha no rollback*==:
-	- Nesse caso ==será necessário consertar os recursos manualmente e então chamar a **API ContinueUpdateRollback**== diretamente do console ou CLI, isso fará com que o rollback tente ser feito novamente.
+- **Falha no rollback**:
+	- Nesse caso ==será necessário consertar os recursos manualmente, e então chamar a **API ContinueUpdateRollback**== diretamente do console ou CLI, isso fará com que o rollback tente ser feito novamente.
 
 ---
 ## Change Sets
-- O cloudformation nos permite executar uma simulação de atualização de stack antes de aplicá-la de fato, isso é feito por meio dos **Change Sets**.
+- O CloudFormation nos permite executar uma simulação de atualização de stack antes de aplicá-la de fato, isso é feito por meio dos **Change Sets**.
 
 - Com ele podemos ver exatamente quais recursos serão criados, atualizados ou deletados antes de aplicar as mudanças.
 
-- Podemos imaginar o Change Set como o `terraform plan` do CloudFormation.
+- Podemos imaginar o Change Set como o `terraform plan` ou `--dryrun` do CloudFormation.
 
 -	Feita a validação, podemos então aplicar as mudanças com segurança.
