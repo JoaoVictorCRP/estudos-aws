@@ -86,6 +86,12 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - **`Retain`**: Recurso permanecerá mesmo se a stack for deletada.
 
 ---
+## Stack Policies
+- As Stack Policies são usadas para proteger recursos específicos dentro de uma stack do CloudFormation contra atualizações acidentais.
+- Um exemplo prático, seria aplicar uma policy que impeça a atualização de um banco de dados crítico durante uma atualização da stack, garantindo que ele permaneça intacto.
+- As Stack Policies são definidas em formato JSON e podem ser aplicadas no momento da criação da stack ou atualizadas posteriormente.
+
+---
 ## Rollbacks
 - **Falha na criação de uma Stack:**
 	- ==**Por padrão**: Todos os recurso sofrem rollback (serão apagados)==, os logs fornecerão detalhes.
