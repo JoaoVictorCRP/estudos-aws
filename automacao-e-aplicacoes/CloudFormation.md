@@ -69,7 +69,7 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 
 - Todos os logs serão registrados em `var/log/cfn-init.log`
 
-## `cfn-signal`
+### `cfn-signal`
 - Este helper script faz com que o CloudFormation seja notificado se o `cfn-init` foi executado com sucesso ou não.
 
 - ==Ele é rodado logo após o `cfn-init`, também no UserData==.
@@ -90,6 +90,17 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - As Stack Policies são usadas para proteger recursos específicos dentro de uma stack do CloudFormation contra atualizações acidentais.
 - Um exemplo prático, seria aplicar uma policy que impeça a atualização de um banco de dados crítico durante uma atualização da stack, garantindo que ele permaneça intacto.
 - As Stack Policies são definidas em formato JSON e podem ser aplicadas no momento da criação da stack ou atualizadas posteriormente.
+---
+## Custom Resources
+- **Através do custom resources, podemos estender as funcionalidades do CloudFormation para recursos que não são nativamente suportados pelo serviço**.
+- Com eles, é possível definir lógica personalizada para criar, atualizar ou deletar recursos específicos, utilizando AWS Lambda ou outros serviços.
+- Também são ==especialmente úteis quando precisamos integrar o CloudFormation com serviços externos ou realizar operações complexas que vão além das capacidades padrão do CloudFormation==.
+	- Um exemplo prático seria criar:
+		- Um recurso que provisiona um serviço de terceiros via API (Lambda) durante a criação da stack.
+		- Ou um recursos que executa a limpeza total dos objetos de um bucket S3 antes de sua deleção (Impedindo erros de deleção por não estar vazio).
+- Sintaticamente, é definido usando o tipo de recurso `AWS::CloudFormation::CustomResource` ou `AWS::CloudFormation::Resource` em conjunto com uma função Lambda que executa a lógica personalizada.
+- Um detalhe técnico importante é que o Lambda deve enviar uma resposta de volta ao CloudFormation para indicar o sucesso ou falha da operação, garantindo que a stack seja gerenciada corretamente.
+	- A resposta é enviada para uma URL pré-assinada fornecida pelo CloudFormation.
 
 ---
 ## Rollbacks
