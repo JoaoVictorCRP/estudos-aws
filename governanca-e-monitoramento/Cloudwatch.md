@@ -18,3 +18,30 @@
 - O Canary Synthetics é um recurso do Cloudwatch que permite criar e gerenciar canários, que são scripts automatizados que simulam o comportamento dos usuários em aplicações web.
 
 - É muito útil para monitorar a disponibilidade e o desempenho de aplicações web, APIs e endpoints, garantindo que eles estejam funcionando corretamente para os usuários finais.
+
+## Cloudwatch Logs
+- O Cloudwatch Logs é um serviço que permite coletar, monitorar e armazenar logs de aplicações, sistemas operacionais e serviços AWS.
+
+- Com o Cloudwatch Logs, é possível centralizar os logs de diferentes fontes, facilitando a análise e a identificação de problemas.
+
+- Ele oferece recursos como criação de grupos de logs, streams de logs, filtros de métricas e alarmes, permitindo monitorar o desempenho e a integridade das aplicações e sistemas.
+
+### Log Metric Filters
+- Os **Log Metric Filters são usados para extrair métricas específicas dos logs** coletados pelo Cloudwatch Logs.
+
+- Com eles, é possível definir padrões de pesquisa nos logs e criar métricas personalizadas com base nesses padrões.
+
+  - Por exemplo, a ocorrência da palavra `ERROR` em um log de aplicação.
+  
+  - Ao identificar o padrão, ele incrementa uma métrica personalizada, que pode ser monitorada através de um gráfico/dashboard e/ou usada para acionar alarmes.
+
+### Log Subscription Filters
+- Os **Log Subscription Filters permitem enviar logs do Cloudwatch Logs para outros serviços da AWS ou destinos externos em tempo real** (Data streaming).
+
+- Destinos suportados incluem:
+  - AWS Lambda
+  - Amazon Kinesis Data Streams
+  - Amazon Kinesis Data Firehose
+  - Serviços de terceiros via Amazon EventBridge
+
+- Caso de uso comum: enviar logs para um cluster OpenSearch para buscas e análises avançadas, ou para um bucket S3 para arquivamento e análises futuras.
