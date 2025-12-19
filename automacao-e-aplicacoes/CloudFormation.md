@@ -9,6 +9,11 @@ Esse é o serviço que permite provisionar e gerenciar recursos da AWS de forma 
 - **Automação de Deploy**: Ao usar o CF, você pode automatizar a criação, atualização e exclusão de pilhas de recursos. Isso é especialmente útil para garantir consistência entre ambientes (de homologação, teste e produção).
 
 - **Controle de Versão**: Como os templates são definidos como código, você pode armazená-los em sistemas de controle de versão, como o Git, permitindo uma melhor auditoria das configurações.
+
+### Sobre permissões
+- o CloudFormation utiliza **IAM Roles** para executar ações em seu nome. Você pode definir uma role específica para o CF assumir ao criar ou atualizar stacks, garantindo que ele tenha apenas as permissões necessárias para os recursos que está gerenciando.
+
+- Alternativamente, caso não seja definida uma role, o CloudFormation utilizará as permissões do usuário que está executando a operação (é necessário que o usuário tem a permissão `iam:PassRole` para que o CF possa assumir a role).
 ---
 ## Conceitos Importantes
 - **Outputs**: ==Seção opcional de um template do CF que declara valores a serem exportados, os quais poderão ser importados em outras stacks.== _**Caso de uso exemplar**: Ao definir uma stack de rede, você poderia exportar o ID da VPC como ouput e então importá-lo no stack da aplicação._
