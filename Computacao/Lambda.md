@@ -29,27 +29,43 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 - O código do Lambda pode ser em Node.js ou Python.
 
 ## Conexão com a Rede
-- ==Por padrão, uma função Lambda sempre opera em uma VPC gerenciada pela própria AWS==, portanto, possui acesso à internet pública e também às APIs da AWS.
+- **Por padrão, uma função Lambda sempre opera em uma VPC gerenciada pela própria AWS**, portanto, possui acesso à internet pública e também às APIs da AWS.
 
-- Porém, é possível determinar que uma função Lambda seja =="VPC-Enabled"==, fazendo com que ela funcione direto de uma VPC da sua conta, mas ela ==precisará que tenha um NAT Gateway na sua internet pública para ter acesso a recursos públicos.==
+- Porém, é possível determinar que uma função Lambda seja "**VPC-Enabled**", fazendo com que ela funcione direto de uma VPC da sua conta. Mas ela precisará que a route table da subnet onde está contenha um NAT Gateway (que esteja em uma subnet pública) para ter acesso a recursos públicos.
 
-	- ==Se a lambda estiver em uma VPC da sua conta==, você também precisará configurar uma sub-rede e um ==grupo de segurança== para ela.
+	- Se a lambda estiver em uma VPC da sua conta, você também precisará configurar uma sub-rede e um=grupo de segurança para ela.
 
-	- ==Caso a função só precise acessar recursos dentro da própria VPC== (*como uma banco de dados ou uma instância EC2 privada*), ==o NAT Gateway não é necessário==, pois ela consegue se comunicar com esses recursos internamente.
+	- Caso a função só precise acessar recursos dentro da própria VPC (*como uma banco de dados ou uma instância EC2 privada*), o NAT Gateway não é necessário, pois ela consegue se comunicar com esses recursos internamente.
 
 ## Lambdas Containerizadas
 - Através do **Lambda Runtime Interface** é possível realizar o deploy de funções lambda como containers, ou mesmo rodá-las localmente.
 
 - Ideal para aplicações de arquitetura containerizada que exigem facilidade no gerenciamento da comunicação entre a lambda e outros microserviços.
 
-- É possível empacotar funções lambda como imagens de **==até 10 GB==**.
+- É possível empacotar funções lambda como imagens de até 10 GB.
 
 -  Não possui custos adicionais além dos preços usuais do Lambda e do ECR.
+
+
+## Controles de Concorrência
+
+### Reserved Concurrency
+- O Reserved Concurrency é um recurso do AWS Lambda que **permite reservar uma quantidade específica de capacidade de execução para uma função Lambda**.
+
+- Isso garante que a função sempre tenha acesso a um número mínimo de instâncias para lidar com solicitações, mesmo durante picos de tráfego.
+
+- Além disso, **o Reserved Concurrency também pode ser usado para limitar o número máximo de instâncias que uma função pode ter em execução simultaneamente, ajudando a controlar custos e evitar sobrecarga em recursos downstream**.
+
+### Provisioned Concurrency
+- O Provisioned Concurrency é um recurso do AWS Lambda que **permite pré-inicializar um número específico de instâncias de função Lambda para estarem prontas para responder a solicitações imediatamente**.
+
+- Isso é especialmente útil para reduzir o conhecido problema de *cold start* (inicialização fria), onde a primeira invocação de uma função Lambda pode levar mais tempo para ser executada devido à necessidade de inicializar o ambiente de execução.
+
 
 ## Anotações
 - A cobrança é baseada no tempo que a função levou para a execução completa OU no número de requisições (O primeiro milhão de requisições é gratuito, após isso, será cobrado $0,20 por milhão).
 
-- O <span style="background-color: #e0a800; color: black;font-weight:bold">escalonamento</span> do Lambda é <span style="background-color: #e0a800; color: black;font-weight:bold"> horizontal</span>.
+- O escalonamento do Lambda é horizontal.
 
 - Funções Lambda são independentes, 1 evento = 1 função.
 
