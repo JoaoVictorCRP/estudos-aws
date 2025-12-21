@@ -128,3 +128,12 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - Podemos imaginar o Change Set como o `terraform plan` ou `--dryrun` do CloudFormation.
 
 -	Feita a validação, podemos então aplicar as mudanças com segurança.
+
+## Drift Detection
+- O Drift Detection é um **recurso do CloudFormation que permite identificar mudanças não autorizadas ou inesperadas nos recursos gerenciados por uma stack** (Geralmente devido a alterações manuais fora do CloudFormation).
+
+- Com ele, é possível comparar o estado atual dos recursos com o estado definido no template da stack, ajudando a garantir a integridade e consistência da infraestrutura.
+
+- Ao detectar um drift, o CloudFormation fornece um relatório detalhado das diferenças encontradas, permitindo que os administradores tomem as medidas necessárias para corrigir ou reconciliar as discrepâncias. 
+
+- Detalhe importante: Custom Resources não são verificados pelo Drift Detection.
