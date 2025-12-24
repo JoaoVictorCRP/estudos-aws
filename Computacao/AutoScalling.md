@@ -81,6 +81,10 @@ Os Auto-Scalling groups podem checar a saúde das instâncias de dois tipos:
 **Qual se deve usar?**
  - Depende, se quiser verificar a disponibilidade real da aplicação ou serviços na instância, use o **Health Check ELB**, caso uma verificação simples bastar, use **Health Check EC2**.
 
+## Scaling Cooldown
+- O Cooldown é um período de espera após uma ação de escalonamento (scale-out ou scale-in) ser executada.
+- Durante esse tempo, o ASG não executa novas ações de escalonamento, permitindo que as mudanças tenham efeito antes de qualquer nova ação ser tomada.
+- O período padrão é de 300 segundos (5 minutos).
 
 ## ANOTAÇÕES
 - **Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente**.
