@@ -30,6 +30,33 @@ Pelo fato desse serviço ser integrado ao CloudTrail, ele guarda o histórico de
 - Facilita a visualização e análise das configurações em um ambiente multi-conta e multi-região.
 - **As regras devem ser criadas em cada conta/região de origem**.
 
+## Conformance Packs
+- Conjuntos pré-definidos de regras do AWS Config que ajudam a avaliar a conformidade dos recursos seguindo as melhores práticas e padrões de segurança da indústria.
+- Permitem a implementação rápida de políticas de conformidade em toda a organização, uma vez que os Packs são definidos em formato YAML (facilmente importáveis).
+- Você pode criar seus próprios Conformance Packs personalizados para atender às necessidades específicas da sua organização.
+- Abaixo, um pequeno exemplo de um Conformance Pack em YAML:
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Resouces:
+  IamPasswordPolicy:
+    Type: 'AWS::Config::ConfigRule'
+    Properties:
+      ConfigRuleName: 'iam-password-policy'
+      Description: 'Verifica se a política de senha do IAM atende aos requisitos mínimos.'
+      Source:
+        Owner: 'AWS'
+        SourceIdentifier: 'IAM_PASSWORD_POLICY'
+      InputParameters:
+        minimumPasswordLength: '14'
+        requireSymbols: 'true'
+        requireNumbers: 'true'
+        requireUppercaseCharacters: 'true'
+        requireLowercaseCharacters: 'true'
+```
+
+- Você pode definir uma regra personalizada dentro do Conformance Pack, utilizando AWS Lambda para avaliar a conformidade dos recursos com base em critérios específicos da sua organização.
+  - Neste caso, a propriedade `Source` deve ser ajustada para referenciar a função Lambda personalizada (`CUSTOM_LAMBDA`).
 
 ## Anotações
 - Possui escopo regional, portanto você precisará ativar um AWS Config individual para cada região.
