@@ -16,9 +16,14 @@ Com o Config é possível auditar a data da criação de um recurso, por quem el
 ### Conformidade com diretrizes
 Também é possível checar uma linha do tempo de eventos associados a um recursos inspecionado, isto é, mostrando em uma estaca de tempo toda a vida de uma instância, por exemplo, quando ela teve um ENI removida, quando ela teve um novo security group adicionado e quando ela foi desligada, deixando claro qual usuário fez isso e quando.
 
-
 ### Histórico de ações
 Pelo fato desse serviço ser integrado ao CloudTrail, ele guarda o histórico de tudo o que ocorre na região onde ele foi lançado.
+
+
+## Remediação Automática
+- Permite configurar ações automáticas para corrigir recursos que estejam fora de conformidade com as regras definidas no AWS Config.
+- As ações de remediação podem incluir a execução de funções AWS Lambda, a aplicação de políticas do Systems Manager ou outras ações suportadas.
+- Isso ajuda a garantir que os recursos permaneçam em conformidade sem a necessidade de intervenção manual.
 
 
 ## Configuration Recorder
