@@ -23,16 +23,21 @@ Pelo fato desse serviço ser integrado ao CloudTrail, ele guarda o histórico de
 
 ## Configuration Recorder
 - Grava as configurações dos recursos da AWS em sua conta.
+
 - Pode ser configurado para gravar todas as mudanças ou apenas mudanças específicas, permitindo uma auditoria detalhada das alterações feitas nos recursos.
 
 ## Aggregator
 - Permite agregar dados de configuração de várias contas e regiões da AWS em um único local.
+
 - Facilita a visualização e análise das configurações em um ambiente multi-conta e multi-região.
+
 - **As regras devem ser criadas em cada conta/região de origem**.
 
 ## Conformance Packs
 - Conjuntos pré-definidos de regras do AWS Config que ajudam a avaliar a conformidade dos recursos seguindo as melhores práticas e padrões de segurança da indústria.
+
 - Permitem a implementação rápida de políticas de conformidade em toda a organização, uma vez que os Packs são definidos em formato YAML (facilmente importáveis).
+
 - Você pode criar seus próprios Conformance Packs personalizados para atender às necessidades específicas da sua organização.
 - Abaixo, um pequeno exemplo de um Conformance Pack em YAML:
 
@@ -57,6 +62,23 @@ Resouces:
 
 - Você pode definir uma regra personalizada dentro do Conformance Pack, utilizando AWS Lambda para avaliar a conformidade dos recursos com base em critérios específicos da sua organização.
   - Neste caso, a propriedade `Source` deve ser ajustada para referenciar a função Lambda personalizada (`CUSTOM_LAMBDA`).
+
+
+## Organizational Rules
+- Permite a criação de regras do AWS Config que são aplicadas automaticamente a todas as contas dentro de uma organização do AWS Organizations.
+
+- Facilita a implementação de políticas de conformidade consistentes em todas as contas da organização.
+
+- As regras organizacionais podem ser gerenciadas centralmente, simplificando a administração e garantindo que todas as contas sigam as mesmas diretrizes de conformidade.
+
+### Organizational Rules vs Conformance Packs
+- Ambas as funcionalidades ajudam a gerenciar a conformidade em múltiplas contas, mas com abordagens diferentes.
+
+- Conformance Packs podem ou não ser aplicados em nível organizacional, enquanto Organizational Rules são especificamente projetadas para serem aplicadas em todas as contas de uma organização.
+
+- Ademais, Conformance Packs são conjuntos de regras que podem ser reutilizadas, enquanto Organizational Rules são regras individuais aplicadas diretamente às contas da organização.
+
+<image src="./images/organizational-rules-vs-conformance-packs.png" alt="Organizational Rules vs Conformance Packs" width="600"/>
 
 ## Anotações
 - Possui escopo regional, portanto você precisará ativar um AWS Config individual para cada região.
