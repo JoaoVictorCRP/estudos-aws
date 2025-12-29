@@ -13,7 +13,8 @@
 - Um Deployment Group é uma coleção de instâncias ou servidores onde a aplicação será implantada
 
 ### Agent do CodeDeploy
-- O agente do CodeDeploy é um software que deve ser instalado nas instâncias EC2 ou servidores on-premises para permitir a comunicação com o serviço CodeDeploy.
+- O CodeDeploy Agent é um software que deve ser instalado nas instâncias EC2 ou servidores on-premises para permitir a comunicação com o serviço CodeDeploy.
+
 - Ele gerencia o processo de implantação, baixando os artefatos e executando os scripts conforme definido no arquivo AppSpec.
 
 ### Ciclo de Vida da Implantação
@@ -28,16 +29,24 @@
 
 ### AppSpec File
 - O arquivo AppSpec é um arquivo YAML ou JSON que define como o CodeDeploy deve implantar a aplicação.
+
 - Ele especifica os arquivos a serem copiados, os scripts a serem executados em diferentes fases do ciclo de vida da implantação, e outras configurações necessárias.
 
-#### Hooks do Ciclo de Vida
-- Os hooks do ciclo de vida permitem que você execute scripts em pontos específicos durante o processo de implantação, como antes da instalação, após a instalação, antes da reinicialização, etc.
+#### Hooks de Deploy
+- Os hooks permitem que você execute scripts em pontos específicos durante o processo de implantação, como antes da instalação, após a instalação, antes da reinicialização, etc.
 
 ### Estratégias de Implantação
 - O CodeDeploy oferece várias estratégias de implantação, incluindo:
   - **All-at-Once**: Implanta a nova versão em todas as instâncias simultaneamente.
+
+  - **Half-at-a-Time**: Implanta a nova versão em metade das instâncias primeiro, e depois na outra metade.
+
+  - **One-at-a-Time**: Implanta a nova versão em uma instância de cada vez.
+  
   - **Rolling Update**: Implanta a nova versão em lotes, reduzindo o impacto em caso de falhas.
+  
   - **Canary**: Implanta a nova versão em uma pequena porcentagem de instâncias antes de expandir para o restante.
+  
   - **Blue/Green**: Cria um novo ambiente para a nova versão, permitindo uma transição suave.
 
 ## Deploy em Funções Lambda
@@ -45,5 +54,52 @@
 
 - A mundaça de versão é feita de forma automática, e você também pode configurar o tráfego para ser dividido entre a versão antiga e a nova, permitindo testes A/B.
   - A mudança de tráfego pode ser feita de forma gradual, com base em porcentagens definidas. Sendo possível definir uma estratégia de implantação canary ou linear.
+ 
   - **Linear**: o tráfego é movido em incrementos iguais em intervalos regulares até que 100% do tráfego esteja na nova versão.
+
   - **Canary**: uma pequena porcentagem do tráfego é movida para a nova versão inicialmente, e após um período de avaliação, o restante do tráfego é movido.
+
+## Deploy em Instâncias EC2
+- Para identificar as instâncias que receberão o deploy, o CodeDeploy pode utilizar:
+  - Tags do EC2
+
+  - Auto Scaling Groups
+
+- Quando a instância/ASG possui um Load Balancer associado, o CodeDeploy pode gerenciar o processo de remoção e adição das instâncias no LB durante o deploy, garantindo que o tráfego não seja direcionado para instâncias em processo de atualização.
+
+### Sobre os Hooks
+- No processo de deploy, você pode definir scripts para serem executados em diferentes fases do ciclo de vida da implantação, isto é feito através da seção `hooks` no arquivo AppSpec:
+
+  - `ApplicationStop`: Executado antes de qualquer arquivo ser copiado. 
+    - Aqui você pode parar serviços.
+    - Um detalhe importante sobre essa etapa é que o script a ser executado para parar a aplicação será o da versão anterior, ou seja, o CodeDeploy primeiro executa esse hook e depois baixa os novos arquivos. Isto ocorre pois apenas a versão que iniciou a aplicação sabe como pará-la corretamente (Imagine que o serviço mudou de nome entre uma versão e outra, por exemplo).
+
+  - `DownloadBundle`: Executado após o bundle da aplicação ser baixado, mas antes de ser descompactado. 
+    - Não é possível executar scripts neste estágio.
+  
+  - `BeforeInstall`: Executado antes dos arquivos serem copiados para a instância.
+    - Aqui você pode fazer backup de arquivos existentes, por exemplo.
+
+  - `Install`: Executado para copiar os arquivos para a instância.
+    - Não é possível executar scripts neste estágio.
+
+  - `AfterInstall`: Executado logo após os arquivos serem copiados para a instância.
+    - Aqui você pode configurar permissões, mover arquivos, etc.
+ 
+  - `ApplicationStart`: Executado após os arquivos serem copiados e configurados.
+    - Aqui você pode iniciar serviços.
+ 
+  - `ValidateService`: Executado após a aplicação ser iniciada.
+    - Aqui você pode executar testes para garantir que a aplicação está funcionando corretamente (como um `curl` para um endpoint, por exemplo).
+  
+- Caso a arquitetura conte com um Load Balacer, existem hooks adicionais para gerenciar o processo de remoção e adição das instâncias no LB:
+  - `BeforeBlockTraffic`: Executado antes de a instância ser removida do Load Balancer.
+  
+  - `AfterBlockTraffic`: Executado após a instância ser removida do Load Balancer.
+  
+  - `BeforeAllowTraffic`: Executado antes de a instância ser adicionada de volta ao Load Balancer.
+  
+  - `AfterAllowTraffic`: Executado após a instância ser adicionada de volta ao Load Balancer.
+
+O diagrama abaixo mostra o fluxo de execução dos hooks durante o processo de deploy:
+<img src="../images/CodeDeployHooks.png" />
