@@ -39,3 +39,11 @@
   - **Rolling Update**: Implanta a nova versão em lotes, reduzindo o impacto em caso de falhas.
   - **Canary**: Implanta a nova versão em uma pequena porcentagem de instâncias antes de expandir para o restante.
   - **Blue/Green**: Cria um novo ambiente para a nova versão, permitindo uma transição suave.
+
+## Deploy em Funções Lambda
+- Como dito anteriormente, o CodeDeploy também suporta implantações em funções Lambda.
+
+- A mundaça de versão é feita de forma automática, e você também pode configurar o tráfego para ser dividido entre a versão antiga e a nova, permitindo testes A/B.
+  - A mudança de tráfego pode ser feita de forma gradual, com base em porcentagens definidas. Sendo possível definir uma estratégia de implantação canary ou linear.
+  - **Linear**: o tráfego é movido em incrementos iguais em intervalos regulares até que 100% do tráfego esteja na nova versão.
+  - **Canary**: uma pequena porcentagem do tráfego é movida para a nova versão inicialmente, e após um período de avaliação, o restante do tráfego é movido.
