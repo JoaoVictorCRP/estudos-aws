@@ -30,6 +30,11 @@ O API Gateway integra-se de forma nativa com outros serviços da AWS, como o Lam
 
 - Para fazer isto, você deve editar as configurações do stage da API e definir o deployment ID do canary e a porcentagem de tráfego que ele deve receber.
 
+### Mapping de Body, Headers e Query Strings
+- O API Gateway permite mapear dados de entrada e saída, como corpo da requisição, cabeçalhos e strings de consulta, para transformar as solicitações e respostas conforme necessário.
+
+- Isso é útil para adaptar APIs a diferentes formatos de dados ou para integrar com sistemas legados.
+
 ## Configurar uma API Gateway
 1. Definir "instância" da API
 2. Definir recursos principais e aninhados (Através de rotas da URL)
