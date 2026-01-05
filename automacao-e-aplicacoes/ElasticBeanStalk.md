@@ -1,4 +1,6 @@
-Serviço que permite a construção automática de um ambiente de infraestrutura baseada no código da aplicação, muito útil para desenvolvedores que não desejam se preocupar com a infraestrutura do projeto, apenas com o código em si.
+# Elastic Beanstalk
+
+O BeanStalk é um serviço que permite a construção automática de um ambiente de infraestrutura baseada no código da aplicação, muito útil para desenvolvedores que não desejam se preocupar com a infraestrutura do projeto, apenas com o código em si.
 
 Dependendo da sua aplicação, podem ser gerados recursos relacionados a:
 - Capacidade
@@ -27,3 +29,11 @@ O BeanStalk também permite salvar um ambiente, de maneira que você pode copiá
 | **Rolling**                 | 🟡 Parcial          | 🟡 Moderado         | ✅ Baixo              | 🟡 Moderada                            |
 | **Rolling with Additional** | ✅ Alta              | 🟡 Moderado         | 🟡 Moderado          | ✅ Alta                                 |
 | **Immutable**               | ✅ Alta              | ❌ Mais lento        | 🟡 Moderado          | ✅ Muito Alta                           |
+
+## Suporte a Docker
+- O Elastic Beanstalk suporta aplicações containerizadas usando Docker.
+- Você pode implantar aplicações Docker de duas maneiras:
+  - **Single Container**: Para aplicações simples que rodam em um único contêiner Docker.
+  - **Multi-Container**: Usando o Docker Compose para definir e gerenciar múltiplos contêineres Docker em um ambiente Elastic Beanstalk.
+- O Elastic Beanstalk gerencia automaticamente a infraestrutura subjacente, incluindo o provisionamento de instâncias EC2, balanceamento de carga e escalonamento automático para aplicações Docker.
+- **O arquivo `Dockerrun.aws.json` é usado para configurar aplicações Docker no Elastic Beanstalk**, especificando detalhes como a imagem Docker, portas expostas e volumes.
