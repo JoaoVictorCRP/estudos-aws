@@ -10,6 +10,12 @@ Dependendo da sua aplicação, podem ser gerados recursos relacionados a:
 
 O BeanStalk também permite salvar um ambiente, de maneira que você pode copiá-los ou recriá-los facilmente.
 
+## Tipos de ambientes
+Ao criar um ambiente no Elastic Beanstalk, você pode escolher entre dois tipos principais:
+- **Web Server Environment**: Projetado para hospedar aplicações web que respondem a solicitações HTTP/HTTPS. Ele inclui um servidor web (como Apache, Nginx, etc.) e é ideal para aplicações que precisam ser acessadas via navegador.
+
+- **Worker Environment**: Projetado para executar tarefas em segundo plano ou processar filas de trabalho. Ele é usado para aplicações que não precisam responder diretamente a solicitações web, mas sim realizar processamento assíncrono, como processamento de dados, envio de e-mails, etc.
+
 ## Deployment policies
 **Deployment Policies** no **Elastic Beanstalk** são estratégias que definem **como as novas versões da sua aplicação são implementadas (deploy)** nas instâncias EC2. Cada política oferece níveis diferentes de **velocidade, disponibilidade e segurança**. Vejamos os tipos de deployment policies:
 
