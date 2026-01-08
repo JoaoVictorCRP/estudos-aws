@@ -10,9 +10,16 @@ O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um des
 ## Modelagem dos dados
 - Como este é um banco não relacional, a organização das tabelas pode inicialmente parecer confusa, mas é bem simples.
 - **Primary Key:** Diferentemente do modelo relacional, no Dynamo a PK pode ser divida em duas chaves. "Mas como assim... Pode ser?" Pois é, uma dessas chaves é opcional. São elas:
-	- **Partition Key**: Identifica um item na tabela, ==não necessariamente precisa ser única==.
+	- **Partition Key**: Identifica um item na tabela, caso você NÃO use uma sort key, a partition key deve ser única.
+
 	- **Sort Key(OPCIONAL):** Utilizada para ordenação de múltiplos itens dentro de uma mesma partição.
-	- Idex
+    
+- **Secondary Indexes:** Permitem consultas adicionais com base em atributos diferentes da chave primária.
+    - **Global Secondary Index (GSI):** Pode ter uma Partition Key e Sort Key diferentes da tabela principal, permitindo consultas flexíveis.
+        - GSIs podem ser criados a qualquer momento, mesmo após a criação da tabela.
+
+    - **Local Secondary Index (LSI):** Compartilha a mesma Partition Key da tabela principal, mas tem uma Sort Key diferente, útil para consultas ordenadas dentro de uma partição.
+        - LSIs devem ser criados no momento da criação da tabela.
 
 Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
@@ -29,14 +36,14 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
 - **Buscar todas as temporadas do Palmeiras**:
     - **Partition Key**: `ChampionName = "Palmeiras"`
-    - O DynamoDB retornará todos os registros do Palmeiras, ==ordenados pelo ano. (Pelo fato de que ele é sort key).
+    - O DynamoDB retornará todos os registros do Palmeiras ordenados pelo ano (Visto que o anoe é a sort key).
     
 - **Buscar as temporadas do Corinthians entre 2022 e 2023**:
     - **Partition Key**: `ChampionName = "Corinthians"`
     - **Sort Key**: `Year BETWEEN 1950 AND 2023`
-
-
-
+- **Buscar os campeões brasileiros com mais de 70 gols em uma temporada**:
+    - **Índice Secundário Global (GSI)**: `Goals Scored > 70`
+    - O DynamoDB retornará todos os registros que atendem a esse critério, independentemente do time ou ano.
 
 ___
 ## Capacidade Provisionada vs. Capacidade Sob Demanda:
@@ -60,6 +67,9 @@ Essa função é bem interessante para que se possa oferecer uma latência baixa
 
 ___
 ### DynamoDB Streams
-- ==Permite capturar modificações em itens em uma tabela do Dynamo.==
+- Permite capturar modificações em **itens** em uma tabela do Dynamo.
+    - Conforme destacado, as modificações capturadas são a nível de item, e não de tabela. Caso deseje capturar alterações a nível de tabela, considere o CloudTrail.
+
 - As informações são guardadas por até 24h.
+
 - Informações são em tempo real, possuindo inclusive integração com o Kinesis, Lambda e EventBridge.
