@@ -23,3 +23,14 @@ O Systems Manager é um serviço muito útil para o gerenciamento de sua infraes
 - Suporta tanto patches de segurança quanto atualizações de software (Os patches podem ser aplicados em períodos de janela de manutenção definidos por você, evitando indisponibilidades indesejadas).
 
 - **É possível definir a aplicação de patches customizados** (usando um repositório apt ou yum próprio, por exemplo).
+
+## SSM on-premises
+
+- O Systems Manager também pode gerenciar servidores on-premises (fora da AWS).
+
+- Para cada servidor on-premises, você deve criar um **Activation** no SSM, que gera um código e um ID.
+
+- Ao instalar o agente do SSM no servidor on-premises, você deve fornecer esse código e ID para registrar o servidor no Systems Manager.
+
+- Após o registro, o servidor on-premises pode ser gerenciado da mesma forma que uma instância EC2, incluindo a aplicação de patches, coleta de inventário e execução de comandos remotos.
+  - No console do SSM, as instância on-premises aparecem com o prefixo "mi-" (Managed Instance), diferentemente das instâncias EC2 que aparecem com o prefixo "i-".
