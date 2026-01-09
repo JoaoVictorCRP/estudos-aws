@@ -61,9 +61,12 @@ ___
 **Consistência**: ==Mesmo com o DAX, você pode escolher entre leituras consistentes eventualmente ou fortemente consistentes, dependendo de suas necessidades. ==<br><br>
 ___
 ### Cross Region Replication (Com o Global Tables)
-O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja 
-criá-la.<br>
-Essa função é bem interessante para que se possa oferecer uma latência baixa para os usuários, independente de qual local do mundo ele está acessando, uma vez que podemos distribuir carga de trabalho entre as réplicas.
+- O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja 
+criá-la.
+
+- Essa função é bem interessante para que se possa oferecer uma latência baixa para os usuários, independente de qual local do mundo ele está acessando, uma vez que podemos distribuir carga de trabalho entre as réplicas.
+
+- As réplicas são **multi-active**, ou seja, podem ser escritas e lidas em qualquer região onde estejam presentes, a replicação é feita de forma assíncrona entre as regiões.
 
 ___
 ### DynamoDB Streams
