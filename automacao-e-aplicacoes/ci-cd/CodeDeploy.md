@@ -103,3 +103,8 @@
 
 O diagrama abaixo mostra o fluxo de execução dos hooks durante o processo de deploy:
 <img src="../images/CodeDeployHooks.png" />
+
+## Outros Detalhes
+- Ao fazer um deploy Blue/Green em um Auto Scaling Group, é possível definir a opção de terminação das instâncias antigas (blue) com a flag `BlueInstanceTerminationOption`, que pode assumir os valores:
+  - `TERMINATE`: As instâncias antigas são terminadas imediatamente após o deploy ser concluído.
+  - `KEEP_ALIVE`: As instâncias antigas são mantidas ativas após o deploy, permitindo que você as utilize para testes ou rollback manual, se necessário. O valor máximo do keep alive é de 48 horas (2880 minutos).
