@@ -137,3 +137,7 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - Ao detectar um drift, o CloudFormation fornece um relatório detalhado das diferenças encontradas, permitindo que os administradores tomem as medidas necessárias para corrigir ou reconciliar as discrepâncias. 
 
 - Detalhe importante: Custom Resources não são verificados pelo Drift Detection.
+
+## Outros Detalhes
+
+- Para aplicar atualizações em um launch template de um ASG gerenciado por CloudFormation, a melhor opção é definir uma Update Policy do tipo `RollingUpdate`, assim o CF criará novas instâncias com o novo launch template, e então eliminará as antigas, garantindo zero downtime.
