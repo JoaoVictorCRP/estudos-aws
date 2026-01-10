@@ -34,3 +34,13 @@ O Systems Manager é um serviço muito útil para o gerenciamento de sua infraes
 
 - Após o registro, o servidor on-premises pode ser gerenciado da mesma forma que uma instância EC2, incluindo a aplicação de patches, coleta de inventário e execução de comandos remotos.
   - No console do SSM, as instância on-premises aparecem com o prefixo "mi-" (Managed Instance), diferentemente das instâncias EC2 que aparecem com o prefixo "i-".
+
+## Session Manager
+
+- O Session Manager é uma feature que permite a conexão com instâncias EC2 ou servidores on-premises de forma segura, sem a necessidade de abrir portas de SSH ou RDP.
+
+  - As conexões são feitas através do console do SSM ou da AWS CLI, utilizando o agente do SSM instalado na instância.
+
+- Para estabelecer uma sessão, a instância deve ter a role do IAM correta anexada, com permissões para o Systems Manager.
+
+- **Se quiser realizar uma conexão privada via SSM**, sem passar pela internet, **você deve configurar um VPC endpoint para o Systems Manager**.
