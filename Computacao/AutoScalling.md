@@ -86,6 +86,18 @@ Os Auto-Scalling groups podem checar a saúde das instâncias de dois tipos:
 - Durante esse tempo, o ASG não executa novas ações de escalonamento, permitindo que as mudanças tenham efeito antes de qualquer nova ação ser tomada.
 - O período padrão é de 300 segundos (5 minutos).
 
+## Lifecycle Hooks
+- Permite pausar o processo de escalonamento em pontos específicos do ciclo de vida da instância (inicialização ou término).
+
+- Durante essa pausa, você pode executar tarefas personalizadas, como configuração adicional ou limpeza de recursos.
+
+- Um caso de uso como é utilizar um lifecycle hook de término para que colete os logs da instância antes dela ser terminada.
+
+- O CodeDeploy faz uso intenso de lifecycle hooks para gerenciar o processo de implantação em instâncias dentro de um ASG, para mais informações ler [notas do CodeDeploy](../automacao-e-aplicacoes/ci-cd/CodeDeploy.md).
+
+- A AWS controla a execução dos lifecycle hooks através de tokens, que são usados para identificar e gerenciar o estado das instâncias durante o processo de escalonamento.
+    - Caso você encontre erros que mencionem tokens, é bem provável que o tempo de espera do lifecycle hook tenha expirado (`Lifecycle Action with token<token-Id> was abandoned: Heartbeat Timeout`).
+
 ## ANOTAÇÕES
 - **Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente**.
 
