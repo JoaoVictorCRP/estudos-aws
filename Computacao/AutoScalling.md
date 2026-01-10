@@ -98,6 +98,31 @@ Os Auto-Scalling groups podem checar a saúde das instâncias de dois tipos:
 - A AWS controla a execução dos lifecycle hooks através de tokens, que são usados para identificar e gerenciar o estado das instâncias durante o processo de escalonamento.
     - Caso você encontre erros que mencionem tokens, é bem provável que o tempo de espera do lifecycle hook tenha expirado (`Lifecycle Action with token<token-Id> was abandoned: Heartbeat Timeout`).
 
+## Termination Policies
+
+- Define a ordem em que as instâncias serão terminadas quando o ASG precisar reduzir sua capacidade.
+
+- O algoritmo padrão tenta manter a distribuição equilibrada:
+    - Verificar qual AZ possui a maior quantidade de instâncias e terminar instâncias nessa AZ primeiro.
+
+    - Verificar qual instância possui o launch template mais antigo (ou launch configuration).
+
+    - Caso mais de uma instância atenda aos critérios acima, a instância que estiver em estado de **`InService`** por mais tempo será terminada (Next Billing Hour).
+
+    - Se ainda houver empate, uma instância será escolhida aleatoriamente.
+
+- Abaixo, uma versão visual do processo de decisão:
+
+<image src="./images/default-termination-policy-diagram.png" width="600"/>
+
+- Você pode também modificar a termination policy padrão, escolhendo entre as opções disponíveis:
+    - **OldestInstance**: Termina a instância mais antiga no ASG.
+    - **NewestInstance**: Termina a instância mais nova no ASG.
+    - **OldestLaunchConfiguration**: Termina instâncias que usam o launch configuration mais antigo.
+    - **ClosestToNextInstanceHour**: Termina a instância que está mais próxima do próximo ciclo de cobrança (billing hour).
+    - **Default**: Usa o algoritmo padrão descrito acima.
+    - Ou então definir uma função lambda personalizada para determinar a ordem de término das instâncias ([Documentação](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html)).
+
 ## ANOTAÇÕES
 - **Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente**.
 
