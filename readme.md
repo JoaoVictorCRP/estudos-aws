@@ -58,9 +58,10 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [VPC Endpoints](rede/VPC-EndPoints.md)
 - [Segurança de Redes](certificacoes/security-specialty/Redes.md)
 
-### 🗃️ Banco de Dados
+### 🗃️ Dados
 - [DynamoDB](dados/DynamoDB.md)
 - [Elasticache](dados/Elasticache.md)
+- [MemoryDB](dados/MemoryDB.md)
 - [EMR](dados/EMR.md)
 - [Kinesis](dados/Kinesis.md)
 - [RDS](dados/RDS.md)
@@ -103,7 +104,9 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
 - [Cloudwatch Agent](CloudwatchAgent.md)
 
-### 👮🏻 Security Specialty
+### Certificações
+- Anotações específicas para certificações da AWS
+#### 👮🏻 Security Specialty
 - Anotações específicas sobre detalhes que caem na certificação Security Specialty
 - [Segurança no Cloudformation](certificacoes/security-specialty/Cloudformation-Security.md)
 - [Directory Services](certificacoes/security-specialty/Directory%20Services.md)
@@ -115,14 +118,9 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Resource-Based Policies](certificacoes/security-specialty/Acessos%20e%20Policies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/Acessos%20e%20Policies/Session%20Policies.md)
 
-### 🧪 Revisões e Erros de Simulado
-- [Disaster Recovery](revisoes-e-erros/DisasterRecovery.md)
-- [Dúvidas Comuns](revisoes-e-erros/DuvidasComuns.md)
-- [Cost Optimized Architecture](revisoes-e-erros/Erros%20no%20simulado/Cost-Optimized%20Architecture.md)
-- [High Performancing Architecture](revisoes-e-erros/Erros%20no%20simulado/High-Performancing%20Architecture.md)
-- [Resilient Architecture](revisoes-e-erros/Erros%20no%20simulado/Resilient%20Architecture.md)
-- [Secure Architectures](revisoes-e-erros/Erros%20no%20simulado/Secure%20Architectures.md)
-
+#### Solutions Architect Associate
+- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
+- [Dúvidas Comuns](certificacoes/solutions-architect-associate/DuvidasComuns.md)
 
 ## Detalhes para memorizar
 
