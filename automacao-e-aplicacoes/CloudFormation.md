@@ -102,10 +102,11 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - Também são ==especialmente úteis quando precisamos integrar o CloudFormation com serviços externos ou realizar operações complexas que vão além das capacidades padrão do CloudFormation==.
 	- Um exemplo prático seria criar:
 		- Um recurso que provisiona um serviço de terceiros via API (Lambda) durante a criação da stack.
-		- Ou um recursos que executa a limpeza total dos objetos de um bucket S3 antes de sua deleção (Impedindo erros de deleção por não estar vazio).
+		- Ou um recurso que executa a limpeza total dos objetos de um bucket S3 antes de sua deleção (Impedindo erros de deleção por não estar vazio).
 - Sintaticamente, é definido usando o tipo de recurso `AWS::CloudFormation::CustomResource` ou `AWS::CloudFormation::Resource` em conjunto com uma função Lambda que executa a lógica personalizada.
 - Um detalhe técnico importante é que o Lambda deve enviar uma resposta de volta ao CloudFormation para indicar o sucesso ou falha da operação, garantindo que a stack seja gerenciada corretamente.
 	- A resposta é enviada para uma URL pré-assinada fornecida pelo CloudFormation.
+	- Enquanto a lambda não enviar essa resposta, a stack ficará em estado de espera (CREATE_IN_PROGRESS ou UPDATE_IN_PROGRESS).
 
 ---
 ## Rollbacks
