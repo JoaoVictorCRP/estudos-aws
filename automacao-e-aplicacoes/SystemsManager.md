@@ -26,7 +26,7 @@ O Systems Manager é um serviço muito útil para o gerenciamento de sua infraes
 
 ## SSM on-premises
 
-- O Systems Manager também pode gerenciar servidores on-premises (fora da AWS).
+- O Systems Manager também pode gerenciar servidores on-premises (fora da AWS), isto é feito através da seção **Hybrid Activations** no console do SSM.
 
 - Para cada servidor on-premises, você deve criar um **Activation** no SSM, que gera um código e um ID.
 
