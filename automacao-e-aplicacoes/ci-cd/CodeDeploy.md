@@ -102,6 +102,10 @@
   
   - `AfterAllowTraffic`: Executado após a instância ser adicionada de volta ao Load Balancer.
 
+- Caso o Deploy o deploy esteja sendo efetuado em uma função lambda, os únicos hooks disponíveis são:
+  - `BeforeAllowTraffic`
+  - `AfterAllowTraffic`
+
 O diagrama abaixo mostra o fluxo de execução dos hooks durante o processo de deploy:
 <img src="../images/CodeDeployHooks.png" />
 
