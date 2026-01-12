@@ -78,6 +78,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
 - [IOT](IoTServices)
 - [AWS OpsWorks](automacao-e-aplicacoes/OpsWorks.md)
+- [SAM](automacao-e-aplicacoes/SAM.md)
 
 #### CI/CD
 - [CodeBuild](automacao-e-aplicacoes/ci-cd/CodeBuild.md)
