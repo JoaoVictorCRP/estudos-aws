@@ -45,3 +45,13 @@ Para além do disparo manual, a execução de uma pipeline pode acontecer de tr�
 - **Webhooks**: Nesta opção podemos usar o endpoint HTTP fornecido pelo codepipeline para executar um script que envia uma requisição e dispara e inicia a execução da pipeline.
 
 - **Pooling**: Nessa modalidade, o CodePipeline fará checks regulares no repositório para verificar se houveram mudanças. Este é um método depreciado e não recomendado, pois gera custos adicionais e é menos eficiente que os outros dois.
+
+## Desabilitando a transição entre estágios
+
+- Você pode desabilitar a transição entre estágios de uma pipeline, o que impede que o estágio seguinte seja executado automaticamente após a conclusão do estágio anterior.
+
+- Para isto, basta acessar a configuração da pipeline no console do CodePipeline, selecionar a transição entre os estágios desejados e clicar em "Disable transition".
+
+<img src="../images/DisableTransition.png" style="max-width:100%;">
+
+- Isso é útil para cenários onde você deseja pausar a execução da pipeline para realizar verificações manuais ou não deseja que o código chegue em produção automaticamente.
