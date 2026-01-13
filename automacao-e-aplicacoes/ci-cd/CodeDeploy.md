@@ -109,6 +109,29 @@
 O diagrama abaixo mostra o fluxo de execução dos hooks durante o processo de deploy:
 <img src="../images/CodeDeployHooks.png" />
 
+## Deploy no ECS
+- O CodeDeploy também suporta implantações em serviços do ECS (Elastic Container Service), permitindo atualizações seguras de aplicações em contêineres.
+
+- Para utilizar o CodeDeploy no ECS, você deve configurar o ECS para usar o CodeDeploy como provedor de implantação.
+
+- O processo de implantação no ECS envolve a criação de uma nova tarefa com a nova versão da aplicação e a substituição gradual das tarefas antigas pelas novas, garantindo alta disponibilidade durante o processo.
+
+- Além do `appSpec.yml`, você também deve criar um arquivo `taskdef.json`, que define a nova tarefa do ECS a ser implantada.
+  - O `taskdef.json` deve conter a definição completa da tarefa, incluindo a imagem do contêiner, recursos, variáveis de ambiente e outras configurações necessárias.
+
+### Os Hooks no ECS
+
+- No processo de deploy no ECS, os hooks disponíveis são:
+  - `BeforeInstall`: Executado antes da nova tarefa ser iniciada.
+  
+  - `AfterInstall`: Executado após a nova tarefa ser iniciada.
+
+  - `AfterAllowTestTraffic`: Executado após o direcionamento de tráfego de teste para a nova tarefa. Este hook é utilizado para validar se a nova tarefa está funcionando corretamente antes de direcionar todo o tráfego para ela.
+
+  - `BeforeAllowTraffic`: Executado antes de todo o tráfego ser direcionado para a nova tarefa.
+
+  - `AfterAllowTraffic`: Executado após todo o tráfego ser direcionado para a nova tarefa.
+
 ## Outros Detalhes
 - Ao fazer um deploy Blue/Green em um Auto Scaling Group, é possível definir a opção de terminação das instâncias antigas (blue) com a flag `BlueInstanceTerminationOption`, que pode assumir os valores:
   - `TERMINATE`: As instâncias antigas são terminadas imediatamente após o deploy ser concluído.
