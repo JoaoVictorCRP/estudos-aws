@@ -9,6 +9,23 @@ O Systems Manager é um serviço muito útil para o gerenciamento de sua infraes
 - Integra com o AWS Config
 - **Serviço gratuito** (Você só paga pelos recursos em que você está administrando)
 
+## SSM Documents
+- Os SSM Documents são arquivos em JSON ou YAML que definem as ações a serem executadas pelo Systems Manager.
+
+- São o "manual de instruções" para o SSM, descrevendo os comandos e scripts que devem ser executados nas instâncias gerenciadas.
+
+- SSM Documents possuem dois tipos principais:
+  - **Command Documents**: Usados para executar comandos simples ou scripts nas instâncias.
+  - **Automation Documents**: Usados para automatizar tarefas complexas, como atualizações de software, backups e outras operações de manutenção.
+  - **Policy Documents**: Usados para definir políticas de conformidade e segurança para as instâncias gerenciadas, utilizados pelo State Manager.
+
+## State Manager
+- O State Manager é um recurso do Systems Manager que permite definir e manter o estado desejado das instâncias gerenciadas.
+
+- Com ele, podemos definir configurações a nível de instância, como instalação de software, configurações de rede, políticas de segurança, entre outros.
+
+- O state manager aplica um document (SSM Document) nas instâncias gerenciadas de forma automática e contínua, garantindo que elas estejam sempre em conformidade com o estado desejado, sem drift.
+
 ## Systems Manager Inventory
 - Feature bem legal do SSM que permite **coletar metadados de servidores** (==EC2 ou on-premises==).
 
