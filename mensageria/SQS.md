@@ -37,7 +37,7 @@ O fan-out é o nome dado a um processo que ocorre na integração entre SNS e SQ
 
 > **Observação**: Para que este serviço funcione corretamente, é necessário que a fila SQS tenha uma política que permita o SNS realizar publicações nela.
 
-![Diagrama](fanout-exemplo.png)
+![Diagrama](./images/fanout-exemplo.png)
 
 ## Long Pooling
 - Quando um consumidor faz uma requisição por uma mensagem em uma fila que está vazia, ele pode opcionalmente "esperar" até que uma mensagem chegue. O nome disso é Long pooling.
