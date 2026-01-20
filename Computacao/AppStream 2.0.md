@@ -1,3 +1,5 @@
+# AppStream 2.0
+
 Este é um serviço gerenciado de streaming de aplicações e desktops virtuais, ou seja, ==ele permite que softwares e ambientes inteiros de desktop sejam executados na AWS, mas acessados via navegador por qualquer dispositivo, bem bacana.==
 
 ## Como funciona?

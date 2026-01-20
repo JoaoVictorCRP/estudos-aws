@@ -3,7 +3,7 @@ A AWS conta com vários serviços úteis para migração de aplicações e compo
 **AWS Application Discovery Service**: Útil para ==coleta de dados sobre servidores que rodam on-premises==.
 - Coleta dados como *hostname*, endereços IP, endereço MAC, uso de CPU, rede, memória e disco.
 - Funciona em formato agent-based (servidores Linux/Windows) e Agentless (arquivo OVA para VMware). Ver mais informações abaixo:
-	![[Discovery-agentlessconector-vs-agent.png]]
+	<img src="./images/Discovery-agentlessconector-vs-agent.png" alt="Discovery Agent vs Agentless Connector"/>
 
 **AWS Application Migration Service**: Após a coleta de dados pelo serviço acima, ==podemos então migrar nossos servidores para EC2 através do AMS==.
 

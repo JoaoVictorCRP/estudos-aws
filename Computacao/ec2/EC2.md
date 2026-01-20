@@ -33,7 +33,7 @@
 
 No esquema de referência a outro grupo de segurança, indica que o tráfego está liberado para qualquer instância que faça parte daquele grupo referenciado, independente do IP, bom demais.
 
-![image.png](ec2-SecurityGroups.png)
+<img src="../images/ec2-SecurityGroups2.png" alt="EC2 Security Groups Diagram"/>
 
 Basicamente, Grupos de Segurança agem como firewalls para instâncias EC2.
 
@@ -44,7 +44,7 @@ Eles regulam:
 - Controle de conexões **inbound** (de um dispositivo externo para a instância);
 - Controle de conexões **outbound** (Da instância para dispositivo externo);
 
-![image.png](ec2-SecurityGroups2.png)
+<img src="../images/ec2-SecurityGroups.png" alt="EC2 Security Groups Diagram"/>
 
 ## **Opções de Cobrança**
 - **On-Demand**: Método mais comum, pague pelo que você utilizar.
@@ -59,12 +59,6 @@ Eles regulam:
 - **Spot Instances**: A opção mais barata da AWS, funciona como um leilão de instâncias, você coloca seu valor em uma pool de instâncias e então utiliza ela enquanto o seu lance for maior que os existentes no mercado, mas muito cuidado, se aparecer um lance maior que o seu, você perde a instância, tolerância de 2 minutinhos pra vazar da instância
 
 - **Dedicated Hosts**: Um servidor físico no data center da AWS dedicado a você, ideal para casos de BYOL e compliance. Pode ser até 70% mais barato que o modelo On-Demand.
-
-![Cobranca](ec2-cobranca.png)
-
-![Exemplo](ec2-cobrancaExemplo.png)
-
-![Precos](ec2-cobrancaPrecos.png)
 
 ## **Interfaces de Rede**
 

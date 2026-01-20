@@ -14,4 +14,4 @@ Amazon Machine Image é o nome dado às imagens de instãncias EC2. São criadas
 	- ==**As AMIs não possuem RBP (resource-based policies)**==. Para garantir o acesso de outras contas a sua AMI, ==você deve especificar manualmente== quais contas podem executar instâncias a partir da AMI e quais podem copiar a AMI para a conta deles **via console ou CLI**.
 
 	- **Você não precisa compartilhar o snapshot EBS associado à AMI, apenas a AMI já basta.**
-	![[AMI-Permissions.png]]
+	<img src="./images/AMI-Permissions.png" alt="AMI Permissions Diagram"/>

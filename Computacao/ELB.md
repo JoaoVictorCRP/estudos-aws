@@ -42,7 +42,7 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 ## X-Forwarded-For
 Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800; color: black;font-weight:bold">identifica o real IP de origem do usuário que fez uma requisição para o ELB</span>, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
-![Diagrama X-Forwarded-For](xForwarded.png)
+<img src="./images/xForwarded.png" alt="Diagrama X-Forwarded-For"/>
 
 ## Sticky Sessions
 
@@ -60,15 +60,15 @@ Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800
 - Se essa opção estiver desabilitada, o ELB só poderá gerenciar a carga das instâncias dentro de sua própria AZ.
     
     ### Cross Zone Desabilitado
-    ![Diagrama - Cross Zone Desabilitado](noCrossZone.png)
+    <img src="./images/noCrossZone.png" alt="Diagrama - Cross Zone Desabilitado"/>
 
     ### Cross Zone Habilitado
-    ![Diagrama - Cross Zone Habilitado](crossZone.png)
+    <img src="./images/crossZone.png" alt="Diagrama - Cross Zone Habilitado"/>
 
 
 ## Path Patterns
 Essa opção permite rotear requisições para determinadas regiões baseando no caminho da URL.  <span style="background-color: #e0a800; color: black;font-weight:bold">Só é possível utilizar essa estratégia em ALB</span>
-![Diagrama - Path Patterns](pathPatterns.png)
+<img src="./images/pathPatterns.png" alt="Diagrama - Path Patterns"/>
 
 ## Certificados SSL
 - Um certificado SSL permite que o tráfego entre clientes e o LB seja criptografado em trânsito.
@@ -98,6 +98,7 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
 ### Preço
 - O preço se baseia na quantidade de tempo que o LB fica rodando. O ALB por exemplo, custa $0,02 por hora.
+
 ## Anotações
 - Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
 
@@ -107,7 +108,7 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
 - Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
 
-- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2]
+- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2.
 
 - Por padrão, o cross-zone é habilitado para o ALB (e desabilitado para o NLB)
 

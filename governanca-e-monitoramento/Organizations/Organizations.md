@@ -1,7 +1,8 @@
 # AWS Organizations
 O **AWS Organizations** permite gerenciar várias contas da AWS de forma centralizada, a partir de uma **conta gerenciadora**. Ele facilita o controle de políticas, o gerenciamento de acesso e a otimização de custos em ambientes com múltiplas contas, como quando departamentos, projetos ou ambientes (produção, desenvolvimento, testes) usam contas separadas.
 
-![Organizations](Organizations.png)
+<img src="../images/Organizations.png" alt="AWS Organizations Diagram"/>
+
 - Como mostrado na imagem acima, o **AWS Resource Access Manager (RAM)** pode ser utilizado para **compartilhar recursos entre contas**, como VPCs, subnets e licenças, unificando a infraestrutura entre elas.
 
 - Para adicionar membros na organização, temos duas opções:
@@ -20,7 +21,7 @@ As **SCPs** são políticas organizacionais que permitem **restringir as permiss
 
 - ==As SCPs **não se aplicam à conta gerenciadora**, esta sempre terá acesso irrestrito== (`AdministratorAccess`).
 
-![[scp-hierarchy.png]]
+<img src="../images/scp-hierarchy.png" alt="Hierarquia de SCPs"/>
 
 - No exemplo acima:
 	- A **OU** possui um _deny_ explícito para **S3**, bloqueando esse serviço para todas as contas dentro dela.

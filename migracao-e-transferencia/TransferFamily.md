@@ -26,4 +26,4 @@
 	- IPs privados estáticos para acesso interno.
 	- Permite a utilização de um Elastic IP no seu endpoint (IP público estático).
 	- Controle de acesso através de Security Groups.
-![[TransferFamily-EndpointTypes.png]]
+<img src="./images/TransferFamily-EndpointTypes.png" alt="Tipos de Endpoint do Transfer Family"/>

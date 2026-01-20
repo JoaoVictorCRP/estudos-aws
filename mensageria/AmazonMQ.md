@@ -1,3 +1,5 @@
+# Amazon MQ
+
 - Na AWS, temos serviços de mensageria como o SQS, SNS e Step Functions, eles no entanto fazem uso do protocolos proprietários da AWS. E a maioria das aplicações utilizam protocolos abertos, como MQTT, AMQP, STOMP, Openwire, WSS, etc.
 
 - Por conta disso, ao migrar para a nuvem, dificilmente é desejado refatorar uma aplicação para utilizar os protocolos da AWS, é pensando nisso que temos o **Amazon MQ**, que ==é um serviço de fila de mensagens gerenciado totalmente compatível com protocolos tradicionais.== Basicamente, estamos falando de um RabbitMQ gerenciado.

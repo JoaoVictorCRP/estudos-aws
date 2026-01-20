@@ -1,3 +1,5 @@
+# Elasticache
+
 - Elasticache é o serviço que fornece a opção de armazenar dados e operações em memória cache, dessa forma salvando o tempo de processamento e garantindo uma velocidade excepcional para a aplicação ou para as consultas realizadas em um banco de dados.
 
 - Neste serviço temos duas opções de sistema: Redis e Memcached, ambos custam o mesmo preço - desde que comparados com especificações idênticas, claro. - no entanto  possuem algumas sutis diferenças:

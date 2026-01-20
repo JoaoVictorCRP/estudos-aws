@@ -1,5 +1,6 @@
-Estas são algumas anotações mais avançadas de EC2, originadas dos estudos para a certificação SysOps Administrator.
+# EC2 Avançado
 
+Estas são algumas anotações mais avançadas de EC2, originadas dos estudos para a certificação SysOps Administrator.
 
 ## Instâncias Burstable (t2/t3)
 - ==Instâncias burst possuem a capacidade de aumentar a capacidade de sua CPU em momentos de pico de utilização==, este é o chamado "burst".
