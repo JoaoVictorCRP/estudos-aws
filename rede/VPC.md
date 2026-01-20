@@ -10,7 +10,7 @@ Isto permite que você provisione uma seção logicamente isolada da nuvem AWS. 
 Além de tudo, também é possível criar uma extensão da sua rede local através de uma VPN site-to-site ou pelo AWS Direct Connect.
 
 
-![Estrutura de rede com VPC](estruturaVPC.png)
+<img src="./images/estruturaVPC.png" alt="Estrutura de rede com VPC"/>
 
 
 ## Detalhes
@@ -25,7 +25,8 @@ Além de tudo, também é possível criar uma extensão da sua rede local atrav�
 - ==Você pode emparelhar VPCs com outra conta AWS,== assim como também pode fazer isso com outras VPCs da sua conta.
 - ==É possível emparelhar VPCs em regiões diferentes.==
 - O emparelhamento é bidirecional, 1x1 para cada peering. Exemplo, se tivermos 3 VPCs: A, B e C. Precisaremos de 3 pareamentos individuais.
-![](VPC-Peering.canvas)
+
+<img src="./images/VPC-Peering-diagram.png" alt="Diagrama de VPC Peering"/>
 
 
 - Também é muito importante adequar todas as route-tables para que todas os recursos nas subredes da VPC comuniquem uns com os outros.
@@ -89,6 +90,7 @@ Um Bastion Host é um servidor que atua como um ponto de acesso seguro para aces
 O NAT é uma técnica usada para traduzir endereços IP privados de uma rede interna para endereços IP públicos (ou outros endereços IPs) para tráfego de saída ou de entrada. Na AWS, o NAT possui duas utilidades:
 - ==Permitir que instâncias em subredes privadas da VPC possam acessar a internet e serviços externo.== (**Quando o(a) NGW/NI estiver em rede pública)** 
 - ==Permitir que instâncias em subredes privadas da VPC acessem uma conexão VPN.== (**Quando o(a) NGW/NI estiver em uma rede privada que possui um VPGW em sua Route Table**)
+
 ### NAT Gateway
 - Serviço gerenciado que permite que instâncias em subredes privadas enviem tráfego de saída para a internet, enquanto impede conexões de entrada iniciadas da internet.
 - São altamente disponíveis e ==escalam automaticamente para lidar com grandes volumes de tráfego.== (vão de 5Gbps até 45Gbps) 
@@ -136,8 +138,8 @@ Este é um ==serviço que estabelece uma conexão dedicada entre sua infraestrut
 - **7.** Assim que a VPN estiver disponível, vá até o customer gateway no painel do direct connect e configure a VPN.
 
 ## Custos de Rede
+<img src="./images/diagramaCustos.png" alt="Diagrama de Custos de Rede"/>
 
-![Diagrama de Custos de Rede](diagramaCustos.png)
 Lembre-se:
 - Tráfego Inbound da internet é gratuito (mas outbound não é).
 - **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.

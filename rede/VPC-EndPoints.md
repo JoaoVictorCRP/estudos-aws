@@ -14,7 +14,7 @@
 	- **O tráfego nunca sai da rede privada da AWS**.
 
 - **Gateway Endpoints**
-    ![alt text](gatewayEndpoint.png)
+    <img src="./images/gatewayEndpoint.png" alt="Gateway Endpoint Diagram"/>
     - <span style="background-color: #e0a800; color: black;font-weight:bold">É um gateway que é adicionado à sua <ins>route table</ins> para direcionar o tráfego destinado a serviços específicos</span>, como o S3 e Dynamo DB, tudo isso internamente pela infraestrutura da AWS.
     
 	- O uso é específico para o S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.

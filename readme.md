@@ -82,6 +82,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 #### CI/CD
 - [CodeBuild](automacao-e-aplicacoes/ci-cd/CodeBuild.md)
+- [CodeDeploy](automacao-e-aplicacoes/ci-cd/CodeDeploy.md)
 - [CodePipeline](automacao-e-aplicacoes/ci-cd/CodePipeline.md)
 
 ### 🧳 Migração e Transferência
