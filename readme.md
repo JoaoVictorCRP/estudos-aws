@@ -71,6 +71,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 
 ### 🛠️ Automação e Aplicações
 - [API Gateway](automacao-e-aplicacoes/ApiGateway.md)
+- [AppSync](automacao-e-aplicacoes/AppSync.md)
 - [Cloudformation](automacao-e-aplicacoes/CloudFormation.md)
 - [Cloudfront](CloudFront.md)
 - [ElasticBeanstalk](automacao-e-aplicacoes/ElasticBeanStalk.md)

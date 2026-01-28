@@ -2,8 +2,6 @@
 Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud Practitioner).
 
 # Aplicações 📱
-## AppSync
-- Serviço para conectar aplicativos a fontes de dados seguras através de APIs.
 
 ## Amazon Connect
 - **Serviço** omnichannel **de atendimento ao cliente** baseada em IA. Basicamente um software de SAC automatizado.
