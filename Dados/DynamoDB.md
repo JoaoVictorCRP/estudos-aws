@@ -1,5 +1,6 @@
 # DynamoDB
 O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um desempenho rápido e rapidamente escalável. Ele é o ideal para aplicações que demandam latência mínima.
+
 ### Principais Características
 - Latência de milisegundos
 - Serviço serverless
@@ -7,23 +8,28 @@ O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um des
 - Pode ser replicado entre regiões.
 - ==Multi-AZ por padrão==
 - A ==**replicação entre regiões**== não é automática, pois ==precisa ser configurada com Global Tables.==
+
 ## Modelagem dos dados
 - Como este é um banco não relacional, a organização das tabelas pode inicialmente parecer confusa, mas é bem simples.
+
 - **Primary Key:** Diferentemente do modelo relacional, no Dynamo a PK pode ser divida em duas chaves. "Mas como assim... Pode ser?" Pois é, uma dessas chaves é opcional. São elas:
 	- **Partition Key**: Identifica um item na tabela, caso você NÃO use uma sort key, a partition key deve ser única.
 
-	- **Sort Key(OPCIONAL):** Utilizada para ordenação de múltiplos itens dentro de uma mesma partição.
+	- **Sort Key (OPCIONAL):** Utilizada para ordenação de múltiplos itens dentro de uma mesma partição.
     
 - **Secondary Indexes:** Permitem consultas adicionais com base em atributos diferentes da chave primária.
-    - **Global Secondary Index (GSI):** Pode ter uma Partition Key e Sort Key diferentes da tabela principal, permitindo consultas flexíveis.
+
+    - **Local Secondary Index (LSI):** Compartilha a mesma Partition Key da tabela principal, mas tem uma Sort Key diferente, útil para quando se deseja fazer consultas ordenadas usando um parâmetro diferente da sort key principal.
+        - LSIs devem ser criados no momento da criação da tabela.
+
+    - **Global Secondary Index (GSI):** Especifica uma Partition Key e uma Sort Key diferentes da tabela principal, permitindo consultas flexíveis em atributos variados.
         - GSIs podem ser criados a qualquer momento, mesmo após a criação da tabela.
 
-    - **Local Secondary Index (LSI):** Compartilha a mesma Partition Key da tabela principal, mas tem uma Sort Key diferente, útil para consultas ordenadas dentro de uma partição.
-        - LSIs devem ser criados no momento da criação da tabela.
+- **Em resumo**: A modelagem dos dados no DynamoDB gira em torno da definição adequada das chaves primárias, enquanto os índices secundários são usados para otimizar as consultas e o desempenho do banco de dados, sendo o **LSI** uma mudança parcial da chave primária (apenas a sort key) e o **GSI** uma mudança completa (partition e sort key).
 
 Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
-| ChampionName _(Part. Key)_ | Year (*Sort.Key)* | Championship *(Index)* | Goals Scored *(Index)* |
+| ChampionName _(Part. Key)_ | Year (*Sort.Key)* | Championship  | Goals Scored *(GSI - PK)* |
 | -------------------------- | ----------------- | ---------------------- | ---------------------- |
 | Palmeiras                  | 2016              | Brasileirao            | 73                     |
 | Corinthians                | 2015              | Brasileirao            | 66                     |
@@ -45,7 +51,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - **Índice Secundário Global (GSI)**: `Goals Scored > 70`
     - O DynamoDB retornará todos os registros que atendem a esse critério, independentemente do time ou ano.
 
-___
+
 ## Capacidade Provisionada vs. Capacidade Sob Demanda:
 **Provisionada**: Você configura a capacidade de leitura e escrita, e o DynamoDB aloca os recursos necessários para suportar essa carga.
 
