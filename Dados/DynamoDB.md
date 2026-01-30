@@ -70,10 +70,37 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
 **Sob Demanda**: Você paga apenas pelo que utiliza, o que é ideal para cargas de trabalho imprevisíveis.
 
+## Read/Write Capacity Units (RCU/WCU)
+- No Dynamo, há duas formas de gerenciar a capacidade de leitura e escrita das tabelas: **Provisionada** e **Sob Demanda**.
+
+- **Provisionado**: Quando você escolhe a capacidade provisionada, você define quantas unidades de leitura (RCU) e escrita (WCU) sua tabela pode suportar por segundo.
+    - **1 RCU**: Permite ler até 4KB de dados por segundo.
+    - **1 WCU**: Permite escrever até 1KB de dados por segundo.
+
+- **Sob Demanda**: Nesse modo, você não precisa se preocupar em definir RCU e WCU, pois o DynamoDB ajusta automaticamente a capacidade com base na demanda da aplicação. Você paga apenas pelo que consumir.
+    - Esse modo é ideal para aplicações com cargas de trabalho imprevisíveis ou variáveis, porém **pode ser mais caro em cenários de uso constante e elevado**.
+
+### Calculando RCU e WCU
+- 1 RCU permite ler até 4KB por segundo. Portanto:
+    - Ler um item de 4KB consome 1 RCU.
+    - Ler um item de 8KB consome 2 RCU.
+    - Ler um item de 12KB consome 3 RCU.
+- 1 WCU permite escrever até 1KB por segundo. Portanto:
+    - Escrever um item de 1KB consome 1 WCU.
+    - Escrever um item de 2KB consome 2 WCU.
+    - Escrever um item de 3KB consome 3 WCU.
+    - **Caso o tamanho em KB do item seja um número decimal, o DynamoDB arredonda para cima para o próximo número inteiro**.
+    - Exemplo: Escrever um item de 1.5KB consome 2 WCU.
+
+### Excedendo a Capacidade Provisionada
+- Se sua aplicação tentar ler ou escrever mais do que a capacidade provisionada, você receberá um erro de `ProvisionedThroughputExceededException`. Para evitar isso, você pode:
+    - Aumentar a capacidade provisionada.
+    - Implementar uma estratégia de retry com backoff exponencial.
 
 ## Modelos de Consistência
-**Leitura Consistente Eventualmente**: Retorna os dados mais recentes, mas sem garantia absoluta de que seja o mais recente.<br><br>
-**Leitura Fortemente Consistente:** Garante que a leitura sempre retorne os dados mais recentes. (É uma opção mais cara que a consistência eventual, mas bem interessante dependendo do caso de uso).
+- **Leitura Consistente Eventualmente**: Retorna os dados mais recentes, mas sem garantia absoluta de que seja o mais recente.
+
+- **Leitura Fortemente Consistente:** Garante que a leitura sempre retorne os dados mais recentes. (É uma opção mais cara que a consistência eventual, mas bem interessante dependendo do caso de uso).
 
 
 ## DAX (DynamoDB Accelerator)
