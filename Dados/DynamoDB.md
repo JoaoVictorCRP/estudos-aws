@@ -1,7 +1,7 @@
 # DynamoDB
 O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um desempenho rápido e rapidamente escalável. Ele é o ideal para aplicações que demandam latência mínima.
 
-### Principais Características
+## Principais Características
 - Latência de milisegundos
 - Serviço serverless
 - Excelente para operações de leitura, você pode inclusive gerenciar a capacidade de leitura de maneira bem simples.
@@ -109,11 +109,18 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - Aumentar a capacidade provisionada.
     - Implementar uma estratégia de retry com backoff exponencial.
 
+### Conditional Writes
+- O DynamoDB possui uma funcionalidade chamada Conditional Writes, que permite que você defina condições específicas para operações de escrita (PutItem, UpdateItem, DeleteItem).
+
+- Você pode, por exemplo, definir que uma atualização só ocorra caso um item não tenha a mesma chave primária, ou que um atributo específico tenha um determinado valor antes de efetuar a escrita.
 
 ## DAX (DynamoDB Accelerator)
-==O DynamoDB Accelerator é um cache na memória altamente disponível e gerenciado que pode acelerar as leituras do DynamoDB em até 10x==, reduzindo a latência para microsegundos, mesmo sob carga elevada.<br><br>
-**Funcionamento**: armazena em cache os resultados de consultas, leituras de chave-valor e operações de leitura de tabelas do DynamoDB. Quando uma aplicação faz uma leitura de dados, o DAX verifica primeiro o cache para ver se os dados estão disponíveis. Se os dados não estiverem no cache, o DAX os busca no DynamoDB, armazena no cache, e retorna para a aplicação.<br><br>
-**Consistência**: Mesmo com o DAX, você pode escolher entre leituras consistentes eventualmente ou fortemente consistentes, dependendo de suas necessidades. <br><br>
+- O DynamoDB Accelerator é um cache na memória altamente disponível e gerenciado que pode acelerar as leituras do DynamoDB em até 10x, reduzindo a latência para microsegundos, mesmo sob carga elevada.
+
+- **Funcionamento**: armazena em cache os resultados de consultas, leituras de chave-valor e operações de leitura de tabelas do DynamoDB. 
+    - Quando uma aplicação faz uma leitura de dados, o DAX verifica primeiro o cache para ver se os dados estão disponíveis. Se os dados não estiverem no cache, o DAX os busca no DynamoDB, armazena no cache, e retorna para a aplicação.
+
+- **Consistência**: Mesmo com o DAX, você pode escolher entre leituras eventualmente ou fortemente consistentes, dependendo de suas necessidades.
 
 
 ### Cross Region Replication (Com o Global Tables)
