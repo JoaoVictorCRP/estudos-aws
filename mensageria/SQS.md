@@ -54,6 +54,11 @@ O SQS oferece dois tipos de filas:
 
 - Long pooling é sempre preferível do que short pooling.
 
+## Delay Queues
+- Permite atrasar a entrega de mensagens para consumidores por um período de tempo configurável (de 0 a 15 minutos).
+
+- Útil para cenários onde o processamento imediato não é necessário ou desejado, como em tarefas agendadas ou para evitar picos de carga.
+
 ## Anotações
 - Em exames de certificação, sempre que cair uma questão relacionado ao desacoplamentos (decouple) de aplicações, lembre-se do SQS, pois eles usam exatamente essa terminologia.
 
