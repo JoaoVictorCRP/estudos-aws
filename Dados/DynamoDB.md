@@ -108,8 +108,37 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 - Se sua aplicação tentar ler ou escrever mais do que a capacidade provisionada, você receberá um erro de `ProvisionedThroughputExceededException`. Para evitar isso, você pode:
     - Aumentar a capacidade provisionada.
     - Implementar uma estratégia de retry com backoff exponencial.
+        - Backoff exponencial é uma técnica onde, após cada tentativa falha, o tempo de espera antes da próxima tentativa aumenta exponencialmente, ajudando a reduzir a carga no sistema.
 
-### Conditional Writes
+## Nomes das APIs
+- A certificação AWS Certified Developer Associate exige que você conheça os nomes das principais APIs do DynamoDB. Aqui estão algumas das mais importantes:
+
+### Escrita
+- **PutItem**: Insere um novo item ou substitui um item existente na tabela.
+    - Consome WCU com base no tamanho do item.
+
+- **UpdateItem**: Atualiza atributos específicos de um item existente.
+    - Consome WCU com base no tamanho dos atributos atualizados.
+    - Pode ser usado para implementação de contadores atômicos (atributo numérico que pode ser incrementado ou decrementado sem a necessidade de uma leitura prévia).
+
+### Leitura
+- **GetItem**: Recupera um único item da tabela com base na chave primária.
+    - Consome RCU com base no tamanho do item.
+    - Deve se passar a primary key, que pode ser HASH (Partition Key) ou HASH e RANGE (Partition Key + Sort Key).
+    - **Projection Expression** pode ser usada para retornar apenas atributos específicos do item.
+
+- **Query**: Recupera múltiplos itens que compartilham a mesma Partition Key, com opções de filtro e ordenação usando a Sort Key.
+    - Consome RCU com base no tamanho dos itens retornados.
+    - Permite o uso de filtros adicionais para refinar os resultados.
+    - Você pode fazer uma query em uma tabela ou em um índice secundário (GSI ou LSI).
+
+- **Scan**: Examina todos os itens na tabela e retorna aqueles que atendem a critérios específicos.
+    - Consome RCU com base no tamanho dos itens retornados.
+    - Bem mais caro e lento que o Query, deve ser evitado em tabelas grandes, pois consome muito RCU.
+    - Limite o retorno através do uso de `Limit` e `FilterExpression`.
+
+
+## Conditional Writes
 - O DynamoDB possui uma funcionalidade chamada Conditional Writes, que permite que você defina condições específicas para operações de escrita (PutItem, UpdateItem, DeleteItem).
 
 - Você pode, por exemplo, definir que uma atualização só ocorra caso um item não tenha a mesma chave primária, ou que um atributo específico tenha um determinado valor antes de efetuar a escrita.
@@ -123,7 +152,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 - **Consistência**: Mesmo com o DAX, você pode escolher entre leituras eventualmente ou fortemente consistentes, dependendo de suas necessidades.
 
 
-### Cross Region Replication (Com o Global Tables)
+## Cross Region Replication (Com o Global Tables)
 - O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja 
 criá-la.
 
