@@ -173,6 +173,12 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
 - **Consistência**: Mesmo com o DAX, você pode escolher entre leituras eventualmente ou fortemente consistentes, dependendo de suas necessidades.
 
+## Transactions
+- O DynamoDB suporta transações ACID (Atomicidade, Consistência, Isolamento, Durabilidade) para garantir que múltiplas operações de leitura e escrita sejam executadas de forma atômica em uma ou mais tabelas.
+
+- As transactions consomem o dobro de RCU e WCU, uma vez que duas operações serão feitas: uma para verificar as condições (`prepare`) e outra para executar a operação (`commit`).
+
+- `TransactWriteItems` e `TransactGetItems` são as APIs usadas para operações de escrita e leitura em transações, respectivamente.
 
 ## Cross Region Replication (Com o Global Tables)
 - O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja 
