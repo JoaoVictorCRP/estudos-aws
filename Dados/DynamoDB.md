@@ -26,8 +26,14 @@ O DynamoDB é um serviço de banco de dados NoSQL projetado para oferecer um des
     - **Local Secondary Index (LSI):** Compartilha a mesma Partition Key da tabela principal, mas tem uma Sort Key diferente, útil para quando se deseja fazer consultas ordenadas usando um parâmetro diferente da sort key principal.
         - LSIs devem ser criados no momento da criação da tabela.
 
+        - Usa o mesmo RCU e WCU da tabela principal.
+
     - **Global Secondary Index (GSI):** Especifica uma Partition Key e uma Sort Key diferentes da tabela principal, permitindo consultas flexíveis em atributos variados.
         - GSIs podem ser criados a qualquer momento, mesmo após a criação da tabela.
+        
+        - Ao criar um GSI, você pode definir a capacidade de leitura e escrita separadamente da tabela principal.
+
+        - Throttles de escrita em um GSI afetam a tabela principal, ou seja, se o GSI estiver com throttles de escrita, as operações de escrita na tabela principal também serão afetadas.
 
 - **Em resumo**: A modelagem dos dados no DynamoDB gira em torno da definição adequada das chaves primárias, enquanto os índices secundários são usados para otimizar as consultas e o desempenho do banco de dados, sendo o **LSI** uma mudança parcial da chave primária (apenas a sort key) e o **GSI** uma mudança completa (partition e sort key).
 
@@ -121,6 +127,18 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - Consome WCU com base no tamanho dos atributos atualizados.
     - Pode ser usado para implementação de contadores atômicos (atributo numérico que pode ser incrementado ou decrementado sem a necessidade de uma leitura prévia).
 
+- **BatchWriteItem**: Permite inserir ou atualizar múltiplos itens em uma única operação.
+    - Consome WCU com base no tamanho total dos itens escritos.
+    - Melhora a latência ao reduzir o número de chamadas à API.
+    - Operações feitas em paralelo, garantindo maior eficiência.
+    - Limite de 25 itens por requisição e até 16MB de dados.
+    - Itens que falharem na escrita (UnprocessedItens) são retornados para que possam ser reprocessados.
+
+- **BatchGetItem**: Permite recuperar múltiplos itens em uma única operação.
+    - Consome RCU com base no tamanho total dos itens lidos.
+    - Limite de 100 itens por requisição e até 16MB de dados.
+    - Itens que falharem na leitura (UnprocessedKeys) são retornados para que possam ser reprocessados.
+
 ### Leitura
 - **GetItem**: Recupera um único item da tabela com base na chave primária.
     - Consome RCU com base no tamanho do item.
@@ -137,11 +155,15 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - Bem mais caro e lento que o Query, deve ser evitado em tabelas grandes, pois consome muito RCU.
     - Limite o retorno através do uso de `Limit` e `FilterExpression`.
 
-
 ## Conditional Writes
 - O DynamoDB possui uma funcionalidade chamada Conditional Writes, que permite que você defina condições específicas para operações de escrita (PutItem, UpdateItem, DeleteItem).
 
 - Você pode, por exemplo, definir que uma atualização só ocorra caso um item não tenha a mesma chave primária, ou que um atributo específico tenha um determinado valor antes de efetuar a escrita.
+
+## PartiQL
+- O PartiQL é uma linguagem de consulta baseada em SQL que permite interagir com o DynamoDB de forma mais intuitiva. 
+- Ele suporta operações de leitura, escrita, atualização e exclusão de dados.
+- É possível fazer queries em múltiplas tables com um único comando PartiQL (Porém, você não pode fazer joins entre tabelas diferentes).
 
 ## DAX (DynamoDB Accelerator)
 - O DynamoDB Accelerator é um cache na memória altamente disponível e gerenciado que pode acelerar as leituras do DynamoDB em até 10x, reduzindo a latência para microsegundos, mesmo sob carga elevada.
