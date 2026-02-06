@@ -116,6 +116,12 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - Implementar uma estratégia de retry com backoff exponencial.
         - Backoff exponencial é uma técnica onde, após cada tentativa falha, o tempo de espera antes da próxima tentativa aumenta exponencialmente, ajudando a reduzir a carga no sistema.
 
+- ==Uma partição do DynamoDB pode lidar com até 3000 RCU ou 1000 WCU==.
+    - Se uma partição atingir esse limite, as operações que excederem a capacidade serão throttled, resultando em erros até que a carga diminua ou a capacidade seja aumentada.
+    
+    - Tendo isso em mente, é importantíssimo criar uma partição eficiente, evitando as chamadas "hot partitions" (partições que recebem uma quantidade desproporicional de tráfego).
+
+
 ## Nomes das APIs
 - A certificação AWS Certified Developer Associate exige que você conheça os nomes das principais APIs do DynamoDB. Aqui estão algumas das mais importantes:
 
@@ -160,6 +166,11 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
 - Você pode, por exemplo, definir que uma atualização só ocorra caso um item não tenha a mesma chave primária, ou que um atributo específico tenha um determinado valor antes de efetuar a escrita.
 
+### Optimistic Locking
+- O Optimistic Locking é uma técnica de controle de concorrência que pode ser implementada usando Conditional Writes no DynamoDB. Ele é útil para evitar conflitos de escrita quando múltiplas aplicações estão tentando atualizar o mesmo item simultaneamente.
+
+- Com ele, você pode usar um atributo de versão (por exemplo, `version`) que é incrementado a cada atualização. Antes de atualizar um item, a aplicação verifica se o valor da versão corresponde ao valor esperado. Se não corresponder, a atualização falha, indicando que outro processo já modificou o item.
+
 ## PartiQL
 - O PartiQL é uma linguagem de consulta baseada em SQL que permite interagir com o DynamoDB de forma mais intuitiva. 
 - Ele suporta operações de leitura, escrita, atualização e exclusão de dados.
@@ -170,6 +181,8 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 
 - **Funcionamento**: armazena em cache os resultados de consultas, leituras de chave-valor e operações de leitura de tabelas do DynamoDB. 
     - Quando uma aplicação faz uma leitura de dados, o DAX verifica primeiro o cache para ver se os dados estão disponíveis. Se os dados não estiverem no cache, o DAX os busca no DynamoDB, armazena no cache, e retorna para a aplicação.
+
+    - Isso reduz bastante a carga no DynamoDB, ==otimizando o consumo de RCUs==.
 
 - **Consistência**: Mesmo com o DAX, você pode escolher entre leituras eventualmente ou fortemente consistentes, dependendo de suas necessidades.
 
