@@ -20,7 +20,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 	- [EC2 - Avançado](computacao/ec2/EC2-Avancado.md)
 	- [EC2 - Spot Fleets](computacao/ec2/EC2-SpotFleets.md)  
 
-### 🗄️ Armazenamento
+### 💽 Armazenamento
 - [EBS](armazenamento/EBS.md)
 - [EFS](armazenamento/EFS.md)
 - [S3](armazenamento/S3.md)
@@ -81,7 +81,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [AWS OpsWorks](automacao-e-aplicacoes/OpsWorks.md)
 - [SAM](automacao-e-aplicacoes/SAM.md)
 
-#### CI/CD
+#### 🔁 CI/CD
 - [CodeBuild](automacao-e-aplicacoes/ci-cd/CodeBuild.md)
 - [CodeDeploy](automacao-e-aplicacoes/ci-cd/CodeDeploy.md)
 - [CodePipeline](automacao-e-aplicacoes/ci-cd/CodePipeline.md)
@@ -107,10 +107,13 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
 - [Cloudwatch Agent](CloudwatchAgent.md)
 
-### Certificações
-- Anotações específicas para certificações da AWS
-#### 👮🏻 Security Specialty
-- Anotações específicas sobre detalhes que caem na certificação Security Specialty
+### 🌟 Certificações
+- Anotações específicas sobre detalhes e temas específicos de certificações AWS.
+#### Solutions Architect Associate
+- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
+- [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
+
+#### Security Specialty
 - [Segurança no Cloudformation](certificacoes/security-specialty/Cloudformation-Security.md)
 - [Directory Services](certificacoes/security-specialty/Directory%20Services.md)
 - [Dúvidas Comuns](certificacoes/security-specialty/Duvidas%20Comuns.md)
@@ -120,21 +123,3 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Validação de Políticas do IAM](certificacoes/security-specialty/Acessos%20e%20Policies/IAMPolicys-InDepth.md)
 - [Resource-Based Policies](certificacoes/security-specialty/Acessos%20e%20Policies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/Acessos%20e%20Policies/Session%20Policies.md)
-
-#### Solutions Architect Associate
-- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
-- [Dúvidas Comuns](certificacoes/solutions-architect-associate/DuvidasComuns.md)
-
-## Detalhes para memorizar
-
-- **AWS Managed Keys**: Não é possível habilitar ou desabilitar a ==rotação automática== das chaves gerenciadas pela AWS, isso ==é feito automaticamente pela própria AWS no período de 1 ano.==
-
-- **Customer-Managed CMK**: É impossível rotacionar o conteúdo de uma Customer Managed CMK importada. Podemos apenas criar uma nova com um outro conteúdo de criptografia.
-
-- ==**As SCPs são aplicadas até mesmo ao usuário root da conta.**==
-
-- **`DisableApiTermination` vs. Instance Protection**: DisableApiTermination impede ações de usuários, mas não do ASG. O Instance Protection faz o contário.
-
-- **Capacity Reservations**: As reservas de capacidade não garantem desconto nenhum, diferente das RIs e SPs. As CRs servem apenas para reservar hardware para você de maneira que evite que falte hardware para você em momentos de pico.
-
-- **Endereço MAC**: Se o enunciado de alguma questão pede por um endereço MAC fixo para uma instância EC2, sempre pense nas **ENI**s. ==Se um endereço MAC estático estiver atribuído a uma ENI, ele não mudará==.

@@ -123,8 +123,10 @@ Os Auto-Scalling groups podem checar a saúde das instâncias de dois tipos:
     - **Default**: Usa o algoritmo padrão descrito acima.
     - Ou então definir uma função lambda personalizada para determinar a ordem de término das instâncias ([Documentação](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html)).
 
-## ANOTAÇÕES
+## Detalhes Adicionai
 - **Para corrigir algum erros em instâncias de um ASG, basta colocá-la em modo stand-by temporáriamente**.
     - **Observação**: não confunda o modo stand-by com o `detach`, o detach remove a instância do ASG permanentemente, enquanto o stand-by é temporário e utilizado para depuração.
 
 - Quando ocorre um balanceamento, o Auto Scalling cria novas instâncias antes de terminar as antigas, para que a aplicação não tenha sua performance ou disponibilidade comprometida.
+
+- **`DisableApiTermination` vs. Instance Protection**: DisableApiTermination impede ações de usuários, mas não ações automáticas do ASG. O Instance Protection faz o contário.

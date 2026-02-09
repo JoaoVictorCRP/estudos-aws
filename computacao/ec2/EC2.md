@@ -134,16 +134,19 @@ Eles regulam:
 
 
 ## Outros Detalhes
-- SGs são fixos a uma região e uma VPC
-- O usuário da EC2 não visualiza as regras de tráfego aplicadas a máquina dele
+
+- **Capacity Reservations**: As reservas de capacidade não garantem desconto nenhum, diferente das Reservas de Instâncias e Saving Plans.
+    - As CRs servem apenas para reservar hardware para você de maneira que evite que falte hardware para você em momentos de pico.
+
 - É uma boa prática manter um SG exclusivo para acesso SSH.
+
 - **Troubleshooting**:
     - Se a sua aplicação não está acessível (timeout), é problema no SG.
     - Agora, se a aplicação devolve um erro “conection refused”, então é um erro da aplicação, ou então ela não está rodando mesmo, pois o trafégo está ok.
-- Por padrão:
-    - **Todo tráfico inbound é bloqueado.**
-    - **Todo tráfico outbound está autorizado.**
-- Porta para lembrar: 
-    - 3389 ⇒ RDP (Remote Desktop Protocol) - Logar em uma instância Windows.
+
 - Por padrão, Scripts do User Data rodam com privilégio de root.
+
 - É possível migrar uma instância de um placement group para outro, mas não é possível fundir dois placement groups em um só.
+
+- **Endereço MAC**: Se a sua arquitetura pede por um endereço MAC fixo para uma instância EC2, faça isso através das **ENI**s. 
+    - ==Se um endereço MAC estático estiver atribuído a uma ENI, ele não mudará==.
