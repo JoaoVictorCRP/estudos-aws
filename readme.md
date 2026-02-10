@@ -113,13 +113,16 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
 - [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
 
+#### Developer Associate
+- [Exponential Backoff](certificacoes/developer-associate/ExponentialBackoff.md)
+
 #### Security Specialty
-- [Segurança no Cloudformation](certificacoes/security-specialty/Cloudformation-Security.md)
-- [Directory Services](certificacoes/security-specialty/Directory%20Services.md)
-- [Dúvidas Comuns](certificacoes/security-specialty/Duvidas%20Comuns.md)
+- [Segurança no Cloudformation](certificacoes/security-specialty/CloudformationSecurity.md)
+- [Directory Services](certificacoes/security-specialty/DirectoryServices.md)
+- [Dúvidas Comuns](certificacoes/security-specialty/DuvidasComuns.md)
 - [Logging](certificacoes/security-specialty/Logging.md)
-- [IAM - Avançado](certificacoes/security-specialty/Acessos%20e%20Policies/IAM.md)
-- [IAM Identity Center](certificacoes/security-specialty/Acessos%20e%20Policies/IAM%20Identity%20Center.md)
-- [Validação de Políticas do IAM](certificacoes/security-specialty/Acessos%20e%20Policies/IAMPolicys-InDepth.md)
-- [Resource-Based Policies](certificacoes/security-specialty/Acessos%20e%20Policies/RBPs.md)
-- [Session Policies](certificacoes/security-specialty/Acessos%20e%20Policies/Session%20Policies.md)
+- [IAM - Avançado](certificacoes/security-specialty/AcessosEPolicies/IAM.md)
+- [IAM Identity Center](certificacoes/security-specialty/AcessosEPolicies/IAMIdentityCenter.md)
+- [Validação de Políticas do IAM](certificacoes/security-specialty/AcessosEPolicies/IAMPolicysInDepth.md)
+- [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
+- [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
