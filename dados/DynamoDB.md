@@ -132,6 +132,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 - **UpdateItem**: Atualiza atributos específicos de um item existente.
     - Consome WCU com base no tamanho dos atributos atualizados.
     - Pode ser usado para implementação de contadores atômicos (atributo numérico que pode ser incrementado ou decrementado sem a necessidade de uma leitura prévia).
+    - Essa API também pode ser usada para *Upsert*, ou seja, criar um item caso ele não exista, usando a opção `ConditionExpression` para verificar a existência do item.
 
 - **BatchWriteItem**: Permite inserir ou atualizar múltiplos itens em uma única operação.
     - Consome WCU com base no tamanho total dos itens escritos.
