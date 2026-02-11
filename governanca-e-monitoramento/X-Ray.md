@@ -55,3 +55,15 @@
 	
 	- **Metadata**: São pares chave-valor que **não são indexados**, mas podem ser usados para armazenar informações adicionais sobre o trace. 
 		- Por exemplo, você pode adicionar metadata com detalhes de uma exceção ou informações de depuração.
+
+## Integração com BeanStalk
+- O BeanStalk possui integração nativa com o X-Ray, o que facilita a coleta de dados de tracing para as aplicações nele hospedadas.
+
+- Para habilitar o X-Ray em uma aplicação BeanStalk é bem simples, basta acessar o console e habilitar a opção de tracing na configuração do ambiente. O BeanStalk irá automaticamente configurar o agente do X-Ray e começar a coletar dados de tracing para as suas aplicações.
+
+- Alternativamente, você pode definir o arquvio `xray-daemon.config` dentro do diretório `.ebextensions` da sua aplicação, com o seguinte conteúdo:
+```yaml
+option_settings:
+  aws:elasticbeanstalk:xray:
+		XRayEnabled: true
+```
