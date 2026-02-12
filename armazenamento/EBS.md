@@ -69,5 +69,8 @@ Para instâncias baseadas em **Instance Store** (armazenamento da instância), o
 - AMIs criadas a partir de um Instance Store são geralmente usadas para casos em que o armazenamento persistente não é necessário.
 
 ## Criptografia
-- É possível realizar a criptografia de um volume EBS através de um snapshot, seja este snapshot criptografado ou não. 
+- É possível realizar a criptografia de um volume EBS através de um snapshot, seja este snapshot criptografado ou não.
+
 - Porém não é possível realizar a criptografia de um volume EBS "on the fly", de fato, será necessário primeiro gerar um snapshot dele e então criar uma cópia idêntica deste volume.
+
+- Por meio do [KMS](../seguranca/KMS/KMS.md), o EBS suporta criptografia tanto em descanso quanto em trânsito.
