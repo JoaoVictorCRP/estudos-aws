@@ -20,6 +20,9 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 
 - Além disso, você pode criar aliases para facilitar o gerenciamento de diferentes ambientes (desenvolvimento, homologação, produção).
 
+- Você também pode usar o **weighted alias** para fazer deploys canary, onde uma pequena porcentagem do tráfego é direcionada para a nova versão da função, permitindo testes antes de migrar completamente.
+	- Observação: O CodeDeploy também suporta deploys canary (e é a opção mais recomenda para deploys automatizados), mas o weighted alias é uma funcionalidade nativa do Lambda para esse tipo de estratégia de implantação.
+
 ### Escalabilidade Automática
 - **O Lambda escala automaticamente com base no número de solicitações recebidas.** Se você tem um pico de eventos, o serviço aumenta a capacidade sem precisar de intervenção, e também **diminui durante períodos de baixa demanda**.
 
