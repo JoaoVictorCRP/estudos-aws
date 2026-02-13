@@ -82,7 +82,7 @@ Em suma:
 
 ### Signed URLs vs Signed Cookies
 
-- ==**Signed URLs** são usadas para **UM ÚNICO ARQUIVO**== de um bucket s3. Através dela, você pode criar uma URL para um único conteúdo específico por um prazo determinado de tempo. 
+- ==**Signed URLs** são usadas para **UM ÚNICO ARQUIVO**== de um Bucket s3. Através dela, você pode criar uma URL para um único objeto específico por um prazo determinado de tempo. 
 	- **Caso de uso:** Exibir um único arquivo do bucket para um cliente.
 
 - ==**Signed Cookies** são usados para garantir acesso a **múltiplos arquivos**== dentro de um bucket ou domínio, também é possível definir um prazo de validade para eles.
