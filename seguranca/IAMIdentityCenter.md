@@ -1,3 +1,5 @@
+# IAM Identity Center
+
 O IAM Identity Center é um serviço de gerenciamento de acessos que é muito recomendado pela AWS para utilizar em cenários onde se lida com múltiplas contas em uma organização. Sabe por quê? Porque ele é um serviço **SSO (Single-Sign On)**, diferentemente do IAM convencional.
 
 Anteriormente, este serviço era chamado de AWS SSO, inclusive.
@@ -18,6 +20,12 @@ Anteriormente, este serviço era chamado de AWS SSO, inclusive.
 
 - Um **Permission Set** está atrelado a uma conta e um usuário, descrevendo quais permissões este usuário tem naquela conta.
 
+## Gerenciamento de Acessos
+- O Identity Center pode ser usado para gerenciar o acesso à:
+  - Contas AWS em uma Organization;
+  - Aplicações empresariais em nuvem (Ex. Salesforce, Box, Microsoft 365, etc);
+  - Aplicações baseadas em SAML2.0;
+  - Instâncias EC2 com Windows.
 
 ## ANOTAÇÕES
 - ==O Identity Center deve ser ativado na conta root da organização==.

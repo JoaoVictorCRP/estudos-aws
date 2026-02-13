@@ -122,7 +122,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Dúvidas Comuns](certificacoes/security-specialty/DuvidasComuns.md)
 - [Logging](certificacoes/security-specialty/Logging.md)
 - [IAM - Avançado](certificacoes/security-specialty/AcessosEPolicies/IAM.md)
-- [IAM Identity Center](certificacoes/security-specialty/AcessosEPolicies/IAMIdentityCenter.md)
+- [IAM Identity Center](seguranca/IAMIdentityCenter.md)
 - [Validação de Políticas do IAM](certificacoes/security-specialty/AcessosEPolicies/IAMPolicysInDepth.md)
 - [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
