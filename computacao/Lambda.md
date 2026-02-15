@@ -73,14 +73,24 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 
 - Isso é especialmente útil para reduzir o conhecido problema de *cold start* (inicialização fria), onde a primeira invocação de uma função Lambda pode levar mais tempo para ser executada devido à necessidade de inicializar o ambiente de execução.
 
+## Variáveis de Ambiente
+
+- As variáveis de ambiente são uma maneira de passar informações de configuração para as funções Lambda sem precisar codificar esses valores diretamente no código da função.
+
+- Elas são úteis para armazenar informações como chaves de API, strings de conexão, ou qualquer outro dado que a função precise para funcionar corretamente.
+
+- Recomenda-se usar o AWS Systems Manager Parameter Store ou o AWS Secrets Manager para armazenar informações sensíveis, como chaves de API, e obtê-las dinamicamente através do SDK da AWS dentro da função Lambda, em vez de armazená-las diretamente nas variáveis de ambiente.
+
+- **Variáveis configuradas diretamente na Lambda podem armazenar até 4 KB de dados**.
+
 
 ## Anotações
-- A cobrança é baseada no tempo que a função levou para a execução completa OU no número de requisições (O primeiro milhão de requisições é gratuito, após isso, será cobrado $0,20 por milhão).
+- **Dica de certificação**: Lembre-se que as funções lambda têm um tempo máximo de execução de 15 minutos. Se a função ultrapassar esse limite, ela será interrompida e uma exceção será lançada.
+
+- A cobrança é baseada no tempo que a função levou para a execução completa e na quantidade de memória alocada para a função, além do número de solicitações (invocações) feitas à função.
 
 - O escalonamento do Lambda é horizontal.
 
 - Funções Lambda são independentes, 1 evento = 1 função.
 
 - O AWS X-Ray permite realizar um debug mais apropriado na arquitetura serverless do Lambda.
-
-- ==FUNÇÕES LAMBDA POSSUEM UM TIMEOUT DE 15 MINUTOS.== (Portanto, se o processamento levar mais de 15 minutos, teremos problemas em executá-lo com a lambda.)
