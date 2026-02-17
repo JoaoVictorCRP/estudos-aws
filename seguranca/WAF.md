@@ -1,4 +1,4 @@
-## **Web Application Firewall (WAF)**
+## Web Application Firewall (WAF)
 Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam em seus servidores, também é possível controlar quem acessa os seus conteúdos. <br>
 **É possível especificar diversas condições de bloqueio para requisições, por exemplo:**
 - Endereço de IP da origem

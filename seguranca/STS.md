@@ -1,3 +1,5 @@
+# Security Token Service (STS)
+
 O Security Token Service é o serviço que ==garante acesso a recursos **AWS POR TEMPO LIMITADO** a uma determinada entidade==.
 
 - As ==credenciais temporárias do STS podem ser válidas de 15 minutos a 1 hora==, de acordo com as configurações.

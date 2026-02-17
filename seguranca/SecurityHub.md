@@ -1,4 +1,6 @@
-Serviço que oferece uma dashboard integrada para gerenciamento de segurança em uma ou várias contas AWS, permite também ativar checks de segurança.
+# Security Hub
+
+Este é um serviço que oferece uma dashboard integrada para gerenciamento de segurança em uma ou várias contas AWS, permite também ativar checks de segurança.
 
 - Integra os findings de diversos serviços de segurança da AWS, incluindo:
 	- **Config**
@@ -12,9 +14,9 @@ Serviço que oferece uma dashboard integrada para gerenciamento de segurança em
 
 - ==Para ativá-lo, é necessário primeiro habilitar o AWS Config.==
 
-
 ## Insights
 - Os insights do Security Hub são coleções de findings correlacionadas que requerem atenção ou intervenção.
+
 - Exemplo: Insight de uma instâncias EC2 com segurança deficitária. (Porta SSH aberta para internet, Envio anormal de requisições para IPs desconhecidos.)
 
 ## Principais Features
@@ -28,8 +30,8 @@ Serviço que oferece uma dashboard integrada para gerenciamento de segurança em
 - POR PADRÃO, a conta administradora da organização é a gerenciadora do Security Hub, porém é possível delegar essa função para outra conta.
 
 ### Security Standards
-- É possível incluir padrões de segurança que o security hub irá seguir, eles funcionam como guidelines para as automações de segurança.
-![[SecurityStandards.png]]
+- É possível incluir padrões de segurança que o Security Hub irá seguir, eles funcionam como guidelines para as automações de segurança.
+![[./images/SecurityStandards.png]]
 
 
 ## Integração com Terceiros

@@ -1,3 +1,5 @@
+# Systems Manager Parameter Store
+
 - ==O Parameter Store é um sub serviço do Systems Manager==, utilizado para armazenar variáveis de ambiente e dados de acesso sensíveis que são utilizados no código de uma aplicação.
 
 - Oferece criptografia integrada com KMS
@@ -10,7 +12,7 @@
 
 - É possível agrupar parâmetros sob um prefixo (diretório)
 
-## <span style="background-color:blue; color:white">Tiers</span>
+## Tiers
 ### Standard (Grátis)
 - 4KB de tamanho máximo.
 - Até 10,000 parâmetros.
@@ -21,7 +23,7 @@
 - Permite definir configurações adicionais com o **Parameters Policies**.
 
 
-## <span style="background-color:blue; color:white">Parameters Policies</span>
+## Parameters Policies
 - Oferece a opção de definir uma data de expiração para parâmetros, o que forçará atualização ou deleção de dados sensíveis.
 - Um parâmetro pode ter várias policies associadas.
 - Notificações configuráveis:

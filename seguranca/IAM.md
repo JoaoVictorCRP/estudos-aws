@@ -1,4 +1,4 @@
-## O que é o IAM?
+## IAM
 O **Identity Access Management** é o sistema utilizado para gerenciar os usuários da AWS e seus respectivos privilégios, se quiser usar a AWS, é necessário entender o IAM.
 
 ## Features

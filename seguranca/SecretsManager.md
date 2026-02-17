@@ -1,3 +1,5 @@
+# Secrets Manager
+
 - Este é um serviço mais novo, focado no armazenamento e gerenciamento de segredos.
 - ==Possui a capacidade de forçar a rotação dos segredos a cada X dias.==
 - ==A geração do segredo em rotação pode ser automatizada através do Lambda.==
