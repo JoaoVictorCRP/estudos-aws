@@ -76,6 +76,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Cloudfront](CloudFront.md)
 - [ElasticBeanstalk](automacao-e-aplicacoes/ElasticBeanStalk.md)
 - [Elastic Transcoder](automacao-e-aplicacoes/ElasticTranscoder.md)
+- [EventBridge](automacao-e-aplicacoes/EventBridge.md)
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
 - [IOT](IoTServices)
 - [AWS OpsWorks](automacao-e-aplicacoes/OpsWorks.md)
