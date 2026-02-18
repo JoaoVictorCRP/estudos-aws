@@ -26,6 +26,7 @@
 
 - Ao criar uma métrica personalizada você pode definir se ela será uma métrica de **High Resolution** (granularidade de 1 segundo) ou de **Standard Resolution** (granularidade de 1 minuto), dependendo das necessidades de monitoramento da sua aplicação.
   - **Observação**: As métricas coletadas pela própria AWS, por padrão, são SR, mas é possível configurar algumas métricas para serem HR, caso seja necessário um monitoramento mais detalhado. Isso é feito através do Detailed Monitoring, que pode ser habilitado para serviços como EC2, RDS, etc.
+    - **O detailed monitoring tem a granularidade de 1 minuto**, se precisar de uma granularidade de 1 segundo, é necessário criar uma métrica personalizada e enviar os dados para o Cloudwatch usando a API `PutMetricData` com a opção de High Resolution habilitada.
 
 ## Cloudwatch Logs
 - O Cloudwatch Logs é um serviço que permite coletar, monitorar e armazenar logs de aplicações, sistemas operacionais e serviços AWS.
