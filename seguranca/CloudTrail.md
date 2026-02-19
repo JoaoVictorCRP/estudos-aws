@@ -47,3 +47,13 @@ O CT captura dois tipos principais de eventos, são eles:
 - Recurso que garante que os arquivos de log do CloudTrail não foram alterados ou corrompidos após serem gravados em um **bucket S3**.
 
 - Utiliza **hashes criptográficos** para verificar a integridade dos arquivos de log. Muito útil para auditorias de segurança e conformidade.
+
+## CloudTrail Insights
+
+- O CloudTrail Insights é um recurso avançado que utiliza machine learning para detectar atividade anômalas nas chamadas de API registradas pelo CloudTrail.
+
+- Ele analisa os padrões normais de atividade e identifica comportamentos incomuns, como picos repentinos de chamadas de API, atividades fora do horário normal ou ações que não se encaixam no perfil típico do usuário.
+
+- O Insights é especialmente útil para identificar possíveis ameaças de segurança, como atividades maliciosas ou erros de configuração que podem comprometer a segurança da conta AWS.
+
+- Apesar de semelhante ao [GuardDuty](./GuardDuty.md), o CloudTrail Insights é focado exclusivamente na análise de chamadas de API, enquanto o GuardDuty abrange uma gama mais ampla de fontes de dados para detecção de ameaças.
