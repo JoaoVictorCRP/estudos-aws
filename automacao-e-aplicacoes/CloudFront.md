@@ -18,6 +18,13 @@
 - Anteriormente, também existia um método chamada **Cloudfront Key Pairs**, mas atualmente o recomendado é utilizar Key Groups e Signed URLs para maior flexibilidade e segurança.
 	- Um detalhe era que os Key Pairs só podiam ser gerenciados pelo root e não podia ser automatizado, tornando um processo manual, complexo e propenso a falhas.
 
+## Field Level Encryption
+- O CloudFront oferece a funcionalidade de **Field Level Encryption**, que permite criptografar campos específicos em uma requisição, como dados sensíveis (ex: informações de cartão de crédito, dados pessoais, etc.) antes de serem enviados para a origem (via POST ou PUT).
+
+- É possível configurar quais campos devem ser criptografados e quais chaves de criptografia devem ser usadas, garantindo que os dados sensíveis sejam protegidos durante a transmissão e armazenamento.
+
+- **Exemplo**: criptografar o campo "`credit_card_number`" em uma requisição, garantindo que mesmo que a requisição seja interceptada, os dados sensíveis estarão protegidos.
+
 ## Anotações
 - O envio de dados da origem para as Edge Location NÃO POSSUEM CUSTOS ASSOCIADOS. No entanto, as requisições que o CloudFront faz possuem custo.
 
