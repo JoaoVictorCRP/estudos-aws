@@ -14,6 +14,13 @@ O API Gateway integra-se de forma nativa com outros serviços da AWS, como o Lam
 
 - **Caching**: Você pode habilitar o cache em respostas de API, o que melhora a performance e reduz as chamadas para o backend, economizando custos.
 
+    - O cache pode ser configurado por método e por stage, permitindo flexibilidade na otimização de performance.
+
+    - O cache é armazenado em memória e pode ser configurado para expirar após um período específico, garantindo que os dados sejam atualizados conforme necessário.
+
+    - Um detalhe importante é que, apesar do cache garantir economia no geral, ele **pode aumentar os custos se não for configurado corretamente**, especialmente se a API tiver um alto volume de tráfego ou se as respostas forem grandes. 
+        - Portanto, é essencial monitorar o uso do cache e ajustar o escopo de cache conforme necessário para equilibrar performance e custos.
+
 ### Segurança e Autenticação
 - O API Gateway oferece várias opções de autenticação e autorização para garantir a segurança das APIs, incluindo autenticação via Amazon Cognito, OAuth, AWS IAM roles, e chaves de API.
 
