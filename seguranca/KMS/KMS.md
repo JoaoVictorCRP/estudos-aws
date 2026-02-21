@@ -92,11 +92,11 @@
 
 - Ideal para quando você precisa criptografar em uma região e descriptografar na outra.
 
-- ==**Entenda**: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias. ==
+- **Entenda**: Multi-region não quer dizer global. As réplicas são independentes, apesar de serem cópias.
 
-- ==**Cuidado:** Utilizar chaves multi-região é bem trabalhoso devido a necessidade de gerenciar as chaves em várias regiões, se quiser evitar complexidade, tenha isso em mente.==
+- ==**Cuidado:** Utilizar chaves multi-região é bem trabalhoso devido a necessidade de gerenciar as chaves em várias regiões, tenha isso em mente.==
 
-- **USE CASES**: criptografia client-side global, criptografia do Dynamo DB global ou Aurora Global
+- **USE CASES**: criptografia client-side global, criptografia de tabela global do Dynamo DB ou Aurora Global.
 
 ## Políticas de Chave
 - O controle das chaves KMS é feito através de policy, semelhante às bucket policies do S3.
@@ -116,7 +116,7 @@
 
 - Muito útil para gerenciar os acessos cross-account às suas chaves.
 
----
+
 ## Anotações
 - É possível reduzir significativamente os custos com a criptografia de objetos em buckets S3 usando SSE-KMS ao habilitar **S3 Bucket Keys**.  
 	

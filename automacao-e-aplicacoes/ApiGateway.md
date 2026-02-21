@@ -12,6 +12,10 @@ O API Gateway integra-se de forma nativa com outros serviços da AWS, como o Lam
 - **Throttle**: Permite que você controle o tráfego para sua API, configurando limites de solicitações por segundo e limites de burst. 
     - Isso ajuda a proteger seu backend de sobrecarga e ataques DDoS.
 
+    - O controle é feito por meio dos **Usage Plans**, que permitem definir limites de uso para diferentes grupos de usuários ou chaves de API.
+
+    - Um detalhe importante é que uma chave de API não funcionará caso não esteja associada a um Usage Plan, o que pode ser uma fonte comum de erros ao configurar a autenticação.
+
 - **Caching**: Você pode habilitar o cache em respostas de API, o que melhora a performance e reduz as chamadas para o backend, economizando custos.
 
     - O cache pode ser configurado por método e por stage, permitindo flexibilidade na otimização de performance.
@@ -52,8 +56,6 @@ O API Gateway integra-se de forma nativa com outros serviços da AWS, como o Lam
 
 ## Anotações
 - API Gateway possui baixo custo e escala automaticamente.
-
-- É possível suprimir requisições para prevenir ataques DDOS.
 
 - Se sua aplicação utiliza JavaScript/AJAX será necessário configurar o CORS para permitir requisições vindas de domínios de origem específicos.
 
