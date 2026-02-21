@@ -127,3 +127,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Validação de Políticas do IAM](certificacoes/security-specialty/AcessosEPolicies/IAMPolicysInDepth.md)
 - [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
+
+#### DevOps Engineer Professional
+- [Deployment Strategies](certificacoes/devops-engineer-professional/DeploymentStrategies.md)
