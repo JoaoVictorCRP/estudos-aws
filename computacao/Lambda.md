@@ -83,6 +83,14 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 
 - **Variáveis configuradas diretamente na Lambda podem armazenar até 4 KB de dados**.
 
+## Event Source Mappings
+- O Event Source Mapping é um recurso que permite configurar uma função para ser invocada automaticamente em resposta a eventos de fontes específicas, como filas do Amazon SQS, tópicos do Amazon SNS, streams do Amazon Kinesis, etc.
+
+- Ele funciona como um conector entre a Lambda e a fonte de eventos, monitorando continuamente a fonte para detectar novos eventos e invocando a função quando um evento é detectado (esquema de pooling).
+
+- O Event Source Mapping é especialmente útil para criar arquiteturas serverless que respondem a eventos em tempo real, permitindo que as funções Lambda sejam acionadas automaticamente para processar dados à medida que eles chegam, sem a necessidade de intervenção manual.
+
+- **Dica de Troubleshooting**: Se você precisa configurar uma lambda que responda a eventos de stream e ela simplesmente não está executando, mesmo tendo as permissões corretas, é importante verificar se o Event Source Mapping está configurado corretamente, pois ele é o componente responsável por monitorar a fonte de eventos e invocar a função Lambda quando um evento é detectado.
 
 ## Anotações
 - **Dica de certificação**: Lembre-se que as funções lambda têm um tempo máximo de execução de 15 minutos. Se a função ultrapassar esse limite, ela será interrompida e uma exceção será lançada.
