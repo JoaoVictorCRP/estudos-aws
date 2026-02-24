@@ -11,14 +11,22 @@ Para entender o Kinesis, primeiro precisamos saber a definição de *Streaming D
 - IOT
 
 ## Funcionalidades
-o Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o processo de carregamento e análise destes dados==, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
+O Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o processo de carregamento e análise destes dados==, permitindo que se possa construir uma aplicação customizada para necessidades específicas acerca dos dados.
 
 ## Componentes
 ### Kinesis Data Streams
 - **Função**: Coletar e armazenar grandes volumes de dados em tempo real. Os dados são enviados para streams, que podem ser lidos e processados continuamente por consumidores, como aplicativos ou funções AWS Lambda.
 
 - **Exemplo de Uso**: Capturar e armazenar logs de servidor, dados de redes sociais, ou cliques de sites para análise em tempo real.
-    
+
+#### Records
+- Os dados enviados para um stream são organizados em records (registros). Cada registro é composto por:
+	- **Partition Key**: Uma chave que determina a qual shard o registro será atribuído.
+	- **Data Blob**: O conteúdo real do registro, que pode ser até 1 MB de tamanho.
+	- **Sequence Number**: Um número único atribuído a cada registro, que indica a ordem de chegada dos dados.
+
+- O limite de tamanho para cada registro é de 10 MB, e o número máximo de registros por segundo por shard é de 1.000.
+
 #### Shards
 - Os *shards* são a unidade básica de capacidade para o streaming de dados. Cada *shard* em um stream pode capturar, armazenar e processar dados.
 - A capacidade dos shards é gerenciável de duas formas:
@@ -34,7 +42,8 @@ o Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o pr
 - **Leitura**: Cada *shard* pode fornecer até 2 MB de dados para leitura e 5 leituras por segundo.
 
 #### Enhanced Fanout
-- Permite que o KDS tenha diversas aplicações consumidoras para receber dados, reduzindo o lag ocorrido em cenários onde existem diversos consumidores lendo de uma mesma data stream. Esta é uma feature criada especialmente para lidar com problemas de performance com múltiplos consumidores.
+- Permite que o KDS tenha diversas aplicações consumidoras para receber dados, reduzindo o lag ocorrido em cenários onde existem diversos consumidores lendo de uma mesma data stream. 
+- Esta é uma feature criada especialmente para lidar com problemas de performance com múltiplos consumidores.
 
 ___
 ### Kinesis Data Firehose
@@ -57,7 +66,7 @@ ___
 
 - O período de retenção de dados do Data Streams é ajustável: **de 24h até 365 dias**.
 
-- No modelo Firehose, ==não há persistência direta de dados.==
+- No modelo Firehose, ==não há persistência direta de dados== (os dados são enviados diretamente para os destinos configurados).
 
 - Para utilização do HLS para stream de video, é necessário primeiro criar uma sessão de streaming utilizando a API **GetHLSStreamingSessionURL**, que retorna um token para acessar a sessão HLS.
 
