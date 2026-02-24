@@ -41,8 +41,18 @@ O Kinesis é a plataforma de Streaming Data da AWS. Ele ==torna mais fácil o pr
 
 - **Leitura**: Cada *shard* pode fornecer até 2 MB de dados para leitura e 5 leituras por segundo.
 
+#### Consumers
+- Os consumidores são aplicações ou serviços que leem os dados dos shards. Eles podem ser implementados usando AWS Lambda, EC2, ou outros serviços de processamento de dados.
+
+- É importante ter em mente que a quantidade de consumidores deve ser proporcional à quantidade de shards, visto que um consumidor pode processar vários shards simultaneamente, mas **um shard só pode ser processado por um consumidor**.
+	- Desta forma, sempre prefira ter mais shards do que consumidores (ou pelo menos a mesma quantidade) para evitar gargalos de processamento.
+
 #### Enhanced Fanout
 - Permite que o KDS tenha diversas aplicações consumidoras para receber dados, reduzindo o lag ocorrido em cenários onde existem diversos consumidores lendo de uma mesma data stream. 
+
+- Diferentemente do modelo tradicional, **o Enhanced Fanout envia os dados via push para os consumidores**, ao invés de os consumidores fazerem pull dos dados. Isso reduz significativamente o tempo de latência, permitindo que os consumidores recebam os dados em tempo real, sem atrasos causados por concorrência entre consumidores.
+	- Cada consumidor terá um canal próprio para receber os dados (limite de 2 MB/s por consumidor), no modelo padrão, o canal pertence ao shard, e os consumidores competem por ele (limite de 2 MB/s por shard).
+
 - Esta é uma feature criada especialmente para lidar com problemas de performance com múltiplos consumidores.
 
 ___
