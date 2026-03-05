@@ -23,6 +23,13 @@ O SQS oferece dois tipos de filas:
 
 - **Configuração de Retries (Dead Letter Queues)**: Você pode ==configurar filas de dead-letter para capturar mensagens que falharam no processamento após várias tentativas==, facilitando o diagnóstico e correção de problemas sem perda de mensagens.
 
+
+## Limitações
+- As mensagens do SQS são limitadas a um tamanho máximo de 256 KB.
+
+- Para mensagens maiores, é necessário usar o SQS Extended Client Library, que armazena o conteúdo da mensagem no Amazon S3 e envia apenas um ponteiro para a mensagem na fila SQS.
+  - **Observação**: O SQS Extended Client Library é uma biblioteca de código aberto para Java, portanto não é compatível com outras linguagens de programação. Para outras linguagens, seria necessário implementar uma solução personalizada para lidar com mensagens maiores, seguindo o mesmo raciocínio de armazenar o conteúdo em um serviço de armazenamento (como S3) e enviar apenas um link para a mensagem na fila SQS.
+
 ## Message Visibility Timeout
 - Quando uma mensagem é recuperada por um consumidor, ela ficará invisível para outros consumidores.
 
@@ -59,10 +66,10 @@ O SQS oferece dois tipos de filas:
 
 - Útil para cenários onde o processamento imediato não é necessário ou desejado, como em tarefas agendadas ou para evitar picos de carga.
 
+#
+
 ## Anotações
 - Em exames de certificação, sempre que cair uma questão relacionado ao desacoplamentos (decouple) de aplicações, lembre-se do SQS, pois eles usam exatamente essa terminologia.
-
-- ==As mensagens podem pesar até 256KB de texto em qualquer formato==.
 
 - O nome de uma fila FIFO necessariamente deve terminar com ".fifo"
 
