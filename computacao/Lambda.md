@@ -88,11 +88,27 @@ O Lambda é um serviço de computação serverless para a execução de funçõe
 
 - Ele funciona como um conector entre a Lambda e a fonte de eventos, monitorando continuamente a fonte para detectar novos eventos e invocando a função quando um evento é detectado (esquema de pooling).
 
-- O Event Source Mapping é especialmente útil para criar arquiteturas serverless que respondem a eventos em tempo real, permitindo que as funções Lambda sejam acionadas automaticamente para processar dados à medida que eles chegam, sem a necessidade de intervenção manual.
+- O Event Source Mapping é bem útil para criar arquiteturas serverless que respondem a eventos em tempo real, permitindo que as funções Lambda sejam acionadas automaticamente para processar dados à medida que eles chegam, sem a necessidade de intervenção manual.
 
 - **Dica de Troubleshooting**: Se você precisa configurar uma lambda que responda a eventos de stream e ela simplesmente não está executando, mesmo tendo as permissões corretas, é importante verificar se o Event Source Mapping está configurado corretamente, pois ele é o componente responsável por monitorar a fonte de eventos e invocar a função Lambda quando um evento é detectado.
 
-## Anotações
+## Mantendo o Contexto de Execução
+- As funções fazem reuso automático de um mesmo ambiente de execução (container) para múltiplas invocações.
+
+- Desta forma, podemos trabalhar com persistência de recursos por meio da declaração de variáveis fora do escopo da função handler, ou seja, no escopo global do ambiente de execução. 
+
+	- **É uma boa prática sempre incializar conexões com bancos de dados fora do escopo do handler**. Pois se você colocar dentro do handler, cada execução abre uma nova conexão, o que esgotará facilmente o pool de conexões.
+
+
+- Também é possível usar o diretório `/tmp` para persistência.
+	- Este é o único diretório de escrita permitido para as funções lambda
+	- Por ser persistente entre invocações, ele pode ser usado para armazenar configurações, logs, ou qualquer outro tipo de dado que precisa ser acessado em múltiplas invocações.
+
+- Alternativamente, podemos fazer uso de um bucket S3 para armazenar arquivos temporários.
+	- Isto porém gera custos adicionais e pode aumentar a latência, portanto, o diretório `/tmp` é geralmente a melhor opção para armazenamento temporário dentro do ambiente de execução da Lambda.
+
+
+## Anotações Adicionais
 - **Dica de certificação**: Lembre-se que as funções lambda têm um tempo máximo de execução de 15 minutos. Se a função ultrapassar esse limite, ela será interrompida e uma exceção será lançada.
 
 - A cobrança é baseada no tempo que a função levou para a execução completa e na quantidade de memória alocada para a função, além do número de solicitações (invocações) feitas à função.
