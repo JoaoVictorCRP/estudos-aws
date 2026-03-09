@@ -108,7 +108,7 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 	- A resposta é enviada para uma URL pré-assinada fornecida pelo CloudFormation.
 	- Enquanto a lambda não enviar essa resposta, a stack ficará em estado de espera (CREATE_IN_PROGRESS ou UPDATE_IN_PROGRESS).
 
----
+
 ## Rollbacks
 - **Falha na criação de uma Stack:**
 	- ==**Por padrão**: Todos os recurso sofrem rollback (serão apagados)==, os logs fornecerão detalhes.
@@ -120,7 +120,7 @@ O CloudFormation possui algumas funções built-in bem úteis para a criação d
 - **Falha no rollback**:
 	- Nesse caso ==será necessário consertar os recursos manualmente, e então chamar a **API ContinueUpdateRollback**== diretamente do console ou CLI, isso fará com que o rollback tente ser feito novamente.
 
----
+
 ## Change Sets
 - O CloudFormation nos permite executar uma simulação de atualização de stack antes de aplicá-la de fato, isso é feito por meio dos **Change Sets**.
 

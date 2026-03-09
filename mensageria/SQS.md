@@ -25,9 +25,9 @@ O SQS oferece dois tipos de filas:
 
 
 ## Limitações
-- As mensagens do SQS são limitadas a um tamanho máximo de 256 KB.
+- As mensagens do SQS são limitadas a um tamanho máximo de 1 MB.
 
-- Para mensagens maiores, é necessário usar o SQS Extended Client Library, que armazena o conteúdo da mensagem no Amazon S3 e envia apenas um ponteiro para a mensagem na fila SQS.
+- Para mensagens maiores que 1MB, é necessário usar o SQS Extended Client Library, que armazena o conteúdo da mensagem no Amazon S3 e envia apenas um ponteiro para a mensagem na fila SQS.
   - **Observação**: O SQS Extended Client Library é uma biblioteca de código aberto para Java, portanto não é compatível com outras linguagens de programação. Para outras linguagens, seria necessário implementar uma solução personalizada para lidar com mensagens maiores, seguindo o mesmo raciocínio de armazenar o conteúdo em um serviço de armazenamento (como S3) e enviar apenas um link para a mensagem na fila SQS.
 
 ## Message Visibility Timeout
