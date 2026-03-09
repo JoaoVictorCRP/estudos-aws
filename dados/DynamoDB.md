@@ -204,9 +204,15 @@ criá-la.
 
 
 ### DynamoDB Streams
-- Permite capturar modificações em **itens** em uma tabela do Dynamo.
+- Permite **capturar modificações em itens** em uma tabela do Dynamo.
     - Conforme destacado, as modificações capturadas são a nível de item, e não de tabela. Caso deseje capturar alterações a nível de tabela, considere o CloudTrail.
 
 - As informações são guardadas por até 24h.
 
 - Informações são em tempo real, possuindo inclusive integração com o Kinesis, Lambda e EventBridge.
+
+- Ao ativar o steams, você pode escolher quais informações serão gravadas no fluxo após a modificação. As opções fornecidas são:
+    - **KEYS_ONLY**: Apenas as chaves primárias dos itens modificados são registradas.
+    - **NEW_IMAGE**: A imagem completa do item após a modificação é registrada.
+    - **OLD_IMAGE**: A imagem completa do item antes da modificação é registrada.
+    - **NEW_AND_OLD_IMAGES**: Ambas as imagens, antes e depois da modificação, são registradas.
