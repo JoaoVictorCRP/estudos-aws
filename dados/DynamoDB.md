@@ -54,7 +54,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
     - **Partition Key**: `ChampionName = "Palmeiras"`
     - O DynamoDB retornará todos os registros do Palmeiras ordenados pelo ano (Visto que o anoe é a sort key).
     
-- **Buscar as temporadas do Corinthians entre 2022 e 2023**:
+- **Buscar as temporadas do Corinthians entre 1950 e 2023**:
     - **Partition Key**: `ChampionName = "Corinthians"`
     - **Sort Key**: `Year BETWEEN 1950 AND 2023`
 - **Buscar os campeões brasileiros com mais de 70 gols em uma temporada**:
@@ -78,7 +78,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 ## Modelos de Consistência
 - Dada a natureza distribuída do DynamoDB, ele oferece dois modelos de consistência para leituras:
 
-- **Leitura Consistente Eventualmente**: Retorna os dados mais recentes, mas sem garantia absoluta de que seja o mais recente.
+- **Leitura Eventualmente Consistente**: Retorna os dados mais recentes, mas sem garantia absoluta de que seja o mais recente.
 
 - **Leitura Fortemente Consistente:** Garante que a leitura sempre retorne os dados mais recentes.
     - Para usar a leitura fortemente consistente, é necessário especificar isso na requisição de leitura.
@@ -195,8 +195,7 @@ Veja um Exemplo de tabela no DynamoDB com times do futebol brasileiro:
 - `TransactWriteItems` e `TransactGetItems` são as APIs usadas para operações de escrita e leitura em transações, respectivamente.
 
 ## Cross Region Replication (Com o Global Tables)
-- O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja 
-criá-la.
+- O Global Tables do DynamoDB nos dá a opção de replicar um banco em outra região, garantindo maior disponibilidade. Quando se cria uma réplica, deve se especificar qual região você deseja criá-la.
 
 - Essa função é bem interessante para que se possa oferecer uma latência baixa para os usuários, independente de qual local do mundo ele está acessando, uma vez que podemos distribuir carga de trabalho entre as réplicas.
 
