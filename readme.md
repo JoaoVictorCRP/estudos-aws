@@ -108,14 +108,20 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
 - [Cloudwatch Agent](CloudwatchAgent.md)
 
+### Inteligência Artificial
+- [Amazon Bedrock](inteligencia-artifical/Bedrock.md)
+
 ### 🌟 Certificações
 - Anotações específicas sobre detalhes e temas específicos de certificações AWS.
-#### Solutions Architect Associate
-- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
-- [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
+
+#### AI Practitioner
+- [Foundation Models](certificacoes/ai-practitioner/foundation-models.md)
 
 #### Developer Associate
 - [Exponential Backoff](certificacoes/developer-associate/ExponentialBackoff.md)
+
+#### DevOps Engineer Professional
+- [Deployment Strategies](certificacoes/devops-engineer-professional/DeploymentStrategies.md)
 
 #### Security Specialty
 - [Segurança no Cloudformation](certificacoes/security-specialty/CloudformationSecurity.md)
@@ -128,5 +134,6 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
 
-#### DevOps Engineer Professional
-- [Deployment Strategies](certificacoes/devops-engineer-professional/DeploymentStrategies.md)
+#### Solutions Architect Associate
+- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
+- [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
