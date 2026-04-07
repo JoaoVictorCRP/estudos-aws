@@ -62,3 +62,48 @@
 
 - O modelo estudante é treinado usando as saídas do modelo professor como rótulos, em vez de usar dados rotulados tradicionais.
 
+## Model Evaluation
+
+- O Bedrock oferece suporte para validação de Modelos, permitindo que você possa testar se um modelo se adequa ao seu caso de uso, ou finalidade desejada.
+
+- Existem duas formas de efetuar essa validação:
+
+### Automática
+- Utiliza um modelo de avaliação pré-treinado (juiz) para avaliar a qualidade das respostas geradas pelo modelo de fundação.
+
+- Permite atribuir tarefas pré-definidas ou não, como:
+  - Resumos de textos
+  - Perguntas e Respostas sobre determinado tópico
+  - Geração de texto com resposta-alvo
+  - Fornecer um dataset de prompts personalizados, para que o modelo responda
+
+- Todas as respostas geradas serão comparadas com uma base de respostas de referências (que deve ser fornecida por você), e o modelo de avaliação irá atribuir uma pontuação para cada resposta gerada, com base na sua qualidade e aderência à resposta de referência.
+
+- A pontuação é calculada automaticamente por meio de métricas pré-definidas, como:
+  - Precisão
+  - Utilidade
+  - Coerência
+  - Tonalidade
+  - E métricas de responsabilidade, como:
+    - Viés
+    - Toxicidade
+    - Segurança
+
+- As métricas listadas acima são coletadas por meio da avaliação com base em métricas mais complexas, como:
+  - **ROUGE**: mede a sobreposição de n-gramas entre a resposta gerada e a resposta de referência, avaliando a qualidade do texto gerado.
+    - Falando de maneira não técnica, compara a resposta gerada com a resposta de referência, e atribui uma pontuação com base na quantidade de palavras ou frases que coincidem entre as duas respostas.
+ 
+  - **BLUE**: Avalia a qualidade do texto gerado, considerando a precisão e a fluência da respota, penalizando respostas com erros gramaticais ou incoerentes. 
+    - Especialmente útil para tarefas de tradução, onde a precisão e equivalência semântica é fundamental.
+
+  - **BERTScore**: Compara a similaridade semântica entre a resposta gerada e a resposta de referência, utilizando embeddings de palavras para avaliar a qualidade do texto gerado.
+    - Em outras palavras, transforma o texto em vetor numérico e compara a similaridade entre o vetor da resposta gerada e o vetor da resposta de referência.
+    
+    - Excelente para capturar nuances entre os dois textos.
+
+### Manual
+- Permite que você mesmo avalie as respostas geradas pelo modelo de fundação, atribuindo uma pontuação manualmente.
+
+- A avaliação pode ser feita por você mesmo ou por avaliadores da própria AWS, que irão avaliar as respostas com base em critérios pré-definidos.
+
+- O feedback da resposta pode ser fornecido em formato de joinhas (like/dislike) ou na escala likert (1 a 5 estrelas).
