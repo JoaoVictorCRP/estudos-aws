@@ -109,7 +109,7 @@ Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode c
 - [Cloudwatch Agent](CloudwatchAgent.md)
 
 ### Inteligência Artificial
-- [Amazon Bedrock](inteligencia-artifical/Bedrock.md)
+- [Amazon Bedrock](inteligencia-artificial/Bedrock.md)
 
 ### 🌟 Certificações
 - Anotações específicas sobre detalhes e temas específicos de certificações AWS.
