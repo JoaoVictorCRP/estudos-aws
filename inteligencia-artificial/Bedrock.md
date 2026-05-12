@@ -107,3 +107,11 @@
 - A avaliação pode ser feita por você mesmo ou por avaliadores da própria AWS, que irão avaliar as respostas com base em critérios pré-definidos.
 
 - O feedback da resposta pode ser fornecido em formato de joinhas (like/dislike) ou na escala likert (1 a 5 estrelas).
+
+## Guardrails
+
+- Controla a interação entre o usuário e o modelo de fundação, permitindo que o conteúdo gerado pelo modelo seja filtrado e moderado.
+
+- Isto evita a dispersão do modelo durante uma conversa e garante que ele não gere respostas inadequadas, ofensivas ou que violem as políticas de uso.
+
+- Os guardrails são muito importantes para garantir que a IA opere dentro dos limites éticos, legais, técnicos e de negócio estabelecidos pela organização.
