@@ -115,3 +115,21 @@
 - Isto evita a dispersão do modelo durante uma conversa e garante que ele não gere respostas inadequadas, ofensivas ou que violem as políticas de uso.
 
 - Os guardrails são muito importantes para garantir que a IA opere dentro dos limites éticos, legais, técnicos e de negócio estabelecidos pela organização.
+
+## Agents
+
+- Os agentes são componentes de software que atuam como intermediários entre o usuário e o modelo de fundação, permitindo que o modelo acesse dados, execute ações e interaja com outros sistemas.
+
+- Basicamente, o Agente é como um super-poder que permite que o modelo de fundação acesse e interaja com outros sistemas, como bancos de dados, APIs, ou até mesmo execute código.
+
+### Configurando Agent no Bedrock
+- Para configurar um agente no Bedrock, primeiro você fornece uma instrução para o modelo de fundação, explicando o que o agente deve fazer e quais ações ele pode executar. 
+  - Exemplo: "Você é um assistente de atendimento ao cliente, e pode acessar o banco de dados de clientes para fornecer informações sobre pedidos, status de entrega e histórico de compras."
+
+- Com as instruções fornecidas, você então define os **Action Groups**, que incluem as ações que o agente pode usar para interagir com outros sistemas.
+  - Exemplo:
+    - Ação: `GetOrderStatus`
+    - Parâmetros: `orderId`
+    - Descrição: "Recupera o status do pedido com base no ID fornecido."
+  
+  - As ações podem ser definidas usando schemas de OpenAPI (Tipo Swagger), para a integração com APIs RESTful, ou então por meio de funções lambdas, para a execução de código personalizado.
