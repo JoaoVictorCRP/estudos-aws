@@ -133,3 +133,25 @@
     - Descrição: "Recupera o status do pedido com base no ID fornecido."
   
   - As ações podem ser definidas usando schemas de OpenAPI (Tipo Swagger), para a integração com APIs RESTful, ou então por meio de funções lambdas, para a execução de código personalizado.
+
+## Otimização de Prompts
+
+- O Bedrock nos permite modificar a forma como interagimos com a LLM para laém do prompt, isso é feito por meio de outros parâmetros, sendo eles:
+
+  - **Temperatura (0 - 1)**: Define a criatividade da resposta.
+    - Valores baixos gerarão respostas mais conservadoras, repetitivas e óbvias.
+    - Valores altos gerarão respostas mais diversa, imprevisíveis, e com provável incoerência.
+
+  - **TOP P (0 - 1)**: Define a variedade de palavras usadas na resposta, considerando a probabilidade cumulativa das palavras.
+    - Valores baixos limitarão a resposta a um vocabulário mais restrito, resultando em respostas mais focadas e coerentes.
+    - Valores altos permitirão que o modelo escolha entre um vocabulário mais amplo, resultando em respostas mais variadas e criativas.
+
+  - **TOP K (0 - 500)**: Define o número de palavras a serem consideradas na geração da resposta.
+    - Valores baixos limitarão a resposta a um conjunto menor de palavras, resultando em respostas mais focadas e coerentes.
+    - Valores altos permitirão que o modelo escolha entre um conjunto maior de palavras, resultando em respostas mais variadas e criativas.
+  
+  - **Max Length**: Define o número máximo de tokens que a resposta pode conter.
+    - Valores baixos limitarão a resposta a um número menor de tokens, resultando em respostas mais curtas e diretas, ou até mesmo respostas incompletas.
+    - Valores altos permitirão que o modelo gere respostas mais longas e detalhadas, mas também podem resultar em respostas mais verbosas e com perda de foco.
+
+- **Observação**: nenhum desses parâmetros afetará a latência da resposta.
