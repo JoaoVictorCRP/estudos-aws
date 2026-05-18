@@ -27,6 +27,8 @@
 
 - Detalhe, nem todos os modelos de fundação disponíveis no Bedrock suportam o fine tuning, é importante verificar a documentação do modelo escolhido para saber se ele suporta ou não essa funcionalidade.
 
+- **ATENÇÃO**: Para fazer o deploy de um modelo customizado (via fine-tunning ou pré-treinamento), é necessário que você compre um **Throughput Provisionado**, que é a capacidade de processamento necessária para hospedar o modelo customizado, e isso gerará um custo fixo mensal, diferente do pay-per-use dos modelos de fundação padrão.
+
 ### Tipos de Fine Tuning
 
 #### Supervised Fine Tuning
