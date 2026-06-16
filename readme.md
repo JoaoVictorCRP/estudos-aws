@@ -1,5 +1,5 @@
 # Estudos AWS
-Este é o meu repositório de estudos da plataforma AWS. Se quiser, você pode clonar este repositório para utilizar as minhas anotações também! :)
+Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serviços, conceitos importantes e dicas para certificações. Fique a vontade para utilizá-las também!
 
 ## 📚 Notas por Categoria
 
