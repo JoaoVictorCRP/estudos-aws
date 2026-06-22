@@ -25,3 +25,13 @@
 - O SageMaker oferece a funcionalidade de ajuste automático de hiperparâmetros, que é o processo de encontrar os melhores hiperparâmetros para um modelo de ML.
 
 - Isso é feito para modificar o comportamento do modelo e melhorar seu desempenho, como a taxa de aprendizado, o número de camadas em uma rede neural ou o número de árvores em um modelo de floresta aleatória.
+
+## Deploy de Modelos
+
+- Ao fazer o deploy de um modelo, será disponibilizado o endpoint de inferência, que é a URL que você pode usar para enviar dados e receber previsões do modelo.
+
+- Há quatro opções para o deploy de modelos no SageMaker: 
+  - **Real-time Inference**: Para casos de uso que exigem respostas rápidas, como chatbots ou detecção de fraudes em tempo real.
+  - **Batch Transform**: Para processar grandes volumes de dados de uma só vez, como análise de imagens ou processamento de texto.
+  - **Serverless Inference**: Para casos de uso com tráfego imprevisível, onde o modelo é carregado totalmente sob demanda, podendo ficar inativo quando não estiver em uso, economizando custos.
+  - **Asynchronous Inference**: Para casos de uso que exigem processamento em segundo plano, como análise de grandes conjuntos de dados ou processamento de vídeo.
