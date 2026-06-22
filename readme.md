@@ -110,6 +110,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ### Inteligência Artificial
 - [Amazon Bedrock](inteligencia-artificial/Bedrock.md)
+- [Amazon SageMaker](inteligencia-artificial/SageMaker.md)
 
 ### 🌟 Certificações
 - Anotações específicas sobre detalhes e temas específicos de certificações AWS.
