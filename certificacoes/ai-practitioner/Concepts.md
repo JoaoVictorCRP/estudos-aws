@@ -20,3 +20,11 @@
 - Para além de transformar texto em vetores númericos, os embeddings são úteis para capturar outras informações, como o sentido semântico, a sintaxe e o sentimento expresso no texto, o que os torna uma ferramenta poderosa para tarefas de processamento de linguagem natural (NLP).
 
 - Uma outra vantagem de vetorizar textos é o fato de que ele facilita a busca e a recuperação de informações, permitindo que o modelo correlacione palavras ou frases semelhantes, mesmo que não sejam idênticas.
+
+## Overfitting e Underfitting
+
+- Ambos são termos usados para descrever problemas de desempenho em modelos de ML.
+
+- Overfitting é quando um modelo aprende muito bem os dados de treinamento, mas não consegue generalizar para dados novos, resultando em baixa performance em dados não vistos.
+
+- Underfitting é quando um modelo não aprende o suficiente dos dados de treinamento, resultando em baixa performance tanto nos dados de treinamento quanto nos dados novos.
