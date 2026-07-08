@@ -28,3 +28,13 @@
 - Overfitting é quando um modelo aprende muito bem os dados de treinamento, mas não consegue generalizar para dados novos, resultando em baixa performance em dados não vistos.
 
 - Underfitting é quando um modelo não aprende o suficiente dos dados de treinamento, resultando em baixa performance tanto nos dados de treinamento quanto nos dados novos.
+
+## Bias e Variance
+
+- O tradeoff entre bias (viés) e variance (variância) é um conceito fundamental em aprendizado de máquina, que descreve a relação entre a complexidade do modelo e sua capacidade de generalização. Ao fazer um modelo mais complexo, você reduz o erro sistêmico (bias), mas aumenta a variância, tornando o modelo sensível a pequenas variações em relação aos dados de treinamento.
+
+  - Bias é a tendência de um modelo de ML de fazer previsões sistematicamente incorretas devido a suposições simplificadas feitas durante o treinamento, o "underfitting".
+
+  - Variance é a tendência de um modelo de ML de ser sensível a pequenas variações nos dados de treinamento, resultando em previsões inconsistentes, o "overfitting".
+
+- O desafio é encontrar o equilíbrio entre as duas, de modo que o modelo seja capaz de generalizar bem para novos dados, sem ser excessivamente complexo ou simplista.
