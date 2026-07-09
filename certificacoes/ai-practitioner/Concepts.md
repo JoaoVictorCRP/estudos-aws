@@ -1,4 +1,4 @@
-# Conceitos de GenAI
+# Conceitos de GenAI e Machine Learning
 
 ## Tokenization
 - A tokenização é o processo de converter texto puro em uma sequência de tokens, que são as unidades básicas de texto que os modelos de linguagem processam.
@@ -12,6 +12,21 @@
 ## Context Window
 - A janela de contexto (context window) é o número máximo de tokens que um modelo pode processar de uma vez ao gerar uma resposta.
   - Quanto maior a janela de contexto, mais informações o modelo pode considerar ao gerar a resposta, portanto maior será a coerência.
+
+## Tipos de aprendizado de máquina (Machine Learning)
+- Existem 3 tipos principais de aprendizado de máquina: supervisionado (supervised), não-supervisionado (unsupervised), por reforço (reinforcement).
+
+  - O aprendizado supervisionado é quando o modelo é treinado usando dados rotulados, ou seja, dados (input) que já incluem o output esperado.
+    - A máquina aqui aprende com base na iteração da predição de resultados, tornando o output final cada vez mais preciso.
+  
+  - O aprendizado não-supervisionado é quando os dados usados no treinamento não possuem o output esperado. Fazendo com que a própria máquina identifique padrões e anomalias nos dados, sem qualquer intervenção humana.
+    - Esse tipo de aprendizado é muito utilizado para análise de risco de crédito, detecção de fraudes e segmentação de clientes.
+
+  - O aprendizado por reforço é quando o modelo aprende a tomar decisões com base em recompensas e punições, recebendo feedback sobre suas ações e ajustando seu comportamento para maximizar a recompensa ao longo do tempo.
+    - Esse tipo de aprendizado é muito utilizado em jogos, robótica e sistemas de recomendação, onde o modelo precisa aprender a tomar decisões em um ambiente dinâmico e incerto.
+
+- Adicionalmente, podemos citar também o aprendizado semi-supervisionado, que é uma combinação dos dois primeiros tipos, onde o modelo é treinado com uma pequena quantidade de dados rotulados e uma grande quantidade de dados não rotulados.
+  - Esse tipo de aprendizado é útil quando a rotulagem de dados é cara ou demorada, permitindo que o modelo aprenda com menos supervisão humana.
 
 ## Embedding
 - O embedding é uma técnica de representação de texto em um espaço vetorial, onde palavras, frases ou documentos são convertidos em vetores numéricos que capturam o significado semântico do texto.
