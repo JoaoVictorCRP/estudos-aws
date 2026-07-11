@@ -93,7 +93,7 @@
   - **ROUGE**: mede a sobreposição de n-gramas entre a resposta gerada e a resposta de referência, avaliando a qualidade do texto gerado.
     - Falando de maneira não técnica, compara a resposta gerada com a resposta de referência, e atribui uma pontuação com base na quantidade de palavras ou frases que coincidem entre as duas respostas.
  
-  - **BLUE**: Avalia a qualidade do texto gerado, considerando a precisão e a fluência da respota, penalizando respostas com erros gramaticais ou incoerentes. 
+  - **BLUE**: Avalia a qualidade do texto gerado, considerando a precisão e a fluência da resposta, penalizando respostas com erros gramaticais ou incoerentes. 
     - Especialmente útil para tarefas de tradução, onde a precisão e equivalência semântica é fundamental.
 
   - **BERTScore**: Compara a similaridade semântica entre a resposta gerada e a resposta de referência, utilizando embeddings de palavras para avaliar a qualidade do texto gerado.
@@ -136,7 +136,7 @@
 
 ## Otimização de Prompts
 
-- O Bedrock nos permite modificar a forma como interagimos com a LLM para laém do prompt, isso é feito por meio de outros parâmetros, sendo eles:
+- O Bedrock nos permite modificar a forma como interagimos com a LLM para além do prompt, isso é feito por meio de outros parâmetros, sendo eles:
 
   - **Temperatura (0 - 1)**: Define a criatividade da resposta.
     - Valores baixos gerarão respostas mais conservadoras, repetitivas e óbvias.

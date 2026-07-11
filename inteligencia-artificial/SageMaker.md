@@ -22,7 +22,7 @@
 
 ## Automatic Model Tuning (Hiperparâmetros)
 
-- O SageMaker oferece a funcionalidade de ajuste automático de hiperparâmetros, que é o processo de encontrar os melhores hiperparâmetros para um modelo de ML.
+- O SageMaker oferece a funcionalidade de ajuste automático de hiperparâmetros, que são parâmetros que controlam o processo de treinamento do modelo, como a taxa de aprendizado, o número de camadas em uma rede neural ou o número de árvores em um modelo de floresta aleatória.
 
 - Isso é feito para modificar o comportamento do modelo e melhorar seu desempenho, como a taxa de aprendizado, o número de camadas em uma rede neural ou o número de árvores em um modelo de floresta aleatória.
 
