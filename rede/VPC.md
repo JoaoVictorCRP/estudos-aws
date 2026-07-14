@@ -147,6 +147,17 @@ Lembre-se:
 - **Para poupar gastos, sempre que possível utilize endereços IP privados ao invés de IPs públicos**.
 - Se quiser minimizar os custos de rede, basta agrupar todas as instâncias na mesma AZ e usar somente o IP privado para comunicação. Mas não se esqueça que isso diminuirá o grau de disponibilidade e redundância.
 
+## IPv6 na VPC
+
+- O sucessor do IPv4, o IPv6 também pode ser utilizado em VPCs, no entanto, ele é opcional e não é habilitado por padrão.
+
+- Com o IPv6 habilitado, a comunicação interna pode ser feito via IPv4, IPv6, ou ambos.
+
+- Também é possível ter uma subnet IPv6-only.
+
+- **Para o trafego de saída para internet, é necessário provisionar um egress-only internet gateway**, que é um gateway dedicado para tráfego IPv6. 
+    - Isso se dá pelo fato de que o IPv6 não utiliza NAT, portanto, não é possível utilizar um NAT Gateway para tráfego IPv6.
+
 ## Limites
 - Até 200 sub redes por VPC (esse número pode reduzir dependendo da alocação dos CIDR blocks definido pelo usuário).
 
