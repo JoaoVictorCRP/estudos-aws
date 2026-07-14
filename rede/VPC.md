@@ -158,6 +158,21 @@ Lembre-se:
 - **Para o trafego de saída para internet, é necessário provisionar um egress-only internet gateway**, que é um gateway dedicado para tráfego IPv6. 
     - Isso se dá pelo fato de que o IPv6 não utiliza NAT, portanto, não é possível utilizar um NAT Gateway para tráfego IPv6.
 
+
+## CIDR Secundário
+- É possível adicionar um CIDR secundário a uma VPC, permitindo que você tenha mais endereços IP disponíveis para suas instâncias e recursos.
+
+- O CIDR secundário pode ser usado para criar subredes adicionais, permitindo que você expanda sua rede sem precisar criar uma nova VPC.
+
+- Se o CIDR primário é uma faixa RFC 1918 (privada - `10.0.0.0/16`, `172.16.0.0/16` ou `192.168.0.0/16`), o CIDR secundário também deve ser dessa mesma faixa RFC 1918.
+    - Já se o CIDR primário é da faixa CGNAT (Carrier-Grade NAT - `100.64.0.0/16`), o CIDR secundário também deve ser dessa mesma faixa CGNAT.
+
+    - A faixa CGNAT pode ser utilizada como IP secundário mesmo que o CIDR primário seja das faixa RFC 1918.
+
+    - Representação visual das restrições:
+
+![Diagrama de CIDR Secundário](./images/vpcSecondaryCIDRRules.png)
+
 ## Limites
 - Até 200 sub redes por VPC (esse número pode reduzir dependendo da alocação dos CIDR blocks definido pelo usuário).
 
