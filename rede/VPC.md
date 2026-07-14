@@ -21,13 +21,14 @@ Além de tudo, também é possível criar uma extensão da sua rede local atrav�
 
 ### VPC Peering
 - Permite que você conecte uma VPC a outra através de um roteamento direto utilizando os IPs privados.
+
 - Instâncias se comportam como se estivessem na mesma rede privada.
+
 - ==Você pode emparelhar VPCs com outra conta AWS,== assim como também pode fazer isso com outras VPCs da sua conta.
+
 - ==É possível emparelhar VPCs em regiões diferentes.==
+
 - O emparelhamento é bidirecional, 1x1 para cada peering. Exemplo, se tivermos 3 VPCs: A, B e C. Precisaremos de 3 pareamentos individuais.
-
-<img src="./images/VPC-Peering-diagram.png" alt="Diagrama de VPC Peering"/>
-
 
 - Também é muito importante adequar todas as route-tables para que todas os recursos nas subredes da VPC comuniquem uns com os outros.
 
@@ -36,7 +37,7 @@ Além de tudo, também é possível criar uma extensão da sua rede local atrav�
 
 - Neste modelo, a conta dona da VPC compartilha uma ou mais subnets com os participantes que pertencem a mesma organização (AWS Organizations).
 
-- Quando a subnet é compartilhada, os participantes podem permissão de ==LER, ESCREVER, MODIFICAR e DELETAR seus próprios recursos== na subnet compartilha, no entanto, ele **não poderá fazer nada disso nos recursos das outras contas**.
+- Quando a subnet é compartilhada, cada conta participante tem permissão de ==LER, ESCREVER, MODIFICAR e DELETAR seus próprios recursos== na subnet compartilha, no entanto, ela **não pode fazer nada disso nos recursos de outras contas**.
 
 ## Reserva de IPs
 - Ao criar uma subrede, você irá notar que ==5 IPs já estarão reservados==, exemplificando, em uma rede 10.0.0.0/24 a reserva é feita desta forma:
@@ -52,7 +53,7 @@ Além de tudo, também é possível criar uma extensão da sua rede local atrav�
     - **NACL**: Permite todo o tráfego Inbound e Outbound.
     - **Security Group**: Bloqueia todo o tráfego Inbound (exceto entre instâncias no mesmo grupo) e permite todo o tráfego Outbound.
 
-- <span style="color: red;font-weight:bold">ATENÇÃO: Por padrão, o auto-assign de IP público fica desativado ao criar uma nova subrede.</span> 
+- **ATENÇÃO: Por padrão, o auto-assign de IP público fica desativado ao criar uma nova subrede**.
 
 ## Diferença entre Route Table, NACL e Security Group
 ### **1. Route Table**
@@ -101,18 +102,19 @@ O NAT é uma técnica usada para traduzir endereços IP privados de uma rede int
 ### NAT Instance
 - É possível usar uma instância EC2 configurada com um software NAT para servir a realizar a mesma função que o NAT Gateway.
 
-- ==A vantagem é o controle total sobre a configuração==, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
+- **A vantagem é o controle total sobre a configuração**, mas isso requer gerenciamento manual, incluindo ajustes para alta disponibilidade e escalabilidade
 
-- ==Geralmente, é uma opção de custo menor que o NAT gateway, **MAS só quando estivemos lidando com pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT,**== além do fato de que o trabalho de configuração será 100% manual.
+- **Geralmente é uma opção de custo menor que o NAT gateway, mas só quando estivemos lidando com pequenas cargas, pois uma maior carga de trabalho exigirá mais poder de processamento da instância NAT,** além do fato de que o trabalho de configuração será 100% manual.
 
-- Há um recurso nas instância EC2 chamado ==**Source/Destination**==, que faz com que a instância "cheque" se ela é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. No caso das NAT Instances, esse recurso ==**PRECISA ESTAR DESABILITADO**==, uma vez que essa instância deverá lidar com tráfego onde ela não é a origem e nem o destino. 
+- Há um recurso nas instância EC2 chamado ==**Source/Destination check**==, que faz com que a instância verificque se o IP dela própria é a origem ou o destino de qualquer tráfego enviado ou recebido na rede. No caso das NAT Instances, esse recurso ==**PRECISA ESTAR DESABILITADO**==, uma vez que essa instância deverá lidar com tráfego onde ela não é a origem e nem o destino. 
 
 ### Observações:
 - Um NAT Gateway ou NAT instance é usada para providenciar tráfego da internet para instâncias em subredes privadas.
+
 - NÃO É POSSÍVEL UTILIZAR UMA NAT INSTANCE COMO BASTION.
 
 ## Network ACL
-- ==Regras do NACL são obedecidas em ordem de prioridade== (Portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200.
+- ==Regras do NACL são obedecidas em ordem de prioridade==, portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200.
 
 - Um NACL pode estar associado a múltiplas subredes, no entanto uma subrede só pode esta associado a um único NACL.
 
