@@ -1,7 +1,5 @@
 # EC2
-
-## **Os Tipos**
-
+## Os Tipos
 - **General Purpose**:
     - Equilíbrio entre processamento, memória e rede.
     - Ideal na maioria dos casos.
@@ -9,19 +7,16 @@
 - **Compute Optimized**:
     - Instância que possui foco no poder de processamento (CPU).
     - **Use case**: Computação de alta performance (HPC), processamento em lote, decodificação de vídeos, jogos etc.
-    
 
 - **Memory Optimized**:
     - São projetadas para fornecer performance rápida para workloads que processam grandes conjuntos de dados na memória RAM.
     - **Use case**: Workloads que consomem muita memória, como bancos de dados de código aberto, caches na memória e análise de big data em tempo real.
     
-
 - **Storage Optimized**:
     - Ótimas para tarefas que exigem alta capacidade de armazenamento, isto é, acesso a leitura e escrita de uma grande quantidade de dados no disco local.
     - **Use case**: Aplicações intensivas de E/S, bancos de dados transacionais, Amazon OpenSearch, Aplicações de Data warehouse e análises em tempo real.
-    
 
-## **Grupos de Segurança**
+## Grupos de Segurança
 
 - Os **Security Groups** são o ponto chave da segurança de rede na AWS.
 
@@ -46,7 +41,7 @@ Eles regulam:
 
 <img src="../images/ec2-SecurityGroups.png" alt="EC2 Security Groups Diagram"/>
 
-## **Opções de Cobrança**
+## Opções de Cobrança
 - **On-Demand**: Método mais comum, pague pelo que você utilizar.
 
 - **Saving Plans**: Preços mais baratos, em troca de um contrato que forçará um tempo mínimo de uso dos recursos, de 1 ou 3 anos. _Tudo cobrado em doláres por hora._
@@ -59,33 +54,6 @@ Eles regulam:
 - **Spot Instances**: A opção mais barata da AWS, funciona como um leilão de instâncias, você coloca seu valor em uma pool de instâncias e então utiliza ela enquanto o seu lance for maior que os existentes no mercado, mas muito cuidado, se aparecer um lance maior que o seu, você perde a instância, tolerância de 2 minutinhos pra vazar da instância
 
 - **Dedicated Hosts**: Um servidor físico no data center da AWS dedicado a você, ideal para casos de BYOL e compliance. Pode ser até 70% mais barato que o modelo On-Demand.
-
-## **Interfaces de Rede**
-
-### **ENI (Elastic Network Interface) - Padrão - <span style="background-color: orange; color: black;font-weight:bold">$</span>**
-- **Definição:** Uma ENI é uma interface de rede virtual que pode ser anexada a uma instância EC2. Ela funciona como uma interface de rede física, contendo um endereço IP primário, um ou mais endereços IP secundários, um ou mais grupos de segurança, um endereço MAC, e outras configurações de rede.
-
-- **Uso:** ENIs são usadas para conectar instâncias EC2 a sub-redes em uma VPC. Elas permitem que você mova interfaces entre instâncias, o que pode ser útil para cenários de alta disponibilidade ou para isolar diferentes tipos de tráfego.
-
-- **Exemplo de Aplicação:** Ter múltiplas interfaces de rede em uma instância para segmentar o tráfego de rede ou para separar diferentes camadas de aplicação.
-
-
-
-### **ENA (Elastic Network Adapter) - Alta Performance - <span style="background-color: orange; color: black;font-weight:bold">$$</span>**
-- **Definição:** O ENA é um adaptador de rede de alta performance projetado para oferecer suporte a _Enhanced Networking_ na AWS. Oferece maior largura de banda, menor latência e menor sobrecarga em comparação com as interfaces de rede padrão.
-
-- **Uso:** ENA é usado principalmente em instâncias EC2 que exigem alta performance de rede, como em aplicações de HPC (High-Performance Computing) e grandes clusters de dados.
-
-- **Exemplo de Aplicação:** Quando uma instância EC2 precisa de uma largura de banda de rede de até 100 Gbps, como em simulações científicas ou análises de Big Data.
-
-### **EFA (Elastic Fabric Adapter) - Potência Máxima - <span style="background-color: orange; color: black;font-weight:bold">$$$</span>**
-
-- **Definição:** O EFA é um adaptador de rede que fornece latência ultrabaixa e alta taxa de transferência, além de suporte para aplicativos de HPC que usam bibliotecas de comunicação de rede como MPI (Message Passing Interface). ==**O EFA não é compatível com as instâncias do Windows.**==
-
-- **Uso:** EFA é especificamente projetado para workloads HPC que requerem uma comunicação de rede extremamente rápida e eficiente, como em simulações científicas, bolsa de valores ou sistemas críticos.
-
-- **Exemplo de Aplicação:** Aplicações HPC distribuídas que exigem uma comunicação rápida entre instâncias EC2 em um cluster, como no uso industrial ou renderização gráfica em 3D.
-
 
 ## **Placement Groups**
 É um recurso do Amazon EC2 que permite controlar o posicionamento de instâncias em hardware subjacente dentro de uma AZ. Eles são usados para melhorar o desempenho da rede ou a resiliência das instâncias.
