@@ -1,11 +1,11 @@
-## VPC Endpoints
+# VPC Endpoints
 - Permitem que você conecte sua VPC a serviços da AWS de forma privada, sem a necessidade de usar a internet, gateways, NAT ou VPNS. Eles ==proporcionam uma maneira segura e eficiente de acessar serviços AWS diretamente da sua VPC, mantendo o tráfego dentro da rede da AWS==.
 
 - Além da velocidade, os VPC Endpoints também **podem ajudar a reduzir os custos**, uma vez que o tráfego será mantido dentro da rede AWS e nunca sairá para a internet.
 
 - Um detalhe interessante é que os VPC Endpoints podem ter como alvo um recurso que não esteja na mesma região ou VPC, desde que o recurso seja acessível por meio de um endpoint privado.
 
-### Tipos de VPC Endpoint:
+## Tipos de VPC Endpoint:
 - **Interface Endpoints**
     - ==Utiliza uma Elastic Network Interface (ENI) com endereço IP privado dentro da VPC==. Esse endpoint é conectado aos serviços AWS, com serviços que suportam a interface VPC.
     
@@ -23,6 +23,11 @@
     
     
 	- <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free. Por isso, sempre que possível prefira usar um gateway endpoint do que uma Interface Endpoint.</span>
+
+## VPC Endpoint Policies
+- Para controle de acesso, é possível palicar políticas IAM aos VPC Endpoints, permitindo que você defina quais recursos podem ser acessados por meio do endpoint e quais ações podem ser realizadas.
+
+- Além desta medida de segurança, você também pode usar resource-based policies nos recursos de destino, como S3 e DynamoDB, para controlar o acesso a partir de endpoints específicos.
 
 ## Resumo
 - Em suma, a única diferença entre os dois tipos é a forma de implementação.
