@@ -7,6 +7,7 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 - ==A principal ideia por trás deste serviço é unir todas as redes conectadas em um único hub central, simplificando a topologia==.
 
 - Diferentemente do VPC Peering, que não é transitivo (não permite que uma VPC conectada a outra VPC se comunique com uma terceira VPC), o Transit Gateway permite que todas as redes conectadas se comuniquem entre si, desde que as rotas estejam configuradas corretamente.
+  - A comunicação de cada nó de rede com todos os outros é chamado de **Full Mesh**, enquanto que a comunicação de cada nó de rede com apenas um outro nó é chamado de **Point-to-Point**.
 
 - Suporta milhares de conexões, facilitando a expansão de rede à medida que novas VPCs ou redes precisam ser integradas.
 
@@ -24,3 +25,8 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
   - VPNs
   - Gateways Direct Connect
   - Network Function (do AWS Network Firewall)
+
+## As rotas no TGW
+- O TGW centraliza as rotas de todas as redes conectadas a ele, porém cada VPC também tem sua route table, que aponta para o TGW.
+
+- Uma vez que a VPC é acoplada ao TGW e a tabela de rotas da subrede acoplada ajustado para apontar para o TGW a partir de uma rota genéria, como 10.0.0.0/8 ou 0.0.0.0/0, as rotas de saída para outras VPCs são totalmente gerenciados pelo TGW.
