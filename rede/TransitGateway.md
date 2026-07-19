@@ -30,3 +30,15 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 - O TGW centraliza as rotas de todas as redes conectadas a ele, porém cada VPC também tem sua route table, que aponta para o TGW.
 
 - Uma vez que a VPC é acoplada ao TGW e a tabela de rotas da subrede acoplada ajustado para apontar para o TGW a partir de uma rota genéria, como 10.0.0.0/8 ou 0.0.0.0/0, as rotas de saída para outras VPCs são totalmente gerenciados pelo TGW.
+
+# Routing Domains
+- No Transit Gateway, routing domains são agrupamentos lógicos de tabelas de rotas, que podem ser usados para isolar o tráfego entre diferentes grupos de VPCs e redes on-premises conectadas ao TGW.
+
+- Essa funcionalidade permite que diferentes grupos de VPCs e redes on-premises se comuniquem entre si de forma isolada.
+
+- Você pode, por exemplo, fazer com que uma VPN se conecte com todas as VPCs acopladas ao TGW e, ao mesmo tempo, impedir que uma VPC se comunique com outra VPC acoplada ao mesmo TGW.
+  - Isto é feito através da criação de um routing domain para a VPN e outro para as VPCs, garantindo que o tráfego seja isolado entre eles.
+  
+  - Diagrama visual da arquitetura:
+
+  ![Diagrama de Routing Domains](./images/routingDomains.png)
