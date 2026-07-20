@@ -1,5 +1,4 @@
 # Elastic Load Balancer (ELB)
-## O que é?
 O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a carga de trabalho entre múltiplos servidores, há 4 opções de LB, vejamos:
 ## Tipos 
 ### 1. Application LB (ALB)
@@ -29,7 +28,9 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 
 ### 2. Network LB (NLB)
-São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema performance é desejada, operando na camada 4 (transporte de rede), NLBs são capazes de gerenciar milhões de requests por segundo, tudo isso mantendo uma latência ultra baixa.
+- São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema performance é desejada, operando na camada 4 (transporte de rede).
+
+- NLBs são capazes de gerenciar milhões de requests por segundo, tudo isso mantendo uma latência ultra baixa.
 
 ### 3. Gateway LB (GWLB)
 - Opera nas camadas 3 (rede) e 4 (transporte)
@@ -43,12 +44,14 @@ São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema pe
 - **Utiliza o protocolo GENEVE**, na porta 6081.
 
 ## X-Forwarded-For
-Este é um método de cabeçalho HTTP que <span style="background-color: #e0a800; color: black;font-weight:bold">identifica o real IP de origem do usuário que fez uma requisição para o ELB</span>, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
+- ==Este é um cabeçalho HTTP que identifica o real IP de origem do usuário que fez uma requisição para o ELB==, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
 <img src="./images/xForwarded.png" alt="Diagrama X-Forwarded-For"/>
 
 ## Sticky Sessions
 
-- <span style="background-color: #e0a800; color: black;font-weight:bold"> As sticky sessions permitem que você atrele a sessão/cookies de um usuário a uma instância EC2 específica.</span> Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.
+- As sticky sessions permitem que você atrele a sessão/cookies de um usuário a uma instância EC2 específica.
+
+- Isso garante que todas as requisições do usuário durante a sessão serão mandadas para a mesma instância.
 
 - Os cookies de sessão podem ser configurados como:
     - **Duration-Based**: Gerenciados pelo próprio ELB, com duração pré-definida na configurações do ELB.
@@ -82,8 +85,7 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
     - Esse é um **protocolo mais moderno**, permite a identificação do certificado necessário logo no handshake inicial com o cliente.
 
-    - <span style="color: red; font-weight:bold">SÓ PODE SER CONFIGURADO EM ALB, NLB e CLOUDFRONT.</span>
-
+    - Não pode ser configurado no Gateway Load Balancer (que por sua vez não possui suporte a SSL/TLS).
 
 ## Deregistration Delay
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Essa é uma configuração que determina quanto tempo o LB vai esperar antes de desregistrar (remover) uma EC2 após ela ser marcada para remoção do balanceamento de carga.</span>
@@ -94,23 +96,12 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 
 - **O valor padrão do atraso é 300 segundos (5 minutos), mas pode ser ajustado de 0 a 3600 segundos (1 hora).**
 
-## Erros Comuns em LBs
-- **CLB**: Se a sua aplicação parar de responder, um **CLB** responderá um <span style="background-color: #e0a800; color: black;font-weight:bold">erro 504</span>. Isso <span style="background-color: #e0a800; color: black;font-weight:bold">significa que a aplicação está enfrentando problema, não o LB</span>. A causa pode tanto estar na camada do servidor web quanto na camada da aplicação
-
-
-### Preço
-- O preço se baseia na quantidade de tempo que o LB fica rodando. O ALB por exemplo, custa $0,02 por hora.
-
 ## Anotações
 - Instâncias monitoradas pelos ELBs são reportadas como **InService** ou **OutofService**
 
 - LBs Utilizam security groups para controle de tráfego
 
 - Todos os tipos de LBs possuem um IP privado, porém apenas o NLB possui um IP público estático, todos os outros são acessados via DNS.
-
-- Leia o FAQ para detalhes específicos que aparecem no exame: https://aws.amazon.com/pt/elasticloadbalancing/faqs/
-
-- É possível definir Sticky Sessions no ALB para manter dados de uma sessão atrelados a uma única EC2.
 
 - Por padrão, o cross-zone é habilitado para o ALB (e desabilitado para o NLB)
 
