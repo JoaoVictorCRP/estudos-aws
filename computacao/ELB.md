@@ -4,35 +4,37 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 ## Tipos 
 ### 1. Application LB (ALB)
 - Ideal para tráfego HTTP/HTTPS, roteamento de aplicação pode ser baseado em:
-    - Caminho da URL (exemplo.com **/users**)
-    
-    - Subdominio (**um**.exemplo.com & **dois**.exemplo.com)
+    - Caminho da URL
+    - Subdominio
+    - Queries e Headers
 
-    - Queries e Headers (exemplo.com/users?**id=123&nome=joao**)
+- Opera na sétima camada do modelo OSI, que é a camada da aplicação.
 
-	- <span style="background-color: #e0a800; color: black;font-weight:bold">Operam na primeira camada da pilha OSI, que é a camada da aplicação.</span>
-	
-	- Formam uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
-	
-	- ==Possui a opção de mapear portas, que fará um redirecionamento dinâmico baseado na porta.== (Bem útil para o ECS). Exemplo de uso:
-		- Requisições na porta **80/443** (HTTP/HTTPS) podem ser direcionadas para um container rodando um servidor web nginx.
-		- Requisições na porta **5432** podem ser roteadas para um container rodando um banco de dados PostgreSQL
+- Possui suporte aos seguintes protocolos:
+    - HTTP
+    - HTTPS
+    - WebSocket
+    - HTTP/2 e gRPC
 
-    #### Como o ALB toma decisões inteligentes?
-    -  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
+- Forma uma boa combinação com microsserviços e aplicações baseadas em containers (Docker & ECS)
 
-    - **Suporte a microserviços e contêineres**: <span style="background-color: #e0a800; color: black;font-weight:bold">Ele é ideal para arquiteturas baseadas em microserviços</span>, pois permite que diferentes partes de uma aplicação sejam gerenciadas e dimensionadas separadamente.
+- Possui a opção de mapear portas, que fará o redirecionamento dinâmico baseado na porta.
 
-    - **Autenticação integrada**: <span style="background-color: #e0a800; color: black;font-weight:bold">O ALB pode integrar autenticação de usuários diretamente na camada de balanceamento</span>, utilizando o Amazon Cognito para gerenciar identidades de usuários a sem necessidade de modificar a aplicação.
+#### Como o ALB toma decisões inteligentes?
+-  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
+
+- **Suporte a microserviços e contêineres**: Ele é ideal para arquiteturas baseadas em microserviços, pois permite que diferentes partes de uma aplicação sejam gerenciadas e dimensionadas separadamente.
+
+- **Autenticação integrada**: O ALB pode integrar autenticação de usuários diretamente na camada de balanceamento, utilizando o Amazon Cognito para gerenciar identidades de usuários a sem necessidade de modificar a aplicação.
 
 
 ### 2. Network LB (NLB)
-<span style="background-color: #e0a800; color: black;font-weight:bold">São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema performance é desejada, operando na camada 4 (transporte de rede), NLBs são capazes de gerenciar milhões de requests por segundo</span>, tudo isso mantendo uma latência ultra baixa.
+São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema performance é desejada, operando na camada 4 (transporte de rede), NLBs são capazes de gerenciar milhões de requests por segundo, tudo isso mantendo uma latência ultra baixa.
 
 ### 3. Gateway LB (GWLB)
 - Opera nas camadas 3 (rede) e 4 (transporte)
 
-- <span style="background-color: #e0a800; color: black;font-weight:bold">Facilita  a implantação, escalabilidade e gerenciamento de dispositivos virtuais de rede, como firewalls e sistemas de inspeção de pacotes</span>.
+- Facilita  a implantação, escalabilidade e gerenciamento de dispositivos virtuais de rede, como firewalls e sistemas de inspeção de pacotes.
 
 - Ideal na implementação de dispositivos de segurança como firewalls, sistemas de prevenção de intrusão (IPS), ou proxies.
 
