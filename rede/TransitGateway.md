@@ -45,3 +45,15 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 
 ## Considerações sobre AZs
 - Apesar do acoplamento do TGW ser feito a nível de VPC, o roteamento opera a nível de AZ, o que significa que **cada AZ precisa ter uma sub-rede acoplada ao TGW para que o tráfego possa ser roteado corretamente entre as VPCs e redes on-premises conectadas**.
+
+## Appliance Mode
+
+- O Appliance Mode é uma funcionalidade ativada no VPC Attachment do Transit Gateway, projetada para arquiteturas de inspeção centralizada com appliances stateful (firewalls, IDS/IPS).
+
+- Por padrão, o TGW prioriza manter o tráfego na mesma AZ de origem (**AZ Affinity**). Na volta do tráfego (resposta), ele pode usar ECMP e entregar o pacote por uma AZ/ENI diferente da que recebeu a ida.
+
+  - Esse fluxo de ida por uma AZ (Firewall A) e volta por outra AZ (Firewall B) faz com que o Firewall B receba tráfego de uma sessão que ele não conhece, descartando os pacotes (Stateful Drop), causando problemas de conectividade.
+
+- Quando o Appliance Mode é ativado no attachment da VPC de Inspeção, ele força o TGW a usar a mesma AZ/ENI do anexo tanto para o tráfego de ida quanto para o de volta durante toda a vida daquela sessão TCP/UDP, garantindo a simetria no firewall, e o conhecimento total do estado da sessão, evitando o problema de Stateful Drop.
+
+- Deixar o appliance mode desativado é ideal para tráfego entre VPCs comuns sem firewalls no meio, mantendo a menor latência e evitando custos de dados cross-AZ desnecessários.
