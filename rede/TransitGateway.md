@@ -31,7 +31,7 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 
 - Uma vez que a VPC é acoplada ao TGW e a tabela de rotas da subrede acoplada ajustado para apontar para o TGW a partir de uma rota genéria, como 10.0.0.0/8 ou 0.0.0.0/0, as rotas de saída para outras VPCs são totalmente gerenciados pelo TGW.
 
-# Routing Domains
+## Routing Domains
 - No Transit Gateway, routing domains são agrupamentos lógicos de tabelas de rotas, que podem ser usados para isolar o tráfego entre diferentes grupos de VPCs e redes on-premises conectadas ao TGW.
 
 - Essa funcionalidade permite que diferentes grupos de VPCs e redes on-premises se comuniquem entre si de forma isolada.
@@ -42,3 +42,6 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
   - Diagrama visual da arquitetura:
 
   ![Diagrama de Routing Domains](./images/routingDomains.png)
+
+## Considerações sobre AZs
+- Apesar do acoplamento do TGW ser feito a nível de VPC, o roteamento opera a nível de AZ, o que significa que **cada AZ precisa ter uma sub-rede acoplada ao TGW para que o tráfego possa ser roteado corretamente entre as VPCs e redes on-premises conectadas**.
