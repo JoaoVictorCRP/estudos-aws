@@ -57,3 +57,18 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 - Quando o Appliance Mode é ativado no attachment da VPC de Inspeção, ele força o TGW a usar a mesma AZ/ENI do anexo tanto para o tráfego de ida quanto para o de volta durante toda a vida daquela sessão TCP/UDP, garantindo a simetria no firewall, e o conhecimento total do estado da sessão, evitando o problema de Stateful Drop.
 
 - Deixar o appliance mode desativado é ideal para tráfego entre VPCs comuns sem firewalls no meio, mantendo a menor latência e evitando custos de dados cross-AZ desnecessários.
+
+## Multicast no TGW
+- O Transit Gateway possui suporta para Multicast, permitindo que uma máquina envie pacotes para múltiplos destinos simultaneamente, sem a necessidade de enviar cópias separadas para cada destino.
+
+- **A habilitação do Multicast deve ser feita no momento da criação do TGW, e não pode ser habilitado posteriormente**.
+
+- O multicast do TGW suporta tanto o mapeamento estático quanto o dinâmico (via IGMP), permitindo que os destinos se inscrevam e recebam pacotes de forma eficiente.
+
+- A configuração dos destinos é feita por meio da criação de grupos multicast, que incluem os hosts que desejam receber os pacotes multicast. Cada grupo multicast é identificado por um endereço IP multicast específico.
+
+- O roteamento multicast não suporta AWS Direct Connect, Site-to-Site VPN ou outro Transit Gateway, apenas VPCs acopladas ao mesmo TGW podem participar do multicast.
+
+  - **Se você quiser fazer multicast entre a VPC e uma rede on-premises, você precisará de um appliance de rede que suporte o estabelecimento de túneis GRE (Generic Routing Encapsulation) entre a VPC e a rede on-premises**, via Direct Connect ou Site-to-Site VPN, e que seja capaz de encapsular e decapsular os pacotes multicast.
+
+- Instâncias EC2 de antiga geração (não-Nitro) não suportam multicast a menos que você desabilite o Source/Destination Check na interface de rede da instância. Instâncias Nitro suportam multicast sem a necessidade de desabilitar o Source/Destination Check.
