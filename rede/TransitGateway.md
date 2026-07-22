@@ -74,3 +74,12 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
   - **Se você quiser fazer multicast entre a VPC e uma rede on-premises, você precisará de um appliance de rede que suporte o estabelecimento de túneis GRE (Generic Routing Encapsulation) entre a VPC e a rede on-premises**, via Direct Connect ou Site-to-Site VPN, e que seja capaz de encapsular e decapsular os pacotes multicast.
 
 - Instâncias EC2 de antiga geração (não-Nitro) não suportam multicast a menos que você desabilite o Source/Destination Check na interface de rede da instância. Instâncias Nitro suportam multicast sem a necessidade de desabilitar o Source/Destination Check.
+
+## Acoplando VPNs
+- Como dito no tópico de acoplamentos, é possível acoplar VPNs ao Transit Gateway. Isso permite que redes on-premises (não gerenciadas por SD-WAN) se conectem a múltiplas VPCs de forma centralizada, sem a necessidade de criar múltiplas conexões VPN ponto-a-ponto.
+
+- O acoplamento de VPNs ao Transit Gateway é feito através de um **VPN Attachment**, que cria uma conexão segura entre a rede on-premises e o TGW. A partir daí, o TGW gerencia o roteamento do tráfego entre a VPN e as VPCs acopladas.
+  - Para estabelecer a conexão com a rede local, é utilizado um **customer gateway (CGW)**, que representa o dispositivo de rede on-premises. O customer gateway é configurado com o endereço IP público do dispositivo e as informações de autenticação necessárias para estabelecer a conexão VPN.
+
+- Uma arquitetura bem popular é a **Accelerated VPN**, que aproveita a rede global da AWS (mesma infraestrutura do AWS Global Accelerator) para otimizar o desempenho da VPN.
+  - **Como funciona**: Em vez de os túneis IPsec terminarem direto na Região onde o TGW está, a conexão VPN fecha no Edge Location mais próximo do Customer Gateway. A partir desse ponto de borda, o tráfego viaja pelo backbone privado de alta velocidade da AWS até o TGW na região de destino, reduzindo drasticamente a latência da internet pública.
