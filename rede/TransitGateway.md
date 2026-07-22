@@ -21,7 +21,9 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
 - É possível acoplar um transit gateway com:
   - Um ou mais VPCs
   - Outro transit gateway (mesmo em outra região)
-  - Conexões SD-WAN de terceiros
+  - Conexões SD-WAN de terceiros (conhecido como TGW Connect)
+    - Esta conexão é feita por meio de um túnel GRE (Generic Routing Encapsulation) entre o Transit Gateway e o dispositivo SD-WAN.
+    - A largura de banda da conexão TGW Connect é limitada a 5 Gbps por túnel,e você pode criar até 4 túneis por conexão, totalizando 20 Gbps por conexão.
   - VPNs
   - Gateways Direct Connect
   - Network Function (do AWS Network Firewall)
