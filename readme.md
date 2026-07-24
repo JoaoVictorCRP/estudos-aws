@@ -113,10 +113,14 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Amazon SageMaker](inteligencia-artificial/SageMaker.md)
 
 ### 🌟 Certificações
-- Anotações específicas sobre detalhes e temas específicos de certificações AWS.
+- Anotações particulares sobre detalhes e temas específicos de certificações AWS.
 
 #### AI Practitioner
 - [Foundation Models](certificacoes/ai-practitioner/foundation-models.md)
+
+#### Solutions Architect Associate
+- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
+- [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
 
 #### Developer Associate
 - [Exponential Backoff](certificacoes/developer-associate/ExponentialBackoff.md)
@@ -135,6 +139,8 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
 
-#### Solutions Architect Associate
-- [Disaster Recovery](certificacoes/solutions-architect-associate/DisasterRecovery.md)
-- [Comparação entre serviços semelhantes](certificacoes/solutions-architect-associate/DuvidasComuns.md)
+#### Networking Specialty
+- [Largura de Banda](certificacoes/networking-specialty/bandwidth.md)
+- [Fundamentos da Prova](certificacoes/networking-specialty/essentials.md)
+- [Longest Prefix Match](certificacoes/networking-specialty/longest-prefix-match.md)
+- [Métricas de Rede](certificacoes/networking-specialty/network-metrics.md)
