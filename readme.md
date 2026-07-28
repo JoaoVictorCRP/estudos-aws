@@ -36,6 +36,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [GuardDuty](seguranca/GuardDuty.md)
 - [IAM Identity Center](seguranca/IAM%20Identity%20Center.md)
 - [IAM](seguranca/IAM.md)
+- [IAM Identity Center](seguranca/IAMIdentityCenter.md)
 - [Inspector](seguranca/Inspector.md)
 - [Parameter Store](seguranca/ParameterStore.md)
 - [Secrets Manager](seguranca/SecretsManager.md)
@@ -56,7 +57,6 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Transit Gateway](rede/TransitGateway.md)
 - [VPC](rede/VPC.md)
 - [VPC Endpoints](rede/VPCEndpoints.md)
-- [Segurança de Redes](certificacoes/security-specialty/Redes.md)
 
 ### 🗃️ Dados
 - [DynamoDB](dados/DynamoDB.md)
@@ -73,12 +73,12 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [API Gateway](automacao-e-aplicacoes/ApiGateway.md)
 - [AppSync](automacao-e-aplicacoes/AppSync.md)
 - [Cloudformation](automacao-e-aplicacoes/CloudFormation.md)
-- [Cloudfront](CloudFront.md)
+- [Cloudfront](automacao-e-aplicacoes/CloudFront.md)
 - [ElasticBeanstalk](automacao-e-aplicacoes/ElasticBeanStalk.md)
 - [Elastic Transcoder](automacao-e-aplicacoes/ElasticTranscoder.md)
 - [EventBridge](automacao-e-aplicacoes/EventBridge.md)
 - [Systems Manager](automacao-e-aplicacoes/Systems%20Manager.md)
-- [IOT](IoTServices)
+- [IOT](automacao-e-aplicacoes/IoTServices)
 - [AWS OpsWorks](automacao-e-aplicacoes/OpsWorks.md)
 - [SAM](automacao-e-aplicacoes/SAM.md)
 
@@ -88,9 +88,9 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [CodePipeline](automacao-e-aplicacoes/ci-cd/CodePipeline.md)
 
 ### 🧳 Migração e Transferência
-- [AWSMigrationTools](AWSMigrationTools.md)
+- [AWSMigrationTools](migracao-e-transferencia/AWSMigrationTools.md)
 - [DMS](migracao-e-transferencia/DMS.md)
-- [Estratégias de Migração para a Nuvem](migrationStrategies.md)
+- [Estratégias de Migração para a Nuvem](migracao-e-transferencia/migrationStrategies.md)
 - [Transfer Family](migracao-e-transferencia/TransferFamily)
 
 ### ✉️ Mensageria
@@ -102,11 +102,11 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ### 🏛️ Governança e Monitoramento
 - [AWS Config](governanca-e-monitoramento/AWSConfig.md)
-- [Control Tower](ControlTower.md)
+- [Control Tower](governanca-e-monitoramento/ControlTower.md)
 - [X-Ray](governanca-e-monitoramento/X-Ray.md)
 - [Firewall Manager](governanca-e-monitoramento/Organizations/Firewall%20Manager.md)
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
-- [Cloudwatch Agent](CloudwatchAgent.md)
+- [Cloudwatch Agent](governanca-e-monitoramento/CloudwatchAgent.md)
 
 ### Inteligência Artificial
 - [Amazon Bedrock](inteligencia-artificial/Bedrock.md)
@@ -129,12 +129,12 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Deployment Strategies](certificacoes/devops-engineer-professional/DeploymentStrategies.md)
 
 #### Security Specialty
+- [Segurança de Redes](certificacoes/security-specialty/Redes.md)
 - [Segurança no Cloudformation](certificacoes/security-specialty/CloudformationSecurity.md)
 - [Directory Services](certificacoes/security-specialty/DirectoryServices.md)
 - [Dúvidas Comuns](certificacoes/security-specialty/DuvidasComuns.md)
 - [Logging](certificacoes/security-specialty/Logging.md)
 - [IAM - Avançado](certificacoes/security-specialty/AcessosEPolicies/IAM.md)
-- [IAM Identity Center](seguranca/IAMIdentityCenter.md)
 - [Validação de Políticas do IAM](certificacoes/security-specialty/AcessosEPolicies/IAMPolicysInDepth.md)
 - [Resource-Based Policies](certificacoes/security-specialty/AcessosEPolicies/RBPs.md)
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
