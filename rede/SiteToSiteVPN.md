@@ -42,6 +42,15 @@
 - Acesso a Interface Endpoints (AWS PrivateLink):
   - FUNCIONA perfeitamente. Como o Interface Endpoint aloca uma ENI com IP privado na VPC, o tráfego da rede local atravessa o VGW normalmente rumo a esse IP.
 
+## DPD - Dead Peer Detection
+- O DPD é um mecanismo utilizado para detectar se o peer (o outro lado da conexão VPN) está ativo ou não. Ele funciona enviando mensagens de keepalive periodicamente (`R-U-THERE`) para o peer e aguardando uma resposta.
+
+- Se o peer não responder 3 keepalives consecutivos, o DPD considera que o peer está inativo e encerra a conexão VPN. Isso permite que o outro túnel VPN redundante assuma a comunicação sem interrupções.
+
+- Por padrão, o valor do timeout do DPD é de 30 segundos, porém isso é ajustável.
+
+- Os túneis podem também ser terminados devido a inativdade. Você pode configurar o tempo de inatividade que deseja, ou então configurar um host para mandar ICMP (ping) periodicamente para manter o túnel ativo.
+
 ## Os dois túneis VPN redundantes
 
 - Como já foi dito, o Site-to-Site VPN sempre provisiona dois túneis IPsec redundantes para cada conexão, terminando em duas zonas de disponibilidade (AZs) diferentes do lado da AWS.
@@ -67,4 +76,4 @@
 
   - É a configuração padrão caso você use roteamento estático no VGW ou configure métricas/prioridades BGP para favorecer um único caminho.
 
-  - Failover: Se o túnel ativo cair, a alternância para o túnel standby ocorre automaticamente via BGP (geralmente levando alguns segundos até a convergência dos keepalives do Dead Peer Detection e do BGP).
+  - Failover: Se o túnel ativo cair, a alternância para o túnel standby ocorre automaticamente via BGP (geralmente levando alguns segundos até a convergência dos keepalives do DPD e do BGP).
