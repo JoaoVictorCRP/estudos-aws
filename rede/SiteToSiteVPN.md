@@ -25,3 +25,19 @@
   - **Dinâmica (BGP)**: As rotas são propagadas automaticamente entre o Customer Gateway e o Virtual Private Gateway utilizando o protocolo BGP (Border Gateway Protocol). É mais flexível, pois permite que novas rotas sejam aprendidas automaticamente, sem a necessidade de configuração manual.
 
 - Um detalhe bem importante é que o **route table da AWS não suporta mais que 100 rotas propagadas via BGP, então se você tiver mais de 100 rotas, será necessário utilizar a propagação estática, que por sua vez, possui um limite de 500 rotas**.
+
+## O Roteamento transitivo do Site to Site VPN
+- **O Virtual Private Gateway (VGW) NÃO suporta roteamento transitivo**. Se a sua rede local se conecta a uma VPC por meio de uma VPN terminada em um VGW, esse VGW só dá acesso aos recursos internos daquela VPC específica.
+
+- **VPN + VPC Peering**: O tráfego da rede local não consegue atravessar a VPC A para chegar à VPC B via VPC Peering. O VPC Peering não é transtivo naturalmente.
+
+- Sobre sair para a internet via AWS a partir de uma rede local:
+  - O VGW NÃO encaminha tráfego vindo da rede local para a Internet (seja via IGW, NAT Gateway ou NAT Instance). O tráfego de saída da rede local para a internet deve sair pela própria conexão de internet do on-premises.
+
+  - Se precisar centralizar a saída de internet na AWS: Deve-se substituir o VGW pelo [Transit Gateway (TGW)](./TransitGateway.md) e criar uma Egress VPC dedicada.
+
+- Acesso a Gateway Endpoints (S3 e DynamoDB):
+  - NÃO funciona via VGW. Gateway Endpoints são alvos na tabela de rotas e não possuem ENIs/IPs privados na VPC, impedindo o roteamento a partir da VPN.
+
+- Acesso a Interface Endpoints (AWS PrivateLink):
+  - FUNCIONA perfeitamente. Como o Interface Endpoint aloca uma ENI com IP privado na VPC, o tráfego da rede local atravessa o VGW normalmente rumo a esse IP.
