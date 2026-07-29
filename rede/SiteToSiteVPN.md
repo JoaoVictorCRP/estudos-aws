@@ -41,3 +41,30 @@
 
 - Acesso a Interface Endpoints (AWS PrivateLink):
   - FUNCIONA perfeitamente. Como o Interface Endpoint aloca uma ENI com IP privado na VPC, o tráfego da rede local atravessa o VGW normalmente rumo a esse IP.
+
+## Os dois túneis VPN redundantes
+
+- Como já foi dito, o Site-to-Site VPN sempre provisiona dois túneis IPsec redundantes para cada conexão, terminando em duas zonas de disponibilidade (AZs) diferentes do lado da AWS.
+
+- Existem duas estratégias de Utilização, são elas:
+
+- **Ativo / Ativo**:
+  - Ambos os túneis permanecem UP simultaneamente.
+
+  - Roteamento Estático ou Dinâmico (BGP): No roteamento estático, o tráfego de saída da AWS usará apenas um túnel. Com BGP, é possível enviar e receber tráfego por ambos os túneis.
+
+  - Roteamento Assimétrico: No modo Ativo/Ativo, o tráfego de ida pode sair por um túnel e a volta entrar pelo outro. Se houver firewalls stateful no meio, isso causará drop de pacotes.
+
+  - Como mitigar assimetria com BGP:
+
+  - **Para o tráfego AWS -> On-Premises**: Utilize AS Path Prepending na sessão BGP do túnel secundário para forçar a AWS a preferir o túnel primário.
+
+  - **Para o tráfego On-Premises -> AWS**: Ajuste a Local Preference no seu dispositivo on-premises (CGW) para preferir o túnel primário.
+
+- **Ativo / Passivo**:
+
+  - Um túnel carrega todo o tráfego enquanto o outro fica em modo Standby.
+
+  - É a configuração padrão caso você use roteamento estático no VGW ou configure métricas/prioridades BGP para favorecer um único caminho.
+
+  - Failover: Se o túnel ativo cair, a alternância para o túnel standby ocorre automaticamente via BGP (geralmente levando alguns segundos até a convergência dos keepalives do Dead Peer Detection e do BGP).
