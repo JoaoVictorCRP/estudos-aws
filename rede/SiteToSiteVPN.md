@@ -51,6 +51,11 @@
 
 - Os túneis podem também ser terminados devido a inativdade. Você pode configurar o tempo de inatividade que deseja, ou então configurar um host para mandar ICMP (ping) periodicamente para manter o túnel ativo.
 
+- Você pode configurar as seguintes ações para o timeout do DPD:
+  - **Clear (Padrão)**: Encerra a sessão e remove todas as rotas aprendidas via BGP.
+  - **None**: Mantém a sessão e as rotas ativas, mesmo se o peer parar de responder.
+  - **Restart**: Tenta renegociar uma nova sessão como o peer imediatamente.
+
 ## Os dois túneis VPN redundantes
 
 - Como já foi dito, o Site-to-Site VPN sempre provisiona dois túneis IPsec redundantes para cada conexão, terminando em duas zonas de disponibilidade (AZs) diferentes do lado da AWS.
