@@ -10,6 +10,14 @@
 
 - Ele é usado para anunciar rotas entre a rede local do cliente e a rede da AWS, permitindo que o tráfego seja roteado de forma eficiente entre os dois ambientes.
 
+- Um detalhe bem importante é que **o limite de rotas propagadas dinamicamente via BGP em uma VPC Route Table é de 100 rotas**.
+  - Este é um Hard Limit da AWS e não pode ser aumentado via chamado de suporte.
+
+  - Como contornar o limite de 100 rotas do BGP:
+    - **Sumarização de Rotas (Agregação de CIDR)**: Agrupar múltiplos prefixos específicos em um único prefixo mais amplo (ex: combinar 10.1.0.0/16 e 10.3.0.0/16 em 10.0.0.0/14).
+
+    - **Migração para Transit Gateway (TGW)**: O Transit Gateway suporta até 10.000 rotas em suas próprias TGW Route Tables, sendo a solução ideal para grandes redes híbridas.
+
 ## Modo de operação
 
 - Existem dois tipos de BGP: o eBGP (External BGP) e o iBGP (Internal BGP). 
