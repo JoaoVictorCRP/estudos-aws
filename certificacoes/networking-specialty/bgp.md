@@ -22,8 +22,18 @@
 
   - **AS Path**: O caminho de sistemas autônomos que uma rota percorreu. Rotas com caminhos mais curtos são preferidas. Funciona entre ASs.
   
-  - **Local Preference**: Um valor configurado para indicar a preferência de uma rota dentro de um AS. Rotas com maior local preference são preferidas. Funciona dentro de um AS.
+  - **Local Preference**: Um valor configurado para ==indicar a preferência de uma rota dentro de um AS==. Rotas com maior local preference são preferidas. Funciona dentro de um AS.
   
-  - **MED (Multi-Exit Discriminator)**: Um valor usado para influenciar a escolha de rotas entre diferentes AS. Rotas com menor MED são preferidas. Funciona entre ASs.
+  - **MED (Multi-Exit Discriminator)**: Um valor usado para ==influenciar a escolha de rotas entre diferentes AS==. Rotas com menor MED são preferidas. Funciona entre ASs.
 
   - **Weight**: ==Peso atribuído a uma rota, o roteamento escolhe a rota com maior peso==. O weight é específico para o roteador local e não é propagado para outros roteadores, outro detalhe importante é que **esse parâmetro é específico de roteadores da Cisco e só funciona dentro do AS**.
+
+## Diagrama de funcionamento do BGP
+
+![Diagrama de funcionamento do BGP](./images/how-bgp-works.png)
+
+- O diagrama acima mostra como funciona a tabela de rotas do BGP. Repare que as linhas em amarelo são rotas propagas de outros ASs, enquanto as linhas em azul são rotas propagadas dentro do mesmo AS.
+
+- Note também sobre a possibilidade de failover ao mapearmos multiplos caminhos para o mesmo destino, como mostrado no diagrama acima. O BGP é capaz de detectar falhas em um caminho e redirecionar o tráfego para outro caminho disponível, garantindo a continuidade da comunicação entre os sistemas autônomos.
+
+- Como dito no tópico acima, o PATH preferido é sempre aquele com o menor número de ASs, ou seja, o caminho mais curto.
