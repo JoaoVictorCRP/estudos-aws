@@ -38,6 +38,12 @@
 
   - **Weight**: ==Peso atribuído a uma rota, o roteamento escolhe a rota com maior peso==. O weight é específico para o roteador local e não é propagado para outros roteadores, outro detalhe importante é que **esse parâmetro é específico de roteadores da Cisco e só funciona dentro do AS**.
 
+  - A ordem de preferência dos parâmetros é a seguinte:
+    1. Weight
+    2. Local Preference
+    3. AS Path
+    4. MED
+
 ## Diagrama de funcionamento do BGP
 
 ![Diagrama de funcionamento do BGP](./images/how-bgp-works.png)
