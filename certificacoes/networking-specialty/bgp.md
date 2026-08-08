@@ -33,7 +33,8 @@
   
   - **Local Preference (LOCAL_PREF)**: Um valor configurado para ==indicar a preferência de uma rota dentro de um AS==. Rotas com maior local preference são preferidas. Funciona dentro de um AS.
   
-  - **Multi-Exit Discriminator (MED)**: Um valor usado para ==influenciar a escolha de rotas entre diferentes AS==. Rotas com menor MED são preferidas. Funciona entre ASs.
+  - **Multi-Exit Discriminator (MED)**: Um valor usado para ==influenciar a escolha de rotas preferida para um AS diferente==. Rotas com menor MED são preferidas.
+    - Não confunda: o `LOCAL_PREF` define o roteador de saída dentro do AS, `MED` define o roteador de entrada em outro AS. O `MED` é propagado para o AS vizinho mas o `LOCAL_PREF` não.
 
   - **Weight**: ==Peso atribuído a uma rota, o roteamento escolhe a rota com maior peso==. O weight é específico para o roteador local e não é propagado para outros roteadores, outro detalhe importante é que **esse parâmetro é específico de roteadores da Cisco e só funciona dentro do AS**.
 
