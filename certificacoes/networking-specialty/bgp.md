@@ -28,11 +28,12 @@
 
 - A decisão de roteamento é influenciada por alguns parâmetros, como:
 
-  - **AS Path**: O caminho de sistemas autônomos que uma rota percorreu. Rotas com caminhos mais curtos são preferidas. Funciona entre ASs.
+  - **AS Path (AS_PATH)**: O caminho de sistemas autônomos que uma rota percorreu. Rotas com caminhos mais curtos são preferidas. Funciona entre ASs.
+    - O AS_PATH de uma rota pode ser modificado manualmente para influenciar a escolha de rotas, adicionando ou removendo ASs fictícios do caminho (Não é possível remover ASs legítimos do caminho), isso é chamado de **AS_Path Prepending**.
   
-  - **Local Preference**: Um valor configurado para ==indicar a preferência de uma rota dentro de um AS==. Rotas com maior local preference são preferidas. Funciona dentro de um AS.
+  - **Local Preference (LOCAL_PREF)**: Um valor configurado para ==indicar a preferência de uma rota dentro de um AS==. Rotas com maior local preference são preferidas. Funciona dentro de um AS.
   
-  - **MED (Multi-Exit Discriminator)**: Um valor usado para ==influenciar a escolha de rotas entre diferentes AS==. Rotas com menor MED são preferidas. Funciona entre ASs.
+  - **Multi-Exit Discriminator (MED)**: Um valor usado para ==influenciar a escolha de rotas entre diferentes AS==. Rotas com menor MED são preferidas. Funciona entre ASs.
 
   - **Weight**: ==Peso atribuído a uma rota, o roteamento escolhe a rota com maior peso==. O weight é específico para o roteador local e não é propagado para outros roteadores, outro detalhe importante é que **esse parâmetro é específico de roteadores da Cisco e só funciona dentro do AS**.
 
