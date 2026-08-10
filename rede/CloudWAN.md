@@ -21,3 +21,6 @@
 
 - **Attachments**: São as conexões entre os CNEs e os recursos da AWS, como VPCs, VPNs e Direct Connect. Cada attachment é associado a um Network Segment, permitindo que o tráfego seja roteado de acordo com as políticas definidas.
   - **Os Attachments podem ser: VPCs, Site-to-Site VPNs, Transit Gateways, Direct Connect e Connects (SDWANs via túnel GRE)**.
+
+## Inspecionando o tráfego com o Cloud WAN
+- O Cloud WAN permite a inspeção de tráfego em uma VPC centralizada, **isto é feito por meio das Network Function Groups**, que são grupos de funções de rede (como firewalls, IDS/IPS, etc.) que podem ser aplicados a um Network Segment específico. Isso permite que você aplique políticas de segurança e monitoramento de tráfego de forma consistente em toda a sua rede global.
