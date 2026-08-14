@@ -44,6 +44,12 @@
     3. AS Path
     4. MED
 
+  - Na route table da AWS, a hierarquia se dá dessa forma:
+    1. Longest Prefix Match (Prefixo mais específico)
+    2. Static Routes (Rotas estáticas, adicionadas manualmente)
+    3. Rotas BGP do Direct Connect
+    4. Rotas BGP do Site-to-Site VPN
+
 ## Diagrama de funcionamento do BGP
 
 ![Diagrama de funcionamento do BGP](./images/how-bgp-works.png)
