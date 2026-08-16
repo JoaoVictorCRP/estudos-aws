@@ -52,6 +52,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Padroes de Segurança](certificacoes/security-specialty/PadroesDeSeguranca.md)
 
 ### 🌐 Rede
+- [CloudWAN](rede/CloudWAN.md)
 - [Global Accelerator](rede/GlobalAccelerator.md)
 - [Route 53](rede/Route53.md)
 - [Transit Gateway](rede/TransitGateway.md)
