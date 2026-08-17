@@ -106,3 +106,6 @@ Essa opção permite rotear requisições para determinadas regiões baseando no
 - Por padrão, o cross-zone é habilitado para o ALB (e desabilitado para o NLB)
 
 - O ==ELB é um serviço regional, não tem como rotear o tráfego para um destino que está em outra região.== Para distribuir tráfego entre regiões, use o **Route 53**.
+
+- Para limitar o tráfego entre AZs no Network Load Balancer, é possível incluir a AZ desejada no DNS do NLB, o que fará com que apenas o IP do NLB na AZ desejada seja resolvido.
+    - Ex: ao invés de usar o DNS `my-example-nlb-1234567890.elb.us-east-1.amazonaws.com` usar `us-east-1a.my-example-nlb-1234567890.elb.us-east-1.amazonaws.com` para obter o IP da AZ "A".
