@@ -28,6 +28,9 @@ Serviço que permite conectar múltiplas VPCs, contas da AWS e redes on-premises
   - Gateways Direct Connect
   - Network Function (do AWS Network Firewall)
 
+- Ao criar um acomplamento do Transit Gateway em uma VPC, você deverá selecionar uma subnet por AZ, e então, nas subnets escolhidas, será provisionada uma ENI para o Transit Gateway.
+  - A AWS recomenda a criação de subnets separadas para o Transit Gateway.
+
 ## As rotas no TGW
 - O TGW centraliza as rotas de todas as redes conectadas a ele, porém cada VPC também tem sua route table, que aponta para o TGW.
 
