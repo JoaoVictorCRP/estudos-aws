@@ -53,11 +53,15 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ### 🌐 Rede
 - [CloudWAN](rede/CloudWAN.md)
+- [Direct Connect](rede/DirectConnect.md)
+- [ENI](rede/ENI.md)
 - [Global Accelerator](rede/GlobalAccelerator.md)
 - [Route 53](rede/Route53.md)
+- [Site-to-Site VPN](rede/SiteToSiteVPN.md)
 - [Transit Gateway](rede/TransitGateway.md)
 - [VPC](rede/VPC.md)
 - [VPC Endpoints](rede/VPCEndpoints.md)
+- [VPC Flow Logs](rede/VPCFlowLogs.md)
 
 ### 🗃️ Dados
 - [DynamoDB](dados/DynamoDB.md)
