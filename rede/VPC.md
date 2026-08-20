@@ -111,7 +111,9 @@ O NAT é uma técnica usada para traduzir endereços IP privados de uma rede int
 ### Observações:
 - Um NAT Gateway ou NAT instance é usada para providenciar tráfego da internet para instâncias em subredes privadas.
 
-- NÃO É POSSÍVEL UTILIZAR UMA NAT INSTANCE COMO BASTION.
+- Também é possível utilizar um NAT Gateway ou NAT Instance de maneira privada, apenas para padronizar o IP interno de saída na para as outras subredes privadas, isso é muito utilizado para gerenciar regras de tráfego em redes complexas (especialmente quando envolvem firewalls).
+    - Nesse caso, você deve posicionar o NAT Gateway ou NAT Instance em uma subrede privada, e então configurar a route table 
+    desejada de maneira que o tráfego interno seja roteado para o recurso.
 
 ## Network ACL
 - ==Regras do NACL são obedecidas em ordem de prioridade==, portanto se eu tenho uma regra de aceitar tudo na ordem 100, e uma regra de DENY para o IP x.x.x.x na ordem 200, o IP x.x.x.x não será banido, pois a regra 100 triunfou sobre a regra 200.
