@@ -1,13 +1,13 @@
 # Elastic Load Balancer (ELB)
-O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a carga de trabalho entre múltiplos servidores, há 4 opções de LB, vejamos:
-## Tipos 
-### 1. Application LB (ALB)
+- Os **Elastic Load Balancers** fazem exatamente o que o nome diz equilibram a carga de trabalho entre múltiplos recursos , há 3 opções de load balancers, vejamos eles abaixo:
+
+## 1. Application LB (ALB)
+- Atua na camada 7 do modelo OSI, que é a camada da aplicação, permitindo que você faça roteamento baseado em conteúdo.
+
 - Ideal para tráfego HTTP/HTTPS, roteamento de aplicação pode ser baseado em:
     - Caminho da URL
     - Subdominio
     - Queries e Headers
-
-- Opera na sétima camada do modelo OSI, que é a camada da aplicação.
 
 - Possui suporte aos seguintes protocolos:
     - HTTP
@@ -19,7 +19,7 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 
 - Possui a opção de mapear portas, que fará o redirecionamento dinâmico baseado na porta.
 
-#### Como o ALB toma decisões inteligentes?
+### Como o ALB toma decisões inteligentes?
 -  **Roteamento baseado em conteúdo**: O ALB permite que você direcione o tráfego para diferentes grupos de destino com base em regras específicas. Por exemplo, você pode rotear solicitações que contenham `/login` para um servidor específico e `/products` para outro.
 
 - **Suporte a microserviços e contêineres**: Ele é ideal para arquiteturas baseadas em microserviços, pois permite que diferentes partes de uma aplicação sejam gerenciadas e dimensionadas separadamente.
@@ -27,24 +27,31 @@ O **Elastic Load Balancer** faz exatamente o que seu nome diz, ele equilibra a c
 - **Autenticação integrada**: O ALB pode integrar autenticação de usuários diretamente na camada de balanceamento, utilizando o Amazon Cognito para gerenciar identidades de usuários a sem necessidade de modificar a aplicação.
 
 
-### 2. Network LB (NLB)
+## 2. Network LB (NLB)
+- Atua na camada 4 do modelo OSI, que é a camada de transporte, permitindo que você faça roteamento baseado em IP e porta.
+
 - São otimizados para o balanceamento de carga do tráfego TCP, onde a extrema performance é desejada, operando na camada 4 (transporte de rede).
 
 - NLBs são capazes de gerenciar milhões de requests por segundo, tudo isso mantendo uma latência ultra baixa.
 
-### 3. Gateway LB (GWLB)
-- Opera nas camadas 3 (rede) e 4 (transporte)
+- Diferentemente dos ALBs, eles fazem o encaminhamento direto (passthrough) do tráfego. Isso faz com que o IP de origem e os pacotes TCP originais sejam preservados ao entregá-los ao destino.
 
-- Facilita  a implantação, escalabilidade e gerenciamento de dispositivos virtuais de rede, como firewalls e sistemas de inspeção de pacotes.
+    - Isso é um **fator chave ao considerar criptografia de ponta-a-ponta**, pois o NLB não precisa descriptografar o tráfego para rotear as solicitações (como é o caso do ALB).
 
-- Ideal na implementação de dispositivos de segurança como firewalls, sistemas de prevenção de intrusão (IPS), ou proxies.
+## 3. Gateway LB (GWLB)
+- Opera na camada 3 do modelo OSI, que é a camada de rede.
 
-- Na configuração de um GWLB, o tráfego para primeiro pela route table, e então a route table manda para o GWLB.
+- Facilita a implantação, escalabilidade e gerenciamento de appliances de rede de terceiros, como firewalls, IDS/IPS, softwares de inspeção profunda de tráfego e outros.
 
-- **Utiliza o protocolo GENEVE**, na porta 6081.
+- Utiliza o protocolo **GENEVE**, na porta 6081.
 
-## X-Forwarded-For
-- ==Este é um cabeçalho HTTP que identifica o real IP de origem do usuário que fez uma requisição para o ELB==, uma vez que a requisição chega na instância como se fosse originada únicamente do ELB.
+- O tráfego de entrada e saída do GWLB é configurado pela route table da VPC. 
+    - O endpoint de acesso deve ser adicionado à route table da VPC, permitindo que o tráfego seja roteado para o GWLB.
+    - Um detalhe é que o endpoint dele precisa ser do tipo **Gateway Load Balancer Endpoint** (GWLB Endpoint), que é um tipo especial de VPC Endpoint.
+
+## X-Forwarded-For (ALB)
+- ==Este é um cabeçalho HTTP que identifica o real IP de origem do usuário que fez uma requisição para o LB==, uma vez que a requisição chega na instância como se fosse originada do ALB.
+
 <img src="./images/xForwarded.png" alt="Diagrama X-Forwarded-For"/>
 
 ## Sticky Sessions
