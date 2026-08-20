@@ -21,8 +21,9 @@
     
 	- O uso é específico para o S3 e o Dynamo DB, que suportam esse tipo de endpoint, permitindo acesso privado sem a necessidade de uma conexão pública.
     
-    
 	- <span style="background-color: green; color: white;font-weight:bold">Fácil de configurar e cost-free. Por isso, sempre que possível prefira usar um gateway endpoint do que uma Interface Endpoint.</span>
+
+    - Ao criar um Gateway Endpoint, você precisa adicioná-lo a route table para permitir o acesso privado.
 
 ## VPC Endpoint Policies
 - Para controle de acesso, é possível palicar políticas IAM aos VPC Endpoints, permitindo que você defina quais recursos podem ser acessados por meio do endpoint e quais ações podem ser realizadas.
