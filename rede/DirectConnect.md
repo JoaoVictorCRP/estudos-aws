@@ -26,7 +26,7 @@
 
   - Provisionada por um parceiro credenciado (AWS Direct Connect Partner) sobre uma porta física mantida pelo parceiro.
   - Capacidades: De 50 Mbps até 25 Gbps (com capacidade de banda alocada e garantida pela AWS/Parceiro, sem degradação por compartilhamento).
-  - Limitação: Suporta apenas 1 Virtual Interface (VIF) por conexão hospedada.
+  - **Limitação: Suporta apenas 1 Virtual Interface (VIF) por conexão hospedada**.
 
 ## VIFs (Virtual Interfaces)
 - As VIFs são interfaces virtuais que permitem a comunicação entre a rede on-premises e a AWS através do Direct Connect. Elas são criadas sobre a conexão física (Dedicated ou Hosted) e podem ser de três tipos: Public, Private e Transit.
@@ -37,6 +37,8 @@
 - **Private VIF**: Permite o acesso a recursos privados dentro de uma VPC, utilizando endereços IP privados.
 
 - **Transit VIF**: Permite o acesso a múltiplas VPCs através do AWS Transit Gateway, utilizando endereços IP privados.
+
+- Há também um outro tipo de VIF, chamado **Hosted VIF** (NÃO CONFUNDIR COM HOSTED CONNECTION), que é uma VIF criada em uma conta AWS diferente da conta que possui a conexão física do Direct Connect. Ela pode assumir qualquer um dos três tipos de VIFs (Public, Private ou Transit), com o diferencial de ser em uma conta separada.
 
 ## As camadas do DX no modelo OSI
 
