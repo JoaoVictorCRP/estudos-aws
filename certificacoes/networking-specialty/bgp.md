@@ -3,7 +3,7 @@
 ## O que é?
 - O Border Gateway Protocol (BGP) é o protocolo de roteamento usado para trocar informações de roteamento entre sistemas autônomos (AS) na Internet. Sendo um protocolo de roteamento externo, ele é fundamental para a operação da Internet, permitindo que diferentes redes se comuniquem e troquem informações de roteamento sem a necessidade de mapear rotas manualmente.
 
-> **Observação**: Um sistema autônomo (AS) é uma coleção de redes IP e roteadores sob o controle de uma única entidade administrativa que apresenta uma política de roteamento comum para a Internet, podemos considerar um AS como um provedor de serviços de Internet (ISP), mas isso não é uma regra, pois um AS pode ser uma grande empresa, universidade ou qualquer organização que gerencie sua própria rede.
+> **Observação**: Um sistema autônomo (AS) é uma coleção de redes IP e roteadores sob o controle de uma única entidade administrativa que apresenta uma política de roteamento comum para a Internet, podemos considerar um AS como um provedor de serviços de Internet (ISP), mas isso não é uma regra, pois um AS pode ser uma grande empresa, universidade ou qualquer organização que gerencie sua própria rede. Os AS são identificados por um número único chamado ASN (Autonomous System Number), que é atribuído pela IANA (Internet Assigned Numbers Authority). A faixa de números ASN vai de 1 a 64495 para ASNs públicos e de 64512 a 65534 para ASNs privados.
 
 ## Na AWS
 - O BGP é um tópico bem comum na Networking Specialty, pois é muito usado no Site-to-Site VPN e no AWS Direct Connect. 
