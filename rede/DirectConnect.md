@@ -84,3 +84,16 @@
   - Funciona basicamente como um "ping" entre os roteadores, enviando pacotes de controle em intervalos regulares para verificar se o outro lado da conexão está ativo. Apesar de simples, isso permite detectar falhas em milissegundos, garantindo uma rápida convergência do BGP e minimizando o impacto de falhas na rede.
 
 - O Direct Connect habilita o BFD por padrão em todas as conexões, mas é muito importante verificar se o roteador on-premises também está com o BFD habilitado, isto é o tipo de cenário que pode gerar problemas silenciosos de conectividade caso o BFD esteja habilitado apenas em um dos lados da conexão.
+
+## Criptografando o tráfego do Direct Connect
+- O Direct Connect é um serviço de conexão privada, logo, você pensa "pra que criptografar o tráfego se ele nem passa pela internet pública?". Mas existem cenários em que a criptografia é necessária por questão de compliance, segurança ou regulamentação, como em setores financeiros, de saúde ou governamentais.
+
+- A AWS não oferece criptografia nativa para o tráfego do Direct Connect, mas existem algumas alternativas para criptografar o tráfego:
+  1. **Criptografia na camada 4-7 (TLS/SSL)**: Utilizando protocolos como HTTPS, FTPS ou outros protocolos que suportem criptografia de ponta a ponta. Essa é a opção mais simples, mas depende de cada aplicação suportar criptografia nativa.
+
+  2. **Criptografia na camada 3 (IPsec)**: Utilizando túneis IPsec sobre o Direct Connect, semelhante ao que é feito no [Site-to-Site VPN](./SiteToSiteVPN.md). Essa opção é mais complexa, mas oferece uma criptografia de ponta a ponta independente da aplicação. 
+    - Um detalhe é que o uso do IPSec limitará a largura de banda da conexão, pois o tráfego passa por alto processamento matemático para ser criptografado, no caso do Site-to-Site VPN, o limite de largura de banda é de 1,25 Gbps por túnel.
+
+  3. **Criptografia na camada 2 (MACsec)**: Utilizando o protocolo MACsec (Media Access Control Security) para criptografar o tráfego na camada de enlace. Essa opção é a mais avançada e oferece criptografia de ponta a ponta, mas requer suporte do hardware de rede e configuração adicional.
+    - Esse tipo de criptografia é **suportado apenas em conexões do tipo Dedicated Connection**, e não em Hosted Connections. Além disso, o MACsec é suportado apenas em algumas localidades do Direct Connect, então é importante verificar a disponibilidade antes de planejar a implementação.
+    - Outro detalhe técnico importante é que **o tráfego não é criptografado de ponta a ponta**, mas sim entre o roteador on-premises e o roteador da AWS na Direct Connect Location. Ou seja, o tráfego ainda passa pelo backbone da AWS sem criptografia, mas com a garantia de que não será interceptado por terceiros durante o transporte.
