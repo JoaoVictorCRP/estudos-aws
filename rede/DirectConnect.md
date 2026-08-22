@@ -75,3 +75,12 @@
   - Todas as conexões físicas precisam usar obrigatoriamente a mesma velocidade (1 Gbps, 10 Gbps, 100 Gbps ou 400 Gbps).
   - As conexões devem estar na mesma direct connect location (mesmo ponto de presença da AWS).
   - O LAG pode ter no máximo 4 conexões agregadas.
+
+## Detectando falhas automaticamente com o BFD (Bidirectional Forwarding Detection)
+- O BFD é um protocolo de detecção de falhas de encaminhamento bidirecional, que permite detectar rapidamente falhas em links de rede, incluindo conexões do Direct Connect.
+
+- Sem a utilização do BFD, o BGP pode demorar até 90 segundos para detectar uma falha em um link, o que pode causar interrupções significativas no tráfego de rede.
+
+  - Funciona basicamente como um "ping" entre os roteadores, enviando pacotes de controle em intervalos regulares para verificar se o outro lado da conexão está ativo. Apesar de simples, isso permite detectar falhas em milissegundos, garantindo uma rápida convergência do BGP e minimizando o impacto de falhas na rede.
+
+- O Direct Connect habilita o BFD por padrão em todas as conexões, mas é muito importante verificar se o roteador on-premises também está com o BFD habilitado, isto é o tipo de cenário que pode gerar problemas silenciosos de conectividade caso o BFD esteja habilitado apenas em um dos lados da conexão.
