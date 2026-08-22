@@ -50,6 +50,11 @@
 
 - **Camada 3 (Rede)**: Uso obrigatório do BGP (Border Gateway Protocol) para anúncio e troca de rotas dinâmicas entre o roteador on-premises e a AWS.
 
+## Direct Connect Gateway (DXGW)
+- O Direct Connect Gateway age como um roteador global, permitindo que você conecte múltiplas VPCs em diferentes regiões da AWS através de uma única conexão do Direct Connect. 
+
+- Ele é especialmente útil para cenários de interconexão entre regiões, onde você deseja acessar recursos em VPCs localizadas em diferentes regiões da AWS.
+
 ## Direct Connect SiteLink
 
 - O Direct Connect SiteLink é um recurso do Direct Connect que **permite o estabelecimento de uma conexão privada entre duas localidades on-premises diferentes**, utilizando a infraestrutura do Direct Connect da AWS.
@@ -59,3 +64,14 @@
 - O SiteLink é habilitável apenas em VIFs do tipo private e transit, e é útil para cenários de interconexão entre filiais de uma empresa, sem a necessidade de passar pela internet pública ou pelas regiões da AWS.
 
 - A habilitação do SiteLink gera custos adicionais na VIF e é cobrado por hora, além do custo da transferência de dados entre as localidades.
+
+## Link Aggregation Group (LAG)
+- Permite agregar múltiplas conexões do Direct Connect em uma única conexão lógica, aumentando a largura de banda e fornecendo redundância.
+
+- Utiliza o protocolo **LACP (Link Aggregation Control Protocol)** para gerenciar a agregação de links.
+
+- Restrições:
+  - Todas as conexões agregadas devem ser do mesmo tipo (Dedicated ou Hosted).
+  - Todas as conexões físicas precisam usar obrigatoriamente a mesma velocidade (1 Gbps, 10 Gbps, 100 Gbps ou 400 Gbps).
+  - As conexões devem estar na mesma direct connect location (mesmo ponto de presença da AWS).
+  - O LAG pode ter no máximo 4 conexões agregadas.
