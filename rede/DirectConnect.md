@@ -31,7 +31,7 @@
 ## VIFs (Virtual Interfaces)
 - As VIFs são interfaces virtuais que permitem a comunicação entre a rede on-premises e a AWS através do Direct Connect. Elas são criadas sobre a conexão física (Dedicated ou Hosted) e podem ser de três tipos: Public, Private e Transit.
 
-- **Public VIF**: Permite o acesso a serviços públicos da AWS, como S3, DynamoDB e outros serviços públicos, utilizando endereços IP públicos.
+- **Public VIF**: Permite o acesso a serviços públicos da AWS, como S3, DynamoDB e outros serviços públicos, utilizando endereços IP públicos (pertencentes à AWS).
   - Apesar de o acesso ser por um endereço IP público, o tráfego não passa pela internet pública, mas sim pela conexão privada do Direct Connect, garantindo maior segurança e desempenho.
 
 - **Private VIF**: Permite o acesso a recursos privados dentro de uma VPC, utilizando endereços IP privados.
@@ -49,3 +49,13 @@
 - **Camada 2 (Enlace)**: Uso de VLANs (encapsulamento IEEE 802.1Q) para segmentar o tráfego. Cada VLAN é associada a uma Virtual Interface (VIF) específica.
 
 - **Camada 3 (Rede)**: Uso obrigatório do BGP (Border Gateway Protocol) para anúncio e troca de rotas dinâmicas entre o roteador on-premises e a AWS.
+
+## Direct Connect SiteLink
+
+- O Direct Connect SiteLink é um recurso do Direct Connect que **permite o estabelecimento de uma conexão privada entre duas localidades on-premises diferentes**, utilizando a infraestrutura do Direct Connect da AWS.
+
+- Com o SiteLink, o tráfego não chega nem mesmo nas regiões da AWS, passando apenas pelo backbone atráves do Direct Connect Gateway que interliga as duas conexões do Direct Connect.
+
+- O SiteLink é habilitável apenas em VIFs do tipo private e transit, e é útil para cenários de interconexão entre filiais de uma empresa, sem a necessidade de passar pela internet pública ou pelas regiões da AWS.
+
+- A habilitação do SiteLink gera custos adicionais na VIF e é cobrado por hora, além do custo da transferência de dados entre as localidades.
