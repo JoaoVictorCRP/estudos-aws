@@ -62,6 +62,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [VPC](rede/VPC.md)
 - [VPC Endpoints](rede/VPCEndpoints.md)
 - [VPC Flow Logs](rede/VPCFlowLogs.md)
+- [VPC Lattice](rede/VPCLattice.md)
 
 ### 🗃️ Dados
 - [DynamoDB](dados/DynamoDB.md)
