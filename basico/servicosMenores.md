@@ -47,9 +47,6 @@ Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud P
 ## Shield
 - Oferece proteção contra ataques DDOS
 
-## Parameter Store
-- Utilizado para armazenar parâmetros e variáveis de ambiente para os desenvolvimento de aplicações (Exemplo: Connections Strings, senhas e endpoints).
-
 # Miscelânea 👀
 ## AWS IQ
 - <span style="background-color: #e0a800; color: black;font-weight:bold">Permite que os clientes encontrem, contratem e paguem especialistas terceirizados</span> certificados pela AWS para trabalhos sob demanda em um projeto.
