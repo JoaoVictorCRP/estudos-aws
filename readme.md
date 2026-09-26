@@ -65,15 +65,16 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [VPC Lattice](rede/VPCLattice.md)
 
 ### 🗃️ Dados
+- [Aurora](dados/Aurora/Aurora.md)
+- [Aurora - Avançado](dados/Aurora/Aurora%20-%20Avan%C3%A7ado.md)
 - [DynamoDB](dados/DynamoDB.md)
 - [Elasticache](dados/Elasticache.md)
-- [MemoryDB](dados/MemoryDB.md)
 - [EMR](dados/EMR.md)
+- [Glue](dados/Glue.md)
+- [MemoryDB](dados/MemoryDB.md)
 - [Kinesis](dados/Kinesis.md)
 - [RDS](dados/RDS.md)
 - [Redshift](dados/Redshift.md)
-- [Aurora](dados/Aurora/Aurora.md)
-- [Aurora - Avançado](dados/Aurora/Aurora%20-%20Avan%C3%A7ado.md)
 
 ### 🛠️ Automação e Aplicações
 - [API Gateway](automacao-e-aplicacoes/ApiGateway.md)
