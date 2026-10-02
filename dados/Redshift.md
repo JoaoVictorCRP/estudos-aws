@@ -13,6 +13,16 @@
 
 - Redshift se integra facilmente com outros serviços da AWS, como Amazon S3, Amazon RDS, Amazon EMR, e Amazon DynamoDB, permitindo a ingestão de dados de várias fontes e simplificando a criação de pipelines de dados.
 
+## Durabilidade
+- O Redshift faz replicação dentro do cluster, garantindo que os dados sejam duplicados entre os nós de computação. Isso aumenta a durabilidade e a disponibilidade dos dados, protegendo contra falhas de hardware.
+
+- Snapshots são gerados automaticamente pelo Redshift e podem ser usados para restaurar o cluster a um estado anterior.
+  - O período de retenção padrão é de 1 dia, mas pode ser ajustado para até 35 dias (obviamente, quanto maior o período de retenção, maior o custo associado).
+
+- Além disso, o Redshift também faz backups períodicos automáticos no Amazon S3, garantindo que os dados possam ser recuperados mesmo em caso de falhas catastróficas no cluster.
+
+- Nodes que apresentarem falhas são substituídos automaticamente, garantindo a continuidade do serviço sem perda de dados.
+
 ## A Arquitetura
 - O Redshift possui uma arquitetura distribuída composta por um Leader Node e múltiplos Compute Nodes.
 
