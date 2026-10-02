@@ -25,6 +25,9 @@
 ## Redshift Spectrum
 - Permite executar consultas diretamente em dados armazenados no S3 sem a necessidade de carregá-los para o cluster Redshift, proporcionando maior flexibilidade e economia de custos.
 
+- Analogicamente, é similar ao Athena, permitindo consultas SQL diretamente sobre dados armazenados no S3 sem a necessidade de carregá-los para o Redshift.
+  - Apesar da semelhança, não confunda: o Redshift Spectrum é uma extensão do Redshift e **depende de um cluster Redshift ativo**, enquanto o Athena é um serviço totalmente gerenciado que não requer cluster. Ademais, o Spectrum é feito para consultar **Petabytes** de dados de forma eficiente, aproveitando a arquitetura distribuída do Redshift.
+
 ## Workload Management
 - O Redshift possui uma feature chamada Workload Management (WLM), que permite configurar filas de consultas com diferentes prioridades e limites de recursos, garantindo que consultas críticas recebam a atenção necessária sem impactar negativamente outras operações no cluster.
 
