@@ -56,8 +56,18 @@
   - Apesar da semelhança, não confunda: o Redshift Spectrum é uma extensão do Redshift e **depende de um cluster Redshift ativo**, enquanto o Athena é um serviço totalmente gerenciado que não requer cluster. Ademais, o Spectrum é feito para consultar **Petabytes** de dados de forma eficiente, aproveitando a arquitetura distribuída do Redshift.
 
 ## Workload Management
-- O Redshift possui uma feature chamada Workload Management (WLM), que permite configurar filas de consultas com diferentes prioridades e limites de recursos, garantindo que consultas críticas recebam a atenção necessária sem impactar negativamente outras operações no cluster.
+- O Redshift possui uma feature chamada **Workload Management (WLM)**, que permite configurar filas de consultas com diferentes prioridades e limites de recursos, garantindo que consultas críticas recebam a atenção necessária sem impactar negativamente outras operações no cluster.
 
 - Com esse recurso você pode, por exemplo, dar prioridade a consultas críticas, garantindo que elas sejam executadas rapidamente, enquanto consultas menos importantes podem ser enfileiradas ou limitadas em termos de recursos.
 
-- É a solução mais simples na hora de lidar com concorrência de consultas no Redshift, pis não demanda alterações significativas na infraestrutura e nem otimização de query.
+- É a solução mais simples na hora de lidar com concorrência de consultas no Redshift, pois não demanda alterações significativas na infraestrutura e nem otimização de query.
+
+- O WLM pode ser gerenciado de forma **manual**, onde você configura filas e recursos explicitamente, ou de forma **automática**, onde o Redshift ajusta dinamicamente os recursos com base na carga de trabalho.
+
+## Escalabilidade concorrente
+- O Redshift permite escalar tanto o armazenamento quanto o poder de processamento de forma independente.
+
+- Isso é feito através de recursos como **Concurrency Scaling** e **Elastic Resize**, que garantem que o cluster consiga lidar com picos de carga e grandes volumes de dados sem comprometer a performance.
+  - A escalabilidade é virtualmente ilimitada, permitindo que o Redshift se adapte a diferentes cargas de trabalho e volumes de dados sem necessidade de reconfiguração manual do cluster.
+
+- É possível usar o WLM para gerenciar quais consultas irão para o **Concurrency Scaling**, garantindo que consultas críticas tenham acesso a recursos adicionais durante picos de carga, enquanto consultas menos prioritárias podem ser enfileiradas ou limitadas.
