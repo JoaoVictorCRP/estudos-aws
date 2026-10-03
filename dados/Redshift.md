@@ -32,6 +32,23 @@
 
 - Os dados são distribuídos entre os Compute Nodes, permitindo que consultas analíticas sejam processadas em paralelo, aumentando a eficiência e a velocidade de execução.
 
+## Importando / Exportando Dados
+
+- O Redshift permite importar dados de diversas fontes, como arquivos CSV, JSON, Avro, Parquet e ORC armazenados no Amazon S3, além de suportar integração com o AWS Data Pipeline e o AWS Glue para ETL.
+
+- Para a importação de dados, o Redshift oferece o comando **`COPY`**, que permite carregar grandes volumes de dados de forma eficiente e paralelizada a partir de fontes externas, como o S3, DynamoDB, hosts remotos (via SSH) e outros bancos de dados **compatíveis com JDBC**.
+
+- Para exportar dados, podemos usar o comando **`UNLOAD`**, que permite gravar os resultados de consultas SQL diretamente no S3 em formatos como CSV, Parquet e JSON, facilitando a integração com outros serviços e pipelines de dados.
+
+- Se você habilitar a feature **Enhanced VPC Routing**, todo o tráfego de rede entre o Redshift e outras fontes de dados externas passará pela VPC (ou ao menos preferirá a rota pela VPC), aumentando a segurança e o controle sobre o tráfego de dados.
+
+- Também temos features que permitem a cópia automática de dados de uma fonte na AWS para o Redshift. Algumas delas são:
+  - **Auto-copy from S3**, que permite que o Redshift copie automaticamente dados de arquivos recém-carregados no S3 para tabelas do Redshift, simplificando o processo de ingestão de dados.
+  - O **Aurora zero-ETL integration**, para o Aurora, que permite a ingestão automática de dados no Aurora para o Redshift sem a necessidade de processos ETL manuais.
+  - E o **Redshift Streaming Ingestion**, que permite a ingestão contínua de dados em tempo real no Redshift a partir de fontes de streaming, como o Amazon Kinesis Data Streams e o MSK (Amazon Managed Streaming for Apache Kafka).
+
+- Se você quer copiar dados que já estão no Redshift para uma outra tabela dentro do mesmo cluster, você pode usar o comando **`INSERT INTO ... SELECT ...`**, que permite inserir dados em uma tabela a partir do resultado de uma consulta em outra tabela.
+
 ## Redshift Spectrum
 - Permite executar consultas diretamente em dados armazenados no S3 sem a necessidade de carregá-los para o cluster Redshift, proporcionando maior flexibilidade e economia de custos.
 
