@@ -3,7 +3,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ## 📚 Notas por Categoria
 
-### 🧠 Básico
+### 🔤 Básico
 - [Serviços Menores](basico/servicosMenores.md)
 - [Support Plans](basico/supportPlans.md)
 - [Well-Architected Framework (Mapa mental)](basico/WellArchitected-Mindmap.png)
@@ -115,7 +115,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Organizations](governanca-e-monitoramento/Organizations/Organizations.md)
 - [Cloudwatch Agent](governanca-e-monitoramento/CloudwatchAgent.md)
 
-### Inteligência Artificial
+### 🧠 Inteligência Artificial
 - [Amazon Bedrock](inteligencia-artificial/Bedrock.md)
 - [Amazon SageMaker](inteligencia-artificial/SageMaker.md)
 
