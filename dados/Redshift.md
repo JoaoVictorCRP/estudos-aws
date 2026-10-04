@@ -80,3 +80,14 @@
   - A escalabilidade é virtualmente ilimitada, permitindo que o Redshift se adapte a diferentes cargas de trabalho e volumes de dados sem necessidade de reconfiguração manual do cluster.
 
 - É possível usar o WLM para gerenciar quais consultas irão para o **Concurrency Scaling**, garantindo que consultas críticas tenham acesso a recursos adicionais durante picos de carga, enquanto consultas menos prioritárias podem ser enfileiradas ou limitadas.
+
+### Resizing
+- O Redshift tem dois tipos principais de redimensionamento de cluster:
+  - **Elastic Resize**, que permite ajustar rapidamente o número de nós do cluster para lidar com variações na carga de trabalho.
+    - Causa downtime mínimo (de 5 a 15 minutos), as conexões existentes podem ser temporariamente afetadas durante o redimensionamento.
+ 
+  - **Classic Resize**, que envolve a criação de um novo cluster com a configuração desejada, alteração do tipo dos nós ou migração dos dados, sendo mais demorado que o Elastic Resize.
+    - Interrompe todas as operações de escrita durante o redimensionamento.
+    - A depender do tamanho do cluster, a operação pode levar várias horas.
+
+- Sempre que possível, devemos optar pelo **Elastic Resize**, pois ele permite ajustar rapidamente o cluster sem causar downtime significativo, garantindo que as operações continuem normalmente durante o redimensionamento.
