@@ -91,3 +91,10 @@
     - A depender do tamanho do cluster, a operação pode levar várias horas.
 
 - Sempre que possível, devemos optar pelo **Elastic Resize**, pois ele permite ajustar rapidamente o cluster sem causar downtime significativo, garantindo que as operações continuem normalmente durante o redimensionamento.
+
+## Nós RA3
+- Os nós RA3 são a geração mais recente de nós do Redshift, oferecendo armazenamento separado do poder de processamento.
+
+- Isso permite que o Redshift escale o armazenamento de forma independente do poder de processamento, oferecendo maior flexibilidade e eficiência no gerenciamento de grandes volumes de dados.
+
+- Os nós RA3 também suportam o **Redshift Managed Storage (RMS)**, que gerencia automaticamente o armazenamento de dados, movendo dados menos acessados para armazenamento mais econômico, enquanto mantém dados frequentemente acessados em armazenamento de alta performance.
