@@ -98,3 +98,10 @@
 - Isso permite que o Redshift escale o armazenamento de forma independente do poder de processamento, oferecendo maior flexibilidade e eficiência no gerenciamento de grandes volumes de dados.
 
 - Os nós RA3 também suportam o **Redshift Managed Storage (RMS)**, que gerencia automaticamente o armazenamento de dados, movendo dados menos acessados para armazenamento mais econômico, enquanto mantém dados frequentemente acessados em armazenamento de alta performance.
+
+## Acesso Programático
+- O Redshift pode ser acessado programaticamente através de APIs, SDKs da AWS e ferramentas de linha de comando, permitindo automação e integração com outros serviços e fluxos de trabalho.
+
+- Caso você queira integrar diretamente com a sua aplicação, **a AWS recomenda a utilização da própria API do Redshift (via SDK)**, que garante uma chamada segura via HTTPS com controle de acesso gerenciado via IAM.
+
+  - Também é possível utilizar JDBC para conectar sua aplicação ao Redshift, mas não oferece o mesmo nível de integração e controle de acesso seguro da API via SDK.
