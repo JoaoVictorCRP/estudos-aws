@@ -49,6 +49,15 @@
 
 - Se você quer copiar dados que já estão no Redshift para uma outra tabela dentro do mesmo cluster, você pode usar o comando **`INSERT INTO ... SELECT ...`**, que permite inserir dados em uma tabela a partir do resultado de uma consulta em outra tabela.
 
+## Vacuum
+- O comando **`VACUUM`** no Redshift é usado para reorganizar tabelas e recuperar espaço de armazenamento após operações de **DELETE** ou **UPDATE**.
+- Ele ajuda a manter a performance das consultas, garantindo que os dados estejam fisicamente organizados de forma eficiente.
+- Existem diferentes tipos de **VACUUM**, temos: 
+  - **FULL** (padrão), que reorganiza completamente a tabela e recupera espaço de armazenamento.
+  - **SORT ONLY**, que apenas reorganiza os dados de acordo com a chave de ordenação, sem recuperar espaço.
+  - **DELETE ONLY**, que remove linhas marcadas para exclusão e recupera espaço, sem reorganizar os dados existentes.
+  - **REINDEX**, que recria os índices da tabela para melhorar a performance das consultas, sem reorganizar os dados ou recuperar espaço.
+
 ## Redshift Spectrum
 - Permite executar consultas diretamente em dados armazenados no S3 sem a necessidade de carregá-los para o cluster Redshift, proporcionando maior flexibilidade e economia de custos.
 
