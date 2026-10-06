@@ -39,3 +39,9 @@
 - Após a execução dos Jobs ETL, os dados transformados são carregados nos destinos apropriados, prontos para análise ou uso em outros processos.
 
 - Os destinos podem ser um bucket S3, um banco de dados relacional, um data warehouse ou qualquer outro sistema compatível com JDBC.
+
+### Job Bookmarks
+- Com os Job Bookmarks, é possível salvar o estado de execução dos Jobs ETL, permitindo que apenas os dados novos (ou modificados) sejam processados nas execuções subsequentes.
+  - Isso ajuda a otimizar o desempenho e reduzir o custo de processamento, evitando a reprocessamento de dados que já foram tratados anteriormente.
+  - É compatível com as fontes de dados do S3 e de bancos de dados relacionais conectados via JDBC.
+    - **Um porém**: em bancos de dados relacionais, os bookmarks só funcionam para processar novas linhas inseridas, não para atualizações ou exclusões de dados existentes.
