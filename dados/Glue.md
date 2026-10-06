@@ -45,3 +45,16 @@
   - Isso ajuda a otimizar o desempenho e reduzir o custo de processamento, evitando a reprocessamento de dados que já foram tratados anteriormente.
   - É compatível com as fontes de dados do S3 e de bancos de dados relacionais conectados via JDBC.
     - **Um porém**: em bancos de dados relacionais, os bookmarks só funcionam para processar novas linhas inseridas, não para atualizações ou exclusões de dados existentes.
+
+### Flex Jobs
+- Para jobs ETL de menor importância, você pode definir um Job com a classe de execução `FLEX`, que permite utilizar recursos de forma mais econômica (até 35% mais barato que a classe padrão), embora com menor prioridade de execução em comparação aos Jobs padrão.
+  - Funciona de maneira semelhante às instâncias spot do EC2, aproveitando recursos ociosos de forma mais econômica.
+
+## Precificação
+- O Glue cobra com base nos segundos de execução dos Jobs ETL e do Crawler, bem como pelo armazenamento de metadados no Glue Data Catalog.
+
+- O primeiro milhão de objetos armazenados e acessados no Glue Data Catalog é gratuito. Após isso, há cobrança conforme a quantidade de objetos e acessos adicionais.
+
+## Observações
+- O Glue é baseado em Spark, portanto não é possível executar outras engines de processamento de dados (como Hive ou Pig) em paralelo.
+  - Se quiser utilizar outras engines, considere o EMR.
