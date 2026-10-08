@@ -14,3 +14,11 @@
 
 ## Gestão e Automação
 - O EMR automatiza muitas tarefas de configuração e gerenciamento do cluster, incluindo provisionamento, configuração de nodos, aplicação de patches de software e monitoramento de desempenho.
+
+## EMR vs Glue
+- A principal diferença entre EMR e Glue é que o EMR é mais flexível e permite maior controle sobre o cluster e os frameworks utilizados.
+
+- O EMR é um serviço gerenciado, enquanto o Glue é serverless.
+
+- O EMR permite rodar diversos frameworks de processamento de dados, como Hadoop, Spark, HBase, Presto, e Flink, oferecendo maior flexibilidade para diferentes tipos de workloads.
+  - O Glue, por sua vez, roda apenas Apache Spark.
