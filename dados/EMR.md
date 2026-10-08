@@ -1,5 +1,5 @@
 # Elastic MapReduce
-- EMR é um serviço que ==facilita o processo de ETL de grandes volumes de dados, utilizando frameworks como Hadoop, Spark etc.== 
+- EMR é um serviço que ==facilita o processo de ETL de grandes volumes de dados, utilizando frameworks como Hadoop, Spark, Flink etc.== 
 
 - Ele permite que você configure clusters de processamento de dados de forma rápida e fácil, escalando de acordo com a demanda, e pagando apenas pelo uso dos recursos.
 
@@ -13,7 +13,7 @@
 - Você pode usar instâncias Spot para reduzir os custos do cluster, e ainda configurá-lo para redimensionar automaticamente com base no workload, otimizando os custos.
 
 ## Gestão e Automação
-- O EMR automatiza muitas tarefas de configuração e gerenciamento do cluster, incluindo provisionamento, configuração de nodos, aplicação de patches de software e monitoramento de desempenho.
+- O EMR automatiza muitas tarefas de configuração e gerenciamento do cluster, incluindo provisionamento, configuração de nodes, aplicação de patches de software e monitoramento de desempenho.
 
 ## EMR vs Glue
 - A principal diferença entre EMR e Glue é que o EMR é mais flexível e permite maior controle sobre o cluster e os frameworks utilizados.
@@ -22,3 +22,5 @@
 
 - O EMR permite rodar diversos frameworks de processamento de dados, como Hadoop, Spark, HBase, Presto, e Flink, oferecendo maior flexibilidade para diferentes tipos de workloads.
   - O Glue, por sua vez, roda apenas Apache Spark.
+
+- O Glue geralmente é mais fácil de usar para a maioria das tarefas de ETL, especialmente as mais simples. Ao passo que o EMR é bom para processamento massivo de dados e de performance crítica.
