@@ -13,14 +13,12 @@
 - Você pode usar instâncias Spot para reduzir os custos do cluster, e ainda configurá-lo para redimensionar automaticamente com base no workload, otimizando os custos.
 
 ## Gestão e Automação
-- O EMR automatiza muitas tarefas de configuração e gerenciamento do cluster, incluindo provisionamento, configuração de nodes, aplicação de patches de software e monitoramento de desempenho.
+- O EMR automatiza muitas tarefas de configuração e gerenciamento do cluster, incluindo provisionamento, configuração de nodos, aplicação de patches de software e monitoramento de desempenho.
 
-## EMR vs Glue
-- A principal diferença entre EMR e Glue é que o EMR é mais flexível e permite maior controle sobre o cluster e os frameworks utilizados.
+## HDFS
+- O EMR utiliza o Hadoop Distributed File System (HDFS) para armazenar dados de forma distribuída e redundante, garantindo alta disponibilidade.
 
-- O EMR é um serviço gerenciado, enquanto o Glue é serverless.
+- Sendo um sistema de arquivos distribuído, o HDFS divide os dados em blocos e os replica em múltiplos nodos do cluster, garantindo tolerância a falhas e alta disponibilidade.
 
-- O EMR permite rodar diversos frameworks de processamento de dados, como Hadoop, Spark, HBase, Presto, e Flink, oferecendo maior flexibilidade para diferentes tipos de workloads.
-  - O Glue, por sua vez, roda apenas Apache Spark.
-
-- O Glue geralmente é mais fácil de usar para a maioria das tarefas de ETL, especialmente as mais simples. Ao passo que o EMR é bom para processamento massivo de dados e de performance crítica.
+- Um ponto muito importante é que o ciclo de vida do HDFS está diretamente ligado ao ciclo de vida do cluster. **Quando o cluster é encerrado, todos os dados armazenados no HDFS são perdidos**. 
+  - Portanto, é essencial considerar a necessidade de utilizar o S3 para persistência de dados críticos.
