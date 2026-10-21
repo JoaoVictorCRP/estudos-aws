@@ -73,6 +73,7 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Glue](dados/Glue.md)
 - [MemoryDB](dados/MemoryDB.md)
 - [Kinesis](dados/Kinesis.md)
+- [Lake Formation](dados/LakeFormation.md)
 - [RDS](dados/RDS.md)
 - [Redshift](dados/Redshift.md)
 
