@@ -99,6 +99,27 @@
 
 - Os nós RA3 também suportam o **Redshift Managed Storage (RMS)**, que gerencia automaticamente o armazenamento de dados, movendo dados menos acessados para armazenamento mais econômico, enquanto mantém dados frequentemente acessados em armazenamento de alta performance.
 
+## Controle de Permissões
+- O gerenciamento de permissões no Redshift é feito principalmente através de **roles** e **políticas de acesso**. 
+  - É possível conceder permissões a usuários individuais ou grupos, controlando o acesso a bancos de dados, tabelas e colunas específicas.
+
+- As permissões granulares são definidas através de **GRANT** e **REVOKE**, a nível de banco dados, portanto o funcionamento é bem semelhanto às engines tradicionais de bancos de dados relacionais.
+
+- Para controle de acesso a nível de coluna e linha, o Redshift utiliza **Column-Level Security (CLS)** e **Row-Level Security (RLS)**, permitindo definir permissões específicas para colunas e linhas dentro das tabelas.
+
+  - O CLS é aplicado através de um **GRANT** específico para colunas, definindo quais usuários ou grupos têm acesso a determinadas colunas dentro de uma tabela. Exemplo:
+    ```sql
+    GRANT SELECT (customer_id, name, address) ON customers TO ROLE customer_service_role;
+    ```
+
+- Já o RLS é aplicado através de políticas que definem quais linhas de uma tabela um usuário ou grupo pode acessar, permitindo controle fino sobre o acesso a dados sensíveis. Exemplo:
+    ```sql
+    CREATE RLS POLICY my_database.region_policy 
+    WITH (region VARCHAR(256)) 
+    USING (region = current_setting('app.current_region')); -- Variável de contexto que define a região atual do aplicativo
+    ```
+
+
 ## Acesso Programático
 - O Redshift pode ser acessado programaticamente através de APIs, SDKs da AWS e ferramentas de linha de comando, permitindo automação e integração com outros serviços e fluxos de trabalho.
 

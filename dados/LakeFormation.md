@@ -27,3 +27,7 @@
 - Primeiramente, você deve registrar o recurso desejado como um Data Location no Lake Formation.
 - Em seguida, você deve criar um catálogo de dados no Glue e registrar as tabelas que deseja gerenciar.
 - Após isso, configure as permissões de acesso para os usuários e grupos (que podem ser usuários individuais ou grupos do IAM) no Lake Formation.
+
+## Observação
+- O Lake Formation não pode ser utilizado para gerenciar permissões em um cluster Redshift padrão diretamente. 
+  - As permissões devem ser gerenciadas através do próprio Redshift, ver mais em: [Redshift - Controle de Permissões](./Redshift.md#controle-de-permissoes)
