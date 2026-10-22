@@ -1,5 +1,5 @@
-# Serviços Menores
-Arquivo de anotações de serviços menores que costumam cair no CLF-02 (Cloud Practitioner).
+# Serviços Diversos
+Resumo breve de serviços diversos da AWS que podem ser úteis para a prova da Cloud Practitioner, divididos por categorias.
 
 # Aplicações 📱
 

@@ -3,11 +3,6 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ## 📚 Notas por Categoria
 
-### 🔤 Básico
-- [Serviços Menores](basico/servicosMenores.md)
-- [Support Plans](basico/supportPlans.md)
-- [Well-Architected Framework (Mapa mental)](basico/WellArchitected-Mindmap.png)
-
 ### 🖥️ Computação
 - [AMI](computacao/AMI.md)
 - [Appstream 2.0](computacao/AppStream%202.0.md)
@@ -122,6 +117,11 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 
 ### 🌟 Certificações
 - Anotações particulares sobre detalhes e temas específicos de certificações AWS.
+
+### Cloud Practitioner
+- [Serviços Menores](certificacoes/cloud-practitioner/servicosMenores.md)
+- [Support Plans](certificacoes/cloud-practitioner/supportPlans.md)
+- [Well-Architected Framework (Mapa mental)](certificacoes/cloud-practitioner/WellArchitected-Mindmap.png)
 
 #### AI Practitioner
 - [Foundation Models](certificacoes/ai-practitioner/foundation-models.md)
