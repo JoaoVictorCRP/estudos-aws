@@ -2,6 +2,7 @@
 É um serviço de mensageria totalmente gerenciado que permite o envio, armazenamento e recebimento de mensagens entre componentes de uma aplicação distribuída sem a necessidade de gerenciar servidores ou infraestrutura.
 
 ## Filas de Mensagens
+
 O SQS oferece dois tipos de filas:
 - **Standard Queue**: Garante entrega de mensagens pelo menos uma vez, mas ==não mantém a ordem das mensagens.== Ideal para sistemas distribuídos que podem lidar com possível duplicidade de mensagens. 
   - Quantidade ilimitada de transações por segundo.
@@ -66,7 +67,6 @@ O SQS oferece dois tipos de filas:
 
 - Útil para cenários onde o processamento imediato não é necessário ou desejado, como em tarefas agendadas ou para evitar picos de carga.
 
-#
 
 ## Anotações
 - Em exames de certificação, sempre que cair uma questão relacionado ao desacoplamentos (decouple) de aplicações, lembre-se do SQS, pois eles usam exatamente essa terminologia.

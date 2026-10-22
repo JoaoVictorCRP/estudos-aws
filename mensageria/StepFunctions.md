@@ -1,3 +1,5 @@
+# AWS Step Functions
+
 O Step Functions é um serviço gerenciado que nos permite orquestrar múltiplos serviços da AWS em fluxos de trabalho com controle de execução, falha e dependência de etapas.
 
 Ele é muito útil para criar **processos complexos com lógica condicional** sem precisar codificar toda a lógica de controle da aplicação.

@@ -1,4 +1,8 @@
-O AWS Wavelength é um serviço projetado para criar aplicações mobile com latências excepcionalmente baixas. Ele faz isso ao integrar recursos de computação e armazenamento da AWS diretamente nas redes 5G de **provedores de serviços de telecomunicação (CSPs)**, ou seja, na ==borda da rede 5G==.
+# AWS Wavelength
+
+- Este é um serviço projetado para criar aplicações mobile com latências excepcionalmente baixas. 
+
+- Ele faz isso ao integrar recursos de computação e armazenamento da AWS diretamente nas redes 5G de **provedores de serviços de telecomunicação (CSPs)**, ou seja, na ==borda da rede 5G==.
 
 ## Componentes
 
@@ -11,5 +15,5 @@ O AWS Wavelength é um serviço projetado para criar aplicações mobile com lat
 
 - A proximidade com os dispositivos 5G permite que o tráfego de aplicativos chegue aos servidores nessas zonas ==**sem precisar atravessar a internet pública**==, minimizando a latência e aproveitando a alta largura de banda das redes 5G modernas. ==O tráfego não sai da rede do provedor de serviços de comunicação.==
 
-- **Serviços AWS Suportados**: Dentro das Zonas Wavelength, você pode criar **instâncias EC2, volumes EBS, sub-redes VPC e _carrier gateways_**. Serviços como Systems Manager, CloudWatch, CloudTrail, CloudFormation e Application Load Balancer (ALB) também podem ser utilizados.
-
+- **Serviços AWS Suportados**: Dentro das Zonas Wavelength, você pode criar **instâncias EC2, volumes EBS, sub-redes VPC e _carrier gateways_**. 
+  - Serviços como Systems Manager, CloudWatch, CloudTrail, CloudFormation e Application Load Balancer (ALB) também podem ser utilizados.

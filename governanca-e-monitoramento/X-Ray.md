@@ -48,7 +48,7 @@
 	- Ao atualizar a regra de sampling, as mudanças entram em vigor imediatamente, e o X-Ray começa a coletar dados de acordo com a nova configuração, sem a necessidade de reiniciar suas aplicações ou serviços. Isto é feito através de uma chamada para a API `xray:GetSamplingRules`, que retorna as regras de sampling atualizadas, e o X-Ray aplica essas regras em tempo real para determinar quais requisições devem ser amostradas.
 
 
-## Anottations e Metadata
+## Annotations e Metadata
 - Como dito anteriormente, estas são formas de adicionar informações adicionais aos seus traces, para facilitar a análise e a identificação de problemas.
 	- **Annotations**: São pares chave-valor que **são indexados e podem ser usados para filtrar e pesquisar traces**. 
 		- Por exemplo, você pode adicionar uma annotation com o nome do usuário ou o tipo de dispositivo.

@@ -1,6 +1,7 @@
-# SWF
-O Simple Workflow Service é um serviço web que torna mais fácil o trabalho coordenado distribuído entre os componentes de uma aplicação. 
-Ele possui vários casos de uso, como o processamento de mídia, backend de aplicações web e pipeline de dados.
+# Simple Workflow Service (SWF)
+- O SWF é um serviço web que torna mais fácil o trabalho coordenado distribuído entre os componentes de uma aplicação.
+
+- Ele possui vários casos de uso, como o processamento de mídia, backend de aplicações web e pipeline de dados.
 
 ## Workers e Deciders
 
@@ -10,7 +11,9 @@ Ele possui vários casos de uso, como o processamento de mídia, backend de apli
 
 ## Execução de Longa Duração:
 
-- O SWF pode gerenciar fluxos de trabalho com duração de segundos a meses. Isso é especialmente útil para processos que exigem múltiplas etapas ou que dependem de ações externas que podem demorar para serem concluídas, como validação de documentos ou aprovação manual.
+- O SWF pode gerenciar fluxos de trabalho com duração de segundos a meses. 
+
+- Isso é especialmente útil para processos que exigem múltiplas etapas ou que dependem de ações externas que podem demorar para serem concluídas, como validação de documentos ou aprovação manual.
 
 
 ## SWF vs SQS

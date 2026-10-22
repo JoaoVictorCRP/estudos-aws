@@ -1,9 +1,9 @@
-## O que é o AWS ACM?
-O ACM é um serviço gerenciado da AWS que facilita muito o provisionamento, gerenciamento e renovação automática de certificados SSL/TLS para proteger recursos na nuvem da AWS.
-___
-## Principais Funcionalidades do ACM
+# AWS ACM
+O ACM é um serviço gerenciado da AWS que facilita o provisionamento, gerenciamento e renovação automática de certificados SSL/TLS para proteger recursos na nuvem da AWS.
 
-- **Emissão e gerenciamento de certificados SSL/TLS**: Tanto certificados públicos quanto privados (através do <ins>Private CA</ins>) podem ser emitidos através do ACM.
+## Principais Funcionalidades
+
+- **Emissão e gerenciamento de certificados SSL/TLS**: Tanto certificados públicos quanto privados (através do [Private CA](./PrivateCA.md)) podem ser emitidos através do ACM.
 
 - **Renovação automática**: os certificados públicos emitidos pelo ACM são renovados automaticamente antes da expiração. **==Observação: certificados importados ou privados exigem renovação manual.==**
 ___
@@ -13,6 +13,7 @@ ___
 - Gratuitos.
 - Gerenciados pela AWS.
 - Renovação automática.
+
 #### Certificados privados (AWS Private CA)
 - Utilizado para ambientes internos e privados.
 - Emitidos via **AWS Private CA**.
@@ -21,17 +22,17 @@ ___
 #### Certificados importados
 - Certificados adquiridos de CAs externas (*DigiCert, GlobalSign, Let's Encrypt*)
 - **Necessário realizar a renovação manualmente**.
-___
-## OBSERVAÇÕES
+
+## Observações
 
 - **O ACM é um serviço regional**, portanto caso você possua uma aplicação global, com múltiplos ALBs, por exemplo, você vai precisar gerenciar múltiplos certificados SSL em cada região em que a aplicação está hospedada.
 
-- **Não é possível copiar certificados entre regiões**.
+- Não é possível copiar certificados entre regiões.
 
 - **==Os certificados do ACM não são instalados em servidores, e sim em serviços da AWS==** (ELB, CloudFront, API Gateway), é justamente por isso que eles são gratuitos.
 
 - Como escrito acima, **os certificados do ACM não podem ser associados à instâncias EC2.**
 
-- **==Certificados não possuem resource policies==**. (Errei uma questão no simulado por não saber disso).
-
 - Não é possível realizar a renovação automática de um certificado que **NÃO** está associado a nenhum recurso AWS.
+
+- Para ficar claro: O certificado em si é gratuito, mas ele só pode ser utilizado em serviços da AWS, como ELB, CloudFront e API Gateway.

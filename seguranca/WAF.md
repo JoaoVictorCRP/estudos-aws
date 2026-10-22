@@ -1,18 +1,22 @@
 ## Web Application Firewall (WAF)
-Com este serviço, é possível monitorar as requisições HTTP/HTTPS que chegam em seus servidores, também é possível controlar quem acessa os seus conteúdos. <br>
-**É possível especificar diversas condições de bloqueio para requisições, por exemplo:**
-- Endereço de IP da origem
 
-- País de onde a requisição se originou
+- Como o nome diz, o WAF é um firewall a nível de aplicação, ele protege aplicações web contra diversas ameaças e ataques maliciosos comuns.
 
-- Valores no header
+- É possível especificar diversas condições de bloqueio para requisições, por exemplo:
+  - Endereço de IP da origem
 
-- Frequência de requisições
+  - País de onde a requisição se originou
 
-- Strings que aparecem no request body (regex)
+  - Valores no header
 
-- Tamanho da requisição
+  - Frequência de requisições
 
-- Presença de código SQL (famoso SQL Injection)
+  - Strings que aparecem no request body (regex)
 
-- Presença de script malicioso (Cross-site scripting)
+  - Tamanho da requisição
+
+  - Presença de código SQL (famoso SQL Injection)
+
+  - Presença de script malicioso (Cross-site scripting)
+
+- O WAF pode ser posicionado em frente a recursos como **CloudFront**, **Application Load Balancer (ALB)** ou **API Gateway**, protegendo-os contra ataques antes que alcancem a aplicação.

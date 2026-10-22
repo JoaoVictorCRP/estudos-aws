@@ -1,5 +1,6 @@
-# 7 R's
-Para um processo de migração bem sucedido, a AWS lista 7 estratégias diferentes para o cumprimento deste objetivos, são os chamados 7 R's:
+# As estratégias de Migração para a Nuvem (7 R's)
+
+- Para um processo de migração bem sucedido, a AWS lista 7 estratégias diferentes para o cumprimento deste objetivos, são os chamados 7 R's:
 
 ## **R**elocate
 > Migrar ==**várias VMs ou clusters inteiros**== de um datacenter **para um ambiente gerenciado**, como o **VMware Cloud on AWS**, **sem alterar código ou arquitetura**.

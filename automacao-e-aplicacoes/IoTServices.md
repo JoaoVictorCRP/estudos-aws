@@ -1,3 +1,5 @@
+# Serviços de IoT da AWS
+
 A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muitos destes serviços são cobrados em exames como o Solutions Architect Associate e Professional. Vejamos os principais:
 
 ## IoT Core 🫀
@@ -66,5 +68,3 @@ A AWS possui um leque bem extenso de serviços de IoT (Internet Of Things), muit
 ### Aparece na prova quando:
 - Cenário **exige detecção de comportamento malicioso em dispositivos**.
 - Há necessidade de auditar certificados e políticas
----
-## IoT 1-Click
