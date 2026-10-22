@@ -133,6 +133,10 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 #### Developer Associate
 - [Exponential Backoff](certificacoes/developer-associate/ExponentialBackoff.md)
 
+#### Data Engineer Associate
+- [JDBC vs ODBC](certificacoes/data-engineer-associate/JdbcVsOdbc.md)
+- [Parquet](certificacoes/data-engineer-associate/Parquet.md)
+
 #### DevOps Engineer Professional
 - [Deployment Strategies](certificacoes/devops-engineer-professional/DeploymentStrategies.md)
 
@@ -152,3 +156,4 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Fundamentos da Prova](certificacoes/networking-specialty/essentials.md)
 - [Longest Prefix Match](certificacoes/networking-specialty/longest-prefix-match.md)
 - [Métricas de Rede](certificacoes/networking-specialty/network-metrics.md)
+
