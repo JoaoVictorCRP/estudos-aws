@@ -155,3 +155,11 @@
     - Valores altos permitirão que o modelo gere respostas mais longas e detalhadas, mas também podem resultar em respostas mais verbosas e com perda de foco.
 
 - **Observação**: nenhum desses parâmetros afetará a latência da resposta.
+
+## Bedrock Prompt Management
+- O Bedrock possui uma feature chamada "Prompt Management", que permite gerenciar e reutilizar prompts de forma eficiente.
+
+- Através dele, você pode criar, armazenar e gerenciar prompts reutilizáveis, facilitando a manutenção e a consistência das interações com a LLM.
+  - Além disso, todos os prompts são versionáveis e suas edições podem ser auditadas, garantindo rastreabilidade e controle sobre as alterações realizadas.
+
+- O uso dele é **extremamente recomendado em cenários de construção de aplicações baseadas em LLMs**, onde a consistência e a reutilização de prompts são cruciais para manter a qualidade das respostas geradas pelo modelo.
