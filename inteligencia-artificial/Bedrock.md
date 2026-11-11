@@ -116,6 +116,19 @@
 
 - Os guardrails são muito importantes para garantir que a IA opere dentro dos limites éticos, legais, técnicos e de negócio estabelecidos pela organização.
 
+- Pelo Bedrock, os guardrails podem ser configurados através de:
+  - **Tópicos negados (Denied Topics)**: Definição em linguagem natural de um assunto ou tema que o modelo não deve abordar ou discutir.
+
+  - **Filtros de palavras (Word filters)**: Bloqueia palavras ou termos (como palavrões, termos ofensivos ou nomes de concorrentes) usando correspondência exata.
+
+  - **Filtros de conteúdo (Content Filters)**: Permite bloquear ou filtrar respostas do modelo com base em categorias de conteúdo predefinidas, como discurso de ódio, violência, conteúdo sexual, entre outros.
+
+  - **Supressão de informações sensíveis (PII Suppression)**: Mascara ou bloqueia dados sensíveis e informações de identificação pessoal (como CPF, número do cartão de crédito, endereço, telefone, etc.).
+
+  - **Fundamentação contextual (Contextual Grounding)**: Detecta e filtra alucionações com base em uma fonte confiável de informação.
+
+  - **Raciocínio automatizado (Automated Reasoning)**: Valida a resposta do modelo com base em um conjunto de regras lógicas predefinidas, garantindo que as respostas estejam mais coerentes.
+
 ## Agents
 
 - Os agentes são componentes de software que atuam como intermediários entre o usuário e o modelo de fundação, permitindo que o modelo acesse dados, execute ações e interaja com outros sistemas.
