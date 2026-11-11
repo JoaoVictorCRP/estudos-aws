@@ -46,3 +46,16 @@
 - O SageMaker Data Wrangler é uma ferramenta que simplifica o processo de preparação de dados para Machine Learning.
 
 - Por meio dele, é possível importar dados de diversas fontes, realizar a limpeza, transformá-los e visualizá-los, tudo em uma interface gráfica intuitiva.
+
+- Ele permite que os cientistas de dados realizem transformações complexas nos dados sem precisar escrever código, além de gerar automaticamente scripts que podem ser reutilizados em pipelines de Machine Learning.
+
+- Alguma das capacidades do Data Wrangler incluem:
+
+  - **Criar amostras adicionais dos dados**, permitindo aumentar a diversidade do dataset de treinamento, o que pode melhorar a robustez e a capacidade de inferência dos modelos.
+    - Isso é feito através de técnicas como **Oversampling** e **Inerpolação Sintética**, que consiste em replicar ou gerar novas amostras de classes minoritárias para equilibrar a distribuição dos dados no dataset de treinamento.
+
+  - **Balancear a distribuição das classes nos dados**, garantindo que o modelo não seja tendencioso em relação a classes majoritárias.
+
+  - **Detectar e tratar valores ausentes nos dados**, garantindo que o modelo receba informações completas e consistentes durante o treinamento.
+
+  - **Detectar e tratar outliers nos dados**, garantindo que valores extremos não distorçam o treinamento do modelo e que o modelo aprenda padrões representativos do dataset.
