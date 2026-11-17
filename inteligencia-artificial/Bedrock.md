@@ -176,3 +176,25 @@
   - Além disso, todos os prompts são versionáveis e suas edições podem ser auditadas, garantindo rastreabilidade e controle sobre as alterações realizadas.
 
 - O uso dele é **extremamente recomendado em cenários de construção de aplicações baseadas em LLMs**, onde a consistência e a reutilização de prompts são cruciais para manter a qualidade das respostas geradas pelo modelo.
+
+## Knowledge Bases
+- As Knowledge Bases do Bedrock são repositórios de conhecimento que permitem armazenar, organizar e consultar informações de forma estruturada.
+
+- Com elas, é possível utilizar [RAG](../certificacoes/ai-practitioner/Rag.md) (Retrieval-Augmented Generation) para melhorar a qualidade das respostas geradas pela LLM, integrando informações externas de forma eficiente.
+
+- Para que um dado possa ser integrado a uma Knowledge Base, ele precisa ser vetorizado por um modelo de embeddings, que transforma o conteúdo em representações numéricas que podem ser armazenadas e consultadas de forma eficiente.
+
+- Como fonte de dados para as KBs, podem ser utilizadas diversas opções como:
+  - Amazon S3
+  - Confluence
+  - Google Drive
+  - Microsoft OneDrive
+  - Microsoft SharePoint
+  - Web Crawler
+
+- A partir destas fontes de dados desestruturadas, a KB utiliza um modelo de embeddings para transformar o conteúdo em vetores, e então permite armazenar e consultar essas informações de forma eficiente em Vectors stores como:
+  - Amazon OpenSearch
+  - Amazon Neptune
+  - Amazon Aurora (RDS)
+  - Pinecone
+  - Amazon S3 Vectors
