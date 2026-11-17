@@ -59,3 +59,10 @@
   - **Detectar e tratar valores ausentes nos dados**, garantindo que o modelo receba informações completas e consistentes durante o treinamento.
 
   - **Detectar e tratar outliers nos dados**, garantindo que valores extremos não distorçam o treinamento do modelo e que o modelo aprenda padrões representativos do dataset.
+
+## Input de Arquivos durante o Treinamento
+- Para o input de arquivos durante o fase de treinamento, o SageMaker permite que você forneça dados de diversas fontes, como Amazon S3, EFS, FSx e outros sistemas de armazenamento compatíveis.
+
+- Recentemente foi lançado o S3 Files, que permite montar um bucket S3 como um sistema de arquivos local dentro do ambiente de treinamento do SageMaker, facilitando o acesso e a manipulação dos dados armazenados no S3 durante o treinamento dos modelos.
+
+- O FSx for Lustre é uma opção também, ela garante alto desempenho no acesso a grandes volumes de dados, sendo especialmente útil para workloads de Machine Learning que exigem leitura e escrita intensiva de dados durante o treinamento de modelos maiores.
