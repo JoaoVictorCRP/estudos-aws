@@ -119,8 +119,8 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - Anotações particulares sobre detalhes e temas específicos de certificações AWS.
 
 ### Cloud Practitioner
-- [Serviços Menores](certificacoes/cloud-practitioner/servicosMenores.md)
-- [Support Plans](certificacoes/cloud-practitioner/supportPlans.md)
+- [Serviços Diversos](certificacoes/cloud-practitioner/servicosDiversos.md)
+- [Support Plans](certificacoes/cloud-practitioner/SupportPlans.md)
 - [Well-Architected Framework (Mapa mental)](certificacoes/cloud-practitioner/WellArchitected-Mindmap.png)
 
 #### AI Practitioner
@@ -152,8 +152,8 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Session Policies](certificacoes/security-specialty/AcessosEPolicies/SessionPolicies.md)
 
 #### Networking Specialty
-- [Largura de Banda](certificacoes/networking-specialty/bandwidth.md)
-- [Fundamentos da Prova](certificacoes/networking-specialty/essentials.md)
-- [Longest Prefix Match](certificacoes/networking-specialty/longest-prefix-match.md)
-- [Métricas de Rede](certificacoes/networking-specialty/network-metrics.md)
+- [Largura de Banda](certificacoes/networking-specialty/Bandwidth.md)
+- [Fundamentos da Prova](certificacoes/networking-specialty/Essentials.md)
+- [Longest Prefix Match](certificacoes/networking-specialty/Lpm.md)
+- [Métricas de Rede](certificacoes/networking-specialty/NetworkMetrics.md)
 

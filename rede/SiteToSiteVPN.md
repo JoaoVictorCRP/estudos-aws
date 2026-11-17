@@ -22,7 +22,7 @@
 - O S2S VPN suporta dois tipos de propagação de rotas:
   - **Estática**: As rotas são configuradas manualmente no Customer Gateway e no Virtual Private Gateway. É mais simples, mas menos flexível, pois se houver um novo range em qualquer um dos lados (AWS ou local), será necessário atualizar as rotas manualmente.
 
-  - **Dinâmica (BGP)**: As rotas são propagadas automaticamente entre o Customer Gateway e o Virtual Private Gateway utilizando o [protocolo BGP (Border Gateway Protocol)](../certificacoes/networking-specialty/bgp.md). É mais flexível, pois permite que novas rotas sejam aprendidas automaticamente, sem a necessidade de configuração manual.
+  - **Dinâmica (BGP)**: As rotas são propagadas automaticamente entre o Customer Gateway e o Virtual Private Gateway utilizando o [protocolo BGP (Border Gateway Protocol)](../certificacoes/networking-specialty/Bgp.md). É mais flexível, pois permite que novas rotas sejam aprendidas automaticamente, sem a necessidade de configuração manual.
 
 ## O Roteamento transitivo do Site to Site VPN
 - **O Virtual Private Gateway (VGW) NÃO suporta roteamento transitivo**. Se a sua rede local se conecta a uma VPC por meio de uma VPN terminada em um VGW, esse VGW só dá acesso aos recursos internos daquela VPC específica.
