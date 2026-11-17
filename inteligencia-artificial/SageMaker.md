@@ -60,9 +60,12 @@
 
   - **Detectar e tratar outliers nos dados**, garantindo que valores extremos não distorçam o treinamento do modelo e que o modelo aprenda padrões representativos do dataset.
 
-## Input de Arquivos durante o Treinamento
+## Input de Arquivos Durante o Treinamento
 - Para o input de arquivos durante o fase de treinamento, o SageMaker permite que você forneça dados de diversas fontes, como Amazon S3, EFS, FSx e outros sistemas de armazenamento compatíveis.
 
-- Recentemente foi lançado o S3 Files, que permite montar um bucket S3 como um sistema de arquivos local dentro do ambiente de treinamento do SageMaker, facilitando o acesso e a manipulação dos dados armazenados no S3 durante o treinamento dos modelos.
+- Recentemente foi lançado o **S3 Files**, que permite montar um bucket S3 como um sistema de arquivos local dentro do ambiente de treinamento do SageMaker, facilitando o acesso e a manipulação dos dados armazenados no S3 durante o treinamento dos modelos.
+  - Uma vantagem dele é que não necessita estar na mesma VPC do ambiente de treinamento, facilitando o acesso a dados armazenados no S3 sem a necessidade de configuração adicional de rede (diferentemente de opções como EFS e FSx).
 
-- O FSx for Lustre é uma opção também, ela garante alto desempenho no acesso a grandes volumes de dados, sendo especialmente útil para workloads de Machine Learning que exigem leitura e escrita intensiva de dados durante o treinamento de modelos maiores.
+- O FSx for Lustre é uma opção de alto desempenho no acesso a grandes volumes de dados, sendo especialmente útil para workloads de Machine Learning que exigem leitura e escrita intensiva de dados durante o treinamento de modelos maiores.
+
+- O EFS é o padrão mais comum para acesso a dados compartilhados em ambientes de treinamento distribuído, oferecendo uma solução de armazenamento escalável e de baixa latência que pode ser montada simultaneamente em múltiplas instâncias de treinamento do SageMaker.
