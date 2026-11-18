@@ -27,7 +27,6 @@
 - Isso é feito para modificar o comportamento do modelo e melhorar seu desempenho, como a taxa de aprendizado, o número de camadas em uma rede neural ou o número de árvores em um modelo de floresta aleatória.
 
 ## Deploy de Modelos
-
 - Ao fazer o deploy de um modelo, será disponibilizado o endpoint de inferência, que é a URL que você pode usar para enviar dados e receber previsões do modelo.
 
 - Há quatro opções para o deploy de modelos no SageMaker: 
@@ -35,6 +34,11 @@
   - **Batch Transform**: Para processar grandes volumes de dados de uma só vez, como análise de imagens ou processamento de texto.
   - **Serverless Inference**: Para casos de uso com tráfego imprevisível, onde o modelo é carregado totalmente sob demanda, podendo ficar inativo quando não estiver em uso, economizando custos.
   - **Asynchronous Inference**: Para casos de uso que exigem processamento em segundo plano, como análise de grandes conjuntos de dados ou processamento de vídeo.
+
+## Model Monitor
+- O Model Monitor do SageMaker permite monitorar continuamente o desempenho dos modelos em produção, incluindo a qualidade dos dados, distribuição de features, viés e outras métricas relevantes para garantir que o modelo continue a performar conforme esperado.
+
+- É importante entender que o Model Monitor monitora apenas métricas a nível de dados e desempenho de modelo, e não substitui métricas como quantidade de chamadas ao endpoint ou latência das inferências (Isso precisa ser monitorado separadamente no [CloudWatch](../governanca-e-monitoramento/Cloudwatch.md)).
 
 ## SageMaker Studio
 - O SageMaker Studio é uma IDE (que roda na web) que oferece uma visualização unificada de todo o ciclo de vida do Machine Learning.
