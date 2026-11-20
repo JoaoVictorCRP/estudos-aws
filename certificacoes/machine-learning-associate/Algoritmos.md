@@ -39,15 +39,24 @@ Existem diversos algoritmos de Machine Learning, cada um adequado para diferente
   - Um **exemplo muito popular de transformer é a linha GPT (da OpenAI)**, pioneiros na geração de texto natural e criação de assistentes de IA.
 
 ## K-Means
-- Este é um algoritmo de clusterização não supervisionado que busca agrupar dados em `k` clusters distintos com base em suas características.
+- Este é um algoritmo de **clusterização não supervisionado que busca agrupar dados em `k` clusters distintos** com base em suas características.
 
 - O K-Means funciona iterativamente, atribuindo cada ponto de dados ao cluster mais próximo com base na média dos pontos do cluster e atualizando os centróides até que a convergência seja alcançada.
 
 - É amplamente utilizado em análise de clientes, segmentação de mercado, compressão de imagens e detecção de anomalias.
 
 ## DeepAR
-- DeepAR é um algoritmo de aprendizado profundo desenvolvido pela Amazon para previsão de séries temporais. Ele é especialmente eficaz em cenários com múltiplas séries temporais relacionadas e dados esparsos.
+- DeepAR é um algoritmo de aprendizado profundo desenvolvido pela Amazon para **previsão de séries temporais**. Ele é especialmente eficaz em cenários com múltiplas séries temporais relacionadas e dados esparsos.
 
 - O DeepAR utiliza redes neurais recorrentes (RNNs) para modelar a dinâmica temporal das séries, aprendendo padrões complexos e dependências de longo prazo.
 
 - É amplamente utilizado em previsão de demanda, previsão de vendas, monitoramento de infraestrutura e outros cenários onde a previsão precisa de séries temporais é crucial.
+
+## Linear Learner
+- Linear Learner é um algoritmo de aprendizado supervisionado que pode ser usado para tarefas de classificação e regressão. 
+
+- Ele é projetado para lidar com grandes volumes de dados e é eficiente em termos de tempo de treinamento.
+
+- O Linear Learner é **particularmente útil quando se trabalha com grandes conjuntos de dados e quando a interpretabilidade do modelo é importante**, pois os coeficientes lineares podem ser facilmente analisados para entender a influência de cada característica na previsão.
+
+- Muito utilizado para classicação binária (exemplo: detecção de fraude, classificação de e-mails como spam ou não spam).
