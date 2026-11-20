@@ -134,8 +134,10 @@ Este é o meu repositório de estudos da AWS. Aqui incluo anotações sobre serv
 - [Exponential Backoff](certificacoes/developer-associate/ExponentialBackoff.md)
 
 #### Machine Learning Associate
-- [Ensemble Learning](certificacoes/machine-learning-associate/ensemble-learning.md)
-- [Data Drift e Model Drift](certificacoes/machine-learning-associate/drifts.md)
+- [Ensemble Learning](certificacoes/machine-learning-associate/EnsembleLearning.md)
+- [Data Drift e Model Drift](certificacoes/machine-learning-associate/Drifts.md)
+- [Algoritmos de Machine Learning](certificacoes/machine-learning-associate/Algoritmos.md)
+- [Catastrophic Forgetting](certificacoes/machine-learning-associate/CatastrophicForgetting.md)
 
 #### Data Engineer Associate
 - [JDBC vs ODBC](certificacoes/data-engineer-associate/JdbcVsOdbc.md)
