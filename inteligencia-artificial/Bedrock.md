@@ -135,8 +135,9 @@
 
 - Basicamente, o Agente é como um super-poder que permite que o modelo de fundação acesse e interaja com outros sistemas, como bancos de dados, APIs, ou até mesmo execute código.
 
-### Configurando Agent no Bedrock
+### Configurando Agent no Bedrock: Classic Bedrock Agents
 - Para configurar um agente no Bedrock, primeiro você fornece uma instrução para o modelo de fundação, explicando o que o agente deve fazer e quais ações ele pode executar. 
+
   - Exemplo: "Você é um assistente de atendimento ao cliente, e pode acessar o banco de dados de clientes para fornecer informações sobre pedidos, status de entrega e histórico de compras."
 
 - Com as instruções fornecidas, você então define os **Action Groups**, que incluem as ações que o agente pode usar para interagir com outros sistemas.
@@ -146,6 +147,14 @@
     - Descrição: "Recupera o status do pedido com base no ID fornecido."
   
   - As ações podem ser definidas usando schemas de OpenAPI (Tipo Swagger), para a integração com APIs RESTful, ou então por meio de funções lambdas, para a execução de código personalizado.
+
+### AgentCore 
+- Uma alternativa mais moderna para a configuração de agentes é o Bedrock AgentCore, que oferece uma plataforma de Runtime para agentes, permitindo maior flexibilidade, escalabilidade e integração com diversos sistemas de forma mais eficiente.
+
+- Através dele você pode fazer a hospedagem de um agente construído em qualquer framework (como LangChain, LlamaIndex, ou outros), permitindo maior flexibilidade na escolha das ferramentas e bibliotecas utilizadas para desenvolver o agente.
+
+- Ele possui features mais avançadas em comparação com os agentes clássicos, incluindo gerenciamento de estado, integração simplificada com APIs externas e servidores MCP, memória, e lógica de tomada de decisão mais sofisticada.
+
 
 ## Otimização de Prompts
 
