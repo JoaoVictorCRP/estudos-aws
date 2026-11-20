@@ -37,3 +37,17 @@ Existem diversos algoritmos de Machine Learning, cada um adequado para diferente
 - Os Transformers são amplamente utilizados em tarefas de NLP, como tradução automática, resumo de texto, geração de linguagem natural e análise de sentimentos.
 
   - Um **exemplo muito popular de transformer é a linha GPT (da OpenAI)**, pioneiros na geração de texto natural e criação de assistentes de IA.
+
+## K-Means
+- Este é um algoritmo de clusterização não supervisionado que busca agrupar dados em `k` clusters distintos com base em suas características.
+
+- O K-Means funciona iterativamente, atribuindo cada ponto de dados ao cluster mais próximo com base na média dos pontos do cluster e atualizando os centróides até que a convergência seja alcançada.
+
+- É amplamente utilizado em análise de clientes, segmentação de mercado, compressão de imagens e detecção de anomalias.
+
+## DeepAR
+- DeepAR é um algoritmo de aprendizado profundo desenvolvido pela Amazon para previsão de séries temporais. Ele é especialmente eficaz em cenários com múltiplas séries temporais relacionadas e dados esparsos.
+
+- O DeepAR utiliza redes neurais recorrentes (RNNs) para modelar a dinâmica temporal das séries, aprendendo padrões complexos e dependências de longo prazo.
+
+- É amplamente utilizado em previsão de demanda, previsão de vendas, monitoramento de infraestrutura e outros cenários onde a previsão precisa de séries temporais é crucial.
